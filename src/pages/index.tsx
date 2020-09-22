@@ -1,3 +1,5 @@
-import React from "react"
+import React from 'react'
 
-export default () => <div>コマネチ</div>
+const Index: React.FC = () => <div>コマネチ</div>
+
+export default Index
