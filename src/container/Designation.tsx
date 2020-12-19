@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, RadioGroup, Radio } from '@material-ui/core'
+import { Box, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core'
 import AccordionRadio from 'src/components/AccordionRadio'
 
 const Designation: React.FC = () => {
