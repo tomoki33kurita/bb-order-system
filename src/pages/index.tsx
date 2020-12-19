@@ -8,10 +8,10 @@ const Index: React.FC = () => {
     <Box p={2}>
       <Box p={2}>ハタケヤマ オーダーシュミレーション</Box>
       <Grid container>
-        <Grid item md={6}>
+        <Grid item md={7}>
           <FigureFields />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={5}>
           <Designation />
         </Grid>
       </Grid>
