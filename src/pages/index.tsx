@@ -5,8 +5,8 @@ import Designation from 'src/container/Designation'
 
 const Index: React.FC = () => {
   return (
-    <Box>
-      ハタケヤマ オーダーシュミレーション
+    <Box p={2}>
+      <Box p={2}>ハタケヤマ オーダーシュミレーション</Box>
       <Grid container>
         <Grid item md={6}>
           <FigureFields />
