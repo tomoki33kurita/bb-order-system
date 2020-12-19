@@ -5,7 +5,7 @@ import red from '@material-ui/core/colors/red'
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#00695c',
     },
     secondary: {
       main: '#19857b',
@@ -15,6 +15,13 @@ const theme = createMuiTheme({
     },
     background: {
       default: '#fff',
+    },
+  },
+  overrides: {
+    MuiTabs: {
+      flexContainer: {
+        justifyContent: 'center',
+      },
     },
   },
 })
