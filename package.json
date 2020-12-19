@@ -12,6 +12,7 @@
   "author": "tomoki33kurita <tomoki33kurita@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "eslint-plugin-node": "^11.1.0",
     "global": "^4.4.0",
     "next": "^9.5.3",
