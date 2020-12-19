@@ -12,8 +12,8 @@ const TabPanel: React.FC<Props> = ({ imgPath, imgAlt, value, index }) => {
   return (
     <>
       {index === value && (
-        <Box m={1} p={5} border={'solid 1px #eee'} bgcolor={'#eee'}>
-          <img src={imgPath} alt={imgAlt} width={600} />
+        <Box m={1} p={5} border={'solid 1px #eee'} bgcolor={'#eee'} textAlign="center">
+          <img src={imgPath} alt={imgAlt} height={400} />
         </Box>
       )}
     </>
