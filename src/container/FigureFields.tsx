@@ -16,8 +16,8 @@ const FigureFields: React.FC = () => {
 
   return (
     <>
-      <TabPanel imgPath={'/mitt_back.jpg'} imgAlt={'catchersMitt_back'} value={value} index={0} />
-      <TabPanel imgPath={'/mitt_front.jpg'} imgAlt={'catchersMitt_back'} value={value} index={1} />
+      <TabPanel imgPath={'/mitt_front.jpg'} imgAlt={'catchersMitt_back'} value={value} index={0} />
+      <TabPanel imgPath={'/mitt_back.jpg'} imgAlt={'catchersMitt_back'} value={value} index={1} />
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="捕球面" {...a11yProps(0)} />
