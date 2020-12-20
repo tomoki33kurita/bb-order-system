@@ -1,227 +1,302 @@
 import React from 'react'
 import { Box, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core'
 import AccordionRadio from 'src/components/AccordionRadio'
+import { State, Action } from 'src/types'
+import {
+  baseModelObjs,
+  dominantArmObjs,
+  mittSizeObjs,
+  mittDepthObjs,
+  backStyleObjs,
+  padModleObjs,
+  hardnessObjs,
+  thicknessObjs,
+  liningsTypeObjs,
+  hamidashiTypeObjs,
+  fingerGuardTypeObjs,
+  zabutonSpongeObjs,
+  exFunctionObjs,
+  pinkiePatternObjs,
+  leatherStringObjs,
+  hatakeyamaLabelObjs,
+  tbEngravedObjs,
+  listLiningsMaterialObjs,
+  stitchColorObjs,
+  embroideryTypeFaceObjs,
+  embroideryPositionObjs,
+} from 'src/constants/radioObjs'
+import {
+  SET_BASE_MODEL,
+  SET_DOMINANT_ARM,
+  SET_SIZE,
+  SET_DEPTH,
+  SET_BACK_STYLE,
+  SET_PAD_MODEL,
+  // SET_LEATHER_COLOR,
+  SET_LEATHER_HARDNESS,
+  SET_CORE_MATERIAL_HARDNESS,
+  SET_CORE_MATERIAL_THICKNESS,
+  SET_LININGS_TYPE,
+  // SET_LININGS_LEATHER_COLOR,
+  SET_HAMIDASHI_TYPE,
+  SET_FINGER_GUARD_TYPE,
+  SET_ZABUTON_SPONGE,
+  SET_EX_FUNCTION,
+  SET_PINKIE_PATTERN,
+  SET_LEATHER_STRING,
+  SET_LABEL,
+  SET_TB_ENGRAVED,
+  SET_LIST_LININGS_MATERIAL,
+  SET_STITCH_COLOR,
+  SET_EMBROIDERY_TYPE_FACE,
+  SET_EMBROIDERY_POSITION,
+} from 'src/constants/ActionTypes'
 
-const Designation: React.FC = () => {
+type Props = {
+  state: State
+  dispatch: React.Dispatch<Action>
+}
+
+const Designation: React.FC<Props> = ({ state, dispatch }) => {
+  const {
+    baseModel,
+    dominantArm,
+    mittSize,
+    mittDepth,
+    backStyle,
+    padModel,
+    leatherHardness,
+    coreMaterialHardness,
+    coreMaterialThickness,
+    liningsType,
+    // liningsLeatherColor,
+    hamidashiType,
+    fingerGuardType,
+    zabutonSponge,
+    exFunction,
+    pinkiePattern,
+    leatherString,
+    hatakeyamaLabel,
+    tbEngraved,
+    listLiningsMaterial,
+    stitchColor,
+    embroideryTypeFace,
+    embroideryPosition,
+  } = state
+
+  const handle = {
+    baseModel: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_BASE_MODEL, baseModel: baseModelObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    dominantArm: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_DOMINANT_ARM, dominantArm: dominantArmObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    mittSize: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_SIZE, mittSize: mittSizeObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    mittDepth: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_DEPTH, mittDepth: mittDepthObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    backStyle: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_BACK_STYLE, backStyle: backStyleObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    padModel: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_PAD_MODEL, padModel: padModleObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    // leatherColor: (event: React.ChangeEvent<HTMLInputElement>) => dispatch({type: , : baseModelObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    leatherHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_LEATHER_HARDNESS, leatherHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    coreMaterialHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_CORE_MATERIAL_HARDNESS, coreMaterialHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    coreMaterialThickness: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_CORE_MATERIAL_THICKNESS, coreMaterialThickness: thicknessObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    liningsType: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_LININGS_TYPE, liningsType: liningsTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    // liningsLeatherColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+    //   dispatch({ type: SET_LININGS_LEATHER_COLOR, liningsLeatherColor: baseModelObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    hamidashiType: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_HAMIDASHI_TYPE, hamidashiType: hamidashiTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    fingerGuardType: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_FINGER_GUARD_TYPE, fingerGuardType: fingerGuardTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    zabutonSponge: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_ZABUTON_SPONGE, zabutonSponge: zabutonSpongeObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    exFunction: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_EX_FUNCTION, exFunction: exFunctionObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    pinkiePattern: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_PINKIE_PATTERN, pinkiePattern: pinkiePatternObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    leatherString: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_LEATHER_STRING, leatherString: leatherStringObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    label: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_LABEL, hatakeyamaLabel: hatakeyamaLabelObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    tbEngraved: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_TB_ENGRAVED, tbEngraved: tbEngravedObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    listLiningsMaterial: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({
+        type: SET_LIST_LININGS_MATERIAL,
+        listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === event.target.value)[0],
+      }),
+    stitchColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_STITCH_COLOR, stitchColor: stitchColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    embroideryTypeFace: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_EMBROIDERY_TYPE_FACE, embroideryTypeFace: embroideryTypeFaceObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    embroideryPosition: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_EMBROIDERY_POSITION, embroideryPosition: embroideryPositionObjs.filter((prev) => prev.value === event.target.value)[0] }),
+  }
+
   return (
     <Box mx={1} p={5} border={'solid 1px green'}>
       <AccordionRadio
         summary={'基本モデルを選択'}
-        defaultValue={'m8'}
-        objects={[
-          { label: 'M8型', value: 'm8' },
-          { label: 'M1型', value: 'm1' },
-          { label: 'M2型', value: 'm2' },
-          { label: 'M01型', value: 'm01' },
-        ]}
+        selectedLabel={baseModel.label}
+        defaultValue={baseModel.value}
+        objects={baseModelObjs}
+        handleChange={handle.baseModel}
       />
       <AccordionRadio
         summary={'利き腕を選択'}
-        defaultValue={'rightThrow'}
-        objects={[
-          { label: '右投げ', value: 'rightThrow' },
-          { label: '左投げ', value: 'leftThrow' },
-        ]}
+        selectedLabel={dominantArm.label}
+        defaultValue={dominantArm.value}
+        objects={dominantArmObjs}
+        handleChange={handle.dominantArm}
       />
       <AccordionRadio
         summary={'ミットの大きさ'}
-        defaultValue={'default'}
-        objects={[
-          { label: '基本モデルより10mm大きく', value: 'large_5' },
-          { label: '基本モデルより5mm大きく', value: 'large_5' },
-          { label: '基本モデルズバリ', value: 'default' },
-          { label: '基本モデルより5mm小さく', value: 'small_5' },
-          { label: '基本モデルより10mm小さく', value: 'small_10' },
-        ]}
+        selectedLabel={mittSize.label}
+        defaultValue={mittSize.value}
+        objects={mittSizeObjs}
+        handleChange={handle.mittSize}
       />
       <AccordionRadio
         summary={'ポケットの深さ'}
-        defaultValue={'default'}
-        objects={[
-          { label: '基本モデルズバリ', value: 'default' },
-          { label: '基本モデルより深く', value: 'deep' },
-          { label: '基本モデルより浅く', value: 'shallow' },
-        ]}
+        selectedLabel={mittDepth.label}
+        defaultValue={mittDepth.value}
+        objects={mittDepthObjs}
+        handleChange={handle.mittDepth}
       />
       <AccordionRadio
         summary={'バックスタイル'}
-        defaultValue={'A_back'}
-        objects={[
-          { label: 'Aバック', value: 'A_back' },
-          { label: 'Bバック', value: 'B_back' },
-          { label: 'axバック', value: 'ax_back' },
-          { label: 'smバック', value: 'sm_back' },
-        ]}
+        selectedLabel={backStyle.label}
+        defaultValue={backStyle.value}
+        objects={backStyleObjs}
+        handleChange={handle.backStyle}
       />
       <AccordionRadio
-        summary={'バッドスタイル'}
-        defaultValue={'A_pad'}
-        objects={[
-          { label: 'Aバッド', value: 'A_pad' },
-          { label: 'Bバッド', value: 'B_pad' },
-        ]}
+        summary={'パッドモデル'}
+        selectedLabel={padModel.label}
+        defaultValue={padModel.value}
+        objects={padModleObjs}
+        handleChange={handle.padModel}
       />
       <Accordion style={{ marginBottom: '8px' }}>
         <AccordionSummary>レザーカラー</AccordionSummary>
       </Accordion>
       <AccordionRadio
         summary={'革の硬さ'}
-        defaultValue={'normal'}
-        objects={[
-          { label: '硬く', value: 'hard' },
-          { label: '普通', value: 'normal' },
-          { label: '柔らかく', value: 'soft' },
-        ]}
+        selectedLabel={leatherHardness.label}
+        defaultValue={leatherHardness.value}
+        objects={hardnessObjs}
+        handleChange={handle.leatherHardness}
       />
       <AccordionRadio
         summary={'芯の硬さ'}
-        defaultValue={'normal'}
-        objects={[
-          { label: '硬く', value: 'hard' },
-          { label: '普通', value: 'normal' },
-          { label: '柔らかく', value: 'soft' },
-        ]}
+        selectedLabel={coreMaterialHardness.label}
+        defaultValue={coreMaterialHardness.value}
+        objects={hardnessObjs}
+        handleChange={handle.coreMaterialHardness}
       />
       <AccordionRadio
         summary={'革の厚さ'}
-        defaultValue={'normal'}
-        objects={[
-          { label: '厚く', value: 'thick' },
-          { label: '普通', value: 'normal' },
-          { label: '薄く', value: 'thin' },
-        ]}
+        selectedLabel={coreMaterialThickness.label}
+        defaultValue={coreMaterialThickness.value}
+        objects={thicknessObjs}
+        handleChange={handle.coreMaterialThickness}
       />
       <AccordionRadio
         summary={'裏革の種類'}
-        defaultValue={''}
-        objects={[
-          { label: '共牛革', value: 'cow' },
-          { label: '和牛革(ブラックのみ)', value: 'wagyu' },
-          { label: '鹿革', value: 'deer' },
-          { label: 'ウルトラスエード(ブラックのみ)', value: 'ultra_suede' },
-        ]}
+        selectedLabel={liningsType.label}
+        defaultValue={liningsType.value}
+        objects={liningsTypeObjs}
+        handleChange={handle.liningsType}
       />
       <AccordionRadio
         summary={'ハミダシ'}
-        defaultValue={''}
-        objects={[
-          { label: '切りハミ(ホワイト)', value: 'kirihami_white' },
-          { label: '切りハミ(ホワイト)', value: 'kirihami_black' },
-          { label: 'ハミダシなし', value: 'no_hamidashi' },
-        ]}
+        selectedLabel={hamidashiType.label}
+        defaultValue={hamidashiType.value}
+        objects={hamidashiTypeObjs}
+        handleChange={handle.hamidashiType}
       />
       <AccordionRadio
         summary={'指カバー'}
-        defaultValue={''}
-        objects={[
-          { label: 'スタンダード', value: 'standard_finger_guard' },
-          { label: 'ロング', value: 'long_finger_guard' },
-          { label: '指カバーなし', value: 'no_finger_guard' },
-        ]}
+        selectedLabel={fingerGuardType.label}
+        defaultValue={fingerGuardType.value}
+        objects={fingerGuardTypeObjs}
+        handleChange={handle.fingerGuardType}
       />
       <AccordionRadio
         summary={'座ブトンスポンジ'}
-        defaultValue={''}
-        objects={[
-          { label: '座ブトンスポンジ有り', value: 'zabuton' },
-          { label: '無し', value: 'no_zabuton' },
-        ]}
+        selectedLabel={zabutonSponge.label}
+        defaultValue={zabutonSponge.value}
+        objects={zabutonSpongeObjs}
+        handleChange={handle.zabutonSponge}
       />
       <AccordionRadio
         summary={'EX機能'}
-        defaultValue={''}
-        objects={[
-          { label: 'EX機能有り', value: 'ex_func' },
-          { label: '無し', value: 'no_ex_func' },
-        ]}
+        selectedLabel={exFunction.label}
+        defaultValue={exFunction.value}
+        objects={exFunctionObjs}
+        handleChange={handle.exFunction}
       />
       <AccordionRadio
         summary={'ピンキーパターン'}
-        defaultValue={''}
-        objects={[
-          { label: 'ピンキーパターン有り', value: 'pinkie_pattern' },
-          { label: '無し', value: 'no_pinkie_pattern' },
-        ]}
+        selectedLabel={pinkiePattern.label}
+        defaultValue={pinkiePattern.value}
+        objects={pinkiePatternObjs}
+        handleChange={handle.pinkiePattern}
       />
       <AccordionRadio
         summary={'革紐'}
-        defaultValue={''}
-        objects={[
-          { label: 'エコロジーブラウン', value: 'pinkie_pattern' },
-          { label: 'Jブルー', value: 'no_pinkie_pattern' },
-        ]}
+        selectedLabel={leatherString.label}
+        defaultValue={leatherString.value}
+        objects={leatherStringObjs}
+        handleChange={handle.leatherString}
       />
       <AccordionRadio
         summary={'ラベル'}
-        defaultValue={''}
-        objects={[
-          { label: '直刺繍C1', value: 'straight_embroidery' },
-          { label: '刺繍ワッペンW1', value: 'emblem_1' },
-          { label: '刺繍ワッペンW2', value: 'emblem_2' },
-          { label: '刺繍ワッペンW3', value: 'emblem_3' },
-          { label: '刺繍ワッペンW4', value: 'emblem_4' },
-          { label: 'シリコンS1', value: 'silicon_1' },
-          { label: 'シリコンS2', value: 'silicon_2' },
-          { label: 'シリコンS3', value: 'silicon_3' },
-          { label: 'シリコンS4', value: 'silicon_4' },
-          { label: 'シリコンS5', value: 'silicon_5' },
-          { label: 'シリコンS6', value: 'silicon_6' },
-        ]}
+        selectedLabel={hatakeyamaLabel.label}
+        defaultValue={hatakeyamaLabel.value}
+        objects={hatakeyamaLabelObjs}
+        handleChange={handle.label}
       />
       {/* キャビティライン加工の項目作る */}
       <AccordionRadio
         summary={'TB刻印'}
-        defaultValue={''}
-        objects={[
-          { label: 'TB刻印あり', value: 'tb_engraved' },
-          { label: 'なし', value: 'no_tb_engraved' },
-        ]}
+        selectedLabel={tbEngraved.label}
+        defaultValue={tbEngraved.value}
+        objects={tbEngravedObjs}
+        handleChange={handle.tbEngraved}
       />
       <AccordionRadio
         summary={'手首裏部の素材'}
-        defaultValue={''}
-        objects={[
-          { label: 'ムートン(ホワイト)', value: 'mouton_white' },
-          { label: 'ムートン(ブラック)', value: 'mouton_black' },
-          { label: 'ウルトラスエード(パッド)', value: 'ultra_suède' },
-        ]}
+        selectedLabel={listLiningsMaterial.label}
+        defaultValue={listLiningsMaterial.value}
+        objects={listLiningsMaterialObjs}
+        handleChange={handle.listLiningsMaterial}
       />
       <AccordionRadio
         summary={'ステッチカラー'}
-        defaultValue={''}
-        objects={[
-          { label: 'ブラック', value: 'black' },
-          { label: 'ピンク', value: 'pink' },
-          { label: 'ブルー', value: 'blue' },
-        ]}
+        selectedLabel={stitchColor.label}
+        defaultValue={stitchColor.value}
+        objects={stitchColorObjs}
+        handleChange={handle.stitchColor}
       />
       <Accordion>
         <AccordionSummary>刺繍</AccordionSummary>
         <AccordionDetails>
           <AccordionRadio
             summary={'書体'}
-            defaultValue={''}
-            objects={[
-              { label: '楷書体', value: 'regular' },
-              { label: '行書体', value: 'semi_cursive' },
-              { label: 'アルファベット活字体', value: 'alphabet_regular' },
-              { label: 'アルファベット筆記体', value: 'alphabet_cursive' },
-              { label: 'ハタケヤマオリジナル書体', value: 'original' },
-              { label: 'オールドイングリッシュ書体', value: 'old_english' },
-              { label: '刻印', value: 'engraved' },
-            ]}
+            selectedLabel={embroideryTypeFace.label}
+            defaultValue={embroideryTypeFace.value}
+            objects={embroideryTypeFaceObjs}
           />
           <AccordionRadio
             summary={'位置'}
-            defaultValue={''}
-            objects={[
-              { label: '親指部分', value: 'thumb_finger' },
-              { label: '小指部分', value: 'child_finger' },
-              { label: '甲部分(シェラームーブのみ)', value: 'shell' },
-              { label: '裏革部分(窓見部分)', value: 'leather_lining_mdd' },
-              { label: '裏革部分(手口部分)', value: 'leather_lining_enter' },
-              { label: 'グラブ袋', value: 'glove_bag' },
-            ]}
+            selectedLabel={embroideryPosition.label}
+            defaultValue={embroideryPosition.value}
+            objects={embroideryPositionObjs}
           />
         </AccordionDetails>
       </Accordion>
