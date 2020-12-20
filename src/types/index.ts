@@ -10,7 +10,7 @@ export type State = {
   mittDepth: stateObj
   backStyle: stateObj
   padModel: stateObj
-  // leatherColor: stateObj
+  leatherBody: stateObj
   leatherHardness: stateObj
   coreMaterialHardness: stateObj
   coreMaterialThickness: stateObj

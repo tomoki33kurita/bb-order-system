@@ -6,7 +6,7 @@ import {
   SET_DEPTH,
   SET_BACK_STYLE,
   SET_PAD_MODEL,
-  SET_LEATHER_COLOR,
+  SET_LEATHER_BODY,
   SET_LEATHER_HARDNESS,
   SET_CORE_MATERIAL_HARDNESS,
   SET_CORE_MATERIAL_THICKNESS,
@@ -31,9 +31,9 @@ export const initialState: State = {
   dominantArm: { label: '右投げ', value: 'rightThrow' },
   mittSize: { label: '基本モデルズバリ', value: 'default' },
   mittDepth: { label: '基本モデルズバリ', value: 'default' },
-  backStyle: { label: 'シェラームーブ', value: 'shellermove' },
+  backStyle: { label: 'シェラームーブ', value: 'shellarmove' },
   padModel: { label: 'Aバッド', value: 'A_pad' },
-  // leatherColor: -----,
+  leatherBody: { label: 'ブラック', value: 'black' },
   leatherHardness: { label: '普通', value: 'normal' },
   coreMaterialHardness: { label: '普通', value: 'normal' },
   coreMaterialThickness: { label: '普通', value: 'normal' },
@@ -44,7 +44,7 @@ export const initialState: State = {
   zabutonSponge: { label: '有り', value: 'zabuton' },
   exFunction: { label: '有り', value: 'ex_func' },
   pinkiePattern: { label: '有り', value: 'pinkie_pattern' },
-  leatherString: { label: 'エコロジーブラウン', value: 'pinkie_pattern' },
+  leatherString: { label: 'ブラック', value: 'black' },
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
@@ -67,8 +67,8 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, backStyle: action.backStyle }
     case SET_PAD_MODEL:
       return { ...state, padModel: action.padModel }
-    case SET_LEATHER_COLOR:
-      return { ...state }
+    case SET_LEATHER_BODY:
+      return { ...state, leatherBody: action.leatherBody }
     case SET_LEATHER_HARDNESS:
       return { ...state, leatherHardness: action.leatherHardness }
     case SET_CORE_MATERIAL_HARDNESS:
