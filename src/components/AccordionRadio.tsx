@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, RadioGroup, Radio } from '@material-ui/core'
+import { Box, Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, RadioGroup, Radio, Fab } from '@material-ui/core'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 type Props = {
   summary: string
@@ -14,9 +15,15 @@ type Props = {
 
 const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, defaultValue, objects, handleChange }) => (
   <Accordion style={{ marginBottom: '8px' }}>
-    <AccordionSummary>
+    <AccordionSummary
+      expandIcon={
+        <Fab size="small" tabIndex={-1} style={{ boxShadow: 'unset' }}>
+          <ExpandMoreIcon />
+        </Fab>
+      }
+    >
       <Box display="flex">
-        <Box>{summary}</Box>
+        <Box fontSize={14}>{summary}</Box>
         <Box component="span" display="inherit" color={'#aaa'} fontSize={12} alignItems="center" ml={2}>
           {selectedLabel}
         </Box>

@@ -17,10 +17,29 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
+  typography: {
+    fontSize: 12,
+  },
   overrides: {
     MuiTabs: {
       flexContainer: {
         justifyContent: 'center',
+      },
+    },
+    MuiRadio: {
+      root: {
+        padding: '4px',
+      },
+    },
+    MuiAccordionSummary: {
+      expandIcon: {
+        padding: '2px',
+      },
+    },
+    MuiAccordionDetails: {
+      root: {
+        paddingTop: '0px',
+        marginLeft: '16px',
       },
     },
   },
