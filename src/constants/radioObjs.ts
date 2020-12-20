@@ -28,7 +28,7 @@ export const backStyleObjs = [
   { label: 'Aバック', value: 'A_back' },
   { label: 'Bバック', value: 'B_back' },
   { label: 'axバック', value: 'ax_back' },
-  { label: 'シェラームーブ', value: 'shellermove' },
+  { label: 'シェラームーブ', value: 'shellarmove' },
 ]
 
 export const padModleObjs = [
@@ -82,10 +82,19 @@ export const pinkiePatternObjs = [
   { label: '無し', value: 'no_pinkie_pattern' },
 ]
 
-export const leatherStringObjs = [
-  { label: 'エコロジーブラウン', value: 'pinkie_pattern' },
-  { label: 'Jブルー', value: 'no_pinkie_pattern' },
+export const leatherStringColorObjs = [
+  { label: 'エコロジーブラウン', value: 'ecology_brown' },
+  { label: 'ブラウン', value: 'brown' },
+  { label: 'オレンジ', value: 'orange' },
+  { label: 'ブラック', value: 'black' },
+  { label: 'Jイエロー', value: 'j_yellow' },
+  { label: 'Vオレンジ', value: 'v_orange' },
+  { label: 'Jブルー', value: 'j_blue' },
+  { label: 'レッド', value: 'red' },
+  { label: 'ホワイト', value: 'white' },
 ]
+
+export const leatherBodyColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black' }]
 
 export const hatakeyamaLabelObjs = [
   { label: '直刺繍C1', value: 'straight_embroidery' },
@@ -113,9 +122,13 @@ export const listLiningsMaterialObjs = [
 ]
 
 export const stitchColorObjs = [
+  { label: 'イエロー', value: 'yellow' },
   { label: 'ブラック', value: 'black' },
-  { label: 'ピンク', value: 'pink' },
   { label: 'ブルー', value: 'blue' },
+  { label: 'レッド', value: 'red' },
+  { label: 'ホワイト', value: 'white' },
+  { label: 'ブラウン', value: 'brown' },
+  { label: 'オレンジ', value: 'orange' },
 ]
 
 export const embroideryTypeFaceObjs = [
@@ -131,7 +144,7 @@ export const embroideryTypeFaceObjs = [
 export const embroideryPositionObjs = [
   { label: '親指部分', value: 'thumb_finger' },
   { label: '小指部分', value: 'child_finger' },
-  { label: '甲部分(シェラームーブ)', value: 'shell' },
+  { label: '甲部分(シェラームーブ)', value: 'shellarmove' },
   { label: '裏革部分(窓見部分)', value: 'leather_lining_mdd' },
   { label: '裏革部分(手口部分)', value: 'leather_lining_enter' },
   { label: 'グラブ袋', value: 'glove_bag' },

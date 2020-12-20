@@ -12,6 +12,7 @@ import {
   mittDepthObjs,
   backStyleObjs,
   padModleObjs,
+  leatherBodyColorObjs,
   hardnessObjs,
   thicknessObjs,
   liningsTypeObjs,
@@ -20,7 +21,7 @@ import {
   zabutonSpongeObjs,
   exFunctionObjs,
   pinkiePatternObjs,
-  leatherStringObjs,
+  leatherStringColorObjs,
   hatakeyamaLabelObjs,
   tbEngravedObjs,
   listLiningsMaterialObjs,
@@ -35,7 +36,7 @@ import {
   SET_DEPTH,
   SET_BACK_STYLE,
   SET_PAD_MODEL,
-  // SET_LEATHER_COLOR,
+  SET_LEATHER_BODY,
   SET_LEATHER_HARDNESS,
   SET_CORE_MATERIAL_HARDNESS,
   SET_CORE_MATERIAL_THICKNESS,
@@ -68,6 +69,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
     mittDepth,
     backStyle,
     padModel,
+    leatherBody,
     leatherHardness,
     coreMaterialHardness,
     coreMaterialThickness,
@@ -100,7 +102,8 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
       dispatch({ type: SET_BACK_STYLE, backStyle: backStyleObjs.filter((prev) => prev.value === event.target.value)[0] }),
     padModel: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_PAD_MODEL, padModel: padModleObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    // leatherColor: (event: React.ChangeEvent<HTMLInputElement>) => dispatch({type: , : baseModelObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    leatherBody: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_LEATHER_BODY, leatherBody: leatherBodyColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
     leatherHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_LEATHER_HARDNESS, leatherHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
     coreMaterialHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -122,7 +125,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
     pinkiePattern: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_PINKIE_PATTERN, pinkiePattern: pinkiePatternObjs.filter((prev) => prev.value === event.target.value)[0] }),
     leatherString: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_LEATHER_STRING, leatherString: leatherStringObjs.filter((prev) => prev.value === event.target.value)[0] }),
+      dispatch({ type: SET_LEATHER_STRING, leatherString: leatherStringColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
     label: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_LABEL, hatakeyamaLabel: hatakeyamaLabelObjs.filter((prev) => prev.value === event.target.value)[0] }),
     tbEngraved: (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -269,14 +272,18 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Box>
-          <Accordion style={{ marginBottom: '8px' }}>
-            <AccordionSummary>本体カラー</AccordionSummary>
-          </Accordion>
+          <AccordionRadio
+            summary={'本体カラー'}
+            selectedLabel={leatherBody.label}
+            defaultValue={leatherBody.value}
+            objects={leatherBodyColorObjs}
+            handleChange={handle.leatherBody}
+          />
           <AccordionRadio
             summary={'革紐'}
             selectedLabel={leatherString.label}
             defaultValue={leatherString.value}
-            objects={leatherStringObjs}
+            objects={leatherStringColorObjs}
             handleChange={handle.leatherString}
           />
           <AccordionRadio
