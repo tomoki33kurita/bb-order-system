@@ -57,7 +57,7 @@ export const liningsTypeObjs = [
 
 export const hamidashiTypeObjs = [
   { label: '切りハミ(ホワイト)', value: 'kirihami_white' },
-  { label: '切りハミ(ホワイト)', value: 'kirihami_black' },
+  { label: '切りハミ(ブラック)', value: 'kirihami_black' },
   { label: 'ハミダシなし', value: 'no_hamidashi' },
 ]
 

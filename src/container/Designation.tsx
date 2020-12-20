@@ -1,7 +1,9 @@
 import React from 'react'
-import { Box, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core'
+import { Box, Accordion, AccordionSummary, AccordionDetails, Fab } from '@material-ui/core'
 import AccordionRadio from 'src/components/AccordionRadio'
 import { State, Action } from 'src/types'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+
 import {
   baseModelObjs,
   dominantArmObjs,
@@ -182,7 +184,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
         handleChange={handle.padModel}
       />
       <Accordion style={{ marginBottom: '8px' }}>
-        <AccordionSummary>レザーカラー</AccordionSummary>
+        <AccordionSummary>本体カラー</AccordionSummary>
       </Accordion>
       <AccordionRadio
         summary={'革の硬さ'}
@@ -284,20 +286,34 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
         handleChange={handle.stitchColor}
       />
       <Accordion>
-        <AccordionSummary>刺繍</AccordionSummary>
-        <AccordionDetails>
-          <AccordionRadio
-            summary={'書体'}
-            selectedLabel={embroideryTypeFace.label}
-            defaultValue={embroideryTypeFace.value}
-            objects={embroideryTypeFaceObjs}
-          />
-          <AccordionRadio
-            summary={'位置'}
-            selectedLabel={embroideryPosition.label}
-            defaultValue={embroideryPosition.value}
-            objects={embroideryPositionObjs}
-          />
+        <AccordionSummary
+          expandIcon={
+            <Fab size="small" tabIndex={-1} style={{ boxShadow: 'unset' }}>
+              <ExpandMoreIcon />
+            </Fab>
+          }
+        >
+          刺繍
+        </AccordionSummary>
+        <AccordionDetails style={{ marginLeft: '0', flexDirection: 'column' }}>
+          <Box>
+            <AccordionRadio
+              summary={'書体'}
+              selectedLabel={embroideryTypeFace.label}
+              defaultValue={embroideryTypeFace.value}
+              objects={embroideryTypeFaceObjs}
+              handleChange={handle.embroideryTypeFace}
+            />
+          </Box>
+          <Box display="block">
+            <AccordionRadio
+              summary={'位置'}
+              selectedLabel={embroideryPosition.label}
+              defaultValue={embroideryPosition.value}
+              objects={embroideryPositionObjs}
+              handleChange={handle.embroideryPosition}
+            />
+          </Box>
         </AccordionDetails>
       </Accordion>
     </Box>
