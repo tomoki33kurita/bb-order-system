@@ -1,8 +1,7 @@
 import React from 'react'
-import { Box, Accordion, AccordionSummary, AccordionDetails, Fab, AppBar, Tabs, Tab } from '@material-ui/core'
+import { Box, AppBar, Tabs, Tab, TextField, Card } from '@material-ui/core'
 import AccordionRadio from 'src/components/molecules/AccordionRadio'
 import { State, Action } from 'src/types'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import TabPanel from 'src/components/molecules/TabPanel'
 import { a11yProps } from 'src/container/FigureFields'
 import {
@@ -12,23 +11,18 @@ import {
   mittDepthObjs,
   backStyleObjs,
   padModleObjs,
-  leatherColorObjs,
   hardnessObjs,
   thicknessObjs,
-  liningsTypeObjs,
   hamidashiTypeObjs,
   fingerGuardTypeObjs,
   zabutonSpongeObjs,
   exFunctionObjs,
   pinkiePatternObjs,
-  leatherStringColorObjs,
-  hatakeyamaLabelObjs,
   tbEngravedObjs,
   listLiningsMaterialObjs,
-  stitchColorObjs,
-  embroideryTypeFaceObjs,
-  embroideryPositionObjs,
-} from 'src/constants/radioObjs'
+} from 'src/constants/radioObjs/baseSet'
+import { leatherColorObjs, liningsTypeObjs, leatherStringColorObjs, hatakeyamaLabelObjs, stitchColorObjs } from 'src/constants/radioObjs/coloring'
+import { embroideryTypeFaceObjs, embroideryPositionObjs, embroideryColorObjs, embroideryShadowColorObjs } from 'src/constants/radioObjs/embroidery'
 import {
   SET_BASE_MODEL,
   SET_DOMINANT_ARM,
@@ -55,6 +49,9 @@ import {
   SET_STITCH_COLOR,
   SET_EMBROIDERY_TYPE_FACE,
   SET_EMBROIDERY_POSITION,
+  SET_EMBROIDERY_COLOR,
+  SET_EMBROIDERY_SHADOW_COLOR,
+  SET_EMBROIDERY_CONTENT,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -89,6 +86,8 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
     stitchColor,
     embroideryTypeFace,
     embroideryPosition,
+    embroideryColor,
+    embroideryShadowColor,
   } = state
 
   const handle = {
@@ -145,6 +144,15 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
       dispatch({ type: SET_EMBROIDERY_TYPE_FACE, embroideryTypeFace: embroideryTypeFaceObjs.filter((prev) => prev.value === event.target.value)[0] }),
     embroideryPosition: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_EMBROIDERY_POSITION, embroideryPosition: embroideryPositionObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    embroideryColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_EMBROIDERY_COLOR, embroideryColor: embroideryColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    embroideryShadowColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({
+        type: SET_EMBROIDERY_SHADOW_COLOR,
+        embroideryShadowColor: embroideryShadowColorObjs.filter((prev) => prev.value === event.target.value)[0],
+      }),
+    embroideryContent: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_EMBROIDERY_CONTENT, embroideryContent: event.target.value }),
   }
   const [value, setValue] = React.useState(0)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
@@ -343,6 +351,28 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
             objects={embroideryPositionObjs}
             handleChange={handle.embroideryPosition}
           />
+          <AccordionRadio
+            summary={'刺繍カラー'}
+            selectedLabel={embroideryColor.label}
+            selectedColor={embroideryColor.color}
+            defaultValue={embroideryColor.value}
+            objects={embroideryColorObjs}
+            handleChange={handle.embroideryColor}
+          />
+          <AccordionRadio
+            summary={'影カラー'}
+            selectedLabel={embroideryShadowColor.label}
+            selectedColor={embroideryShadowColor.color}
+            defaultValue={embroideryShadowColor.value}
+            objects={embroideryShadowColorObjs}
+            handleChange={handle.embroideryShadowColor}
+          />
+          <Card>
+            <Box display="flex" alignItems="center" mx={1} my={2}>
+              <Box mr={2}>刺繍内容</Box>
+              <TextField multiline onChange={handle.embroideryContent} variant="outlined" rows={2} style={{ width: '75%' }} />
+            </Box>
+          </Card>
         </Box>
       </TabPanel>
     </Box>

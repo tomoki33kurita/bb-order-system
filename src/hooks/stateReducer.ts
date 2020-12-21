@@ -25,6 +25,9 @@ import {
   SET_STITCH_COLOR,
   SET_EMBROIDERY_TYPE_FACE,
   SET_EMBROIDERY_POSITION,
+  SET_EMBROIDERY_COLOR,
+  SET_EMBROIDERY_SHADOW_COLOR,
+  SET_EMBROIDERY_CONTENT,
 } from 'src/constants/ActionTypes'
 
 export const initialState: State = {
@@ -53,6 +56,9 @@ export const initialState: State = {
   stitchColor: { label: 'ブラック', value: 'black', color: '#000' },
   embroideryTypeFace: { label: '楷書体', value: 'regular' },
   embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
+  embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
+  embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
+  embroideryContent: '',
 }
 
 export const reducer = (state: State, action: Action): State => {
@@ -107,6 +113,12 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, embroideryTypeFace: action.embroideryTypeFace }
     case SET_EMBROIDERY_POSITION:
       return { ...state, embroideryPosition: action.embroideryPosition }
+    case SET_EMBROIDERY_COLOR:
+      return { ...state, embroideryColor: action.embroideryColor }
+    case SET_EMBROIDERY_SHADOW_COLOR:
+      return { ...state, embroideryShadowColor: action.embroideryShadowColor }
+    case SET_EMBROIDERY_CONTENT:
+      return { ...state, embroideryContent: action.embroideryContent }
     default:
       return state
   }
