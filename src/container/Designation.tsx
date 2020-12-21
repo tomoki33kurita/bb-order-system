@@ -12,7 +12,7 @@ import {
   mittDepthObjs,
   backStyleObjs,
   padModleObjs,
-  leatherBodyColorObjs,
+  leatherColorObjs,
   hardnessObjs,
   thicknessObjs,
   liningsTypeObjs,
@@ -36,7 +36,8 @@ import {
   SET_DEPTH,
   SET_BACK_STYLE,
   SET_PAD_MODEL,
-  SET_LEATHER_BODY,
+  SET_LEATHER_COLOR,
+  SET_EDGE_COLOR,
   SET_LEATHER_HARDNESS,
   SET_CORE_MATERIAL_HARDNESS,
   SET_CORE_MATERIAL_THICKNESS,
@@ -69,7 +70,8 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
     mittDepth,
     backStyle,
     padModel,
-    leatherBody,
+    leatherColor,
+    edgeColor,
     leatherHardness,
     coreMaterialHardness,
     coreMaterialThickness,
@@ -102,8 +104,10 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
       dispatch({ type: SET_BACK_STYLE, backStyle: backStyleObjs.filter((prev) => prev.value === event.target.value)[0] }),
     padModel: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_PAD_MODEL, padModel: padModleObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    leatherBody: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_LEATHER_BODY, leatherBody: leatherBodyColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    leatherColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_LEATHER_COLOR, leatherColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    edgeColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_EDGE_COLOR, edgeColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
     leatherHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_LEATHER_HARDNESS, leatherHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
     coreMaterialHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -274,10 +278,10 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
         <Box>
           <AccordionRadio
             summary={'本体カラー'}
-            selectedLabel={leatherBody.label}
-            defaultValue={leatherBody.value}
-            objects={leatherBodyColorObjs}
-            handleChange={handle.leatherBody}
+            selectedLabel={leatherColor.label}
+            defaultValue={leatherColor.value}
+            objects={leatherColorObjs}
+            handleChange={handle.leatherColor}
           />
           <AccordionRadio
             summary={'革紐'}
@@ -285,6 +289,13 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
             defaultValue={leatherString.value}
             objects={leatherStringColorObjs}
             handleChange={handle.leatherString}
+          />
+          <AccordionRadio
+            summary={'ヘリ革カラー'}
+            selectedLabel={edgeColor.label}
+            defaultValue={edgeColor.value}
+            objects={leatherColorObjs}
+            handleChange={handle.edgeColor}
           />
           <AccordionRadio
             summary={'裏革の種類 / カラー'}

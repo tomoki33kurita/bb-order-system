@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, RadioGroup, Radio, Fab } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ColorBox from 'src/components/atoms/ColorBox'
 
 type Props = {
   summary: string
@@ -9,6 +10,7 @@ type Props = {
   objects: {
     label: string
     value: string
+    color?: string
   }[]
   handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
@@ -33,7 +35,21 @@ const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, defaultValue,
       <FormControl>
         <RadioGroup defaultValue={defaultValue} onChange={handleChange}>
           {objects.map((obj) => (
-            <FormControlLabel key={obj.value} value={obj.value} control={<Radio />} label={obj.label} />
+            <FormControlLabel
+              key={obj.value}
+              value={obj.value}
+              control={<Radio />}
+              label={
+                obj.color ? (
+                  <>
+                    <ColorBox bgcolor={obj.color} />
+                    {obj.label}
+                  </>
+                ) : (
+                  <>{obj.label}</>
+                )
+              }
+            />
           ))}
         </RadioGroup>
       </FormControl>

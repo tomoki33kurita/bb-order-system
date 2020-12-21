@@ -83,18 +83,18 @@ export const pinkiePatternObjs = [
 ]
 
 export const leatherStringColorObjs = [
-  { label: 'エコロジーブラウン', value: 'ecology_brown' },
-  { label: 'ブラウン', value: 'brown' },
-  { label: 'オレンジ', value: 'orange' },
-  { label: 'ブラック', value: 'black' },
-  { label: 'Jイエロー', value: 'j_yellow' },
-  { label: 'Vオレンジ', value: 'v_orange' },
-  { label: 'Jブルー', value: 'j_blue' },
-  { label: 'レッド', value: 'red' },
-  { label: 'ホワイト', value: 'white' },
+  { label: 'エコロジーブラウン', value: 'ecology_brown', color: '#733b03' },
+  { label: 'ブラウン', value: 'brown', color: '#CC6600' },
+  { label: 'オレンジ', value: 'orange', color: '#ff8c00' },
+  { label: 'ブラック', value: 'black', color: '#000' },
+  { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
+  { label: 'Vオレンジ', value: 'v_orange', color: '#ff4500' },
+  { label: 'Jブルー', value: 'j_blue', color: '#0000DD' },
+  { label: 'レッド', value: 'red', color: '#EE0000' },
+  { label: 'ホワイト', value: 'white', color: '#fff' },
 ]
 
-export const leatherBodyColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black' }]
+export const leatherColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black', color: '#333333' }]
 
 export const hatakeyamaLabelObjs = [
   { label: '直刺繍C1', value: 'straight_embroidery' },
