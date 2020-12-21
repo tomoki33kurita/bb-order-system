@@ -279,6 +279,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
           <AccordionRadio
             summary={'本体カラー'}
             selectedLabel={leatherColor.label}
+            selectedColor={leatherColor.color}
             defaultValue={leatherColor.value}
             objects={leatherColorObjs}
             handleChange={handle.leatherColor}
@@ -286,6 +287,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
           <AccordionRadio
             summary={'革紐'}
             selectedLabel={leatherString.label}
+            selectedColor={leatherString.color}
             defaultValue={leatherString.value}
             objects={leatherStringColorObjs}
             handleChange={handle.leatherString}
@@ -293,13 +295,15 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
           <AccordionRadio
             summary={'ヘリ革カラー'}
             selectedLabel={edgeColor.label}
+            selectedColor={edgeColor.color}
             defaultValue={edgeColor.value}
             objects={leatherColorObjs}
             handleChange={handle.edgeColor}
           />
           <AccordionRadio
-            summary={'裏革の種類 / カラー'}
+            summary={'裏革カラー'}
             selectedLabel={liningsType.label}
+            selectedColor={liningsType.color}
             defaultValue={liningsType.value}
             objects={liningsTypeObjs}
             handleChange={handle.liningsType}
@@ -316,6 +320,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
           <AccordionRadio
             summary={'ステッチカラー'}
             selectedLabel={stitchColor.label}
+            selectedColor={stitchColor.color}
             defaultValue={stitchColor.value}
             objects={stitchColorObjs}
             handleChange={handle.stitchColor}

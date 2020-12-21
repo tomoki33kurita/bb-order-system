@@ -40,7 +40,7 @@ export const initialState: State = {
   leatherHardness: { label: '普通', value: 'normal' },
   coreMaterialHardness: { label: '普通', value: 'normal' },
   coreMaterialThickness: { label: '普通', value: 'normal' },
-  liningsType: { label: '和牛革(ブラック)', value: 'wagyu' },
+  liningsType: { label: '和牛革(ブラック)', value: 'wagyu_black', color: '#000' },
   // liningsLeatherColor: '',
   hamidashiType: { label: '切りハミ(ホワイト)', value: 'kirihami_white' },
   fingerGuardType: { label: 'スタンダード', value: 'standard_finger_guard' },
@@ -50,7 +50,7 @@ export const initialState: State = {
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
-  stitchColor: { label: 'ブラック', value: 'black' },
+  stitchColor: { label: 'ブラック', value: 'black', color: '#000' },
   embroideryTypeFace: { label: '楷書体', value: 'regular' },
   embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
 }
