@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Accordion, AccordionSummary, AccordionDetails, Fab, AppBar, Tabs, Tab } from '@material-ui/core'
-import AccordionRadio from 'src/components/AccordionRadio'
+import AccordionRadio from 'src/components/molecules/AccordionRadio'
 import { State, Action } from 'src/types'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import TabPanel from 'src/components/TabPanel'
+import TabPanel from 'src/components/molecules/TabPanel'
 import { a11yProps } from 'src/container/FigureFields'
 import {
   baseModelObjs,

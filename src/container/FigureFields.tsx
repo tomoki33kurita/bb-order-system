@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, AppBar, Tabs, Tab, Button, Grid } from '@material-ui/core'
-import TabPanel from 'src/components/TabPanel'
+import TabPanel from 'src/components/molecules/TabPanel'
 
 export const a11yProps = (index: number) => {
   return {
