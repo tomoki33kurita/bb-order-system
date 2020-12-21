@@ -42,6 +42,11 @@ const theme = createMuiTheme({
         marginLeft: '16px',
       },
     },
+    MuiOutlinedInput: {
+      multiline: {
+        padding: '12px',
+      },
+    },
   },
 })
 

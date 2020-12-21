@@ -30,6 +30,9 @@ export type State = {
   stitchColor: stateObj
   embroideryTypeFace: stateObj
   embroideryPosition: stateObj
+  embroideryColor: stateObj
+  embroideryShadowColor: stateObj
+  embroideryContent: string
 }
 
 export type Action = Partial<State> & { type: string }
