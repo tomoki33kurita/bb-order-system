@@ -1,6 +1,7 @@
 type stateObj = {
   value: string
   label: string
+  color?: string
 }
 
 export type State = {
@@ -10,7 +11,8 @@ export type State = {
   mittDepth: stateObj
   backStyle: stateObj
   padModel: stateObj
-  leatherBody: stateObj
+  leatherColor: stateObj
+  edgeColor: stateObj
   leatherHardness: stateObj
   coreMaterialHardness: stateObj
   coreMaterialThickness: stateObj

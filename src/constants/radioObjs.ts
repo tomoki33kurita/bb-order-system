@@ -48,13 +48,6 @@ export const thicknessObjs = [
   { label: '薄く', value: 'thin' },
 ]
 
-export const liningsTypeObjs = [
-  { label: '共牛革', value: 'cow' },
-  { label: '和牛革(ブラック)', value: 'wagyu' },
-  { label: '鹿革', value: 'deer' },
-  { label: 'ウルトラスエード(ブラック)', value: 'ultra_suede' },
-]
-
 export const hamidashiTypeObjs = [
   { label: '切りハミ(ホワイト)', value: 'kirihami_white' },
   { label: '切りハミ(ブラック)', value: 'kirihami_black' },
@@ -83,18 +76,34 @@ export const pinkiePatternObjs = [
 ]
 
 export const leatherStringColorObjs = [
-  { label: 'エコロジーブラウン', value: 'ecology_brown' },
-  { label: 'ブラウン', value: 'brown' },
-  { label: 'オレンジ', value: 'orange' },
-  { label: 'ブラック', value: 'black' },
-  { label: 'Jイエロー', value: 'j_yellow' },
-  { label: 'Vオレンジ', value: 'v_orange' },
-  { label: 'Jブルー', value: 'j_blue' },
-  { label: 'レッド', value: 'red' },
-  { label: 'ホワイト', value: 'white' },
+  { label: 'エコロジーブラウン', value: 'ecology_brown', color: '#733b03' },
+  { label: 'ブラウン', value: 'brown', color: '#CC6600' },
+  { label: 'オレンジ', value: 'orange', color: '#ff8c00' },
+  { label: 'ブラック', value: 'black', color: '#000' },
+  { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
+  { label: 'Vオレンジ', value: 'v_orange', color: '#ff4500' },
+  { label: 'Jブルー', value: 'j_blue', color: '#0000DD' },
+  { label: 'レッド', value: 'red', color: '#EE0000' },
+  { label: 'ホワイト', value: 'white', color: '#fff' },
 ]
 
-export const leatherBodyColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black' }]
+export const leatherColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
+
+export const liningsTypeObjs = [
+  { label: '共牛革(エコロジーブラウン)', value: 'cow_ecology_brown', color: '#733b03' },
+  { label: '共牛革(ブラウン)', value: 'cow_brown', color: '#CC6600' },
+  { label: '共牛革(オレンジ)', value: 'cow_orange', color: '#ff8c00' },
+  { label: '共牛革(ブラック)', value: 'cow_black', color: '#000' },
+  { label: '共牛革(Jイエロー)', value: 'cow_j_yellow', color: '#ffd700' },
+  { label: '共牛革(Vオレンジ)', value: 'cow_v_orange', color: '#ff4500' },
+  { label: '共牛革(Jブルー)', value: 'cow_j_blue', color: '#0000DD' },
+  { label: '共牛革(レッド)', value: 'cow_red', color: '#EE0000' },
+  { label: '共牛革(ホワイト)', value: 'cow_white', color: '#fff' },
+  { label: '共牛革(Vブラック)', value: 'cow_v_black', color: '#525151' },
+  { label: '和牛革(ブラック)', value: 'wagyu_black', color: '#000' },
+  { label: '鹿革', value: 'deer', color: '#000' },
+  { label: 'ウルトラスエード(ブラック)', value: 'ultra_suede', color: '#000' },
+]
 
 export const hatakeyamaLabelObjs = [
   { label: '直刺繍C1', value: 'straight_embroidery' },
@@ -122,13 +131,13 @@ export const listLiningsMaterialObjs = [
 ]
 
 export const stitchColorObjs = [
-  { label: 'イエロー', value: 'yellow' },
-  { label: 'ブラック', value: 'black' },
-  { label: 'ブルー', value: 'blue' },
-  { label: 'レッド', value: 'red' },
-  { label: 'ホワイト', value: 'white' },
-  { label: 'ブラウン', value: 'brown' },
-  { label: 'オレンジ', value: 'orange' },
+  { label: 'イエロー', value: 'j_yellow', color: '#ffd700' },
+  { label: 'ブラック', value: 'black', color: '#000' },
+  { label: 'ブルー', value: 'j_blue', color: '#0000DD' },
+  { label: 'レッド', value: 'red', color: '#EE0000' },
+  { label: 'ホワイト', value: 'white', color: '#fff' },
+  { label: 'ブラウン', value: 'brown', color: '#CC6600' },
+  { label: 'オレンジ', value: 'orange', color: '#ff8c00' },
 ]
 
 export const embroideryTypeFaceObjs = [
