@@ -8,6 +8,7 @@ import {
   SET_PAD_MODEL,
   SET_LEATHER_COLOR,
   SET_EDGE_COLOR,
+  SET_TARGET_SET,
   SET_LEATHER_HARDNESS,
   SET_CORE_MATERIAL_HARDNESS,
   SET_CORE_MATERIAL_THICKNESS,
@@ -39,6 +40,7 @@ export const initialState: State = {
   padModel: { label: 'Aバッド', value: 'A_pad' },
   leatherColor: { label: 'ブラック', value: 'black', color: '#000' },
   edgeColor: { label: 'ブラック', value: 'black', color: '#000' },
+  targetSet: { label: '不要', value: 'none' },
   leatherString: { label: 'ブラック', value: 'black', color: '#000' },
   leatherHardness: { label: '普通', value: 'normal' },
   coreMaterialHardness: { label: '普通', value: 'normal' },
@@ -79,6 +81,8 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, leatherColor: action.leatherColor }
     case SET_EDGE_COLOR:
       return { ...state, edgeColor: action.edgeColor }
+    case SET_TARGET_SET:
+      return { ...state, targetSet: action.targetSet }
     case SET_LEATHER_HARDNESS:
       return { ...state, leatherHardness: action.leatherHardness }
     case SET_CORE_MATERIAL_HARDNESS:

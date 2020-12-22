@@ -12,6 +12,8 @@ export const leatherStringColorObjs = [
 
 export const leatherColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
 
+export const targetSetObjs = [{ label: '不要', value: 'none' }, ...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
+
 export const liningsTypeObjs = [
   { label: '共牛革(エコロジーブラウン)', value: 'cow_ecology_brown', color: '#733b03' },
   { label: '共牛革(ブラウン)', value: 'cow_brown', color: '#CC6600' },
