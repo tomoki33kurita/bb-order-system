@@ -11,12 +11,13 @@ type Props = {
     value: string
     color?: string
   }[]
+  index: number
   selectedLabel?: string
   selectedColor?: string
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>, i: number) => void
 }
 
-const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor, defaultValue, objects, handleChange }) => (
+const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor, defaultValue, objects, index, handleChange }) => (
   <Accordion style={{ marginBottom: '8px' }}>
     <AccordionSummary
       expandIcon={
@@ -41,7 +42,7 @@ const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor
     </AccordionSummary>
     <AccordionDetails>
       <FormControl>
-        <RadioGroup defaultValue={defaultValue} onChange={handleChange}>
+        <RadioGroup defaultValue={defaultValue} onChange={(event) => handleChange(event, index)}>
           {objects.map((obj) => (
             <FormControlLabel
               key={obj.value}

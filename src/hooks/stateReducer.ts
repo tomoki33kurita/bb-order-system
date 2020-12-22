@@ -24,12 +24,19 @@ import {
   SET_TB_ENGRAVED,
   SET_LIST_LININGS_MATERIAL,
   SET_STITCH_COLOR,
-  SET_EMBROIDERY_TYPE_FACE,
-  SET_EMBROIDERY_POSITION,
-  SET_EMBROIDERY_COLOR,
-  SET_EMBROIDERY_SHADOW_COLOR,
-  SET_EMBROIDERY_CONTENT,
+  SET_EMBROIDERIES,
 } from 'src/constants/ActionTypes'
+
+const initialEmbroState = [
+  {
+    id: 0,
+    embroideryTypeFace: { label: '楷書体', value: 'regular' },
+    embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
+    embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
+    embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
+    embroideryContent: '',
+  },
+]
 
 export const initialState: State = {
   baseModel: { label: 'M8型', value: 'm8' },
@@ -56,11 +63,7 @@ export const initialState: State = {
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
   stitchColor: { label: 'ブラック', value: 'black', color: '#000' },
-  embroideryTypeFace: { label: '楷書体', value: 'regular' },
-  embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
-  embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
-  embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
-  embroideryContent: '',
+  embroideries: initialEmbroState,
 }
 
 export const reducer = (state: State, action: Action): State => {
@@ -113,16 +116,8 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, listLiningsMaterial: action.listLiningsMaterial }
     case SET_STITCH_COLOR:
       return { ...state, stitchColor: action.stitchColor }
-    case SET_EMBROIDERY_TYPE_FACE:
-      return { ...state, embroideryTypeFace: action.embroideryTypeFace }
-    case SET_EMBROIDERY_POSITION:
-      return { ...state, embroideryPosition: action.embroideryPosition }
-    case SET_EMBROIDERY_COLOR:
-      return { ...state, embroideryColor: action.embroideryColor }
-    case SET_EMBROIDERY_SHADOW_COLOR:
-      return { ...state, embroideryShadowColor: action.embroideryShadowColor }
-    case SET_EMBROIDERY_CONTENT:
-      return { ...state, embroideryContent: action.embroideryContent }
+    case SET_EMBROIDERIES:
+      return { ...state, embroideries: action.embroideries }
     default:
       return state
   }

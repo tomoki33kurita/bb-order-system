@@ -40,6 +40,7 @@ const theme = createMuiTheme({
       root: {
         paddingTop: '0px',
         marginLeft: '16px',
+        display: 'unset',
       },
     },
     MuiOutlinedInput: {
