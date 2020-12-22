@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Grid } from '@material-ui/core'
 import FigureFields from 'src/container/FigureFields'
-import Designation from 'src/container/Designation'
+import DesignationBase from 'src/container/DesignationBase'
 import { reducer, initialState } from 'src/hooks/stateReducer'
 
 const Index: React.FC = () => {
@@ -20,7 +20,7 @@ const Index: React.FC = () => {
           <FigureFields />
         </Grid>
         <Grid item md={5}>
-          <Designation state={state} dispatch={dispatch} />
+          <DesignationBase state={state} dispatch={dispatch} />
         </Grid>
       </Grid>
     </Box>
