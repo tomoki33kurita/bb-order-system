@@ -54,16 +54,19 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
 
   return (
     <>
-      <Box display="flex" justifyContent="center" mt={2}>
-        <Button onClick={handleAddForm} disabled={embroideries.length === 6} variant="outlined" style={{ marginRight: '4px' }}>
-          ＋
-        </Button>
-        <Button onClick={handleRemoveForm} disabled={embroideries.length === 1} variant="outlined" style={{ marginLeft: '4px' }}>
-          ー
-        </Button>
-      </Box>
-
       <TabPanel value={value} index={2}>
+        <Box mb={3}>
+          <Card>
+            <Box display="flex" justifyContent="center" my={1}>
+              <Button onClick={handleAddForm} disabled={embroideries.length === 6} variant="outlined" style={{ marginRight: '4px' }}>
+                ＋
+              </Button>
+              <Button onClick={handleRemoveForm} disabled={embroideries.length === 1} variant="outlined" style={{ marginLeft: '4px' }}>
+                ー
+              </Button>
+            </Box>
+          </Card>
+        </Box>
         {embroideries.map((embroidery, i) => (
           <Box key={`${i}`} my={1}>
             <Accordion>
