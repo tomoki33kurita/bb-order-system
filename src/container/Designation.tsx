@@ -21,7 +21,14 @@ import {
   tbEngravedObjs,
   listLiningsMaterialObjs,
 } from 'src/constants/radioObjs/baseSet'
-import { leatherColorObjs, liningsTypeObjs, leatherStringColorObjs, hatakeyamaLabelObjs, stitchColorObjs } from 'src/constants/radioObjs/coloring'
+import {
+  leatherColorObjs,
+  liningsTypeObjs,
+  leatherStringColorObjs,
+  hatakeyamaLabelObjs,
+  stitchColorObjs,
+  targetSetObjs,
+} from 'src/constants/radioObjs/coloring'
 import { embroideryTypeFaceObjs, embroideryPositionObjs, embroideryColorObjs, embroideryShadowColorObjs } from 'src/constants/radioObjs/embroidery'
 import {
   SET_BASE_MODEL,
@@ -52,6 +59,7 @@ import {
   SET_EMBROIDERY_COLOR,
   SET_EMBROIDERY_SHADOW_COLOR,
   SET_EMBROIDERY_CONTENT,
+  SET_TARGET_SET,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -69,6 +77,7 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
     padModel,
     leatherColor,
     edgeColor,
+    targetSet,
     leatherHardness,
     coreMaterialHardness,
     coreMaterialThickness,
@@ -107,6 +116,9 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
       dispatch({ type: SET_LEATHER_COLOR, leatherColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
     edgeColor: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_EDGE_COLOR, edgeColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    targetSet: (event: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch({ type: SET_TARGET_SET, targetSet: targetSetObjs.filter((prev) => prev.value === event.target.value)[0] })
+    },
     leatherHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_LEATHER_HARDNESS, leatherHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
     coreMaterialHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -309,6 +321,14 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
             handleChange={handle.edgeColor}
           />
           <AccordionRadio
+            summary={'ターゲット加工'}
+            selectedLabel={targetSet.label}
+            selectedColor={targetSet.color}
+            defaultValue={targetSet.value}
+            objects={targetSetObjs}
+            handleChange={handle.targetSet}
+          />
+          <AccordionRadio
             summary={'裏革カラー'}
             selectedLabel={liningsType.label}
             selectedColor={liningsType.color}
@@ -316,7 +336,6 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
             objects={liningsTypeObjs}
             handleChange={handle.liningsType}
           />
-
           <AccordionRadio
             summary={'ラベル'}
             selectedLabel={hatakeyamaLabel.label}

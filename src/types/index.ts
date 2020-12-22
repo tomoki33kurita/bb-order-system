@@ -13,6 +13,7 @@ export type State = {
   padModel: stateObj
   leatherColor: stateObj
   edgeColor: stateObj
+  targetSet: stateObj
   leatherHardness: stateObj
   coreMaterialHardness: stateObj
   coreMaterialThickness: stateObj
