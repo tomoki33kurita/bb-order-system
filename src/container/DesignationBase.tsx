@@ -67,7 +67,7 @@ type Props = {
   dispatch: React.Dispatch<Action>
 }
 
-const Designation: React.FC<Props> = ({ state, dispatch }) => {
+const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
   const {
     baseModel,
     dominantArm,
@@ -397,4 +397,4 @@ const Designation: React.FC<Props> = ({ state, dispatch }) => {
     </Box>
   )
 }
-export default Designation
+export default DesignationBase
