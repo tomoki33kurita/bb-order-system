@@ -25,18 +25,18 @@ import {
   SET_LIST_LININGS_MATERIAL,
   SET_STITCH_COLOR,
   SET_EMBROIDERIES,
+  ADD_EMBROIDERY,
+  REMOVE_EMBROIDERY,
 } from 'src/constants/ActionTypes'
 
-const initialEmbroState = [
-  {
-    id: 0,
-    embroideryTypeFace: { label: '楷書体', value: 'regular' },
-    embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
-    embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
-    embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
-    embroideryContent: '',
-  },
-]
+export const initialEmbroState = {
+  id: 0,
+  embroideryTypeFace: { label: '楷書体', value: 'regular' },
+  embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
+  embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
+  embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
+  embroideryContent: '',
+}
 
 export const initialState: State = {
   baseModel: { label: 'M8型', value: 'm8' },
@@ -63,7 +63,7 @@ export const initialState: State = {
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
   stitchColor: { label: 'ブラック', value: 'black', color: '#000' },
-  embroideries: initialEmbroState,
+  embroideries: [initialEmbroState],
 }
 
 export const reducer = (state: State, action: Action): State => {
@@ -117,6 +117,10 @@ export const reducer = (state: State, action: Action): State => {
     case SET_STITCH_COLOR:
       return { ...state, stitchColor: action.stitchColor }
     case SET_EMBROIDERIES:
+      return { ...state, embroideries: action.embroideries }
+    case ADD_EMBROIDERY:
+      return { ...state, embroideries: action.embroideries }
+    case REMOVE_EMBROIDERY:
       return { ...state, embroideries: action.embroideries }
     default:
       return state
