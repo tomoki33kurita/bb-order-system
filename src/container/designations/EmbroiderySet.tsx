@@ -6,16 +6,8 @@ import TabPanel from 'src/components/molecules/TabPanel'
 import { embroideryTypeFaceObjs, embroideryPositionObjs, embroideryColorObjs, embroideryShadowColorObjs } from 'src/constants/radioObjs/embroidery'
 import { SET_EMBROIDERIES, ADD_EMBROIDERY, REMOVE_EMBROIDERY } from 'src/constants/ActionTypes'
 import { initialEmbroState } from 'src/hooks/stateReducer'
-import { useDebounce } from 'use-debounce'
-import { State, Action, Embroidery } from 'src/types'
-
-const embroideriesReducer = (embroideries: Embroidery[], newEmbroideries: Embroidery, i: number) => {
-  return embroideries.reduce((a, c) => {
-    if (c.id === i) a.push(newEmbroideries)
-    if (c.id !== i) a.push(c)
-    return a
-  }, [])
-}
+import { State, Action } from 'src/types'
+import { embroideriesReducer, useEmbroideryContent } from 'src/hooks/useEmbroideryContent'
 
 type Props = {
   state: State
@@ -36,24 +28,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
     return embroideriesReducer(embroideries, newEmbroideries, i)
   }
 
-  const updateEmbroContent = (delayedValue: string, i: number) => {
-    const newEmbroideries = { ...embroideries[i], embroideryContent: delayedValue }
-    return embroideriesReducer(embroideries, newEmbroideries, i)
-  }
-
-  // ここから
-  const [content, setContent] = React.useState('')
-  const [contentNum, setContentNum] = React.useState(0)
-  const [delayedValue] = useDebounce(content, 500)
-  const handleContentAndNum = (content: string, i: number) => {
-    setContent(content)
-    setContentNum(i)
-  }
-  React.useEffect(() => {
-    dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroContent(delayedValue, contentNum) })
-  }, [delayedValue])
-  // ここまでをカスタムHooks化する
-
+  const handleContentAndNum = useEmbroideryContent(dispatch, embroideries)
   const handle = {
     typeFace: (event: React.ChangeEvent<HTMLInputElement>, i: number) => {
       dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryTypeFace', embroideryTypeFaceObjs) })

@@ -6,7 +6,6 @@ import { reducer, initialState } from 'src/hooks/stateReducer'
 
 const Index: React.FC = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
-
   return (
     <Box p={2}>
       <Box p={2}>
