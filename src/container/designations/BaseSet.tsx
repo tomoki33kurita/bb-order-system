@@ -165,7 +165,7 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
         handleChange={handle.coreMaterialHardness}
       />
       <AccordionRadio
-        summary={'革の厚さ'}
+        summary={'芯の厚さ'}
         selectedLabel={coreMaterialThickness.label}
         defaultValue={coreMaterialThickness.value}
         objects={thicknessObjs}

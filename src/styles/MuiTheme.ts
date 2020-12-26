@@ -48,6 +48,11 @@ const theme = createMuiTheme({
         padding: '12px',
       },
     },
+    MuiDialog: {
+      paperWidthSm: {
+        maxWidth: '900px',
+      },
+    },
   },
 })
 

@@ -11,7 +11,7 @@ type Props = {
     value: string
     color?: string
   }[]
-  index: number
+  index?: number
   selectedLabel?: string
   selectedColor?: string
   handleChange?: (event: React.ChangeEvent<HTMLInputElement>, i: number) => void
