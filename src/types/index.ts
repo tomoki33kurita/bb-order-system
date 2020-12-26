@@ -4,6 +4,15 @@ type stateObj = {
   color?: string
 }
 
+export type Embroidery = {
+  id: number
+  embroideryTypeFace: stateObj
+  embroideryPosition: stateObj
+  embroideryColor: stateObj
+  embroideryShadowColor: stateObj
+  embroideryContent: string
+}
+
 export type State = {
   baseModel: stateObj
   dominantArm: stateObj
@@ -18,7 +27,6 @@ export type State = {
   coreMaterialHardness: stateObj
   coreMaterialThickness: stateObj
   liningsType: stateObj
-  // liningsLeatherColor: stateObj
   hamidashiType: stateObj
   fingerGuardType: stateObj
   zabutonSponge: stateObj
@@ -29,14 +37,7 @@ export type State = {
   tbEngraved: stateObj
   listLiningsMaterial: stateObj
   stitchColor: stateObj
-  embroideries: {
-    id: number
-    embroideryTypeFace: stateObj
-    embroideryPosition: stateObj
-    embroideryColor: stateObj
-    embroideryShadowColor: stateObj
-    embroideryContent: string
-  }[]
+  embroideries: Embroidery[]
 }
 
 export type Action = Partial<State> & { type: string }

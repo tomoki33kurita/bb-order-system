@@ -179,31 +179,31 @@ const FigureFields: React.FC<Props> = ({ state }) => {
                         刺繍項目{i + 1}
                       </Box>
                       <Box ml={1}>
-                        (15) 書式：
+                        (21) 書式：
                         <Box component="span" fontWeight="bold">
                           {embroidery.embroideryTypeFace.label}
                         </Box>
                       </Box>
                       <Box ml={1}>
-                        (15) 位置：
+                        (22) 位置：
                         <Box component="span" fontWeight="bold">
                           {embroidery.embroideryPosition.label}
                         </Box>
                       </Box>
                       <Box ml={1}>
-                        (15) 刺繍カラー：
+                        (23) 刺繍カラー：
                         <Box component="span" fontWeight="bold">
                           {embroidery.embroideryColor.label}
                         </Box>
                       </Box>
                       <Box ml={1}>
-                        (15) 影カラー：
+                        (24) 影カラー：
                         <Box component="span" fontWeight="bold">
                           {embroidery.embroideryShadowColor.label}
                         </Box>
                       </Box>
                       <Box ml={1}>
-                        (15) 刺繍内容：
+                        (25) 刺繍内容：
                         <Box component="span" fontWeight="bold">
                           {embroidery.embroideryContent}
                         </Box>

@@ -2,11 +2,12 @@ import React from 'react'
 import { Box, TextField, Card, Accordion, AccordionSummary, AccordionDetails, Fab, Button } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AccordionRadio from 'src/components/molecules/AccordionRadio'
-import { State, Action } from 'src/types'
 import TabPanel from 'src/components/molecules/TabPanel'
 import { embroideryTypeFaceObjs, embroideryPositionObjs, embroideryColorObjs, embroideryShadowColorObjs } from 'src/constants/radioObjs/embroidery'
 import { SET_EMBROIDERIES, ADD_EMBROIDERY, REMOVE_EMBROIDERY } from 'src/constants/ActionTypes'
 import { initialEmbroState } from 'src/hooks/stateReducer'
+import { State, Action } from 'src/types'
+import { embroideriesReducer, useEmbroideryContent } from 'src/hooks/useEmbroideryContent'
 
 type Props = {
   state: State
@@ -23,30 +24,24 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
     type: 'embroideryTypeFace' | 'embroideryPosition' | 'embroideryColor' | 'embroideryShadowColor' | 'embroideryContent',
     objs?: { label: string; value: string; color?: string }[]
   ) => {
-    const newEmbroideries =
-      type === 'embroideryContent'
-        ? { ...embroideries[i], [type]: event.target.value }
-        : { ...embroideries[i], [type]: objs.filter((prev) => prev.value === event.target.value)[0] }
-
-    return embroideries.reduce((a, c) => {
-      if (c.id === i) a.push(newEmbroideries)
-      if (c.id !== i) a.push(c)
-      return a
-    }, [])
+    const newEmbroideries = { ...embroideries[i], [type]: objs.filter((prev) => prev.value === event.target.value)[0] }
+    return embroideriesReducer(embroideries, newEmbroideries, i)
   }
 
+  const handleContentAndNum = useEmbroideryContent(dispatch, embroideries)
   const handle = {
-    embroideryTypeFace: (event: React.ChangeEvent<HTMLInputElement>, i: number) => {
+    typeFace: (event: React.ChangeEvent<HTMLInputElement>, i: number) => {
       dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryTypeFace', embroideryTypeFaceObjs) })
     },
-    embroideryPosition: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
+    position: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
       dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryPosition', embroideryPositionObjs) }),
-    embroideryColor: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
+    color: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
       dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryColor', embroideryColorObjs) }),
-    embroideryShadowColor: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
+    shadowColor: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
       dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryShadowColor', embroideryShadowColorObjs) }),
-    embroideryContent: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
-      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryContent') }),
+    content: (event: React.ChangeEvent<HTMLInputElement>, i: number) => {
+      handleContentAndNum(event.target.value, i)
+    },
   }
   const handleAddForm = () => dispatch({ type: ADD_EMBROIDERY, embroideries: embroideries.concat({ ...initialEmbroState, id: embroideries.length }) })
   const handleRemoveForm = () =>
@@ -87,7 +82,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                     defaultValue={embroidery.embroideryTypeFace?.value}
                     objects={embroideryTypeFaceObjs}
                     index={i}
-                    handleChange={handle.embroideryTypeFace}
+                    handleChange={handle.typeFace}
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
@@ -97,7 +92,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                     defaultValue={embroidery.embroideryPosition?.value}
                     objects={embroideryPositionObjs}
                     index={i}
-                    handleChange={handle.embroideryPosition}
+                    handleChange={handle.position}
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
@@ -108,7 +103,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                     defaultValue={embroidery.embroideryColor?.value}
                     objects={embroideryColorObjs}
                     index={i}
-                    handleChange={handle.embroideryColor}
+                    handleChange={handle.color}
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
@@ -119,7 +114,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                     defaultValue={embroidery.embroideryShadowColor?.value}
                     objects={embroideryShadowColorObjs}
                     index={i}
-                    handleChange={handle.embroideryShadowColor}
+                    handleChange={handle.shadowColor}
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
@@ -129,7 +124,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                       <TextField
                         multiline
                         onChange={(event) => {
-                          handle.embroideryContent(event as React.ChangeEvent<HTMLInputElement>, i)
+                          handle.content(event as React.ChangeEvent<HTMLInputElement>, i)
                         }}
                         variant="outlined"
                         rows={2}
