@@ -17,7 +17,7 @@ const Index: React.FC = () => {
       </Box>
       <Grid container>
         <Grid item md={7}>
-          <FigureFields />
+          <FigureFields state={state} />
         </Grid>
         <Grid item md={5}>
           <DesignationBase state={state} dispatch={dispatch} />
