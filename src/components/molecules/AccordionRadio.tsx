@@ -42,7 +42,7 @@ const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor
     </AccordionSummary>
     <AccordionDetails>
       <FormControl>
-        <RadioGroup defaultValue={defaultValue} onChange={(event) => handleChange(event, index)}>
+        <RadioGroup style={{ marginBottom: '8px' }} defaultValue={defaultValue} onChange={(event) => handleChange(event, index)}>
           {objects.map((obj) => (
             <FormControlLabel
               key={obj.value}
