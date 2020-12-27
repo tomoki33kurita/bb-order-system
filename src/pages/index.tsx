@@ -4,6 +4,8 @@ import FigureFields from 'src/container/FigureFields'
 import DesignationBase from 'src/container/DesignationBase'
 import { reducer, initialState } from 'src/hooks/stateReducer'
 
+export const stateContext = React.createContext('')
+
 const Index: React.FC = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
   return (
