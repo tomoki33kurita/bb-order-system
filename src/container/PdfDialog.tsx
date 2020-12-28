@@ -1,6 +1,21 @@
 import React from 'react'
 import { Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { State } from 'src/types'
+import pdfMake from 'pdfmake/build/pdfmake'
+import pdfFonts from 'pdfmake/build/vfs_fonts'
+pdfMake.vfs = pdfFonts.pdfMake.vfs
+
+const docDefine = {
+  content: [
+    {
+      text: 'これはダウンロード用のPDFです',
+      style: { fontSize: 12 },
+    },
+  ],
+}
+const handleGenPdf = () => {
+  pdfMake.createPdf(docDefine).open()
+}
 
 type Props = {
   state: State
@@ -205,7 +220,9 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
         <Button variant="outlined" onClick={handleClose}>
           close
         </Button>
-        <Button variant="contained">ダウンロード</Button>
+        <Button variant="contained" onClick={handleGenPdf}>
+          ダウンロード
+        </Button>
       </DialogActions>
     </Dialog>
   )
