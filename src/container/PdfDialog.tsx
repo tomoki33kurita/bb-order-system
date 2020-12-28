@@ -5,16 +5,24 @@ import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
-const docDefine = {
-  content: [
-    {
-      text: 'これはダウンロード用のPDFです',
-      style: { fontSize: 12 },
-    },
-  ],
-}
 const handleGenPdf = () => {
-  pdfMake.createPdf(docDefine).open()
+  pdfMake.fonts = {
+    GenYoMin: {
+      normal: 'ipaexm.ttf',
+      // bold: 'GenYoMinJP-Bold.ttf',
+    },
+  }
+  const docDefine = {
+    content: [
+      {
+        text: 'これはダウンロード用のPDFです',
+        style: { fontSize: 12 },
+      },
+    ],
+    defaultStyle: { font: 'GenYoMin' },
+  }
+
+  pdfMake.createPdf(docDefine).download()
 }
 
 type Props = {
