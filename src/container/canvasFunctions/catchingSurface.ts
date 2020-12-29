@@ -1,7 +1,6 @@
 // ウェブ下
 export const underWebTopLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.lineWidth = 5
   ctx.moveTo(305, 200)
   ctx.lineTo(500, 145)
   ctx.closePath()
@@ -11,7 +10,6 @@ export const underWebTopLine = (ctx: CanvasRenderingContext2D): void => {
 // ウェブ下左側面＿V右
 export const underWebLeftLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.lineWidth = 5
   ctx.moveTo(305, 200)
   ctx.lineTo(318, 240)
   ctx.closePath()
@@ -21,7 +19,6 @@ export const underWebLeftLine = (ctx: CanvasRenderingContext2D): void => {
 // ウェブ下左側面＿V左
 export const underWebLeftLeftLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.lineWidth = 5
   ctx.moveTo(318, 240)
   ctx.lineTo(280, 200)
   ctx.closePath()
@@ -31,7 +28,6 @@ export const underWebLeftLeftLine = (ctx: CanvasRenderingContext2D): void => {
 // ウェブ下右側面＿V左
 export const underWebRightLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.lineWidth = 5
   ctx.moveTo(500, 145)
   ctx.lineTo(515, 195)
   ctx.closePath()
@@ -41,7 +37,6 @@ export const underWebRightLine = (ctx: CanvasRenderingContext2D): void => {
 // ウェブ下右側面＿V右
 export const underWebRightRightLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.lineWidth = 5
   ctx.moveTo(530, 140)
   ctx.lineTo(515, 195)
   ctx.closePath()

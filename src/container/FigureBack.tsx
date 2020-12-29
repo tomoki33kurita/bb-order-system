@@ -31,7 +31,7 @@ const FigureBack: React.FC = () => {
       y: csHeight / 2,
     }
     ctx.strokeStyle = '#383838'
-    ctx.lineWidth = 10
+    ctx.lineWidth = 2
 
     // ウェブ下捕球面
     underWebTopLine(ctx)
