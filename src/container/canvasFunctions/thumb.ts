@@ -2,8 +2,8 @@
 export const thumbTopOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(195, 135)
-  ctx.quadraticCurveTo(210, 105, 255, 100)
+  ctx.moveTo(195, 155)
+  ctx.quadraticCurveTo(210, 125, 255, 120)
   ctx.stroke()
 }
 
@@ -11,17 +11,16 @@ export const thumbTopOutLine = (ctx: CanvasRenderingContext2D): void => {
 export const thumbTopInLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(255, 100)
-  ctx.quadraticCurveTo(300, 125, 305, 150)
+  ctx.moveTo(255, 120)
+  ctx.quadraticCurveTo(300, 145, 305, 170)
   ctx.stroke()
 }
 
 // 親指外側
 export const thumbOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.moveTo(195, 135)
-  // ctx.lineTo(425, 625)
-  ctx.quadraticCurveTo(210, 500, 480, 585)
+  ctx.moveTo(195, 155)
+  ctx.quadraticCurveTo(210, 520, 480, 605)
   ctx.stroke()
 }
 
@@ -29,8 +28,8 @@ export const thumbOutLine = (ctx: CanvasRenderingContext2D): void => {
 export const thumbEdgeLine1 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(255, 100)
-  ctx.quadraticCurveTo(280, 420, 465, 530)
+  ctx.moveTo(255, 120)
+  ctx.quadraticCurveTo(280, 440, 465, 550)
   ctx.stroke()
 }
 
@@ -38,8 +37,8 @@ export const thumbEdgeLine1 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbEdgeLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(465, 530)
-  ctx.quadraticCurveTo(505, 565, 495, 580)
+  ctx.moveTo(465, 550)
+  ctx.quadraticCurveTo(505, 585, 495, 600)
   ctx.stroke()
 }
 
@@ -47,9 +46,8 @@ export const thumbEdgeLine2 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbInLine1 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(305, 150)
-  // ctx.lineTo(530, 575)
-  ctx.quadraticCurveTo(330, 350, 495, 485)
+  ctx.moveTo(305, 170)
+  ctx.quadraticCurveTo(330, 370, 495, 505)
   ctx.stroke()
 }
 
@@ -57,8 +55,7 @@ export const thumbInLine1 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbInLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(495, 485)
-  // ctx.lineTo(530, 575)
-  ctx.quadraticCurveTo(500, 500, 530, 565)
+  ctx.moveTo(495, 505)
+  ctx.quadraticCurveTo(500, 520, 530, 585)
   ctx.stroke()
 }
