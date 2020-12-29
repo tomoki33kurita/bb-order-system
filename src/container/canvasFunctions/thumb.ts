@@ -18,7 +18,10 @@ export const thumbTopInLine = (ctx: CanvasRenderingContext2D): void => {
 export const thumbOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(165, 155)
-  ctx.quadraticCurveTo(180, 520, 450, 605)
+  ctx.quadraticCurveTo(180, 530, 470, 610)
+  // 親指ヘリ革
+  ctx.moveTo(175, 142)
+  ctx.quadraticCurveTo(190, 530, 470, 600)
   ctx.stroke()
 }
 
@@ -34,7 +37,7 @@ export const thumbEdgeLine1 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbEdgeLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(435, 550)
-  ctx.quadraticCurveTo(475, 585, 465, 600)
+  ctx.quadraticCurveTo(475, 585, 472, 598)
   ctx.stroke()
 }
 
@@ -42,14 +45,14 @@ export const thumbEdgeLine2 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbInLine1 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(275, 170)
-  ctx.quadraticCurveTo(300, 370, 465, 505)
+  ctx.quadraticCurveTo(300, 370, 470, 510)
   ctx.stroke()
 }
 
 // 親指内側2
 export const thumbInLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.moveTo(465, 505)
-  ctx.quadraticCurveTo(470, 520, 500, 588)
+  ctx.moveTo(470, 510)
+  ctx.quadraticCurveTo(490, 560, 505, 595)
   ctx.stroke()
 }

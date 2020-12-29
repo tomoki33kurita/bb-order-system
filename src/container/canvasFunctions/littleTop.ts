@@ -11,6 +11,8 @@ export const littleTopOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(530, 30)
   ctx.quadraticCurveTo(650, 40, 750, 160)
+  ctx.moveTo(525, 35)
+  ctx.quadraticCurveTo(650, 50, 740, 160)
   ctx.stroke()
 }
 

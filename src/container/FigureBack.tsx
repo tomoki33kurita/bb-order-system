@@ -8,7 +8,7 @@ import {
   thumbInLine1,
   thumbInLine2,
 } from 'src/container/canvasFunctions/thumb'
-import { littleOutLine, littleInLineBottom, littEdgeLine1, littEdgeLine2, littleInLine } from 'src/container/canvasFunctions/little'
+import { littleOutLine, littleInLineBottom, littEdgeLine1, littEdgeLine2, littEdgeLine3, littleInLine } from 'src/container/canvasFunctions/little'
 import { littleTopLeftLine, littleTopInLine, littleTopOutLine } from 'src/container/canvasFunctions/littleTop'
 import { web } from 'src/container/canvasFunctions/web'
 import { leatherStrap } from 'src/container/canvasFunctions/leatherStrap'
@@ -54,6 +54,7 @@ const FigureBack: React.FC = () => {
     littleOutLine(ctx)
     littEdgeLine1(ctx)
     littEdgeLine2(ctx)
+    littEdgeLine3(ctx)
     littleInLine(ctx)
     littleInLineBottom(ctx)
     // 小指芯先端
