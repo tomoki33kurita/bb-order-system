@@ -21,7 +21,7 @@ import {
 } from 'src/container/canvasFunctions/catchingSurface'
 import { hingeUnderLine } from 'src/container/canvasFunctions/hinge'
 
-const FigureBack: React.FC = () => {
+const FigureFront: React.FC = () => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
@@ -69,4 +69,4 @@ const FigureBack: React.FC = () => {
   return <canvas width="1120" height="620" id="canvas"></canvas>
 }
 
-export default FigureBack
+export default FigureFront

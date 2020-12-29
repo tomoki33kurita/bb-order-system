@@ -3,7 +3,7 @@ import { Box, AppBar, Tabs, Tab, Button } from '@material-ui/core'
 import TabPanel from 'src/components/molecules/TabPanel'
 import { State } from 'src/types'
 import PdfDialog from 'src/container/PdfDialog'
-import FigureBack from 'src/container/FigureBack'
+import FigureFront from 'src/container/FigureFront'
 
 export const a11yProps = (index: number): any => {
   return {
@@ -29,7 +29,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
     <Box position="sticky" top={0}>
       <PdfDialog state={state} open={open} handleClose={handleClose} />
       <TabPanel value={value} index={0}>
-        <FigureBack />
+        <FigureFront />
         {/* <img src="/mitt_back.jpg" alt="catchersMitt_back" height={400} /> */}
       </TabPanel>
       <TabPanel value={value} index={1}>
