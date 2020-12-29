@@ -2,8 +2,8 @@
 export const littleInLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(700, 200)
-  ctx.quadraticCurveTo(725, 300, 650, 420)
+  ctx.moveTo(680, 200)
+  ctx.quadraticCurveTo(705, 300, 630, 420)
   ctx.stroke()
 }
 
@@ -11,8 +11,8 @@ export const littleInLine = (ctx: CanvasRenderingContext2D): void => {
 export const littleInLineBottom = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(650, 420)
-  ctx.quadraticCurveTo(660, 470, 690, 520)
+  ctx.moveTo(630, 420)
+  ctx.quadraticCurveTo(640, 470, 670, 520)
   ctx.stroke()
 }
 
@@ -20,8 +20,8 @@ export const littleInLineBottom = (ctx: CanvasRenderingContext2D): void => {
 export const littEdgeLine1 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(780, 160)
-  ctx.quadraticCurveTo(840, 370, 700, 515)
+  ctx.moveTo(760, 160)
+  ctx.quadraticCurveTo(820, 370, 680, 515)
   ctx.stroke()
 }
 
@@ -29,8 +29,8 @@ export const littEdgeLine1 = (ctx: CanvasRenderingContext2D): void => {
 export const littEdgeLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(800, 140)
-  ctx.quadraticCurveTo(780, 150, 780, 170)
+  ctx.moveTo(780, 140)
+  ctx.quadraticCurveTo(760, 150, 760, 170)
   ctx.stroke()
 }
 
@@ -38,8 +38,8 @@ export const littEdgeLine2 = (ctx: CanvasRenderingContext2D): void => {
 export const littleOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(800, 140)
+  ctx.moveTo(780, 140)
   // ctx.lineTo(750, 500)
-  ctx.quadraticCurveTo(900, 360, 750, 500)
+  ctx.quadraticCurveTo(880, 360, 730, 500)
   ctx.stroke()
 }

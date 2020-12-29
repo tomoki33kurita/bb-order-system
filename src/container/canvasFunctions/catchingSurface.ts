@@ -2,8 +2,8 @@
 export const underWebTopLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(355, 180)
-  ctx.lineTo(550, 125)
+  ctx.moveTo(335, 180)
+  ctx.lineTo(530, 125)
   ctx.closePath()
   ctx.stroke()
 }
@@ -12,8 +12,8 @@ export const underWebTopLine = (ctx: CanvasRenderingContext2D): void => {
 export const underWebLeftLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(355, 180)
-  ctx.lineTo(368, 220)
+  ctx.moveTo(335, 180)
+  ctx.lineTo(348, 220)
   ctx.closePath()
   ctx.stroke()
 }
@@ -22,8 +22,8 @@ export const underWebLeftLine = (ctx: CanvasRenderingContext2D): void => {
 export const underWebLeftLeftLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(368, 220)
-  ctx.lineTo(330, 180)
+  ctx.moveTo(348, 220)
+  ctx.lineTo(310, 180)
   ctx.closePath()
   ctx.stroke()
 }
@@ -32,8 +32,8 @@ export const underWebLeftLeftLine = (ctx: CanvasRenderingContext2D): void => {
 export const underWebRightLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(550, 125)
-  ctx.lineTo(565, 175)
+  ctx.moveTo(530, 125)
+  ctx.lineTo(545, 175)
   ctx.closePath()
   ctx.stroke()
 }
@@ -42,8 +42,8 @@ export const underWebRightLine = (ctx: CanvasRenderingContext2D): void => {
 export const underWebRightRightLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(580, 120)
-  ctx.lineTo(565, 175)
+  ctx.moveTo(560, 120)
+  ctx.lineTo(545, 175)
   ctx.closePath()
   ctx.stroke()
 }

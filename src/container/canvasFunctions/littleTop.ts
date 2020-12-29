@@ -2,9 +2,8 @@
 export const littleTopLeftLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(580, 10)
-  // ctx.lineTo(580, 120)
-  ctx.quadraticCurveTo(540, 50, 580, 120)
+  ctx.moveTo(560, 10)
+  ctx.quadraticCurveTo(520, 50, 560, 120)
   ctx.stroke()
 }
 
@@ -12,9 +11,8 @@ export const littleTopLeftLine = (ctx: CanvasRenderingContext2D): void => {
 export const littleTopOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(580, 10)
-  // ctx.lineTo(800, 150)
-  ctx.quadraticCurveTo(700, 20, 800, 140)
+  ctx.moveTo(560, 10)
+  ctx.quadraticCurveTo(680, 20, 780, 140)
   ctx.stroke()
 }
 
@@ -22,8 +20,7 @@ export const littleTopOutLine = (ctx: CanvasRenderingContext2D): void => {
 export const littleTopInLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.lineWidth = 5
-  ctx.moveTo(580, 120)
-  // ctx.lineTo(700, 200)
-  ctx.quadraticCurveTo(650, 150, 700, 200)
+  ctx.moveTo(560, 120)
+  ctx.quadraticCurveTo(630, 150, 680, 200)
   ctx.stroke()
 }
