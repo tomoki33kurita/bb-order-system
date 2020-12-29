@@ -2,7 +2,8 @@ import React from 'react'
 import { Box, AppBar, Tabs, Tab, Button } from '@material-ui/core'
 import TabPanel from 'src/components/molecules/TabPanel'
 import { State } from 'src/types'
-import PdfDialog from './PdfDialog'
+import PdfDialog from 'src/container/PdfDialog'
+import FigureBack from 'src/container/FigureBack'
 
 export const a11yProps = (index: number): any => {
   return {
@@ -28,10 +29,11 @@ const FigureFields: React.FC<Props> = ({ state }) => {
     <Box position="sticky" top={0}>
       <PdfDialog state={state} open={open} handleClose={handleClose} />
       <TabPanel value={value} index={0}>
-        <img src="/mitt_front.jpg" alt="catchersMitt_front" height={400} />
+        <FigureBack />
+        {/* <img src="/mitt_back.jpg" alt="catchersMitt_back" height={400} /> */}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <img src="/mitt_back.jpg" alt="catchersMitt_back" height={400} />
+        <img src="/mitt_front.jpg" alt="catchersMitt_front" height={400} />
       </TabPanel>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
