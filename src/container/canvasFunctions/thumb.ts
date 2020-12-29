@@ -50,6 +50,6 @@ export const thumbInLine1 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbInLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(465, 505)
-  ctx.quadraticCurveTo(470, 520, 500, 585)
+  ctx.quadraticCurveTo(470, 520, 500, 588)
   ctx.stroke()
 }

@@ -1,5 +1,6 @@
 export const web = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
+  ctx.lineWidth = 2
   ctx.rotate((75 / 180) * Math.PI)
   ctx.rect(170, -445, 90, 200)
   ctx.rect(140, -470, 30, 250)

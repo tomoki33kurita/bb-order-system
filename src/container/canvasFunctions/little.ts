@@ -18,7 +18,7 @@ export const littleInLineBottom = (ctx: CanvasRenderingContext2D): void => {
 export const littEdgeLine1 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(730, 180)
-  ctx.quadraticCurveTo(790, 390, 650, 535)
+  ctx.quadraticCurveTo(790, 390, 650, 537)
   ctx.stroke()
 }
 

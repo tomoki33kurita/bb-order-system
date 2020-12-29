@@ -11,6 +11,7 @@ import {
 import { littleOutLine, littleInLineBottom, littEdgeLine1, littEdgeLine2, littleInLine } from 'src/container/canvasFunctions/little'
 import { littleTopLeftLine, littleTopInLine, littleTopOutLine } from 'src/container/canvasFunctions/littleTop'
 import { web } from 'src/container/canvasFunctions/web'
+import { leatherStrap } from 'src/container/canvasFunctions/leatherStrap'
 import {
   underWebTopLine,
   underWebLeftLine,
@@ -59,6 +60,8 @@ const FigureBack: React.FC = () => {
     littleTopLeftLine(ctx)
     littleTopOutLine(ctx)
     littleTopInLine(ctx)
+    // 革紐
+    leatherStrap(ctx)
     // ウェブ
     web(ctx)
   }, [])
