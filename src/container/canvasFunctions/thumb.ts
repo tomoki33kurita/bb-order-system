@@ -1,27 +1,3 @@
-// 親指上部右
-export const thumbTopInLine = (ctx: CanvasRenderingContext2D): void => {
-  ctx.beginPath()
-  ctx.moveTo(225, 120)
-  ctx.quadraticCurveTo(270, 145, 275, 170)
-  ctx.stroke()
-}
-
-// 親指内側1
-export const thumbInLine1 = (ctx: CanvasRenderingContext2D): void => {
-  ctx.beginPath()
-  ctx.moveTo(275, 170)
-  ctx.quadraticCurveTo(300, 370, 470, 510)
-  ctx.stroke()
-}
-
-// 親指内側2
-export const thumbInLine2 = (ctx: CanvasRenderingContext2D): void => {
-  ctx.beginPath()
-  ctx.moveTo(470, 510)
-  ctx.quadraticCurveTo(490, 560, 505, 605)
-  ctx.stroke()
-}
-
 // 親指マチ部分
 export const thumbMachi = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 2

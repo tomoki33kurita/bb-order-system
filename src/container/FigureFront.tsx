@@ -1,6 +1,6 @@
 import React from 'react'
 import { thumbMachi, thumbTarget } from 'src/container/canvasFunctions/thumb'
-import { littleOutLine, littleInLineBottom, littEdgeLine1, littEdgeLine2, littEdgeLine3 } from 'src/container/canvasFunctions/little'
+import { littleMachi, littleInLineBottom } from 'src/container/canvasFunctions/little'
 import { littleTopLeftLine, littleTopOutLine } from 'src/container/canvasFunctions/littleTop'
 import { web, webTop } from 'src/container/canvasFunctions/web'
 import {
@@ -38,12 +38,6 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor }) => {
     // underWebLeftLeftLine(ctx)
     // underWebRightLine(ctx)
     // underWebRightRightLine(ctx)
-    // // 小指芯
-    // littleOutLine(ctx)
-    // littEdgeLine1(ctx)
-    // littEdgeLine2(ctx)
-    // littEdgeLine3(ctx)
-    // littleInLineBottom(ctx)
     // // 小指芯先端
     // littleTopLeftLine(ctx)
     // littleTopOutLine(ctx)
@@ -52,7 +46,13 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor }) => {
     // 親指マチ部分
     thumbMachi(ctx, webColor)
     thumbTarget(ctx, webColor)
-    // // ウェブ
+
+    // 小指マチ部分
+    littleMachi(ctx, webColor)
+    // 小指芯内側_土手横
+    littleInLineBottom(ctx)
+
+    // ウェブ
     web(ctx, webColor)
     webTop(ctx, webColor)
     // 革紐
