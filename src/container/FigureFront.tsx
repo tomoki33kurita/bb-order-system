@@ -16,12 +16,6 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor }
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
-    const csWidth = canvas.width
-    const csHeight = canvas.height
-    const center = {
-      x: csWidth / 2,
-      y: csHeight / 2,
-    }
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
 
