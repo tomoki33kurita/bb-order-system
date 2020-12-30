@@ -1,7 +1,8 @@
 //革紐
-export const leatherStrap = (ctx: CanvasRenderingContext2D): void => {
+export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.beginPath()
   ctx.lineWidth = 10
+  ctx.strokeStyle = color
   // 土手三本紐
   ctx.moveTo(485, 510)
   ctx.lineTo(510, 570)
@@ -52,7 +53,7 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D): void => {
   ctx.moveTo(458, 20)
   ctx.lineTo(455, 60)
   ctx.moveTo(478, 15)
-  ctx.lineTo(475, 55)
+  ctx.lineTo(475, 53)
   ctx.moveTo(478, 15)
   ctx.lineTo(485, 50)
 
@@ -149,7 +150,7 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D): void => {
   ctx.lineTo(765, 312)
   ctx.moveTo(787, 330)
   ctx.lineTo(760, 363)
-  ctx.moveTo(780, 385)
+  ctx.moveTo(783, 389)
   ctx.lineTo(755, 407)
   ctx.moveTo(755, 402)
   ctx.lineTo(770, 438)
