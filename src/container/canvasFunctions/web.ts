@@ -2,7 +2,6 @@ export const web = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 2
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
-
   ctx.beginPath()
   // // ウェブ上線
   ctx.moveTo(285, 103)

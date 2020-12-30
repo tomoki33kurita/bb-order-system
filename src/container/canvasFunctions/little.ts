@@ -1,10 +1,10 @@
 // 小指内側
-export const littleInLine = (ctx: CanvasRenderingContext2D): void => {
-  ctx.beginPath()
-  ctx.moveTo(650, 220)
-  ctx.quadraticCurveTo(675, 320, 600, 440)
-  ctx.stroke()
-}
+// export const littleInLine = (ctx: CanvasRenderingContext2D): void => {
+//   ctx.beginPath()
+//   ctx.moveTo(650, 220)
+//   ctx.quadraticCurveTo(675, 320, 600, 440)
+//   ctx.stroke()
+// }
 
 // 小指内側_土手横
 export const littleInLineBottom = (ctx: CanvasRenderingContext2D): void => {

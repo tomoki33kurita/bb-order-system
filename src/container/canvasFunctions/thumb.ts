@@ -1,7 +1,7 @@
 // 親指上部左
 export const thumbTopOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
-  ctx.moveTo(165, 155)
+  ctx.moveTo(175, 133)
   ctx.quadraticCurveTo(180, 125, 225, 120)
   ctx.stroke()
 }
@@ -20,8 +20,8 @@ export const thumbOutLine = (ctx: CanvasRenderingContext2D): void => {
   ctx.moveTo(165, 155)
   ctx.quadraticCurveTo(180, 530, 470, 610)
   // 親指ヘリ革
-  ctx.moveTo(175, 142)
-  ctx.quadraticCurveTo(190, 530, 470, 600)
+  // ctx.moveTo(175, 142)
+  // ctx.quadraticCurveTo(190, 530, 470, 600)
   ctx.stroke()
 }
 
@@ -53,6 +53,6 @@ export const thumbInLine1 = (ctx: CanvasRenderingContext2D): void => {
 export const thumbInLine2 = (ctx: CanvasRenderingContext2D): void => {
   ctx.beginPath()
   ctx.moveTo(470, 510)
-  ctx.quadraticCurveTo(490, 560, 505, 595)
+  ctx.quadraticCurveTo(490, 560, 505, 605)
   ctx.stroke()
 }
