@@ -18,7 +18,6 @@ export const thumbMachi = (ctx: CanvasRenderingContext2D, color: string): void =
 // 親指ターゲット部分
 export const thumbTarget = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 2
-  ctx.strokeStyle = '#red'
   ctx.fillStyle = color
 
   ctx.beginPath()
