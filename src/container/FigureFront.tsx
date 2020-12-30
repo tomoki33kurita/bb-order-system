@@ -16,15 +16,11 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor }
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
-    const csWidth = canvas.width
-    const csHeight = canvas.height
-    const center = {
-      x: csWidth / 2,
-      y: csHeight / 2,
-    }
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
 
+    // ウェブ下捕球面
+    catchSurface(ctx, webColor)
     // ヘリ革
     edgeLeather(ctx, edgeColor)
     // 親指マチ部分
@@ -35,8 +31,6 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor }
     // ウェブ
     web(ctx, webColor)
     webTop(ctx, webColor)
-    // ウェブ下捕球面
-    catchSurface(ctx, webColor)
     littleInLineBottom(ctx)
     // 革紐
     leatherStrap(ctx, leatherStrapColor)
