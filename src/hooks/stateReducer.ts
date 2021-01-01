@@ -45,8 +45,8 @@ export const initialState: State = {
   mittDepth: { label: '基本モデルズバリ', value: 'default' },
   backStyle: { label: 'シェラームーブ', value: 'shellarmove' },
   padModel: { label: 'Aバッド', value: 'A_pad' },
-  leatherColor: { label: 'ブラック', value: 'black', color: '#000' },
-  edgeColor: { label: 'ブラック', value: 'black', color: '#000' },
+  leatherColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
+  edgeColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   targetSet: { label: '不要', value: 'none' },
   leatherString: { label: 'ブラック', value: 'black', color: '#000' },
   leatherHardness: { label: '普通', value: 'normal' },
@@ -62,7 +62,7 @@ export const initialState: State = {
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
-  stitchColor: { label: 'ブラック', value: 'black', color: '#000' },
+  stitchColor: { label: 'レッド', value: 'red', color: '#EE0000' },
   embroideries: [initialEmbroState],
 }
 
