@@ -29,7 +29,12 @@ const FigureFields: React.FC<Props> = ({ state }) => {
     <Box position="sticky" top={0}>
       <PdfDialog state={state} open={open} handleClose={handleClose} />
       <TabPanel value={value} index={0}>
-        <FigureFront leatherStrapColor={state.leatherString.color} webColor={state.leatherColor.color} edgeColor={state.edgeColor.color} />
+        <FigureFront
+          leatherStrapColor={state.leatherString.color}
+          webColor={state.leatherColor.color}
+          edgeColor={state.edgeColor.color}
+          stitchColor={state.stitchColor.color}
+        />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <img src="/mitt_front.jpg" alt="catchersMitt_front" height={400} />

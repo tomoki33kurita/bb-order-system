@@ -62,7 +62,7 @@ export const initialState: State = {
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
-  stitchColor: { label: 'ブラック', value: 'black', color: '#000' },
+  stitchColor: { label: 'レッド', value: 'red', color: '#EE0000' },
   embroideries: [initialEmbroState],
 }
 
