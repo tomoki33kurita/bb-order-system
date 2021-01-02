@@ -1,4 +1,4 @@
-export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
+export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor: string | undefined): void => {
   ctx.lineWidth = 2
   ctx.strokeStyle = color
 
@@ -75,6 +75,26 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.moveTo(178, 130)
   ctx.quadraticCurveTo(175, 315, 264, 455)
   ctx.quadraticCurveTo(337, 570, 502, 598)
+
+  if (targetColor) {
+    // 親指ターゲット＿ステッチ
+    ctx.moveTo(240, 138)
+    ctx.quadraticCurveTo(275, 490, 472, 555)
+    ctx.lineTo(457, 512)
+    ctx.quadraticCurveTo(300, 400, 268, 180)
+    ctx.quadraticCurveTo(240, 140, 240, 138)
+
+    // 小指ターゲット＿ステッチ
+    ctx.moveTo(530, 45)
+    ctx.quadraticCurveTo(510, 60, 520, 52)
+    ctx.quadraticCurveTo(520, 70, 540, 70)
+    ctx.quadraticCurveTo(628, 90, 728, 180)
+
+    ctx.moveTo(530, 60)
+    ctx.quadraticCurveTo(520, 70, 540, 65)
+    ctx.quadraticCurveTo(628, 80, 728, 175)
+  }
+
   ctx.stroke()
   ctx.setLineDash([])
   ctx.closePath()
