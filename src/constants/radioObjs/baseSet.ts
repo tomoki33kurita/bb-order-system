@@ -49,8 +49,8 @@ export const thicknessObjs = [
 ]
 
 export const hamidashiTypeObjs = [
-  { label: '切りハミ(ホワイト)', value: 'kirihami_white' },
-  { label: '切りハミ(ブラック)', value: 'kirihami_black' },
+  { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
+  { label: '切りハミ(ブラック)', value: 'kirihami_black', color: '#000' },
   { label: 'ハミダシなし', value: 'no_hamidashi' },
 ]
 
