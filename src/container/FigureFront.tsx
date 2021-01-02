@@ -7,6 +7,7 @@ import { leatherStrap } from 'src/container/canvasFunctions/leatherStrap'
 import { edgeLeather } from 'src/container/canvasFunctions/edge'
 import { stitch } from 'src/container/canvasFunctions/stitch'
 import { targetArrange } from 'src/container/canvasFunctions/target'
+import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
 
 type Props = {
   leatherStrapColor: string
@@ -14,9 +15,10 @@ type Props = {
   edgeColor: string
   stitchColor: string
   targetColor: string | undefined
+  cutSurfaceColor: string | undefined
 }
 
-const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor, stitchColor, targetColor }) => {
+const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor, stitchColor, targetColor, cutSurfaceColor }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
@@ -40,11 +42,17 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor, 
       // ターゲット加工
       targetArrange(ctx, targetColor)
     }
+    if (cutSurfaceColor) {
+      // 親指芯＿キリハミ
+      thumbCutSurface(ctx, cutSurfaceColor)
+      // 小指芯＿キリハミ
+      littleCutSurface(ctx, cutSurfaceColor)
+    }
     // ステッチカラー
     stitch(ctx, stitchColor, targetColor)
     // 革紐
     leatherStrap(ctx, leatherStrapColor)
-  }, [leatherStrapColor, webColor, edgeColor, stitchColor, targetColor])
+  }, [leatherStrapColor, webColor, edgeColor, stitchColor, targetColor, cutSurfaceColor])
 
   return (
     <>

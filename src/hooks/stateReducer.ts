@@ -54,7 +54,7 @@ export const initialState: State = {
   coreMaterialThickness: { label: '普通', value: 'normal' },
   liningsType: { label: '和牛革(ブラック)', value: 'wagyu_black', color: '#000' },
   // liningsLeatherColor: '',
-  hamidashiType: { label: '切りハミ(ホワイト)', value: 'kirihami_white' },
+  hamidashiType: { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
   fingerGuardType: { label: 'スタンダード', value: 'standard_finger_guard' },
   zabutonSponge: { label: '有り', value: 'zabuton' },
   exFunction: { label: '有り', value: 'ex_func' },
