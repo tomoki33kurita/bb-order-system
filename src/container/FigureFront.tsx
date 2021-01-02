@@ -6,6 +6,7 @@ import { catchSurface } from 'src/container/canvasFunctions/catchingSurface'
 import { leatherStrap } from 'src/container/canvasFunctions/leatherStrap'
 import { edgeLeather } from 'src/container/canvasFunctions/edge'
 import { stitch } from 'src/container/canvasFunctions/stitch'
+import { targetArrange } from 'src/container/canvasFunctions/target'
 
 type Props = {
   leatherStrapColor: string
@@ -34,6 +35,8 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor, 
     web(ctx, webColor)
     webTop(ctx, webColor)
     littleInLineBottom(ctx)
+    // ターゲット加工
+    targetArrange(ctx, 'pink')
     // ステッチカラー
     stitch(ctx, stitchColor)
     // 革紐

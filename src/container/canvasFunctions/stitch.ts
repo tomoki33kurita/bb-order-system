@@ -75,6 +75,14 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.moveTo(178, 130)
   ctx.quadraticCurveTo(175, 315, 264, 455)
   ctx.quadraticCurveTo(337, 570, 502, 598)
+
+  // 親指ターゲット＿ステッチ
+  ctx.moveTo(240, 138)
+  ctx.quadraticCurveTo(275, 490, 472, 555)
+  ctx.lineTo(457, 512)
+  ctx.quadraticCurveTo(300, 400, 268, 180)
+  ctx.quadraticCurveTo(240, 140, 240, 138)
+
   ctx.stroke()
   ctx.setLineDash([])
   ctx.closePath()
