@@ -5,10 +5,10 @@ export const thumbCutSurface = (ctx: CanvasRenderingContext2D, color: string): v
   ctx.beginPath()
   // 親指芯キリハミ左回り
   ctx.moveTo(221, 120)
-  ctx.quadraticCurveTo(257, 460, 411, 540)
+  ctx.quadraticCurveTo(257, 460, 411, 542)
   ctx.quadraticCurveTo(427, 550, 465, 595)
   ctx.quadraticCurveTo(477, 597, 473, 595)
-  ctx.quadraticCurveTo(433, 545, 409, 530)
+  ctx.quadraticCurveTo(433, 545, 409, 533)
   ctx.quadraticCurveTo(265, 455, 228, 123)
   ctx.fill()
   ctx.stroke()
