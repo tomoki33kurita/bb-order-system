@@ -4,11 +4,11 @@ export const littleMachi = (ctx: CanvasRenderingContext2D, color: string): void 
   ctx.fillStyle = color
 
   ctx.beginPath()
-  ctx.moveTo(725, 150)
+  ctx.moveTo(723, 154)
   ctx.quadraticCurveTo(730, 170, 730, 180)
   ctx.quadraticCurveTo(790, 390, 655, 510)
   ctx.quadraticCurveTo(645, 520, 650, 557)
-  ctx.quadraticCurveTo(865, 400, 725, 150)
+  ctx.quadraticCurveTo(858, 405, 723, 154)
 
   ctx.fill()
   ctx.stroke()

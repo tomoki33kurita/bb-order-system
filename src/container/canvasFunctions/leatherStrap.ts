@@ -84,23 +84,23 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
 
   // ウェブと親指芯
   ctx.moveTo(205, 125)
-  ctx.quadraticCurveTo(220, 93, 254, 95)
-  ctx.moveTo(289, 120)
+  ctx.quadraticCurveTo(205, 95, 240, 95)
+  ctx.moveTo(272, 120)
   ctx.quadraticCurveTo(260, 120, 242, 130)
-  ctx.moveTo(295, 140)
+  ctx.moveTo(280, 140)
   ctx.quadraticCurveTo(270, 142, 260, 150)
-  ctx.moveTo(303, 167)
-  ctx.quadraticCurveTo(290, 168, 277, 175)
+  ctx.moveTo(289, 167)
+  ctx.quadraticCurveTo(277, 167, 282, 175)
 
   // ウェブと小指芯先端
-  ctx.moveTo(490, 25)
-  ctx.quadraticCurveTo(525, 30, 525, 40)
-  ctx.moveTo(475, 70)
-  ctx.quadraticCurveTo(490, 65, 508, 65)
-  ctx.moveTo(482, 95)
-  ctx.quadraticCurveTo(495, 85, 508, 87)
-  ctx.moveTo(487, 120)
-  ctx.quadraticCurveTo(505, 107, 515, 110)
+  ctx.moveTo(500, 25)
+  ctx.quadraticCurveTo(525, 22, 525, 33)
+  ctx.moveTo(486, 70)
+  ctx.quadraticCurveTo(506, 65, 506, 65)
+  ctx.moveTo(492, 90)
+  ctx.quadraticCurveTo(508, 87, 508, 87)
+  ctx.moveTo(498, 115)
+  ctx.quadraticCurveTo(515, 110, 515, 110)
 
   // ウェブ下捕球面と親指下捕球面
   ctx.moveTo(298, 222)

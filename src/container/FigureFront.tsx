@@ -35,8 +35,8 @@ const FigureFront: React.FC<Props> = ({ leatherStrapColor, webColor, edgeColor, 
     // 小指マチ部分
     littleMachi(ctx, webColor)
     // ウェブ
-    web(ctx, webColor)
     webTop(ctx, webColor)
+    web(ctx, webColor)
     littleInLineBottom(ctx)
     if (targetColor) {
       // ターゲット加工
