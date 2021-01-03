@@ -14,11 +14,12 @@ type Props = {
   index?: number
   selectedLabel?: string
   selectedColor?: string
+  disabled?: boolean
   handleChange?: (event: React.ChangeEvent<HTMLInputElement>, i: number) => void
 }
 
-const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor, defaultValue, objects, index, handleChange }) => (
-  <Accordion style={{ marginBottom: '8px' }}>
+const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor, defaultValue, objects, index, disabled, handleChange }) => (
+  <Accordion style={{ marginBottom: '8px' }} disabled={disabled}>
     <AccordionSummary
       expandIcon={
         <Fab size="small" tabIndex={-1} style={{ boxShadow: 'unset' }}>

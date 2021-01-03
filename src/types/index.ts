@@ -38,6 +38,8 @@ export type State = {
   listLiningsMaterial: stateObj
   stitchColor: stateObj
   webColor: stateObj
+  thumbMachiColor: stateObj
+  littleMachiColor: stateObj
   embroideries: Embroidery[]
 }
 

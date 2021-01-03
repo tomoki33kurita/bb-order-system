@@ -37,6 +37,8 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           stitchColor={state.stitchColor.color}
           targetColor={state.targetSet.color}
           cutSurfaceColor={state.hamidashiType.color}
+          thumbMachiColor={state.thumbMachiColor.color}
+          littleMachiColor={state.littleMachiColor.color}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
