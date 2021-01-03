@@ -17,11 +17,11 @@ export const targetArrange = (ctx: CanvasRenderingContext2D, color: string): voi
   ctx.quadraticCurveTo(510, 60, 518, 52)
 
   // 小指マチ部分
-  ctx.moveTo(725, 150)
+  ctx.moveTo(720, 153)
   ctx.quadraticCurveTo(730, 170, 730, 180)
   ctx.quadraticCurveTo(790, 390, 655, 510)
   ctx.quadraticCurveTo(645, 520, 650, 557)
-  ctx.quadraticCurveTo(865, 400, 725, 150)
+  ctx.quadraticCurveTo(857, 410, 720, 153)
 
   ctx.stroke()
   ctx.fill()

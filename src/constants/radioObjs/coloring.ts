@@ -5,7 +5,7 @@ export const leatherStringColorObjs = [
   { label: 'ブラック', value: 'black', color: '#000' },
   { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   { label: 'Vオレンジ', value: 'v_orange', color: '#ff4500' },
-  { label: 'Jブルー', value: 'j_blue', color: '#0000DD' },
+  { label: 'Jブルー', value: 'j_blue', color: '#005380' },
   { label: 'レッド', value: 'red', color: '#EE0000' },
   { label: 'ホワイト', value: 'white', color: '#fff' },
 ]
@@ -21,7 +21,7 @@ export const liningsTypeObjs = [
   { label: '共牛革(ブラック)', value: 'cow_black', color: '#000' },
   { label: '共牛革(Jイエロー)', value: 'cow_j_yellow', color: '#ffd700' },
   { label: '共牛革(Vオレンジ)', value: 'cow_v_orange', color: '#ff4500' },
-  { label: '共牛革(Jブルー)', value: 'cow_j_blue', color: '#0000DD' },
+  { label: '共牛革(Jブルー)', value: 'cow_j_blue', color: '#005380' },
   { label: '共牛革(レッド)', value: 'cow_red', color: '#EE0000' },
   { label: '共牛革(ホワイト)', value: 'cow_white', color: '#fff' },
   { label: '共牛革(Vブラック)', value: 'cow_v_black', color: '#525151' },
@@ -33,7 +33,7 @@ export const liningsTypeObjs = [
 export const stitchColorObjs = [
   { label: 'イエロー', value: 'j_yellow', color: '#ffd700' },
   { label: 'ブラック', value: 'black', color: '#000' },
-  { label: 'ブルー', value: 'j_blue', color: '#0000DD' },
+  { label: 'ブルー', value: 'j_blue', color: '#002bff' },
   { label: 'レッド', value: 'red', color: '#EE0000' },
   { label: 'ホワイト', value: 'white', color: '#fff' },
   { label: 'ブラウン', value: 'brown', color: '#CC6600' },
