@@ -142,26 +142,44 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
               カラー・デザイン項目
             </Box>
             <Box ml={1}>
-              (15) 本体カラー：
-              <Box component="span" fontWeight="bold">
+              (15) 捕球面カラー：
+              <Box component="span" fontWeight="bold" color={state.leatherColor.color === '#fff' ? 'black' : state.leatherColor.color}>
                 {state.leatherColor.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (16) 革紐カラー：
-              <Box component="span" fontWeight="bold">
-                {state.leatherString.label}
+              (15) ウェブカラー：
+              <Box component="span" fontWeight="bold" color={state.webColor.color === '#fff' ? 'black' : state.webColor.color}>
+                {state.webColor.label}
+              </Box>
+            </Box>
+            <Box ml={1}>
+              (15) 親指マチカラー：
+              <Box component="span" fontWeight="bold" color={state.thumbMachiColor.color === '#fff' ? 'black' : state.thumbMachiColor.color}>
+                {state.thumbMachiColor.label}
+              </Box>
+            </Box>
+            <Box ml={1}>
+              (15) 小指マチカラー：
+              <Box component="span" fontWeight="bold" color={state.littleMachiColor.color === '#fff' ? 'black' : state.littleMachiColor.color}>
+                {state.littleMachiColor.label}
               </Box>
             </Box>
             <Box ml={1}>
               (17) ヘリ革カラー：
-              <Box component="span" fontWeight="bold">
+              <Box component="span" fontWeight="bold" color={state.edgeColor.color === '#fff' ? 'black' : state.edgeColor.color}>
                 {state.edgeColor.label}
               </Box>
             </Box>
             <Box ml={1}>
+              (16) 革紐カラー：
+              <Box component="span" fontWeight="bold" color={state.leatherString.color === '#fff' ? 'black' : state.leatherString.color}>
+                {state.leatherString.label}
+              </Box>
+            </Box>
+            <Box ml={1}>
               (18) ターゲット加工：
-              <Box component="span" fontWeight="bold">
+              <Box component="span" fontWeight="bold" color={state.targetSet.color === '#fff' ? 'black' : state.targetSet.color}>
                 {state.targetSet.label}
               </Box>
             </Box>
@@ -173,7 +191,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
             </Box>
             <Box ml={1}>
               (20) ステッチカラー：
-              <Box component="span" fontWeight="bold">
+              <Box component="span" fontWeight="bold" color={state.stitchColor.color === '#fff' ? 'black' : state.stitchColor.color}>
                 {state.stitchColor.label}
               </Box>
             </Box>

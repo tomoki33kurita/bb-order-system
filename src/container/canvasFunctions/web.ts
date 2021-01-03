@@ -26,7 +26,7 @@ export const webTop = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.fillStyle = color
   ctx.beginPath()
   // ウェブ先端上線左
-  ctx.moveTo(237, 80)
+  ctx.moveTo(235, 80)
   // ウェブ先端上線右
   ctx.lineTo(497, 10)
   // ウェブ先端右線下
@@ -34,7 +34,7 @@ export const webTop = (ctx: CanvasRenderingContext2D, color: string): void => {
   // 下線右側左
   ctx.lineTo(245, 113)
   // 左線上
-  ctx.lineTo(237, 80)
+  ctx.lineTo(235, 80)
   ctx.closePath()
   ctx.fill()
   ctx.stroke()

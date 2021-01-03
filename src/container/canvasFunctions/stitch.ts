@@ -63,7 +63,7 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
 
   // 小指芯先端から小指マチの開始地点まで
   ctx.moveTo(530, 45)
-  ctx.quadraticCurveTo(643, 52, 722, 158)
+  ctx.quadraticCurveTo(643, 52, 723, 158)
 
   // 小指マチ部分
   ctx.quadraticCurveTo(851, 405, 650, 553)

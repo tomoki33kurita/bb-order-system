@@ -75,7 +75,7 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
   return (
     <TabPanel value={value} index={1}>
       <AccordionRadio
-        summary={'本体カラー'}
+        summary={'捕球面カラー'}
         selectedLabel={leatherColor.label}
         selectedColor={leatherColor.color}
         defaultValue={leatherColor.value}
