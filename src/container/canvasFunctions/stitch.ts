@@ -77,12 +77,12 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
 
   if (targetColor) {
     // 親指ターゲット＿ステッチ
-    ctx.moveTo(240, 138)
-    ctx.quadraticCurveTo(265, 450, 432, 540)
+    ctx.moveTo(237, 138)
+    ctx.quadraticCurveTo(270, 450, 432, 540)
     ctx.quadraticCurveTo(470, 561, 477, 565)
     ctx.lineTo(457, 512)
     ctx.quadraticCurveTo(300, 400, 268, 180)
-    ctx.quadraticCurveTo(240, 140, 240, 138)
+    ctx.quadraticCurveTo(240, 140, 237, 138)
 
     // 小指ターゲット＿ステッチ
     ctx.moveTo(530, 45)

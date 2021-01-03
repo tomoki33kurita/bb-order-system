@@ -8,6 +8,7 @@ import {
   liningsTypeObjs,
   leatherStringColorObjs,
   hatakeyamaLabelObjs,
+  hamidashiTypeObjs,
   stitchColorObjs,
   targetSetObjs,
 } from 'src/constants/radioObjs/coloring'
@@ -19,6 +20,8 @@ import {
   SET_LABEL,
   SET_STITCH_COLOR,
   SET_TARGET_SET,
+  SET_HAMIDASHI_TYPE,
+  SET_WEB_COLOR,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -28,7 +31,7 @@ type Props = {
 }
 
 const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
-  const { leatherColor, edgeColor, targetSet, leatherString, liningsType, hatakeyamaLabel, stitchColor } = state
+  const { leatherColor, edgeColor, targetSet, leatherString, liningsType, hatakeyamaLabel, stitchColor, hamidashiType } = state
 
   const handle = {
     leatherColor: (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -46,6 +49,10 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
       dispatch({ type: SET_LININGS_TYPE, liningsType: liningsTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
     stitchColor: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_STITCH_COLOR, stitchColor: stitchColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    hamidashiType: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_HAMIDASHI_TYPE, hamidashiType: hamidashiTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    webColor: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_WEB_COLOR, webColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
   }
   return (
     <TabPanel value={value} index={1}>
@@ -56,6 +63,14 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         defaultValue={leatherColor.value}
         objects={leatherColorObjs}
         handleChange={handle.leatherColor}
+      />
+      <AccordionRadio
+        summary={'ウェブカラー'}
+        selectedLabel={leatherColor.label}
+        selectedColor={leatherColor.color}
+        defaultValue={leatherColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.webColor}
       />
       <AccordionRadio
         summary={'革紐'}
@@ -96,6 +111,14 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         objects={hatakeyamaLabelObjs}
         handleChange={handle.label}
       />
+      <AccordionRadio
+        summary={'ハミダシ'}
+        selectedLabel={hamidashiType.label}
+        defaultValue={hamidashiType.value}
+        objects={hamidashiTypeObjs}
+        handleChange={handle.hamidashiType}
+      />
+
       {/* キャビティライン加工の項目作る */}
       <AccordionRadio
         summary={'ステッチカラー'}
