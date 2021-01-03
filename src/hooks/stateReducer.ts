@@ -64,7 +64,7 @@ export const initialState: State = {
   pinkiePattern: { label: '有り', value: 'pinkie_pattern' },
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
-  listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
+  listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white', color: '#fff' },
   stitchColor: { label: 'レッド', value: 'red', color: '#EE0000' },
   webColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   littleMachiColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },

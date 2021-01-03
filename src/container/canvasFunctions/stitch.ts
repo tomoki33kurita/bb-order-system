@@ -66,13 +66,15 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
   ctx.quadraticCurveTo(643, 52, 723, 158)
 
   // 小指マチ部分
-  ctx.quadraticCurveTo(851, 405, 650, 553)
+  ctx.quadraticCurveTo(851, 405, 650, 555)
   // ヘリ革＿土手内
-  ctx.quadraticCurveTo(575, 598, 504, 598)
+  ctx.quadraticCurveTo(545, 598, 504, 598)
 
   // 親指芯ヘリ革内側部分
-  ctx.moveTo(178, 130)
-  ctx.quadraticCurveTo(183, 320, 263, 455)
+  ctx.moveTo(195, 133)
+  ctx.quadraticCurveTo(178, 140, 183, 160)
+
+  ctx.quadraticCurveTo(180, 320, 263, 455)
   ctx.quadraticCurveTo(350, 577, 504, 599)
 
   if (targetColor) {
@@ -85,14 +87,13 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
     ctx.quadraticCurveTo(240, 140, 237, 138)
 
     // 小指ターゲット＿ステッチ
-    ctx.moveTo(530, 45)
-    ctx.quadraticCurveTo(510, 60, 520, 52)
-    ctx.quadraticCurveTo(520, 70, 540, 70)
-    ctx.quadraticCurveTo(628, 90, 728, 180)
+    ctx.moveTo(533, 55)
+    ctx.quadraticCurveTo(525, 52, 530, 52)
+    ctx.quadraticCurveTo(628, 65, 718, 175)
 
     ctx.moveTo(530, 60)
-    ctx.quadraticCurveTo(520, 70, 540, 65)
-    ctx.quadraticCurveTo(628, 80, 728, 175)
+    ctx.quadraticCurveTo(540, 60, 540, 60)
+    ctx.quadraticCurveTo(628, 85, 718, 175)
   }
 
   ctx.stroke()
