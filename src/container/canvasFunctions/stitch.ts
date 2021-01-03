@@ -6,21 +6,21 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
   ctx.beginPath()
   ctx.setLineDash([5, 5])
   // 一段目
-  ctx.moveTo(292, 108)
-  ctx.lineTo(467, 62)
-  ctx.moveTo(294, 112)
-  ctx.lineTo(469, 66)
+  ctx.moveTo(275, 116)
+  ctx.lineTo(483, 59)
+  ctx.moveTo(277, 120)
+  ctx.lineTo(481, 64)
   // 二段目
-  ctx.moveTo(298, 132)
-  ctx.lineTo(475, 86)
-  ctx.moveTo(298, 137)
-  ctx.lineTo(478, 90)
+  ctx.moveTo(284, 138)
+  ctx.lineTo(485, 83)
+  ctx.moveTo(286, 142)
+  ctx.lineTo(486, 88)
 
   // 三段目
-  ctx.moveTo(307, 156)
-  ctx.lineTo(478, 113)
-  ctx.moveTo(309, 160)
-  ctx.lineTo(486, 115)
+  ctx.moveTo(292, 164)
+  ctx.lineTo(492, 108)
+  ctx.moveTo(294, 168)
+  ctx.lineTo(494, 112)
 
   // 捕球面の半円
   ctx.moveTo(300, 235)
@@ -63,18 +63,17 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
 
   // 小指芯先端から小指マチの開始地点まで
   ctx.moveTo(530, 45)
-  ctx.quadraticCurveTo(640, 55, 727, 158)
+  ctx.quadraticCurveTo(643, 52, 722, 158)
 
   // 小指マチ部分
-  ctx.moveTo(727, 158)
-  ctx.quadraticCurveTo(855, 410, 650, 553)
+  ctx.quadraticCurveTo(851, 405, 650, 553)
   // ヘリ革＿土手内
-  ctx.quadraticCurveTo(575, 598, 502, 598)
+  ctx.quadraticCurveTo(575, 598, 504, 598)
 
   // 親指芯ヘリ革内側部分
   ctx.moveTo(178, 130)
-  ctx.quadraticCurveTo(175, 315, 264, 455)
-  ctx.quadraticCurveTo(337, 570, 502, 598)
+  ctx.quadraticCurveTo(183, 320, 263, 455)
+  ctx.quadraticCurveTo(350, 577, 504, 599)
 
   if (targetColor) {
     // 親指ターゲット＿ステッチ
