@@ -19,6 +19,7 @@ type Props = {
   stitchColor: string
   targetColor: string | undefined
   cutSurfaceColor: string | undefined
+  moutonColor: string
 }
 
 const FigureFront: React.FC<Props> = ({
@@ -31,6 +32,7 @@ const FigureFront: React.FC<Props> = ({
   stitchColor,
   targetColor,
   cutSurfaceColor,
+  moutonColor,
 }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
@@ -41,7 +43,7 @@ const FigureFront: React.FC<Props> = ({
     // ウェブ下捕球面
     catchSurface(ctx, leatherColor)
     // ヘリ革
-    edgeLeather(ctx, edgeColor)
+    edgeLeather(ctx, edgeColor, moutonColor)
     // 親指マチ部分
     thumbMachi(ctx, thumbMachiColor)
     thumbTarget(ctx, leatherColor)
@@ -65,11 +67,22 @@ const FigureFront: React.FC<Props> = ({
     stitch(ctx, stitchColor, targetColor)
     // 革紐
     leatherStrap(ctx, leatherStrapColor)
-  }, [leatherColor, leatherStrapColor, webColor, thumbMachiColor, littleMachiColor, edgeColor, stitchColor, targetColor, cutSurfaceColor])
+  }, [
+    leatherColor,
+    leatherStrapColor,
+    webColor,
+    thumbMachiColor,
+    littleMachiColor,
+    edgeColor,
+    stitchColor,
+    targetColor,
+    cutSurfaceColor,
+    moutonColor,
+  ])
 
   return (
     <>
-      <canvas width="1120" height="620" id="canvas"></canvas>
+      <canvas width="1120" height="652" id="canvas"></canvas>
       {/* <LeatherStrap color={leatherStrapColor} /> */}
     </>
   )

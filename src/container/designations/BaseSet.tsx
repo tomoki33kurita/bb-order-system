@@ -16,7 +16,6 @@ import {
   exFunctionObjs,
   pinkiePatternObjs,
   tbEngravedObjs,
-  listLiningsMaterialObjs,
 } from 'src/constants/radioObjs/baseSet'
 import {
   SET_BASE_MODEL,
@@ -91,11 +90,11 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
       dispatch({ type: SET_PINKIE_PATTERN, pinkiePattern: pinkiePatternObjs.filter((prev) => prev.value === event.target.value)[0] }),
     tbEngraved: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_TB_ENGRAVED, tbEngraved: tbEngravedObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    listLiningsMaterial: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({
-        type: SET_LIST_LININGS_MATERIAL,
-        listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === event.target.value)[0],
-      }),
+    // listLiningsMaterial: (event: React.ChangeEvent<HTMLInputElement>) =>
+    //   dispatch({
+    //     type: SET_LIST_LININGS_MATERIAL,
+    //     listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === event.target.value)[0],
+    //   }),
   }
 
   return (
@@ -199,13 +198,13 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
         objects={tbEngravedObjs}
         handleChange={handle.tbEngraved}
       />
-      <AccordionRadio
+      {/* <AccordionRadio
         summary={'手首裏部の素材'}
         selectedLabel={listLiningsMaterial.label}
         defaultValue={listLiningsMaterial.value}
         objects={listLiningsMaterialObjs}
         handleChange={handle.listLiningsMaterial}
-      />
+      /> */}
     </TabPanel>
   )
 }

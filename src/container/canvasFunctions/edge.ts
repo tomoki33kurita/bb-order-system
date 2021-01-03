@@ -1,14 +1,43 @@
-export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string): void => {
+export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string, moutonColor: string): void => {
   ctx.lineWidth = 2
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
 
+  // 手口部分のヘリ革
+  ctx.beginPath()
+  ctx.moveTo(350, 565)
+  ctx.quadraticCurveTo(350, 563, 370, 600)
+  ctx.quadraticCurveTo(455, 645, 547, 625)
+  ctx.quadraticCurveTo(610, 600, 630, 577) // 外側一番右
+  ctx.quadraticCurveTo(600, 590, 620, 580) // 内側一番右
+  ctx.quadraticCurveTo(550, 615, 540, 617) // 土手下内側
+  ctx.quadraticCurveTo(450, 630, 382, 595)
+  ctx.quadraticCurveTo(375, 585, 370, 574)
+  ctx.quadraticCurveTo(350, 565, 350, 565)
+  ctx.fill()
+  ctx.stroke()
+  ctx.closePath()
+
+  //手入れ口＿ムートン部分
+  ctx.beginPath()
+  ctx.moveTo(370, 574)
+  ctx.quadraticCurveTo(375, 585, 382, 595)
+  ctx.quadraticCurveTo(450, 630, 540, 617)
+  ctx.quadraticCurveTo(620, 585, 620, 580) // 内側一番右
+  ctx.quadraticCurveTo(495, 640, 370, 574) // 内側一番右
+  ctx.fillStyle = moutonColor
+  ctx.fill()
+  ctx.stroke()
+  ctx.fillStyle = color
+  ctx.closePath()
+
   // ヘリ革＿親指外
   ctx.beginPath()
-  ctx.moveTo(170, 155)
-  ctx.quadraticCurveTo(188, 535, 476, 605)
+  ctx.moveTo(195, 128)
+  ctx.quadraticCurveTo(170, 140, 170, 160)
+  ctx.quadraticCurveTo(180, 530, 460, 605)
   // ヘリ革＿土手外
-  ctx.quadraticCurveTo(550, 618, 655, 560)
+  ctx.quadraticCurveTo(550, 618, 655, 565)
 
   // ヘリ革＿小指外
   ctx.quadraticCurveTo(873, 410, 727, 142)
@@ -26,37 +55,38 @@ export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string): void 
   ctx.quadraticCurveTo(650, 50, 724, 154)
 
   // // ヘリ革＿小指内
-  ctx.quadraticCurveTo(850, 420, 650, 557)
+  ctx.quadraticCurveTo(850, 420, 645, 560)
 
   // // ヘリ革＿土手内
-  ctx.quadraticCurveTo(575, 600, 500, 602)
+  ctx.quadraticCurveTo(580, 590, 500, 602)
 
   // // ヘリ革＿親指内
-  ctx.quadraticCurveTo(345, 500, 262, 455)
-  ctx.quadraticCurveTo(175, 325, 175, 142)
-  ctx.quadraticCurveTo(178, 115, 170, 155)
+  ctx.quadraticCurveTo(320, 560, 262, 455)
+  ctx.quadraticCurveTo(170, 300, 180, 150)
+  ctx.quadraticCurveTo(200, 120, 200, 122)
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
 
   // 外ヘリ革＿親指
   ctx.beginPath()
-  ctx.moveTo(175, 128)
-  ctx.quadraticCurveTo(164, 158, 164, 158)
-  ctx.quadraticCurveTo(185, 548, 476, 605)
-  ctx.quadraticCurveTo(185, 535, 170, 155)
+  ctx.moveTo(195, 128)
+  ctx.quadraticCurveTo(165, 140, 165, 168)
+  ctx.quadraticCurveTo(165, 548, 476, 607)
+  ctx.quadraticCurveTo(170, 535, 171, 155)
+  ctx.quadraticCurveTo(190, 120, 195, 130)
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
 
   // 外ヘリ革＿土手
-  ctx.beginPath()
-  ctx.moveTo(480, 605)
-  ctx.quadraticCurveTo(588, 615, 650, 564)
-  ctx.quadraticCurveTo(565, 613, 480, 605)
-  ctx.stroke()
-  ctx.fill()
-  ctx.closePath()
+  // ctx.beginPath()
+  // ctx.moveTo(480, 605)
+  // ctx.quadraticCurveTo(588, 615, 650, 564)
+  // ctx.quadraticCurveTo(565, 613, 480, 605)
+  // ctx.stroke()
+  // ctx.fill()
+  // ctx.closePath()
 
   //親指寄り捕球面のヘリ革
   ctx.beginPath()

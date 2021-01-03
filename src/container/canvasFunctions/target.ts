@@ -10,19 +10,19 @@ export const targetArrange = (ctx: CanvasRenderingContext2D, color: string): voi
   ctx.quadraticCurveTo(310, 400, 273, 180)
   ctx.quadraticCurveTo(250, 140, 232, 130)
 
-  // 小指芯＿ターゲット
-  ctx.moveTo(530, 45)
-  ctx.quadraticCurveTo(640, 55, 727, 158)
-  ctx.quadraticCurveTo(728, 170, 728, 180)
-  ctx.quadraticCurveTo(580, 70, 535, 75)
-  ctx.quadraticCurveTo(510, 60, 518, 52)
+  // 小指先端芯＿ターゲット
+  ctx.moveTo(527, 45)
+  ctx.quadraticCurveTo(650, 42, 727, 165)
+  ctx.quadraticCurveTo(728, 170, 718, 180)
+  ctx.quadraticCurveTo(590, 60, 535, 65)
+  ctx.quadraticCurveTo(510, 60, 527, 45)
 
   // 小指マチ部分
-  ctx.moveTo(720, 153)
-  ctx.quadraticCurveTo(730, 170, 730, 180)
-  ctx.quadraticCurveTo(790, 390, 655, 510)
+  ctx.moveTo(727, 165)
+  ctx.quadraticCurveTo(718, 180, 720, 193)
+  ctx.quadraticCurveTo(780, 390, 655, 510)
   ctx.quadraticCurveTo(645, 520, 650, 557)
-  ctx.quadraticCurveTo(857, 410, 720, 153)
+  ctx.quadraticCurveTo(854, 400, 727, 165)
 
   ctx.stroke()
   ctx.fill()
