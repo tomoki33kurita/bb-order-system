@@ -59,3 +59,9 @@ export const hamidashiTypeObjs = [
   { label: '切りハミ(ブラック)', value: 'kirihami_black', color: '#000' },
   { label: 'ハミダシなし', value: 'no_hamidashi' },
 ]
+
+export const listLiningsMaterialObjs = [
+  { label: 'ムートン(ホワイト)', value: 'mouton_white', color: '#fff' },
+  { label: 'ムートン(ブラック)', value: 'mouton_black', color: '#000' },
+  { label: 'ウルトラスエード(パッド)', value: 'ultra_suède', color: '#ddd' },
+]

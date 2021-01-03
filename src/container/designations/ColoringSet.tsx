@@ -11,6 +11,7 @@ import {
   hamidashiTypeObjs,
   stitchColorObjs,
   targetSetObjs,
+  listLiningsMaterialObjs,
 } from 'src/constants/radioObjs/coloring'
 import {
   SET_LEATHER_COLOR,
@@ -24,6 +25,7 @@ import {
   SET_WEB_COLOR,
   SET_THUMB_MACHI_COLOR,
   SET_LITTLE_MACHI_COLOR,
+  SET_LIST_LININGS_MATERIAL,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -45,6 +47,7 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
     webColor,
     thumbMachiColor,
     littleMachiColor,
+    listLiningsMaterial,
   } = state
 
   const handle = {
@@ -71,6 +74,11 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
       dispatch({ type: SET_THUMB_MACHI_COLOR, thumbMachiColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
     littleMachiColor: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_LITTLE_MACHI_COLOR, littleMachiColor: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
+    listLiningsMaterial: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({
+        type: SET_LIST_LININGS_MATERIAL,
+        listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === event.target.value)[0],
+      }),
   }
   return (
     <TabPanel value={value} index={1}>
@@ -125,6 +133,15 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         handleChange={handle.leatherString}
       />
       <AccordionRadio
+        summary={'ステッチカラー'}
+        selectedLabel={stitchColor.label}
+        selectedColor={stitchColor.color}
+        defaultValue={stitchColor.value}
+        objects={stitchColorObjs}
+        handleChange={handle.stitchColor}
+      />
+
+      <AccordionRadio
         summary={'ターゲット加工'}
         selectedLabel={targetSet.label}
         selectedColor={targetSet.color}
@@ -132,6 +149,15 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         objects={targetSetObjs}
         handleChange={handle.targetSet}
       />
+      <AccordionRadio
+        summary={'手首裏部の素材'}
+        selectedLabel={listLiningsMaterial.label}
+        selectedColor={listLiningsMaterial.color}
+        defaultValue={listLiningsMaterial.value}
+        objects={listLiningsMaterialObjs}
+        handleChange={handle.listLiningsMaterial}
+      />
+
       <AccordionRadio
         summary={'裏革カラー'}
         selectedLabel={liningsType.label}
@@ -141,29 +167,21 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         handleChange={handle.liningsType}
       />
       <AccordionRadio
-        summary={'ラベル'}
-        selectedLabel={hatakeyamaLabel.label}
-        defaultValue={hatakeyamaLabel.value}
-        objects={hatakeyamaLabelObjs}
-        handleChange={handle.label}
-      />
-      <AccordionRadio
         summary={'ハミダシ'}
         selectedLabel={hamidashiType.label}
         defaultValue={hamidashiType.value}
         objects={hamidashiTypeObjs}
         handleChange={handle.hamidashiType}
       />
+      <AccordionRadio
+        summary={'ラベル'}
+        selectedLabel={hatakeyamaLabel.label}
+        defaultValue={hatakeyamaLabel.value}
+        objects={hatakeyamaLabelObjs}
+        handleChange={handle.label}
+      />
 
       {/* キャビティライン加工の項目作る */}
-      <AccordionRadio
-        summary={'ステッチカラー'}
-        selectedLabel={stitchColor.label}
-        selectedColor={stitchColor.color}
-        defaultValue={stitchColor.value}
-        objects={stitchColorObjs}
-        handleChange={handle.stitchColor}
-      />
     </TabPanel>
   )
 }

@@ -1,4 +1,4 @@
-export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string): void => {
+export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string, moutonColor: string): void => {
   ctx.lineWidth = 2
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
@@ -9,13 +9,26 @@ export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string): void 
   ctx.quadraticCurveTo(350, 563, 370, 600)
   ctx.quadraticCurveTo(455, 645, 547, 625)
   ctx.quadraticCurveTo(610, 600, 630, 577) // 外側一番右
-  ctx.quadraticCurveTo(625, 590, 620, 580) // 内側一番右
-  ctx.quadraticCurveTo(540, 615, 540, 617) // 土手下内側
-  ctx.quadraticCurveTo(450, 630, 386, 595)
-  ctx.quadraticCurveTo(380, 585, 375, 577)
+  ctx.quadraticCurveTo(600, 590, 620, 580) // 内側一番右
+  ctx.quadraticCurveTo(550, 615, 540, 617) // 土手下内側
+  ctx.quadraticCurveTo(450, 630, 382, 595)
+  ctx.quadraticCurveTo(375, 585, 370, 574)
   ctx.quadraticCurveTo(350, 565, 350, 565)
   ctx.fill()
   ctx.stroke()
+  ctx.closePath()
+
+  //手入れ口＿ムートン部分
+  ctx.beginPath()
+  ctx.moveTo(370, 574)
+  ctx.quadraticCurveTo(375, 585, 382, 595)
+  ctx.quadraticCurveTo(450, 630, 540, 617)
+  ctx.quadraticCurveTo(620, 585, 620, 580) // 内側一番右
+  ctx.quadraticCurveTo(495, 640, 370, 574) // 内側一番右
+  ctx.fillStyle = moutonColor
+  ctx.fill()
+  ctx.stroke()
+  ctx.fillStyle = color
   ctx.closePath()
 
   // ヘリ革＿親指外

@@ -73,9 +73,3 @@ export const tbEngravedObjs = [
   { label: '有り', value: 'tb_engraved' },
   { label: '無し', value: 'no_tb_engraved' },
 ]
-
-export const listLiningsMaterialObjs = [
-  { label: 'ムートン(ホワイト)', value: 'mouton_white' },
-  { label: 'ムートン(ブラック)', value: 'mouton_black' },
-  { label: 'ウルトラスエード(パッド)', value: 'ultra_suède' },
-]
