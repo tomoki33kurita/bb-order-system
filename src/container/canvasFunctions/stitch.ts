@@ -71,8 +71,10 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
   ctx.quadraticCurveTo(575, 598, 504, 598)
 
   // 親指芯ヘリ革内側部分
-  ctx.moveTo(178, 130)
-  ctx.quadraticCurveTo(183, 320, 263, 455)
+  ctx.moveTo(195, 133)
+  ctx.quadraticCurveTo(178, 140, 183, 160)
+
+  ctx.quadraticCurveTo(180, 320, 263, 455)
   ctx.quadraticCurveTo(350, 577, 504, 599)
 
   if (targetColor) {

@@ -47,8 +47,9 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.quadraticCurveTo(622, 370, 620, 390)
 
   // ウェブ先端(左から昇順)
-  ctx.moveTo(265, 70)
-  ctx.lineTo(275, 105)
+  ctx.moveTo(252, 72)
+  ctx.lineTo(262, 110)
+
   ctx.moveTo(278, 65)
   ctx.lineTo(275, 105)
   ctx.moveTo(298, 60)
