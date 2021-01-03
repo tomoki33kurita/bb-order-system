@@ -20,15 +20,15 @@ export const littleCutSurface = (ctx: CanvasRenderingContext2D, color: string): 
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()
-  ctx.moveTo(718, 153)
-  ctx.quadraticCurveTo(726, 170, 725, 181)
-  ctx.quadraticCurveTo(786, 390, 649, 511)
+  ctx.moveTo(723, 154)
+  ctx.quadraticCurveTo(710, 170, 715, 190)
+  ctx.quadraticCurveTo(780, 370, 655, 510)
   ctx.quadraticCurveTo(644, 521, 646, 555)
-  ctx.quadraticCurveTo(651, 560, 653, 553)
-  ctx.quadraticCurveTo(649, 534, 656, 515)
-  ctx.quadraticCurveTo(793, 389, 733, 180)
-  ctx.quadraticCurveTo(729, 164, 727, 164)
-  ctx.quadraticCurveTo(720, 145, 718, 153)
+  ctx.quadraticCurveTo(651, 560, 653, 550)
+  ctx.quadraticCurveTo(649, 534, 658, 517)
+  ctx.quadraticCurveTo(790, 375, 720, 185)
+  ctx.quadraticCurveTo(720, 163, 727, 163)
+  // ctx.quadraticCurveTo(720, 145, 718, 153)
 
   ctx.fill()
   ctx.stroke()
