@@ -5,23 +5,23 @@ export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string): void 
 
   // ヘリ革＿親指外
   ctx.beginPath()
-  ctx.moveTo(165, 155)
-  ctx.quadraticCurveTo(180, 530, 470, 610)
+  ctx.moveTo(170, 155)
+  ctx.quadraticCurveTo(188, 535, 476, 605)
   // ヘリ革＿土手外
-  ctx.quadraticCurveTo(560, 620, 660, 563)
+  ctx.quadraticCurveTo(550, 618, 655, 560)
 
   // ヘリ革＿小指外
-  ctx.quadraticCurveTo(871, 405, 735, 150)
+  ctx.quadraticCurveTo(873, 410, 727, 142)
 
   // ヘリ革＿小指先端外
-  ctx.quadraticCurveTo(640, 25, 525, 30)
+  ctx.quadraticCurveTo(640, 30, 525, 35)
   ctx.quadraticCurveTo(485, 52, 530, 140)
   ctx.lineTo(515, 195)
   ctx.lineTo(520, 200)
   ctx.lineTo(540, 140)
 
   // // ヘリ革＿小指先端内
-  ctx.quadraticCurveTo(495, 45, 530, 42)
+  ctx.quadraticCurveTo(495, 50, 530, 42)
   // ctx.quadraticCurveTo(650, 50, 737, 172)
   ctx.quadraticCurveTo(650, 50, 724, 154)
 
@@ -34,7 +34,26 @@ export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string): void 
   // // ヘリ革＿親指内
   ctx.quadraticCurveTo(345, 500, 262, 455)
   ctx.quadraticCurveTo(175, 325, 175, 142)
-  ctx.quadraticCurveTo(178, 115, 165, 155)
+  ctx.quadraticCurveTo(178, 115, 170, 155)
+  ctx.stroke()
+  ctx.fill()
+  ctx.closePath()
+
+  // 外ヘリ革＿親指
+  ctx.beginPath()
+  ctx.moveTo(175, 128)
+  ctx.quadraticCurveTo(164, 158, 164, 158)
+  ctx.quadraticCurveTo(185, 548, 476, 605)
+  ctx.quadraticCurveTo(185, 535, 170, 155)
+  ctx.stroke()
+  ctx.fill()
+  ctx.closePath()
+
+  // 外ヘリ革＿土手
+  ctx.beginPath()
+  ctx.moveTo(480, 605)
+  ctx.quadraticCurveTo(588, 615, 650, 564)
+  ctx.quadraticCurveTo(565, 613, 480, 605)
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
