@@ -48,12 +48,6 @@ export const thicknessObjs = [
   { label: '薄く', value: 'thin' },
 ]
 
-export const hamidashiTypeObjs = [
-  { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
-  { label: '切りハミ(ブラック)', value: 'kirihami_black', color: '#000' },
-  { label: 'ハミダシなし', value: 'no_hamidashi' },
-]
-
 export const fingerGuardTypeObjs = [
   { label: 'スタンダード', value: 'standard_finger_guard' },
   { label: 'ロング', value: 'long_finger_guard' },

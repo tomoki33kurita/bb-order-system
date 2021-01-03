@@ -37,6 +37,9 @@ export type State = {
   tbEngraved: stateObj
   listLiningsMaterial: stateObj
   stitchColor: stateObj
+  webColor: stateObj
+  thumbMachiColor: stateObj
+  littleMachiColor: stateObj
   embroideries: Embroidery[]
 }
 

@@ -11,7 +11,6 @@ import {
   padModleObjs,
   hardnessObjs,
   thicknessObjs,
-  hamidashiTypeObjs,
   fingerGuardTypeObjs,
   zabutonSpongeObjs,
   exFunctionObjs,
@@ -29,8 +28,6 @@ import {
   SET_LEATHER_HARDNESS,
   SET_CORE_MATERIAL_HARDNESS,
   SET_CORE_MATERIAL_THICKNESS,
-  // SET_LININGS_LEATHER_COLOR,
-  SET_HAMIDASHI_TYPE,
   SET_FINGER_GUARD_TYPE,
   SET_ZABUTON_SPONGE,
   SET_EX_FUNCTION,
@@ -57,7 +54,6 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
     coreMaterialHardness,
     coreMaterialThickness,
     // liningsLeatherColor,
-    hamidashiType,
     fingerGuardType,
     zabutonSponge,
     exFunction,
@@ -85,10 +81,6 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
       dispatch({ type: SET_CORE_MATERIAL_HARDNESS, coreMaterialHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
     coreMaterialThickness: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_CORE_MATERIAL_THICKNESS, coreMaterialThickness: thicknessObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    // liningsLeatherColor: (event: React.ChangeEvent<HTMLInputElement>) =>
-    //   dispatch({ type: SET_LININGS_LEATHER_COLOR, liningsLeatherColor: baseModelObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    hamidashiType: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_HAMIDASHI_TYPE, hamidashiType: hamidashiTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
     fingerGuardType: (event: React.ChangeEvent<HTMLInputElement>) =>
       dispatch({ type: SET_FINGER_GUARD_TYPE, fingerGuardType: fingerGuardTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
     zabutonSponge: (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -171,13 +163,7 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
         objects={thicknessObjs}
         handleChange={handle.coreMaterialThickness}
       />
-      <AccordionRadio
-        summary={'ハミダシ'}
-        selectedLabel={hamidashiType.label}
-        defaultValue={hamidashiType.value}
-        objects={hamidashiTypeObjs}
-        handleChange={handle.hamidashiType}
-      />
+
       <AccordionRadio
         summary={'指カバー'}
         selectedLabel={fingerGuardType.label}

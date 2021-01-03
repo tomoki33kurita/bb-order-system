@@ -53,3 +53,9 @@ export const hatakeyamaLabelObjs = [
   { label: 'シリコンS5', value: 'silicon_5' },
   { label: 'シリコンS6', value: 'silicon_6' },
 ]
+
+export const hamidashiTypeObjs = [
+  { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
+  { label: '切りハミ(ブラック)', value: 'kirihami_black', color: '#000' },
+  { label: 'ハミダシなし', value: 'no_hamidashi' },
+]

@@ -25,6 +25,9 @@ export const SET_TARGET_SET = 'setTargetSet'
 export const SET_LININGS_LEATHER_COLOR = 'setLiningsLeatherColor'
 export const SET_STITCH_COLOR = 'setStitchColor'
 export const SET_LABEL = 'setLabel'
+export const SET_WEB_COLOR = 'setWebColor'
+export const SET_THUMB_MACHI_COLOR = 'setThumbMachiColor'
+export const SET_LITTLE_MACHI_COLOR = 'setLittleMachiColor'
 
 // EMBROIDERY
 export const SET_EMBROIDERY_TYPE_FACE = 'setEmbroideryTypeFace'

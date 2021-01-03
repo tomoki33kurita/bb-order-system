@@ -27,6 +27,9 @@ import {
   SET_EMBROIDERIES,
   ADD_EMBROIDERY,
   REMOVE_EMBROIDERY,
+  SET_WEB_COLOR,
+  SET_THUMB_MACHI_COLOR,
+  SET_LITTLE_MACHI_COLOR,
 } from 'src/constants/ActionTypes'
 
 export const initialEmbroState = {
@@ -63,6 +66,9 @@ export const initialState: State = {
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white' },
   stitchColor: { label: 'レッド', value: 'red', color: '#EE0000' },
+  webColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
+  littleMachiColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
+  thumbMachiColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   embroideries: [initialEmbroState],
 }
 
@@ -84,6 +90,12 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, leatherColor: action.leatherColor }
     case SET_EDGE_COLOR:
       return { ...state, edgeColor: action.edgeColor }
+    case SET_WEB_COLOR:
+      return { ...state, webColor: action.webColor }
+    case SET_THUMB_MACHI_COLOR:
+      return { ...state, thumbMachiColor: action.thumbMachiColor }
+    case SET_LITTLE_MACHI_COLOR:
+      return { ...state, littleMachiColor: action.littleMachiColor }
     case SET_TARGET_SET:
       return { ...state, targetSet: action.targetSet }
     case SET_LEATHER_HARDNESS:
