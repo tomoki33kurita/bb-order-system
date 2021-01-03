@@ -66,9 +66,9 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string, targetColor
   ctx.quadraticCurveTo(643, 52, 723, 158)
 
   // 小指マチ部分
-  ctx.quadraticCurveTo(851, 405, 650, 553)
+  ctx.quadraticCurveTo(851, 405, 650, 555)
   // ヘリ革＿土手内
-  ctx.quadraticCurveTo(575, 598, 504, 598)
+  ctx.quadraticCurveTo(545, 598, 504, 598)
 
   // 親指芯ヘリ革内側部分
   ctx.moveTo(195, 133)
