@@ -1,5 +1,5 @@
 import React from 'react'
-import { thumbMachi, thumbTarget } from 'src/container/canvasFunctions/thumb'
+import { thumbMachi, thumbTarget, thumbHookLeather } from 'src/container/canvasFunctions/thumb'
 import { littleMachi, littleInLineBottom } from 'src/container/canvasFunctions/little'
 import { web, webTop } from 'src/container/canvasFunctions/web'
 import { catchSurface } from 'src/container/canvasFunctions/catchingSurface'
@@ -20,6 +20,7 @@ type Props = {
   targetColor: string | undefined
   cutSurfaceColor: string | undefined
   moutonColor: string
+  thumbHookColor: string
 }
 
 const FigureFront: React.FC<Props> = ({
@@ -33,6 +34,7 @@ const FigureFront: React.FC<Props> = ({
   targetColor,
   cutSurfaceColor,
   moutonColor,
+  thumbHookColor,
 }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
@@ -67,6 +69,7 @@ const FigureFront: React.FC<Props> = ({
     stitch(ctx, stitchColor, targetColor)
     // 革紐
     leatherStrap(ctx, leatherStrapColor)
+    thumbHookLeather(ctx, thumbHookColor)
   }, [
     leatherColor,
     leatherStrapColor,
@@ -78,6 +81,7 @@ const FigureFront: React.FC<Props> = ({
     targetColor,
     cutSurfaceColor,
     moutonColor,
+    thumbHookColor,
   ])
 
   return (

@@ -40,6 +40,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           thumbMachiColor={state.thumbMachiColor.color}
           littleMachiColor={state.littleMachiColor.color}
           moutonColor={state.listLiningsMaterial.color}
+          thumbHookColor={state.thumbHook.color}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>

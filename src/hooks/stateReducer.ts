@@ -30,6 +30,7 @@ import {
   SET_WEB_COLOR,
   SET_THUMB_MACHI_COLOR,
   SET_LITTLE_MACHI_COLOR,
+  SET_THUMB_HOOK,
 } from 'src/constants/ActionTypes'
 
 export const initialEmbroState = {
@@ -69,6 +70,7 @@ export const initialState: State = {
   webColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   littleMachiColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   thumbMachiColor: { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
+  thumbHook: { label: 'レッド', value: 'red', color: 'red' },
   embroideries: [initialEmbroState],
 }
 
@@ -134,6 +136,9 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, embroideries: action.embroideries }
     case REMOVE_EMBROIDERY:
       return { ...state, embroideries: action.embroideries }
+    case SET_THUMB_HOOK:
+      return { ...state, thumbHook: action.thumbHook }
+
     default:
       return state
   }
