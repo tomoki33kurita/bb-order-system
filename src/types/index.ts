@@ -40,6 +40,7 @@ export type State = {
   webColor: stateObj
   thumbMachiColor: stateObj
   littleMachiColor: stateObj
+  thumbHook: stateObj
   embroideries: Embroidery[]
 }
 

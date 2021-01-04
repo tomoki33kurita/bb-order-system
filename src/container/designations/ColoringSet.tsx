@@ -26,6 +26,7 @@ import {
   SET_THUMB_MACHI_COLOR,
   SET_LITTLE_MACHI_COLOR,
   SET_LIST_LININGS_MATERIAL,
+  SET_THUMB_HOOK,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -48,6 +49,7 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
     thumbMachiColor,
     littleMachiColor,
     listLiningsMaterial,
+    thumbHook,
   } = state
 
   const handle = {
@@ -79,6 +81,8 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         type: SET_LIST_LININGS_MATERIAL,
         listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === event.target.value)[0],
       }),
+    thumbHook: (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: SET_THUMB_HOOK, thumbHook: leatherColorObjs.filter((prev) => prev.value === event.target.value)[0] }),
   }
   return (
     <TabPanel value={value} index={1}>
@@ -123,6 +127,14 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         defaultValue={edgeColor.value}
         objects={leatherColorObjs}
         handleChange={handle.edgeColor}
+      />
+      <AccordionRadio
+        summary={'親指掛け紐カラー'}
+        selectedLabel={thumbHook.label}
+        selectedColor={thumbHook.color}
+        defaultValue={thumbHook.value}
+        objects={leatherColorObjs}
+        handleChange={handle.thumbHook}
       />
       <AccordionRadio
         summary={'革紐'}

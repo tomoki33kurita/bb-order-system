@@ -28,6 +28,7 @@ export const SET_LABEL = 'setLabel'
 export const SET_WEB_COLOR = 'setWebColor'
 export const SET_THUMB_MACHI_COLOR = 'setThumbMachiColor'
 export const SET_LITTLE_MACHI_COLOR = 'setLittleMachiColor'
+export const SET_THUMB_HOOK = 'setThumbHook'
 
 // EMBROIDERY
 export const SET_EMBROIDERY_TYPE_FACE = 'setEmbroideryTypeFace'
