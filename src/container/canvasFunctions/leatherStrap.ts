@@ -1,8 +1,9 @@
 //革紐
-export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void => {
+export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideColor: string): void => {
   ctx.beginPath()
-  ctx.lineWidth = 10
-  ctx.strokeStyle = color
+  ctx.lineWidth = 1
+  ctx.strokeStyle = '#383838'
+  ctx.fillStyle = color
   // 土手三本紐
   ctx.moveTo(485, 510)
   ctx.lineTo(510, 570)
@@ -126,35 +127,174 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.moveTo(502, 155)
   ctx.quadraticCurveTo(517, 150, 526, 155)
 
-  // 親指芯周り
-  ctx.moveTo(165, 155)
-  ctx.quadraticCurveTo(180, 154, 195, 160)
-  ctx.moveTo(166, 195)
-  ctx.quadraticCurveTo(180, 192, 196, 200)
-  ctx.moveTo(172, 235)
-  ctx.quadraticCurveTo(190, 235, 202, 240)
-  ctx.moveTo(178, 275)
-  ctx.quadraticCurveTo(195, 281, 207, 280)
-  ctx.moveTo(186, 310)
-  ctx.quadraticCurveTo(200, 315, 218, 315)
-  ctx.moveTo(197, 350)
-  ctx.lineTo(227, 355)
-  ctx.moveTo(216, 390)
-  ctx.lineTo(246, 395)
-  ctx.moveTo(235, 430)
-  ctx.lineTo(272, 435)
-  ctx.moveTo(261, 470)
-  ctx.lineTo(301, 473)
-  ctx.moveTo(290, 505)
-  ctx.lineTo(330, 507)
-  ctx.moveTo(320, 535)
-  ctx.lineTo(360, 535)
-  ctx.moveTo(353, 562)
-  ctx.lineTo(388, 560)
-  ctx.moveTo(394, 585)
-  ctx.lineTo(429, 575)
-  ctx.moveTo(450, 605)
-  ctx.lineTo(469, 585)
+  // 親指芯周り上から
+  ctx.moveTo(163, 157)
+  ctx.quadraticCurveTo(163, 165, 163, 165)
+  ctx.quadraticCurveTo(177, 158, 192, 170)
+  ctx.quadraticCurveTo(197, 167, 197, 167)
+  ctx.quadraticCurveTo(190, 150, 163, 157)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(163, 165)
+  ctx.quadraticCurveTo(165, 167, 165, 167)
+  ctx.quadraticCurveTo(177, 158, 192, 170)
+  ctx.closePath()
+
+  ctx.moveTo(163, 195)
+  ctx.quadraticCurveTo(163, 202, 164, 202)
+  ctx.quadraticCurveTo(177, 196, 192, 207)
+  ctx.quadraticCurveTo(198, 202, 196, 200)
+  ctx.quadraticCurveTo(174, 188, 166, 195)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(164, 202)
+  ctx.quadraticCurveTo(196, 207, 192, 207)
+  ctx.quadraticCurveTo(176, 202, 166, 202)
+  ctx.closePath()
+
+  ctx.moveTo(165, 235)
+  ctx.quadraticCurveTo(165, 235, 165, 242)
+  ctx.quadraticCurveTo(188, 238, 195, 245)
+  ctx.quadraticCurveTo(197, 240, 198, 238)
+  ctx.quadraticCurveTo(180, 225, 165, 235)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(165, 242)
+  ctx.quadraticCurveTo(195, 245, 195, 245)
+  ctx.quadraticCurveTo(195, 245, 165, 242)
+  ctx.closePath()
+
+  ctx.moveTo(173, 271)
+  ctx.quadraticCurveTo(167, 275, 171, 280)
+  ctx.quadraticCurveTo(192, 277, 202, 285)
+  ctx.quadraticCurveTo(205, 281, 203, 276)
+  ctx.quadraticCurveTo(193, 265, 173, 271)
+  ctx.closePath()
+  //側面
+  ctx.moveTo(173, 280)
+  ctx.quadraticCurveTo(190, 285, 202, 285)
+  ctx.quadraticCurveTo(192, 277, 173, 280)
+  ctx.closePath()
+
+  ctx.moveTo(176, 310)
+  ctx.quadraticCurveTo(176, 315, 177, 318)
+  ctx.quadraticCurveTo(203, 311, 208, 322)
+  ctx.quadraticCurveTo(212, 311, 205, 312)
+  ctx.quadraticCurveTo(192, 300, 176, 310)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(177, 318)
+  ctx.quadraticCurveTo(208, 320, 208, 322)
+  ctx.quadraticCurveTo(190, 315, 177, 318)
+  ctx.closePath()
+
+  ctx.moveTo(185, 348)
+  ctx.quadraticCurveTo(187, 355, 187, 358)
+  ctx.quadraticCurveTo(207, 352, 221, 362)
+  ctx.quadraticCurveTo(222, 354, 220, 352)
+  ctx.quadraticCurveTo(200, 341, 185, 348)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(187, 358)
+  ctx.quadraticCurveTo(207, 352, 221, 362)
+  ctx.quadraticCurveTo(187, 358, 187, 358)
+  ctx.closePath()
+
+  ctx.moveTo(200, 388)
+  ctx.quadraticCurveTo(197, 390, 202, 398)
+  ctx.quadraticCurveTo(216, 390, 235, 400)
+  ctx.quadraticCurveTo(237, 395, 233, 390)
+  ctx.quadraticCurveTo(215, 380, 200, 388)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(202, 398)
+  ctx.quadraticCurveTo(216, 390, 235, 400)
+  ctx.quadraticCurveTo(212, 399, 202, 398)
+  ctx.closePath()
+
+  ctx.moveTo(220, 432)
+  ctx.quadraticCurveTo(217, 430, 222, 440)
+  ctx.quadraticCurveTo(245, 433, 252, 442)
+  ctx.quadraticCurveTo(255, 435, 247, 432)
+  ctx.quadraticCurveTo(232, 425, 220, 432)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(222, 440)
+  ctx.quadraticCurveTo(245, 433, 252, 442)
+  ctx.quadraticCurveTo(238, 442, 222, 440)
+  ctx.closePath()
+
+  ctx.moveTo(241, 470)
+  ctx.quadraticCurveTo(244, 475, 250, 480)
+  ctx.quadraticCurveTo(265, 477, 278, 478)
+  ctx.quadraticCurveTo(280, 473, 274, 468)
+  ctx.quadraticCurveTo(261, 467, 241, 470)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(250, 480)
+  ctx.quadraticCurveTo(265, 477, 278, 478)
+  ctx.quadraticCurveTo(263, 482, 250, 480)
+  ctx.closePath()
+
+  ctx.moveTo(275, 508)
+  ctx.quadraticCurveTo(274, 513, 283, 518)
+  ctx.quadraticCurveTo(300, 520, 310, 507)
+  ctx.quadraticCurveTo(305, 500, 303, 502)
+  ctx.quadraticCurveTo(290, 512, 275, 508)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(275, 508)
+  ctx.quadraticCurveTo(290, 512, 303, 502)
+  ctx.quadraticCurveTo(290, 505, 275, 508)
+  ctx.closePath()
+
+  ctx.moveTo(312, 542)
+  ctx.quadraticCurveTo(315, 545, 322, 548)
+  ctx.quadraticCurveTo(337, 551, 347, 538)
+  ctx.quadraticCurveTo(340, 530, 337, 532)
+  ctx.quadraticCurveTo(340, 540, 312, 542)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(312, 542)
+  ctx.quadraticCurveTo(340, 540, 337, 532)
+  ctx.quadraticCurveTo(340, 532, 312, 542)
+  ctx.closePath()
+
+  ctx.moveTo(347, 565)
+  ctx.quadraticCurveTo(350, 567, 360, 570)
+  ctx.quadraticCurveTo(382, 567, 384, 563)
+  ctx.quadraticCurveTo(378, 557, 373, 557)
+  ctx.quadraticCurveTo(355, 564, 347, 565)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(347, 565)
+  ctx.quadraticCurveTo(357, 560, 373, 557)
+  ctx.quadraticCurveTo(357, 560, 347, 565)
+  ctx.closePath()
+
+  ctx.moveTo(390, 586)
+  ctx.quadraticCurveTo(390, 588, 407, 593)
+  ctx.quadraticCurveTo(425, 584, 430, 581)
+  ctx.quadraticCurveTo(418, 572, 415, 577)
+  ctx.quadraticCurveTo(391, 590, 388, 586)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(390, 586)
+  ctx.quadraticCurveTo(422, 570, 415, 577)
+  ctx.quadraticCurveTo(422, 570, 390, 586)
+  ctx.closePath()
+
+  ctx.moveTo(435, 602)
+  ctx.quadraticCurveTo(445, 607, 450, 605)
+  ctx.quadraticCurveTo(470, 595, 467, 590)
+  ctx.quadraticCurveTo(460, 585, 454, 587)
+  ctx.quadraticCurveTo(448, 597, 435, 603)
+  ctx.closePath()
+  // 側面
+  ctx.moveTo(435, 602)
+  ctx.quadraticCurveTo(448, 597, 454, 587)
+  ctx.quadraticCurveTo(440, 595, 435, 602)
+  ctx.closePath()
 
   // 小指芯先端周り
   ctx.moveTo(530, 30)
@@ -204,5 +344,6 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.moveTo(500, 575)
   ctx.lineTo(490, 610)
 
+  ctx.fill()
   ctx.stroke()
 }
