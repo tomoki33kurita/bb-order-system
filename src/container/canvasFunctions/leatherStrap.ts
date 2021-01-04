@@ -335,14 +335,38 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.lineTo(720, 520)
   ctx.moveTo(668, 525)
   ctx.lineTo(680, 555)
-  ctx.moveTo(625, 545)
-  ctx.lineTo(615, 585)
-  ctx.moveTo(580, 565)
-  ctx.lineTo(568, 600)
-  ctx.moveTo(540, 570)
-  ctx.lineTo(530, 605)
-  ctx.moveTo(500, 575)
-  ctx.lineTo(490, 610)
+
+  // 土手左1番
+  ctx.moveTo(485, 610) //左下
+  ctx.lineTo(500, 611) // 右下
+  ctx.quadraticCurveTo(520, 605, 518, 588) //右上
+  ctx.quadraticCurveTo(513, 585, 508, 588) // 左上
+  ctx.quadraticCurveTo(505, 600, 485, 610) // 左下
+  ctx.closePath()
+
+  // 土手左2番
+  ctx.moveTo(530, 610) //左下
+  ctx.lineTo(545, 608) // 右下
+  ctx.quadraticCurveTo(565, 600, 563, 580) //右上
+  ctx.quadraticCurveTo(555, 577, 550, 585) // 左上
+  ctx.quadraticCurveTo(550, 595, 530, 605) // 左下
+  ctx.closePath()
+
+  // 土手左3番
+  ctx.moveTo(580, 599) //左下
+  ctx.lineTo(598, 592) // 右下
+  ctx.quadraticCurveTo(618, 578, 610, 563) //右上
+  ctx.quadraticCurveTo(603, 565, 600, 567) // 左上
+  ctx.quadraticCurveTo(605, 575, 580, 599) // 左下
+  ctx.closePath()
+
+  // 土手左4番
+  ctx.moveTo(628, 582) //左下
+  ctx.lineTo(642, 575) // 右下
+  ctx.quadraticCurveTo(650, 562, 645, 552) //右上
+  ctx.quadraticCurveTo(643, 550, 635, 555) // 左上
+  ctx.quadraticCurveTo(635, 570, 628, 580) // 左下
+  ctx.closePath()
 
   ctx.fill()
   ctx.stroke()
