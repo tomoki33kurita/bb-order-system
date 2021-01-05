@@ -4,13 +4,48 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.lineWidth = 1
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
-  // 土手三本紐
-  ctx.moveTo(485, 510)
-  ctx.lineTo(510, 570)
-  ctx.moveTo(533, 485)
-  ctx.lineTo(555, 550)
-  ctx.moveTo(580, 470)
-  ctx.lineTo(600, 530)
+  // 土手三本紐＿左上
+  ctx.moveTo(490, 510) // 左上
+  ctx.quadraticCurveTo(492, 510, 500, 543) // 左下
+  ctx.quadraticCurveTo(510, 539, 510, 541) // 右下
+  ctx.quadraticCurveTo(505, 510, 500, 507) // 右上
+  ctx.quadraticCurveTo(485, 510, 490, 510) // 左上
+  ctx.closePath()
+
+  // 土手三本紐＿左下
+  ctx.moveTo(500, 545) // 左上
+  ctx.quadraticCurveTo(505, 553, 507, 573) //左下
+  ctx.quadraticCurveTo(516, 570, 518, 570) //右下
+  ctx.quadraticCurveTo(516, 553, 510, 543) //右上
+  ctx.quadraticCurveTo(500, 545, 503, 545) //左上
+  ctx.closePath()
+
+  // 土手三本紐＿中央上
+  ctx.moveTo(530, 487) // 左上
+  ctx.quadraticCurveTo(540, 503, 542, 521) // 左下
+  ctx.quadraticCurveTo(552, 518, 552, 520) // 右下
+  ctx.quadraticCurveTo(548, 493, 540, 485) // 右上
+  ctx.quadraticCurveTo(535, 484, 530, 487) // 左上
+
+  // 土手三本紐＿中央下
+  ctx.moveTo(541, 525) // 左上
+  ctx.quadraticCurveTo(545, 530, 550, 555) // 左下
+  ctx.quadraticCurveTo(557, 557, 560, 552) // 右下
+  ctx.quadraticCurveTo(558, 538, 552, 522) // 右上
+  ctx.quadraticCurveTo(545, 520, 541, 525) // 左上
+
+  // 土手三本紐＿右上
+  ctx.moveTo(575, 473) // 左上
+  ctx.quadraticCurveTo(585, 505, 585, 510) // 左下
+  ctx.quadraticCurveTo(595, 505, 595, 509) // 右下
+  ctx.quadraticCurveTo(592, 485, 585, 470) // 右上
+  ctx.quadraticCurveTo(580, 468, 575, 473) // 左上
+  // 土手三本紐＿右下
+  ctx.moveTo(585, 512) // 左上
+  ctx.quadraticCurveTo(593, 543, 593, 543) // 左下
+  ctx.quadraticCurveTo(597, 545, 603, 540) // 右下
+  ctx.quadraticCurveTo(600, 523, 595, 510) // 右上
+  ctx.quadraticCurveTo(590, 510, 585, 512) // 左上
 
   // 小指先端ウェブ横
   ctx.moveTo(504, 60)
