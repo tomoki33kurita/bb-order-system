@@ -26,6 +26,7 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.quadraticCurveTo(552, 518, 552, 520) // 右下
   ctx.quadraticCurveTo(548, 493, 540, 485) // 右上
   ctx.quadraticCurveTo(535, 484, 530, 487) // 左上
+  ctx.closePath()
 
   // 土手三本紐＿中央下
   ctx.moveTo(541, 525) // 左上
@@ -33,6 +34,7 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.quadraticCurveTo(557, 557, 560, 552) // 右下
   ctx.quadraticCurveTo(558, 538, 552, 522) // 右上
   ctx.quadraticCurveTo(545, 520, 541, 525) // 左上
+  ctx.closePath()
 
   // 土手三本紐＿右上
   ctx.moveTo(575, 473) // 左上
@@ -40,47 +42,109 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.quadraticCurveTo(595, 505, 595, 509) // 右下
   ctx.quadraticCurveTo(592, 485, 585, 470) // 右上
   ctx.quadraticCurveTo(580, 468, 575, 473) // 左上
+  ctx.closePath()
   // 土手三本紐＿右下
   ctx.moveTo(585, 512) // 左上
   ctx.quadraticCurveTo(593, 543, 593, 543) // 左下
   ctx.quadraticCurveTo(597, 545, 603, 540) // 右下
   ctx.quadraticCurveTo(600, 523, 595, 510) // 右上
   ctx.quadraticCurveTo(590, 510, 585, 512) // 左上
+  ctx.closePath()
 
-  // 小指先端ウェブ横
-  ctx.moveTo(504, 60)
-  ctx.quadraticCurveTo(505, 53, 520, 68)
-  ctx.moveTo(507, 90)
-  ctx.quadraticCurveTo(515, 93, 530, 98)
+  // 小指先端ウェブ横1
+  ctx.moveTo(504, 63) //左下
+  ctx.quadraticCurveTo(505, 56, 520, 71) // 右下
+  ctx.quadraticCurveTo(516, 61, 518, 59) // 右上
+  ctx.quadraticCurveTo(508, 50, 503, 54) // 左上
+  ctx.quadraticCurveTo(500, 63, 505, 63) // 左上
+  ctx.closePath()
 
   // 垂直
-  ctx.moveTo(520, 63)
-  ctx.quadraticCurveTo(515, 70, 526, 98)
-  ctx.moveTo(522, 123)
-  ctx.quadraticCurveTo(527, 110, 532, 125)
-  // ウェブ下捕球面＿右
-  ctx.moveTo(520, 160)
-  ctx.quadraticCurveTo(530, 145, 540, 150)
-  ctx.moveTo(515, 190)
-  ctx.quadraticCurveTo(520, 178, 530, 180)
+  ctx.moveTo(520, 63) // 左上
+  ctx.quadraticCurveTo(512, 75, 524, 93) // 左下
+  ctx.quadraticCurveTo(530, 95, 530, 90) // 右下
+  ctx.quadraticCurveTo(522, 75, 526, 65) // 右上
+  ctx.quadraticCurveTo(524, 61, 520, 63) // 左上
+  ctx.closePath()
 
-  // 小指芯先端内側
-  ctx.moveTo(545, 155)
-  ctx.quadraticCurveTo(552, 153, 565, 163)
-  ctx.moveTo(587, 175)
-  ctx.quadraticCurveTo(595, 177, 607, 190)
-  ctx.moveTo(624, 203)
-  ctx.quadraticCurveTo(637, 210, 643, 222)
+  // 小指先端ウェブ横2
+  ctx.moveTo(508, 93) //左下
+  ctx.quadraticCurveTo(509, 86, 524, 101) // 右下
+  ctx.quadraticCurveTo(523, 91, 520, 89) // 右上
+  ctx.quadraticCurveTo(512, 80, 504, 84) // 左上
+  ctx.quadraticCurveTo(504, 93, 508, 93) // 左上
+  ctx.closePath()
+
+  // 小指先端ウェブ横3
+  ctx.moveTo(516, 121) //左下
+  ctx.quadraticCurveTo(527, 120, 536, 125) // 右下
+  ctx.quadraticCurveTo(536, 125, 534, 118) // 右上
+  ctx.quadraticCurveTo(520, 109, 515, 115) // 左上
+  ctx.quadraticCurveTo(516, 121, 516, 121) // 左上
+  ctx.closePath()
+
+  // ウェブ下捕球面＿右1
+  ctx.moveTo(522, 160) // 左下
+  ctx.quadraticCurveTo(530, 155, 540, 150) // 右下
+  ctx.quadraticCurveTo(545, 150, 545, 140) // 右上
+  ctx.quadraticCurveTo(533, 142, 525, 150) // 左上
+  ctx.quadraticCurveTo(517, 155, 522, 160) // 左下
+  ctx.closePath()
+
+  // ウェブ下捕球面＿右2
+  ctx.moveTo(515, 190) // 左下
+  ctx.quadraticCurveTo(520, 186, 530, 180) // 右下
+  ctx.quadraticCurveTo(535, 175, 535, 170) // 右上
+  ctx.quadraticCurveTo(527, 171, 516, 182) // 左上
+  ctx.quadraticCurveTo(515, 190, 515, 190) // 左下
+  ctx.closePath()
+
+  // 小指芯先端内側_左1
+  ctx.moveTo(552, 161) // 左下
+  ctx.quadraticCurveTo(557, 168, 570, 169) //右下
+  ctx.quadraticCurveTo(570, 164, 570, 162) //右上
+  ctx.quadraticCurveTo(565, 163, 552, 153) //左上
+  ctx.quadraticCurveTo(552, 158, 552, 161) //左下
+  ctx.closePath()
+
+  // 小指芯先端内側_左2
+  ctx.moveTo(588, 185) // 左下
+  ctx.quadraticCurveTo(597, 195, 610, 198) //右下
+  ctx.quadraticCurveTo(610, 188, 607, 188) //右上
+  ctx.quadraticCurveTo(600, 186, 585, 172) //左上
+  ctx.quadraticCurveTo(586, 180, 588, 185) //左下
+  ctx.closePath()
+
+  // 小指芯先端内側_左3
+  ctx.moveTo(627, 210) // 左下 22, 17
+  ctx.quadraticCurveTo(637, 225, 647, 225) //右下
+  ctx.quadraticCurveTo(647, 222, 647, 218) //右上
+  ctx.quadraticCurveTo(635, 210, 627, 200) //左上
+  ctx.quadraticCurveTo(622, 205, 627, 210) //左下
+  ctx.closePath()
 
   // 小指芯先端内側垂直
-  ctx.moveTo(685, 165)
-  ctx.quadraticCurveTo(664, 183, 660, 200)
+  ctx.moveTo(682, 170) // 左上
+  ctx.quadraticCurveTo(668, 180, 658, 200) // 左下
+  ctx.quadraticCurveTo(662, 208, 665, 205) //右下
+  ctx.quadraticCurveTo(690, 175, 690, 175) //右上
+  ctx.quadraticCurveTo(688, 170, 682, 170) //左上
+  ctx.closePath()
 
-  // 小指芯内_土手側
-  ctx.moveTo(650, 275)
-  ctx.quadraticCurveTo(644, 295, 647, 315)
-  ctx.moveTo(638, 350)
-  ctx.quadraticCurveTo(622, 370, 620, 390)
+  // 小指芯内_土手側1
+  ctx.moveTo(650, 275) // 左上
+  ctx.quadraticCurveTo(644, 295, 647, 312) // 左下
+  ctx.quadraticCurveTo(655, 318, 655, 318) //右下
+  ctx.quadraticCurveTo(652, 295, 658, 279) //右上
+  ctx.quadraticCurveTo(654, 272, 650, 275) //左上
+  ctx.closePath()
+  // 小指芯内_土手側2
+  ctx.moveTo(635, 367) // 左上
+  ctx.quadraticCurveTo(612, 385, 615, 402) // 左下
+  ctx.quadraticCurveTo(615, 408, 620, 408) //右下
+  ctx.quadraticCurveTo(629, 380, 640, 375) //右上
+  ctx.quadraticCurveTo(640, 368, 635, 367) //左上
+  ctx.closePath()
 
   // ウェブ先端(左から昇順)
   ctx.moveTo(252, 72)
