@@ -175,46 +175,91 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.moveTo(478, 12)
   ctx.lineTo(485, 47)
 
-  // ウェブと捕球面の間
-  ctx.moveTo(350, 178)
-  ctx.lineTo(353, 187)
-  ctx.moveTo(400, 165)
-  ctx.lineTo(403, 173)
-  ctx.moveTo(450, 150)
-  ctx.lineTo(453, 158)
+  // ウェブと捕球面の間 左
+  ctx.moveTo(350, 178) // 左上
+  ctx.quadraticCurveTo(352, 186, 352, 186) // 左下
+  ctx.quadraticCurveTo(362, 183, 362, 183) // 右下
+  ctx.quadraticCurveTo(360, 176, 360, 176) // 右上
+  ctx.quadraticCurveTo(353, 178, 350, 178) // 左上
+  ctx.closePath()
 
-  // ウェブと親指芯_外側
-  ctx.moveTo(190, 127)
-  ctx.quadraticCurveTo(190, 90, 239, 90)
-  // ウェブと親指芯_真ん中
-  ctx.moveTo(205, 125)
-  ctx.quadraticCurveTo(205, 95, 240, 95)
-  // ウェブと親指芯_内側
-  ctx.moveTo(220, 121)
-  ctx.quadraticCurveTo(220, 110, 240, 100)
+  // ウェブと捕球面の間 中央
+  ctx.moveTo(400, 163) // 左上
+  ctx.quadraticCurveTo(402, 173, 402, 173) // 左下
+  ctx.quadraticCurveTo(412, 170, 412, 170) // 右下
+  ctx.quadraticCurveTo(410, 160, 410, 160) // 右上
+  ctx.quadraticCurveTo(403, 163, 400, 163) // 左上
+  ctx.closePath()
 
-  ctx.moveTo(278, 130)
-  ctx.quadraticCurveTo(253, 140, 253, 140)
-  ctx.moveTo(285, 155)
-  ctx.quadraticCurveTo(270, 162, 270, 162)
-  ctx.moveTo(294, 182)
-  ctx.quadraticCurveTo(280, 187, 280, 187)
+  // ウェブと捕球面の間 右
+  ctx.moveTo(450, 148) // 左上
+  ctx.quadraticCurveTo(452, 160, 452, 160) // 左下
+  ctx.quadraticCurveTo(462, 157, 462, 157) // 右下
+  ctx.quadraticCurveTo(460, 147, 460, 147) // 右上
+  ctx.quadraticCurveTo(453, 151, 450, 151) // 左上
+  ctx.closePath()
 
-  // ウェブと小指芯先端_外側
-  ctx.moveTo(500, 20)
-  ctx.quadraticCurveTo(540, 5, 540, 33)
-  // ウェブと小指芯先端_中央
-  ctx.moveTo(500, 25)
-  ctx.quadraticCurveTo(525, 22, 525, 33)
-  // ウェブと小指芯先端_内側
-  ctx.moveTo(505, 25)
-  ctx.quadraticCurveTo(500, 40, 520, 35)
-  ctx.moveTo(487, 73)
-  ctx.quadraticCurveTo(505, 69, 505, 69)
-  ctx.moveTo(493, 98)
-  ctx.quadraticCurveTo(512, 95, 512, 95)
-  ctx.moveTo(498, 123)
-  ctx.quadraticCurveTo(518, 118, 518, 118)
+  // ウェブ横→親指芯＿上
+  ctx.moveTo(256, 143) // 左下
+  ctx.quadraticCurveTo(278, 137, 278, 137) // 右下
+  ctx.quadraticCurveTo(275, 126, 277, 127) // 右上
+  ctx.quadraticCurveTo(245, 136, 248, 137) // 左上
+  ctx.quadraticCurveTo(254, 143, 254, 143) // 左下
+  ctx.closePath()
+
+  // ウェブ横→親指芯＿中央
+  ctx.moveTo(267, 157) // 左上
+  ctx.quadraticCurveTo(273, 165, 273, 165) //左下
+  ctx.quadraticCurveTo(285, 160, 285, 160) // 右下
+  ctx.quadraticCurveTo(284, 152, 284, 150) // 右上
+  ctx.quadraticCurveTo(267, 157, 267, 157) // 左上
+  ctx.closePath()
+
+  // ウェブ横→親指芯＿下
+  ctx.moveTo(277, 178) // 左上
+  ctx.quadraticCurveTo(280, 187, 280, 187) //左下
+  ctx.quadraticCurveTo(292, 182, 292, 182) // 右下
+  ctx.quadraticCurveTo(291, 173, 291, 173) // 右上
+  ctx.quadraticCurveTo(277, 178, 277, 178) // 左上
+  ctx.closePath()
+
+  // // ウェブと親指芯_外側
+  // ctx.moveTo(190, 127)
+  // ctx.quadraticCurveTo(190, 90, 239, 90)
+  // // ウェブと親指芯_真ん中
+  // ctx.moveTo(205, 125)
+  // ctx.quadraticCurveTo(205, 95, 240, 95)
+  // // ウェブと親指芯_内側
+  // ctx.moveTo(220, 121)
+  // ctx.quadraticCurveTo(220, 110, 240, 100)
+
+  // // ウェブと小指芯先端_外側
+  // ctx.moveTo(500, 20)
+  // ctx.quadraticCurveTo(540, 5, 540, 33)
+  // // ウェブと小指芯先端_中央
+  // ctx.moveTo(500, 25)
+  // ctx.quadraticCurveTo(525, 22, 525, 33)
+  // // ウェブと小指芯先端_内側
+  // ctx.moveTo(505, 25)
+  // ctx.quadraticCurveTo(500, 40, 520, 35)
+
+  // ctx.moveTo(487, 73)
+  // ctx.quadraticCurveTo(505, 69, 505, 69)
+  // ctx.moveTo(493, 98)
+  // ctx.quadraticCurveTo(512, 95, 512, 95)
+  // ctx.moveTo(498, 123)
+  // ctx.quadraticCurveTo(518, 118, 518, 118)
+  // ウェブ下捕球面と小指先端下捕球面
+  // ctx.moveTo(502, 155)
+  // ctx.quadraticCurveTo(517, 150, 526, 155)
+
+  // ウェブ下捕球面と親指寄り捕球面
+  ctx.moveTo(297, 212) // 左上
+  ctx.quadraticCurveTo(303, 220, 303, 220) //左下
+  ctx.quadraticCurveTo(310, 214, 310, 214) //右下
+  ctx.quadraticCurveTo(305, 205, 305, 205) //右上
+  ctx.quadraticCurveTo(297, 212, 297, 212) // 左上
+  ctx.closePath()
 
   // ウェブ下捕球面と親指下捕球面
   ctx.moveTo(288, 225) // 左下
@@ -231,10 +276,6 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.quadraticCurveTo(315, 228, 310, 230) // 左上
   ctx.quadraticCurveTo(315, 235, 315, 235) // 左下
   ctx.closePath()
-
-  // ウェブ下捕球面と小指先端下捕球面
-  ctx.moveTo(502, 155)
-  ctx.quadraticCurveTo(517, 150, 526, 155)
 
   // 親指芯周り上から
   ctx.moveTo(163, 157)
