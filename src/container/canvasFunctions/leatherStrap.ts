@@ -217,10 +217,20 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string, sideC
   ctx.quadraticCurveTo(518, 118, 518, 118)
 
   // ウェブ下捕球面と親指下捕球面
-  ctx.moveTo(298, 222)
-  ctx.quadraticCurveTo(303, 207, 309, 210)
-  ctx.moveTo(310, 252)
-  ctx.quadraticCurveTo(303, 240, 315, 235)
+  ctx.moveTo(288, 225) // 左下
+  ctx.quadraticCurveTo(295, 235, 297, 232) // 右下
+  ctx.quadraticCurveTo(300, 220, 305, 222) // 右上
+  ctx.quadraticCurveTo(297, 210, 295, 215) // 左上
+  ctx.quadraticCurveTo(288, 220, 288, 225) // 左下
+  ctx.closePath()
+
+  // ウェブ下捕球面と親指下捕球面2
+  ctx.moveTo(310, 252) // 左下
+  ctx.quadraticCurveTo(315, 260, 318, 257) // 右下
+  ctx.quadraticCurveTo(323, 250, 322, 240) // 右上
+  ctx.quadraticCurveTo(315, 228, 310, 230) // 左上
+  ctx.quadraticCurveTo(315, 235, 315, 235) // 左下
+  ctx.closePath()
 
   // ウェブ下捕球面と小指先端下捕球面
   ctx.moveTo(502, 155)
