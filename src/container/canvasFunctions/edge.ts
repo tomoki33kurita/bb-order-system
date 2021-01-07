@@ -1,5 +1,5 @@
 export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string, moutonColor: string): void => {
-  ctx.lineWidth = 2
+  ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
 
