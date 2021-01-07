@@ -95,45 +95,33 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
               </Box>
             </Box>
             <Box ml={1}>
-              (10) ハミダシ：
-              <Box component="span" fontWeight="bold">
-                {state.hamidashiType.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (11) 指カバー：
+              (10) 指カバー：
               <Box component="span" fontWeight="bold">
                 {state.fingerGuardType.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (12) 座ブトンスポンジ：
+              (11) 座ブトンスポンジ：
               <Box component="span" fontWeight="bold">
                 {state.zabutonSponge.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (13) EX機能：
+              (12) EX機能：
               <Box component="span" fontWeight="bold">
                 {state.exFunction.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (14) ピンキーパターン：
+              (13) ピンキーパターン：
               <Box component="span" fontWeight="bold">
                 {state.pinkiePattern.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (15) TB刻印：
+              (14) TB刻印：
               <Box component="span" fontWeight="bold">
                 {state.tbEngraved.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (16) 手首裏の素材：
-              <Box component="span" fontWeight="bold">
-                {state.listLiningsMaterial.label}
               </Box>
             </Box>
           </Box>
@@ -148,51 +136,63 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
               </Box>
             </Box>
             <Box ml={1}>
-              (15) ウェブカラー：
+              (16) ウェブカラー：
               <Box component="span" fontWeight="bold" color={state.webColor.color === '#fff' ? 'black' : state.webColor.color}>
                 {state.webColor.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (15) 親指マチカラー：
+              (17) 親指マチカラー：
               <Box component="span" fontWeight="bold" color={state.thumbMachiColor.color === '#fff' ? 'black' : state.thumbMachiColor.color}>
                 {state.thumbMachiColor.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (15) 小指マチカラー：
+              (18) 小指マチカラー：
               <Box component="span" fontWeight="bold" color={state.littleMachiColor.color === '#fff' ? 'black' : state.littleMachiColor.color}>
                 {state.littleMachiColor.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (17) ヘリ革カラー：
+              (19) ヘリ革カラー：
               <Box component="span" fontWeight="bold" color={state.edgeColor.color === '#fff' ? 'black' : state.edgeColor.color}>
                 {state.edgeColor.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (16) 革紐カラー：
+              (20) 革紐カラー：
               <Box component="span" fontWeight="bold" color={state.leatherString.color === '#fff' ? 'black' : state.leatherString.color}>
                 {state.leatherString.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (18) ターゲット加工：
+              (21) ステッチカラー：
+              <Box component="span" fontWeight="bold" color={state.stitchColor.color === '#fff' ? 'black' : state.stitchColor.color}>
+                {state.stitchColor.label}
+              </Box>
+            </Box>
+            <Box ml={1}>
+              (22) ターゲット加工：
               <Box component="span" fontWeight="bold" color={state.targetSet.color === '#fff' ? 'black' : state.targetSet.color}>
                 {state.targetSet.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (19) ラベル：
+              (23) 手首裏の素材：
               <Box component="span" fontWeight="bold">
-                {state.hatakeyamaLabel.label}
+                {state.listLiningsMaterial.label}
               </Box>
             </Box>
             <Box ml={1}>
-              (20) ステッチカラー：
-              <Box component="span" fontWeight="bold" color={state.stitchColor.color === '#fff' ? 'black' : state.stitchColor.color}>
-                {state.stitchColor.label}
+              (24) ハミダシ：
+              <Box component="span" fontWeight="bold">
+                {state.hamidashiType.label}
+              </Box>
+            </Box>
+            <Box ml={1}>
+              (25) ラベル：
+              <Box component="span" fontWeight="bold">
+                {state.hatakeyamaLabel.label}
               </Box>
             </Box>
           </Box>
@@ -205,31 +205,31 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
                       刺繍項目{i + 1}
                     </Box>
                     <Box ml={1}>
-                      (21) 書式：
+                      (26) 書式：
                       <Box component="span" fontWeight="bold">
                         {embroidery.embroideryTypeFace.label}
                       </Box>
                     </Box>
                     <Box ml={1}>
-                      (22) 位置：
+                      (27) 位置：
                       <Box component="span" fontWeight="bold">
                         {embroidery.embroideryPosition.label}
                       </Box>
                     </Box>
                     <Box ml={1}>
-                      (23) 刺繍カラー：
+                      (28) 刺繍カラー：
                       <Box component="span" fontWeight="bold">
                         {embroidery.embroideryColor.label}
                       </Box>
                     </Box>
                     <Box ml={1}>
-                      (24) 影カラー：
+                      (29) 影カラー：
                       <Box component="span" fontWeight="bold">
                         {embroidery.embroideryShadowColor.label}
                       </Box>
                     </Box>
                     <Box ml={1}>
-                      (25) 刺繍内容：
+                      (30) 刺繍内容：
                       <Box component="span" fontWeight="bold">
                         {embroidery.embroideryContent}
                       </Box>
