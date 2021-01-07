@@ -1,5 +1,5 @@
 export const web = (ctx: CanvasRenderingContext2D, color: string): void => {
-  ctx.lineWidth = 2
+  ctx.lineWidth = 1
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()
@@ -21,7 +21,7 @@ export const web = (ctx: CanvasRenderingContext2D, color: string): void => {
 }
 
 export const webTop = (ctx: CanvasRenderingContext2D, color: string): void => {
-  ctx.lineWidth = 2
+  ctx.lineWidth = 1
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()

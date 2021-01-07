@@ -44,7 +44,7 @@ export const underWebRightRightLine = (ctx: CanvasRenderingContext2D): void => {
 }
 
 export const catchSurface = (ctx: CanvasRenderingContext2D, color: string): void => {
-  ctx.lineWidth = 2
+  ctx.lineWidth = 1
   ctx.fillStyle = color
   ctx.beginPath()
   ctx.moveTo(283, 200) // ウェブ下左側面＿V左
