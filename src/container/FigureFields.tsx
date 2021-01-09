@@ -57,9 +57,6 @@ const FigureFields: React.FC<Props> = ({ state }) => {
         <Button variant="contained" onClick={handleOpen}>
           オーダー内容確認
         </Button>
-        <Button variant="contained" color="primary">
-          最終確認
-        </Button>
       </Box>
     </Box>
   )
