@@ -87,7 +87,6 @@ const FigureFront: React.FC<Props> = ({
   return (
     <>
       <canvas width="1120" height="652" id="canvas"></canvas>
-      {/* <LeatherStrap color={leatherStrapColor} /> */}
     </>
   )
 }
