@@ -54,11 +54,8 @@ const FigureFields: React.FC<Props> = ({ state }) => {
       </AppBar>
       <Box display="flex" justifyContent="space-around" mt={5}>
         <Button variant="outlined">リセット</Button>
-        <Button variant="contained" onClick={handleOpen}>
+        <Button variant="contained" color="primary" onClick={handleOpen}>
           オーダー内容確認
-        </Button>
-        <Button variant="contained" color="primary">
-          最終確認
         </Button>
       </Box>
     </Box>
