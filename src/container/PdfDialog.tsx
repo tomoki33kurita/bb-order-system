@@ -5,7 +5,7 @@ import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
-const handleGenPdf = () => {
+const handleGenPdf = (state: State) => {
   pdfMake.fonts = {
     GenYoMin: {
       normal: 'ipaexm.ttf',
@@ -15,14 +15,98 @@ const handleGenPdf = () => {
   const docDefine = {
     content: [
       {
-        text: 'これはダウンロード用のPDFです',
-        style: { fontSize: 12 },
+        text: 'ハタケヤマゴールドオーダー',
+        style: { fontSize: 18 },
+      },
+      {
+        text: 'お客様情報',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          body: [
+            [`お客様名： 畠山太郎`, `お名前(カナ)： ハタケヤマ タロウ`, `住所： 北海道札幌市北区1-2-3 サッポロドームマンション101`],
+            [`お電話番号：090-1234-5678`, `メールアドレス： test-test@gmail.com`, ''],
+          ],
+        },
+      },
+
+      {
+        text: '基本設定',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          body: [
+            [`基本モデル： ${state.baseModel.label}`, `利き腕： ${state.dominantArm.label}`, `ミットの大きさ： ${state.mittSize.label}`],
+            [`ポケットの深さ： ${state.mittDepth.label}`, `バックスタイル： ${state.backStyle.label}`, `パッドモデル： ${state.padModel.label}`],
+            [
+              `革の硬さ： ${state.leatherHardness.label}`,
+              `芯の硬さ： ${state.coreMaterialHardness.label}`,
+              `芯の厚さ： ${state.coreMaterialThickness.label}`,
+            ],
+            [`指カバー： ${state.fingerGuardType.label}`, `座ブトンスポンジ： ${state.zabutonSponge.label}`, `EX機能： ${state.exFunction.label}`],
+            [`ピンキーパターン： ${state.pinkiePattern.label}`, '', ''],
+          ],
+        },
+      },
+      {
+        text: 'カラー設定',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          body: [
+            [
+              `捕球面カラー： ${state.leatherColor.label}`,
+              `ウェブカラー： ${state.webColor.label}`,
+              `親指マチカラー： ${state.thumbMachiColor.label}`,
+            ],
+            [
+              `小指マチカラー： ${state.littleMachiColor.label}`,
+              `ヘリ革カラー： ${state.edgeColor.label}`,
+              `革紐カラー： ${state.leatherString.label}`,
+            ],
+            [
+              `ステッチカラー： ${state.stitchColor.label}`,
+              `ターゲット加工： ${state.targetSet.label}`,
+              `手首裏の素材： ${state.listLiningsMaterial.label}`,
+            ],
+            [`ハミダシ： ${state.hamidashiType.label}`, `ラベル： ${state.hatakeyamaLabel.label}`, ''],
+          ],
+        },
+      },
+      {
+        text: '刺繍設定１',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          body: [
+            [`書式： ${state.embroideries[0].embroideryTypeFace.label}`, `位置： ${state.embroideries[0].embroideryPosition.label}`],
+            [`刺繍カラー： ${state.embroideries[0].embroideryColor.label}`, `影カラー： ${state.embroideries[0].embroideryShadowColor.label}`],
+            [`刺繍内容： ${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `, ''],
+          ],
+        },
+      },
+      {
+        text: '備考欄',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          body: [[`その他ご要望： 親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。`]],
+        },
       },
     ],
     defaultStyle: { font: 'GenYoMin' },
   }
-
-  pdfMake.createPdf(docDefine).download()
+  pdfMake.createPdf(docDefine).download('hatakeyama_order.pdf') // margin設定によって構文チェックエラーになっている。
 }
 
 type Props = {
@@ -246,7 +330,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
         <Button variant="outlined" onClick={handleClose}>
           close
         </Button>
-        <Button variant="contained" onClick={handleGenPdf}>
+        <Button variant="contained" onClick={() => handleGenPdf(state)}>
           ダウンロード
         </Button>
       </DialogActions>
