@@ -68,8 +68,8 @@ const FigureFront: React.FC<Props> = ({
     // ステッチカラー
     stitch(ctx, stitchColor, targetColor)
     // 革紐
-    leatherStrap(ctx, leatherStrapColor)
-    thumbHookLeather(ctx, thumbHookColor)
+    leatherStrap(ctx, leatherStrapColor, '#fff')
+    // thumbHookLeather(ctx, thumbHookColor)
   }, [
     leatherColor,
     leatherStrapColor,
@@ -87,7 +87,6 @@ const FigureFront: React.FC<Props> = ({
   return (
     <>
       <canvas width="1120" height="652" id="canvas"></canvas>
-      {/* <LeatherStrap color={leatherStrapColor} /> */}
     </>
   )
 }
