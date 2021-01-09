@@ -5,6 +5,13 @@ import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
+const genCellContent = (head: string, content: string, alignment?: string) => {
+  return [
+    { text: `${head}： `, fontSize: 10 },
+    { text: content, alignment: alignment ? alignment : 'right', fontSize: 12 },
+  ]
+}
+
 const handleGenPdf = (state: State) => {
   pdfMake.fonts = {
     GenYoMin: {
@@ -26,8 +33,12 @@ const handleGenPdf = (state: State) => {
       {
         table: {
           body: [
-            [`お客様名： 畠山太郎`, `お名前(カナ)： ハタケヤマ タロウ`, `住所： 北海道札幌市北区1-2-3 サッポロドームマンション101`],
-            [`お電話番号：090-1234-5678`, `メールアドレス： test-test@gmail.com`, ''],
+            [
+              genCellContent('お客様名', '畠山太郎'),
+              genCellContent('お名前(カナ)', 'ハタケヤマ タロウ'),
+              genCellContent('住所', '畠北海道札幌市北区1-2-3 サッポロドームマンション101'),
+            ],
+            [genCellContent('お電話番号', '090-1234-5678'), genCellContent('メールアドレス', 'test-test@gmail.com'), ['']],
           ],
         },
       },
@@ -39,16 +50,29 @@ const handleGenPdf = (state: State) => {
       },
       {
         table: {
+          widths: ['33%', '33%', '33%'],
           body: [
-            [`基本モデル： ${state.baseModel.label}`, `利き腕： ${state.dominantArm.label}`, `ミットの大きさ： ${state.mittSize.label}`],
-            [`ポケットの深さ： ${state.mittDepth.label}`, `バックスタイル： ${state.backStyle.label}`, `パッドモデル： ${state.padModel.label}`],
             [
-              `革の硬さ： ${state.leatherHardness.label}`,
-              `芯の硬さ： ${state.coreMaterialHardness.label}`,
-              `芯の厚さ： ${state.coreMaterialThickness.label}`,
+              genCellContent('基本モデル', state.baseModel.label),
+              genCellContent('利き腕', state.dominantArm.label),
+              genCellContent('ミットの大きさ', state.mittSize.label),
             ],
-            [`指カバー： ${state.fingerGuardType.label}`, `座ブトンスポンジ： ${state.zabutonSponge.label}`, `EX機能： ${state.exFunction.label}`],
-            [`ピンキーパターン： ${state.pinkiePattern.label}`, '', ''],
+            [
+              genCellContent('ポケットの深さ', state.mittDepth.label),
+              genCellContent('バックスタイル', state.backStyle.label),
+              genCellContent('パッドモデル', state.padModel.label),
+            ],
+            [
+              genCellContent('革の硬さ', state.leatherHardness.label),
+              genCellContent('芯の硬さ', state.coreMaterialHardness.label),
+              genCellContent('芯の厚さ', state.coreMaterialThickness.label),
+            ],
+            [
+              genCellContent('指カバー', state.fingerGuardType.label),
+              genCellContent('座ブトンスポンジ', state.zabutonSponge.label),
+              genCellContent('EX機能', state.exFunction.label),
+            ],
+            [genCellContent('ピンキーパターン', state.pinkiePattern.label), '', ''],
           ],
         },
       },
@@ -59,23 +83,24 @@ const handleGenPdf = (state: State) => {
       },
       {
         table: {
+          widths: ['33%', '33%', '33%'],
           body: [
             [
-              `捕球面カラー： ${state.leatherColor.label}`,
-              `ウェブカラー： ${state.webColor.label}`,
-              `親指マチカラー： ${state.thumbMachiColor.label}`,
+              genCellContent(`捕球面カラー`, state.leatherColor.label),
+              genCellContent(`ウェブカラー`, state.webColor.label),
+              genCellContent(`親指マチカラー`, state.thumbMachiColor.label),
             ],
             [
-              `小指マチカラー： ${state.littleMachiColor.label}`,
-              `ヘリ革カラー： ${state.edgeColor.label}`,
-              `革紐カラー： ${state.leatherString.label}`,
+              genCellContent(`小指マチカラー`, state.littleMachiColor.label),
+              genCellContent(`ヘリ革カラー`, state.edgeColor.label),
+              genCellContent(`革紐カラー`, state.leatherString.label),
             ],
             [
-              `ステッチカラー： ${state.stitchColor.label}`,
-              `ターゲット加工： ${state.targetSet.label}`,
-              `手首裏の素材： ${state.listLiningsMaterial.label}`,
+              genCellContent(`ステッチカラー`, state.stitchColor.label),
+              genCellContent(`ターゲット加工`, state.targetSet.label),
+              genCellContent(`手首裏の素材`, state.listLiningsMaterial.label),
             ],
-            [`ハミダシ： ${state.hamidashiType.label}`, `ラベル： ${state.hatakeyamaLabel.label}`, ''],
+            [genCellContent(`ハミダシ`, state.hamidashiType.label), genCellContent(`ラベル`, state.hatakeyamaLabel.label), ''],
           ],
         },
       },
@@ -86,10 +111,59 @@ const handleGenPdf = (state: State) => {
       },
       {
         table: {
+          widths: '50%',
           body: [
-            [`書式： ${state.embroideries[0].embroideryTypeFace.label}`, `位置： ${state.embroideries[0].embroideryPosition.label}`],
-            [`刺繍カラー： ${state.embroideries[0].embroideryColor.label}`, `影カラー： ${state.embroideries[0].embroideryShadowColor.label}`],
-            [`刺繍内容： ${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `, ''],
+            [
+              genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label),
+              genCellContent(`位置`, state.embroideries[0].embroideryPosition.label),
+            ],
+            [
+              genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label),
+              genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label),
+            ],
+            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
+          ],
+        },
+      },
+      {
+        text: '刺繍設定２',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          widths: '50%',
+          body: [
+            [
+              genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label),
+              genCellContent(`位置`, state.embroideries[0].embroideryPosition.label),
+            ],
+            [
+              genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label),
+              genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label),
+            ],
+            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
+          ],
+        },
+      },
+      {
+        text: '刺繍設定３',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          widths: '50%',
+          body: [
+            [
+              genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label),
+              genCellContent(`位置`, state.embroideries[0].embroideryPosition.label),
+            ],
+            [
+              genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label),
+              genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label),
+            ],
+            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
           ],
         },
       },
@@ -100,7 +174,16 @@ const handleGenPdf = (state: State) => {
       },
       {
         table: {
-          body: [[`その他ご要望： 親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。`]],
+          // headerRows: 2,
+          body: [
+            [
+              genCellContent(
+                `その他ご要望`,
+                `親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。どうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいです`,
+                'left'
+              ),
+            ],
+          ],
         },
       },
     ],
