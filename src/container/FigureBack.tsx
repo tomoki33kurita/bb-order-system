@@ -1,14 +1,15 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
-import { thumbMachi, thumbTarget, thumbHookLeather } from 'src/container/canvasFunctions/thumb'
-import { littleMachi, littleInLineBottom } from 'src/container/canvasFunctions/little'
-import { web, webTop } from 'src/container/canvasFunctions/web'
-import { catchSurface } from 'src/container/canvasFunctions/catchingSurface'
-import { leatherStrap } from 'src/container/canvasFunctions/leatherStrap'
-import { edgeLeather } from 'src/container/canvasFunctions/edge'
-import { stitch } from 'src/container/canvasFunctions/stitch'
-import { targetArrange } from 'src/container/canvasFunctions/target'
-import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
+import { Box, Button } from '@material-ui/core'
+import CopyToClipBoard from 'copy-to-clipboard'
+import { edgeLeatherBack } from 'src/container/canvasFunctions/edge'
+import { indexFiner } from 'src/container/canvasFunctions/back/indexFinger'
+import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
+import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
+import { web, webTop } from 'src/container/canvasFunctions/back/web'
+import { shellarmove } from 'src/container/canvasFunctions/back/shellarmove'
+import { middleBag } from 'src/container/canvasFunctions/back/middleBag'
+import { RingAndLittleBag } from 'src/container/canvasFunctions/back/ringAndLittleBag'
+import { catchFace } from 'src/container/canvasFunctions/back/catchSurface'
 
 type Props = {
   leatherStrapColor: string
@@ -43,34 +44,26 @@ const FigureBack: React.FC<Props> = ({
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
 
-    // ウェブ下捕球面
-    catchSurface(ctx, leatherColor)
     // ヘリ革
-    edgeLeather(ctx, edgeColor, moutonColor)
-    // 親指マチ部分
-    thumbMachi(ctx, thumbMachiColor)
-    thumbTarget(ctx, leatherColor)
-    // 小指マチ部分
-    littleMachi(ctx, littleMachiColor)
-    // ウェブ
-    webTop(ctx, webColor)
-    web(ctx, webColor)
-    littleInLineBottom(ctx)
-    if (targetColor) {
-      // ターゲット加工
-      targetArrange(ctx, targetColor)
-    }
-    if (cutSurfaceColor) {
-      // 親指芯＿キリハミ
-      thumbCutSurface(ctx, cutSurfaceColor)
-      // 小指芯＿キリハミ
-      littleCutSurface(ctx, cutSurfaceColor)
-    }
-    // ステッチカラー
-    stitch(ctx, stitchColor, targetColor)
-    // 革紐
-    leatherStrap(ctx, leatherStrapColor, '#fff')
-    // thumbHookLeather(ctx, thumbHookColor)
+    edgeLeatherBack(ctx, edgeColor)
+    // 人差し指カバー
+    // indexFiner(ctx, 'pink')
+    // 親指・人差し指袋
+    thumbAndIndexBag(ctx, 'green')
+    // 中指袋
+    middleBag(ctx, 'orange')
+    // 薬指小指袋
+    RingAndLittleBag(ctx, 'green')
+    // シェラームーブ
+    shellarmove(ctx, 'blue')
+    // 手口ベルト
+    listBelt(ctx, 'orange')
+    // ウェブ先端
+    webTop(ctx, 'green')
+    // ウェブ本体
+    web(ctx, 'purple')
+    // 捕球面
+    catchFace(ctx, 'orange')
   }, [leatherColor, leatherStrapColor, webColor, thumbMachiColor, littleMachiColor, edgeColor, stitchColor, targetColor, cutSurfaceColor, moutonColor, thumbHookColor])
 
   const [coordinateX, setCoordinateX] = React.useState(0)
@@ -80,16 +73,25 @@ const FigureBack: React.FC<Props> = ({
     // eslint-disable-next-line
     // @ts-ignore
     const rect = e.target.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
+    const x = parseInt(`${e.clientX - rect.left}`)
+    const y = parseInt(`${e.clientY - rect.top}`)
     setCoordinateX(x)
     setCoordinateY(y)
   }
 
   return (
     <>
-      <canvas width="1000" height="652" id="canvas" onClick={(e) => handleCoordinate(e)}></canvas>
-      <Box>{`(${coordinateX}, ${coordinateY})`}</Box>
+      <canvas
+        width="1000"
+        height="652"
+        id="canvas"
+        style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
+        onClick={(e) => handleCoordinate(e)}
+      ></canvas>
+      <Box>
+        {`${coordinateX}, ${coordinateY}`}
+        {/* <CopyToClipBoard>aa</CopyToClipBoard> */}
+      </Box>
     </>
   )
 }

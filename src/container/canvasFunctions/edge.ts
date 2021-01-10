@@ -93,3 +93,40 @@ export const edgeLeather = (ctx: CanvasRenderingContext2D, color: string, mouton
   ctx.fill()
   ctx.closePath()
 }
+
+export const edgeLeatherBack = (ctx: CanvasRenderingContext2D, color: string): void => {
+  ctx.lineWidth = 1.5
+  ctx.strokeStyle = 'red'
+  ctx.fillStyle = color
+
+  // 人差し指右上始点(ウェブの左)
+  ctx.beginPath()
+  ctx.moveTo(465, 45)
+  ctx.quadraticCurveTo(357, 78, 275, 160)
+  ctx.quadraticCurveTo(234, 222, 212, 293)
+  ctx.quadraticCurveTo(202, 345, 200, 388)
+  ctx.quadraticCurveTo(216, 508, 256, 525)
+  ctx.quadraticCurveTo(278, 565, 278, 565)
+  ctx.quadraticCurveTo(301, 581, 301, 581)
+  ctx.quadraticCurveTo(329, 617, 329, 617)
+  ctx.quadraticCurveTo(455, 634, 521, 599) // 手口底辺ライン
+  ctx.quadraticCurveTo(541, 570, 541, 570)
+  ctx.quadraticCurveTo(598, 546, 632, 521)
+  ctx.quadraticCurveTo(642, 488, 685, 447)
+  ctx.quadraticCurveTo(732, 394, 772, 323) // 親指掛け紐上から親指先端
+  ctx.quadraticCurveTo(787, 280, 771, 253) // 親指先端右側
+  ctx.quadraticCurveTo(757, 235, 732, 227) // 親指先端左＿ウェブ側
+  ctx.quadraticCurveTo(677, 235, 650, 285)
+  ctx.quadraticCurveTo(627, 302, 602, 296)
+
+  ctx.quadraticCurveTo(584, 313, 576, 311)
+  ctx.quadraticCurveTo(517, 298, 482, 263) // ウェブ中央下部分
+  ctx.quadraticCurveTo(438, 204, 431, 148)
+
+  ctx.quadraticCurveTo(445, 100, 485, 80) // ウェブ終了あたりから開始地点まで
+  ctx.quadraticCurveTo(495, 67, 490, 53) // ウェブ終了あたりから開始地点まで
+  ctx.quadraticCurveTo(480, 45, 465, 45) // ウェブ終了あたりから開始地点まで
+  // ctx.fill()
+  ctx.stroke()
+  ctx.closePath()
+}
