@@ -12,7 +12,7 @@ type Props = {
 }
 
 const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState(1)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
 
   return (

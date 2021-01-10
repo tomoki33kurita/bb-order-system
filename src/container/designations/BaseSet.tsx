@@ -1,5 +1,6 @@
 import React from 'react'
-import AccordionRadio from 'src/components/molecules/AccordionRadio'
+// import SelectCard from 'src/components/molecules/SelectCard'
+import SelectCard from 'src/components/molecules/SelectCard'
 import { State, Action } from 'src/types'
 import TabPanel from 'src/components/molecules/TabPanel'
 import {
@@ -62,100 +63,39 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
   } = state
 
   const handle = {
-    baseModel: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_BASE_MODEL, baseModel: baseModelObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    dominantArm: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_DOMINANT_ARM, dominantArm: dominantArmObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    mittSize: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_SIZE, mittSize: mittSizeObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    mittDepth: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_DEPTH, mittDepth: mittDepthObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    backStyle: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_BACK_STYLE, backStyle: backStyleObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    padModel: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_PAD_MODEL, padModel: padModleObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    leatherHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_LEATHER_HARDNESS, leatherHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    coreMaterialHardness: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_CORE_MATERIAL_HARDNESS, coreMaterialHardness: hardnessObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    coreMaterialThickness: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_CORE_MATERIAL_THICKNESS, coreMaterialThickness: thicknessObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    fingerGuardType: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_FINGER_GUARD_TYPE, fingerGuardType: fingerGuardTypeObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    zabutonSponge: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_ZABUTON_SPONGE, zabutonSponge: zabutonSpongeObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    exFunction: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_EX_FUNCTION, exFunction: exFunctionObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    pinkiePattern: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_PINKIE_PATTERN, pinkiePattern: pinkiePatternObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    tbEngraved: (event: React.ChangeEvent<HTMLInputElement>) =>
-      dispatch({ type: SET_TB_ENGRAVED, tbEngraved: tbEngravedObjs.filter((prev) => prev.value === event.target.value)[0] }),
-    // listLiningsMaterial: (event: React.ChangeEvent<HTMLInputElement>) =>
-    //   dispatch({
-    //     type: SET_LIST_LININGS_MATERIAL,
-    //     listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === event.target.value)[0],
-    //   }),
+    baseModel: (selected: string) => dispatch({ type: SET_BASE_MODEL, baseModel: baseModelObjs.filter((prev) => prev.value === selected)[0] }),
+    dominantArm: (selected: string) => dispatch({ type: SET_DOMINANT_ARM, dominantArm: dominantArmObjs.filter((prev) => prev.value === selected)[0] }),
+    mittSize: (selected: string) => dispatch({ type: SET_SIZE, mittSize: mittSizeObjs.filter((prev) => prev.value === selected)[0] }),
+    mittDepth: (selected: string) => dispatch({ type: SET_DEPTH, mittDepth: mittDepthObjs.filter((prev) => prev.value === selected)[0] }),
+    backStyle: (selected: string) => dispatch({ type: SET_BACK_STYLE, backStyle: backStyleObjs.filter((prev) => prev.value === selected)[0] }),
+    padModel: (selected: string) => dispatch({ type: SET_PAD_MODEL, padModel: padModleObjs.filter((prev) => prev.value === selected)[0] }),
+    leatherHardness: (selected: string) => dispatch({ type: SET_LEATHER_HARDNESS, leatherHardness: hardnessObjs.filter((prev) => prev.value === selected)[0] }),
+    coreMaterialHardness: (selected: string) => dispatch({ type: SET_CORE_MATERIAL_HARDNESS, coreMaterialHardness: hardnessObjs.filter((prev) => prev.value === selected)[0] }),
+    coreMaterialThickness: (selected: string) => dispatch({ type: SET_CORE_MATERIAL_THICKNESS, coreMaterialThickness: thicknessObjs.filter((prev) => prev.value === selected)[0] }),
+    fingerGuardType: (selected: string) => dispatch({ type: SET_FINGER_GUARD_TYPE, fingerGuardType: fingerGuardTypeObjs.filter((prev) => prev.value === selected)[0] }),
+    zabutonSponge: (selected: string) => dispatch({ type: SET_ZABUTON_SPONGE, zabutonSponge: zabutonSpongeObjs.filter((prev) => prev.value === selected)[0] }),
+    exFunction: (selected: string) => dispatch({ type: SET_EX_FUNCTION, exFunction: exFunctionObjs.filter((prev) => prev.value === selected)[0] }),
+    pinkiePattern: (selected: string) => dispatch({ type: SET_PINKIE_PATTERN, pinkiePattern: pinkiePatternObjs.filter((prev) => prev.value === selected)[0] }),
+    tbEngraved: (selected: string) => dispatch({ type: SET_TB_ENGRAVED, tbEngraved: tbEngravedObjs.filter((prev) => prev.value === selected)[0] }),
   }
 
   return (
     <TabPanel value={value} index={0}>
-      <AccordionRadio
-        summary={'基本モデルを選択'}
-        selectedLabel={baseModel.label}
-        defaultValue={baseModel.value}
-        objects={baseModelObjs}
-        handleChange={handle.baseModel}
-      />
-      <AccordionRadio
-        summary={'利き腕を選択'}
-        selectedLabel={dominantArm.label}
-        defaultValue={dominantArm.value}
-        objects={dominantArmObjs}
-        handleChange={handle.dominantArm}
-      />
-      <AccordionRadio
-        summary={'ミットの大きさ'}
-        selectedLabel={mittSize.label}
-        defaultValue={mittSize.value}
-        objects={mittSizeObjs}
-        handleChange={handle.mittSize}
-      />
-      <AccordionRadio
-        summary={'ポケットの深さ'}
-        selectedLabel={mittDepth.label}
-        defaultValue={mittDepth.value}
-        objects={mittDepthObjs}
-        handleChange={handle.mittDepth}
-      />
-      <AccordionRadio
-        summary={'バックスタイル'}
-        selectedLabel={backStyle.label}
-        defaultValue={backStyle.value}
-        objects={backStyleObjs}
-        handleChange={handle.backStyle}
-      />
-      <AccordionRadio
-        summary={'パッドモデル'}
-        selectedLabel={padModel.label}
-        defaultValue={padModel.value}
-        objects={padModleObjs}
-        handleChange={handle.padModel}
-      />
-      <AccordionRadio
-        summary={'革の硬さ'}
-        selectedLabel={leatherHardness.label}
-        defaultValue={leatherHardness.value}
-        objects={hardnessObjs}
-        handleChange={handle.leatherHardness}
-      />
-      <AccordionRadio
+      <SelectCard summary={'基本モデルを選択'} selectedLabel={baseModel.label} defaultValue={baseModel.value} objects={baseModelObjs} handleChange={handle.baseModel} />
+      <SelectCard summary={'利き腕を選択'} selectedLabel={dominantArm.label} defaultValue={dominantArm.value} objects={dominantArmObjs} handleChange={handle.dominantArm} />
+      <SelectCard summary={'ミットの大きさ'} selectedLabel={mittSize.label} defaultValue={mittSize.value} objects={mittSizeObjs} handleChange={handle.mittSize} />
+      <SelectCard summary={'ポケットの深さ'} selectedLabel={mittDepth.label} defaultValue={mittDepth.value} objects={mittDepthObjs} handleChange={handle.mittDepth} />
+      <SelectCard summary={'バックスタイル'} selectedLabel={backStyle.label} defaultValue={backStyle.value} objects={backStyleObjs} handleChange={handle.backStyle} />
+      <SelectCard summary={'パッドモデル'} selectedLabel={padModel.label} defaultValue={padModel.value} objects={padModleObjs} handleChange={handle.padModel} />
+      <SelectCard summary={'革の硬さ'} selectedLabel={leatherHardness.label} defaultValue={leatherHardness.value} objects={hardnessObjs} handleChange={handle.leatherHardness} />
+      <SelectCard
         summary={'芯の硬さ'}
         selectedLabel={coreMaterialHardness.label}
         defaultValue={coreMaterialHardness.value}
         objects={hardnessObjs}
         handleChange={handle.coreMaterialHardness}
       />
-      <AccordionRadio
+      <SelectCard
         summary={'芯の厚さ'}
         selectedLabel={coreMaterialThickness.label}
         defaultValue={coreMaterialThickness.value}
@@ -163,42 +103,30 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
         handleChange={handle.coreMaterialThickness}
       />
 
-      <AccordionRadio
+      <SelectCard
         summary={'指カバー'}
         selectedLabel={fingerGuardType.label}
         defaultValue={fingerGuardType.value}
         objects={fingerGuardTypeObjs}
         handleChange={handle.fingerGuardType}
       />
-      <AccordionRadio
+      <SelectCard
         summary={'座ブトンスポンジ'}
         selectedLabel={zabutonSponge.label}
         defaultValue={zabutonSponge.value}
         objects={zabutonSpongeObjs}
         handleChange={handle.zabutonSponge}
       />
-      <AccordionRadio
-        summary={'EX機能'}
-        selectedLabel={exFunction.label}
-        defaultValue={exFunction.value}
-        objects={exFunctionObjs}
-        handleChange={handle.exFunction}
-      />
-      <AccordionRadio
+      <SelectCard summary={'EX機能'} selectedLabel={exFunction.label} defaultValue={exFunction.value} objects={exFunctionObjs} handleChange={handle.exFunction} />
+      <SelectCard
         summary={'ピンキーパターン'}
         selectedLabel={pinkiePattern.label}
         defaultValue={pinkiePattern.value}
         objects={pinkiePatternObjs}
         handleChange={handle.pinkiePattern}
       />
-      <AccordionRadio
-        summary={'TB刻印'}
-        selectedLabel={tbEngraved.label}
-        defaultValue={tbEngraved.value}
-        objects={tbEngravedObjs}
-        handleChange={handle.tbEngraved}
-      />
-      {/* <AccordionRadio
+      <SelectCard summary={'TB刻印'} selectedLabel={tbEngraved.label} defaultValue={tbEngraved.value} objects={tbEngravedObjs} handleChange={handle.tbEngraved} />
+      {/* <SelectCard
         summary={'手首裏部の素材'}
         selectedLabel={listLiningsMaterial.label}
         defaultValue={listLiningsMaterial.value}
