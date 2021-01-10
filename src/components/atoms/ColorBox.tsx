@@ -6,7 +6,7 @@ type Props = {
 }
 
 const ColorBox: React.FC<Props> = ({ bgcolor }) => (
-  <Box display="inline-block" border="solid 1px #eee" bgcolor={bgcolor} width={'12px'} height={'12px'} mr={0.5} />
+  <Box display="inline-block" border="solid 1px #eee" bgcolor={bgcolor} width={'16px'} height={'16px'} mr={0.3} />
 )
 
 export default ColorBox

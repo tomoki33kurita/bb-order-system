@@ -19,7 +19,7 @@ type Props = {
 }
 
 const AccordionRadio: React.FC<Props> = ({ summary, selectedLabel, selectedColor, defaultValue, objects, index, disabled, handleChange }) => (
-  <Accordion style={{ marginBottom: '8px' }} disabled={disabled}>
+  <Accordion style={{ marginBottom: '8px' }} disabled={disabled} defaultExpanded>
     <AccordionSummary
       expandIcon={
         <Fab size="small" tabIndex={-1} style={{ boxShadow: 'unset' }}>

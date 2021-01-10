@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, TextField, Card, Accordion, AccordionSummary, AccordionDetails, Fab, Button } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import AccordionRadio from 'src/components/molecules/AccordionRadio'
+// import AccordionRadio from 'src/components/molecules/AccordionRadio'
+import SelectCard from 'src/components/molecules/SelectCard'
 import TabPanel from 'src/components/molecules/TabPanel'
 import { embroideryTypeFaceObjs, embroideryPositionObjs, embroideryColorObjs, embroideryShadowColorObjs } from 'src/constants/radioObjs/embroidery'
 import { SET_EMBROIDERIES, ADD_EMBROIDERY, REMOVE_EMBROIDERY } from 'src/constants/ActionTypes'
@@ -19,33 +20,28 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
   const { embroideries } = state
 
   const updateEmbroideries = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    selected: string,
     i: number,
     type: 'embroideryTypeFace' | 'embroideryPosition' | 'embroideryColor' | 'embroideryShadowColor' | 'embroideryContent',
     objs?: { label: string; value: string; color?: string }[]
   ) => {
-    const newEmbroideries = { ...embroideries[i], [type]: objs.filter((prev) => prev.value === event.target.value)[0] }
+    const newEmbroideries = { ...embroideries[i], [type]: objs.filter((prev) => prev.value === selected)[0] }
     return embroideriesReducer(embroideries, newEmbroideries, i)
   }
 
   const handleContentAndNum = useEmbroideryContent(dispatch, embroideries)
   const handle = {
-    typeFace: (event: React.ChangeEvent<HTMLInputElement>, i: number) => {
-      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryTypeFace', embroideryTypeFaceObjs) })
+    typeFace: (selected: string, i: number) => {
+      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(selected, i, 'embroideryTypeFace', embroideryTypeFaceObjs) })
     },
-    position: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
-      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryPosition', embroideryPositionObjs) }),
-    color: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
-      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryColor', embroideryColorObjs) }),
-    shadowColor: (event: React.ChangeEvent<HTMLInputElement>, i: number) =>
-      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(event, i, 'embroideryShadowColor', embroideryShadowColorObjs) }),
-    content: (event: React.ChangeEvent<HTMLInputElement>, i: number) => {
-      handleContentAndNum(event.target.value, i)
-    },
+    position: (selected: string, i: number) => dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(selected, i, 'embroideryPosition', embroideryPositionObjs) }),
+    color: (selected: string, i: number) => dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(selected, i, 'embroideryColor', embroideryColorObjs) }),
+    shadowColor: (selected: string, i: number) =>
+      dispatch({ type: SET_EMBROIDERIES, embroideries: updateEmbroideries(selected, i, 'embroideryShadowColor', embroideryShadowColorObjs) }),
+    content: (selected: string, i: number) => handleContentAndNum(selected, i),
   }
   const handleAddForm = () => dispatch({ type: ADD_EMBROIDERY, embroideries: embroideries.concat({ ...initialEmbroState, id: embroideries.length }) })
-  const handleRemoveForm = () =>
-    dispatch({ type: REMOVE_EMBROIDERY, embroideries: embroideries.filter((prev) => prev.id !== embroideries.length - 1) })
+  const handleRemoveForm = () => dispatch({ type: REMOVE_EMBROIDERY, embroideries: embroideries.filter((prev) => prev.id !== embroideries.length - 1) })
 
   return (
     <>
@@ -64,7 +60,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
         </Box>
         {embroideries.map((embroidery, i) => (
           <Box key={`${i}`} my={1}>
-            <Accordion>
+            <Accordion defaultExpanded>
               <AccordionSummary
                 expandIcon={
                   <Fab size="small" tabIndex={-1} style={{ boxShadow: 'unset' }}>
@@ -76,7 +72,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
               </AccordionSummary>
               <AccordionDetails>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
-                  <AccordionRadio
+                  <SelectCard
                     summary={'書体'}
                     selectedLabel={embroidery.embroideryTypeFace?.label}
                     defaultValue={embroidery.embroideryTypeFace?.value}
@@ -86,7 +82,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
-                  <AccordionRadio
+                  <SelectCard
                     summary={'位置'}
                     selectedLabel={embroidery.embroideryPosition?.label}
                     defaultValue={embroidery.embroideryPosition?.value}
@@ -96,7 +92,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
-                  <AccordionRadio
+                  <SelectCard
                     summary={'刺繍カラー'}
                     selectedLabel={embroidery.embroideryColor?.label}
                     selectedColor={embroidery.embroideryColor?.color}
@@ -107,7 +103,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                   />
                 </Box>
                 <Box m={0.5} ml={'auto'} width={'90%'}>
-                  <AccordionRadio
+                  <SelectCard
                     summary={'影カラー'}
                     selectedLabel={embroidery.embroideryShadowColor?.label}
                     selectedColor={embroidery.embroideryShadowColor?.color}
@@ -121,15 +117,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
                   <Card>
                     <Box display="flex" alignItems="center" mx={1} my={2}>
                       <Box mr={2}>刺繍内容</Box>
-                      <TextField
-                        multiline
-                        onChange={(event) => {
-                          handle.content(event as React.ChangeEvent<HTMLInputElement>, i)
-                        }}
-                        variant="outlined"
-                        rows={2}
-                        style={{ width: '75%' }}
-                      />
+                      <TextField multiline onChange={(event) => handle.content(event.target.value, i)} variant="outlined" rows={2} style={{ width: '75%' }} />
                     </Box>
                   </Card>
                 </Box>
