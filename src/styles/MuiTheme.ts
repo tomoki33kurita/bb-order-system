@@ -32,6 +32,12 @@ const theme = createMuiTheme({
       },
     },
     MuiAccordionSummary: {
+      root: {
+        minHeight: '48px !important',
+      },
+      content: {
+        margin: '8px 0 !important',
+      },
       expandIcon: {
         padding: '2px',
       },
@@ -51,6 +57,11 @@ const theme = createMuiTheme({
     MuiDialog: {
       paperWidthSm: {
         maxWidth: '900px',
+      },
+    },
+    MuiButton: {
+      root: {
+        textTransform: 'none',
       },
     },
   },
