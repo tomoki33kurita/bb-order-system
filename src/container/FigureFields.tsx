@@ -4,6 +4,7 @@ import TabPanel from 'src/components/molecules/TabPanel'
 import { State } from 'src/types'
 import PdfDialog from 'src/container/PdfDialog'
 import FigureFront from 'src/container/FigureFront'
+import FigureBack from 'src/container/FigureBack'
 
 export const a11yProps = (index: number): any => {
   return {
@@ -44,7 +45,19 @@ const FigureFields: React.FC<Props> = ({ state }) => {
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <img src="/mitt_front.jpg" alt="catchersMitt_front" height={400} />
+        <FigureBack
+          leatherStrapColor={state.leatherString.color}
+          leatherColor={state.leatherColor.color}
+          webColor={state.webColor.color}
+          edgeColor={state.edgeColor.color}
+          stitchColor={state.stitchColor.color}
+          targetColor={state.targetSet.color}
+          cutSurfaceColor={state.hamidashiType.color}
+          thumbMachiColor={state.thumbMachiColor.color}
+          littleMachiColor={state.littleMachiColor.color}
+          moutonColor={state.listLiningsMaterial.color}
+          thumbHookColor={state.thumbHook.color}
+        />
       </TabPanel>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">

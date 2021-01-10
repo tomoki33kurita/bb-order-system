@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box } from '@material-ui/core'
 import { thumbMachi, thumbTarget, thumbHookLeather } from 'src/container/canvasFunctions/thumb'
 import { littleMachi, littleInLineBottom } from 'src/container/canvasFunctions/little'
 import { web, webTop } from 'src/container/canvasFunctions/web'
@@ -23,7 +24,7 @@ type Props = {
   thumbHookColor: string
 }
 
-const FigureFront: React.FC<Props> = ({
+const FigureBack: React.FC<Props> = ({
   leatherStrapColor,
   leatherColor,
   webColor,
@@ -72,11 +73,25 @@ const FigureFront: React.FC<Props> = ({
     // thumbHookLeather(ctx, thumbHookColor)
   }, [leatherColor, leatherStrapColor, webColor, thumbMachiColor, littleMachiColor, edgeColor, stitchColor, targetColor, cutSurfaceColor, moutonColor, thumbHookColor])
 
+  const [coordinateX, setCoordinateX] = React.useState(0)
+  const [coordinateY, setCoordinateY] = React.useState(0)
+
+  const handleCoordinate = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
+    // eslint-disable-next-line
+    // @ts-ignore
+    const rect = e.target.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    setCoordinateX(x)
+    setCoordinateY(y)
+  }
+
   return (
     <>
-      <canvas width="1120" height="652" id="canvas"></canvas>
+      <canvas width="1000" height="652" id="canvas" onClick={(e) => handleCoordinate(e)}></canvas>
+      <Box>{`(${coordinateX}, ${coordinateY})`}</Box>
     </>
   )
 }
 
-export default FigureFront
+export default FigureBack
