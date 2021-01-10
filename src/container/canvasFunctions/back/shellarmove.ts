@@ -12,9 +12,8 @@ export const shellarmove = (ctx: CanvasRenderingContext2D, color: string): void 
   ctx.quadraticCurveTo(271, 547, 271, 547)
   ctx.quadraticCurveTo(281, 565, 297, 569) // 手口ベルト左横の頂点
 
-  ctx.quadraticCurveTo(290, 518, 290, 518)
-  ctx.quadraticCurveTo(319, 441, 319, 441)
-  ctx.quadraticCurveTo(362, 417, 362, 417)
+  ctx.quadraticCurveTo(280, 507, 319, 441)
+  ctx.quadraticCurveTo(335, 420, 362, 417)
   ctx.quadraticCurveTo(348, 336, 348, 336)
   ctx.stroke()
   ctx.closePath()

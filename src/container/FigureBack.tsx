@@ -57,7 +57,7 @@ const FigureBack: React.FC<Props> = ({
     // シェラームーブ
     shellarmove(ctx, 'blue')
     // 手口ベルト
-    listBelt(ctx, 'orange')
+    // listBelt(ctx, 'orange')
     // ウェブ先端
     webTop(ctx, 'green')
     // ウェブ本体
