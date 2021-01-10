@@ -1,6 +1,6 @@
 export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 1.5
-  ctx.strokeStyle = color
+  ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()
   // 一番小指寄りの部分
@@ -67,5 +67,6 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.lineTo(399, 554)
   ctx.lineTo(398, 558)
   ctx.stroke()
+  ctx.fill()
   ctx.closePath()
 }

@@ -1,6 +1,6 @@
 export const shellarmove = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 1.5
-  ctx.strokeStyle = color
+  ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()
   ctx.moveTo(348, 336) // 中指部分の一番右上
@@ -16,5 +16,6 @@ export const shellarmove = (ctx: CanvasRenderingContext2D, color: string): void 
   ctx.quadraticCurveTo(335, 420, 362, 417)
   ctx.quadraticCurveTo(348, 336, 348, 336)
   ctx.stroke()
+  ctx.fill()
   ctx.closePath()
 }

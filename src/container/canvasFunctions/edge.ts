@@ -119,12 +119,12 @@ export const edgeLeatherBack = (ctx: CanvasRenderingContext2D, color: string): v
   ctx.quadraticCurveTo(677, 235, 650, 285)
   ctx.quadraticCurveTo(627, 302, 602, 296)
 
-  ctx.quadraticCurveTo(584, 313, 576, 311)
-  ctx.quadraticCurveTo(517, 298, 482, 263) // ウェブ中央下部分
-  ctx.quadraticCurveTo(438, 204, 431, 148)
+  ctx.quadraticCurveTo(592, 312, 592, 312) // ウェブ右下
+  ctx.quadraticCurveTo(520, 310, 482, 263) // ウェブ中央下
+  ctx.quadraticCurveTo(430, 212, 431, 148) // ウェブ左下
 
-  ctx.quadraticCurveTo(445, 100, 485, 80) // ウェブ終了あたりから開始地点まで
-  ctx.quadraticCurveTo(495, 67, 490, 53) // ウェブ終了あたりから開始地点まで
+  ctx.quadraticCurveTo(450, 100, 485, 80) // ウェブ終了あたりから開始地点まで
+  ctx.quadraticCurveTo(495, 65, 485, 50) // ウェブ終了あたりから開始地点まで
   ctx.quadraticCurveTo(480, 45, 465, 45) // ウェブ終了あたりから開始地点まで
   // ctx.fill()
   ctx.stroke()

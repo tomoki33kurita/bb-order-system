@@ -2,14 +2,16 @@ import React from 'react'
 import { Box, Button } from '@material-ui/core'
 import CopyToClipBoard from 'copy-to-clipboard'
 import { edgeLeatherBack } from 'src/container/canvasFunctions/edge'
-import { indexFiner } from 'src/container/canvasFunctions/back/indexFinger'
+import { indexFinger } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
 import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
 import { web, webTop } from 'src/container/canvasFunctions/back/web'
 import { shellarmove } from 'src/container/canvasFunctions/back/shellarmove'
 import { middleBag } from 'src/container/canvasFunctions/back/middleBag'
 import { RingAndLittleBag } from 'src/container/canvasFunctions/back/ringAndLittleBag'
-import { catchFace } from 'src/container/canvasFunctions/back/catchSurface'
+import { catchSurFace } from 'src/container/canvasFunctions/back/catchSurface'
+import { thumbHook } from 'src/container/canvasFunctions/back/thumbHook'
+import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
 
 type Props = {
   leatherStrapColor: string
@@ -44,26 +46,30 @@ const FigureBack: React.FC<Props> = ({
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
 
-    // ヘリ革
-    edgeLeatherBack(ctx, edgeColor)
-    // 人差し指カバー
-    // indexFiner(ctx, 'pink')
-    // 親指・人差し指袋
-    thumbAndIndexBag(ctx, 'green')
-    // 中指袋
-    middleBag(ctx, 'orange')
-    // 薬指小指袋
-    RingAndLittleBag(ctx, 'green')
-    // シェラームーブ
-    shellarmove(ctx, 'blue')
-    // 手口ベルト
-    // listBelt(ctx, 'orange')
-    // ウェブ先端
-    webTop(ctx, 'green')
-    // ウェブ本体
-    web(ctx, 'purple')
     // 捕球面
-    catchFace(ctx, 'orange')
+    catchSurFace(ctx, '#005380')
+    // ヘリ革
+    // edgeLeatherBack(ctx, edgeColor)
+    // 薬指小指袋
+    RingAndLittleBag(ctx, '#005380')
+    // 中指袋
+    middleBag(ctx, '#005380')
+    // 親指・人差し指袋
+    // thumbAndIndexBag(ctx, '#005380')
+    // 人差し指カバー
+    indexFinger(ctx, '#fff')
+    // シェラームーブ
+    shellarmove(ctx, '#fff')
+    // 手口ベルト
+    listBelt(ctx, '#fff')
+    // ウェブ先端
+    webTop(ctx, '#fff')
+    // ウェブ本体
+    web(ctx, '#005380')
+    // 親指掛け紐
+    thumbHook(ctx, '#fff')
+    // 小指掛け紐
+    littleHook(ctx, '#fff')
   }, [leatherColor, leatherStrapColor, webColor, thumbMachiColor, littleMachiColor, edgeColor, stitchColor, targetColor, cutSurfaceColor, moutonColor, thumbHookColor])
 
   const [coordinateX, setCoordinateX] = React.useState(0)

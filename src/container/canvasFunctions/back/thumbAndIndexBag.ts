@@ -1,6 +1,6 @@
 export const thumbAndIndexBag = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 1.5
-  ctx.strokeStyle = color
+  ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()
   ctx.moveTo(404, 96) // 人差し指先端
@@ -28,5 +28,6 @@ export const thumbAndIndexBag = (ctx: CanvasRenderingContext2D, color: string): 
   ctx.quadraticCurveTo(395, 210, 393, 148)
   ctx.quadraticCurveTo(400, 120, 404, 97)
   ctx.stroke()
+  ctx.fill()
   ctx.closePath()
 }
