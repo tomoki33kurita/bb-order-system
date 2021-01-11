@@ -13,7 +13,6 @@ import {
   SET_CORE_MATERIAL_HARDNESS,
   SET_CORE_MATERIAL_THICKNESS,
   SET_LININGS_TYPE,
-  // SET_LININGS_LEATHER_COLOR,
   SET_HAMIDASHI_TYPE,
   SET_FINGER_GUARD_TYPE,
   SET_ZABUTON_SPONGE,
@@ -31,6 +30,14 @@ import {
   SET_THUMB_MACHI_COLOR,
   SET_LITTLE_MACHI_COLOR,
   SET_THUMB_HOOK,
+  SET_LITTLE_HOOK,
+  SET_LIST_BELT_COLOR,
+  SET_FINGER_COVER_COLOR,
+  SET_BAG_FOUNDATION_COLOR,
+  SET_RING_AND_LITTLE_BAG_COLOR,
+  SET_MIDDLE_BAG_COLOR,
+  SET_INDEX_AND_THUMB_BAG_COLOR,
+  SET_SHELLARMOVE_COLOR,
 } from 'src/constants/ActionTypes'
 
 export const initialEmbroState = {
@@ -57,7 +64,6 @@ export const initialState: State = {
   coreMaterialHardness: { label: '普通', value: 'normal' },
   coreMaterialThickness: { label: '普通', value: 'normal' },
   liningsType: { label: '共牛革(Vオレンジ)', value: 'cow_v_orange', color: '#ff4500' },
-  // liningsLeatherColor: '',
   hamidashiType: { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
   fingerGuardType: { label: 'スタンダード', value: 'standard_finger_guard' },
   zabutonSponge: { label: '有り', value: 'zabuton' },
@@ -71,6 +77,15 @@ export const initialState: State = {
   littleMachiColor: { label: 'Vブラック', value: 'v_black', color: '#525151' },
   thumbMachiColor: { label: 'Vブラック', value: 'v_black', color: '#525151' },
   thumbHook: { label: 'レッド', value: 'red', color: 'red' },
+  littleHook: { label: 'レッド', value: 'red', color: 'red' },
+  listBeltColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  fingerCoverColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  bagFoundationColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  ringAndLittleBagColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  middleBagColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  indexAndThumbBagColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  shellarmoveColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+
   embroideries: [initialEmbroState],
 }
 
@@ -108,8 +123,6 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, coreMaterialThickness: action.coreMaterialThickness }
     case SET_LININGS_TYPE:
       return { ...state, liningsType: action.liningsType }
-    // case SET_LININGS_LEATHER_COLOR:
-    // return { ...state, liningsLeatherColor: action.liningsLeatherColor }
     case SET_HAMIDASHI_TYPE:
       return { ...state, hamidashiType: action.hamidashiType }
     case SET_FINGER_GUARD_TYPE:
@@ -138,7 +151,22 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, embroideries: action.embroideries }
     case SET_THUMB_HOOK:
       return { ...state, thumbHook: action.thumbHook }
-
+    case SET_LITTLE_HOOK:
+      return { ...state, littleHook: action.littleHook }
+    case SET_LIST_BELT_COLOR:
+      return { ...state, listBeltColor: action.listBeltColor }
+    case SET_FINGER_COVER_COLOR:
+      return { ...state, fingerCoverColor: action.fingerCoverColor }
+    case SET_BAG_FOUNDATION_COLOR:
+      return { ...state, bagFoundationColor: action.bagFoundationColor }
+    case SET_RING_AND_LITTLE_BAG_COLOR:
+      return { ...state, ringAndLittleBagColor: action.ringAndLittleBagColor }
+    case SET_MIDDLE_BAG_COLOR:
+      return { ...state, middleBagColor: action.middleBagColor }
+    case SET_INDEX_AND_THUMB_BAG_COLOR:
+      return { ...state, indexAndThumbBagColor: action.indexAndThumbBagColor }
+    case SET_SHELLARMOVE_COLOR:
+      return { ...state, shellarmoveColor: action.shellarmoveColor }
     default:
       return state
   }

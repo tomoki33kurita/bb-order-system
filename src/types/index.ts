@@ -41,6 +41,14 @@ export type State = {
   thumbMachiColor: stateObj
   littleMachiColor: stateObj
   thumbHook: stateObj
+  littleHook: stateObj
+  listBeltColor: stateObj
+  fingerCoverColor: stateObj
+  bagFoundationColor: stateObj
+  ringAndLittleBagColor: stateObj
+  middleBagColor: stateObj
+  indexAndThumbBagColor: stateObj
+  shellarmoveColor: stateObj
   embroideries: Embroidery[]
 }
 
