@@ -19,7 +19,7 @@ type Props = {
 
 const FigureFields: React.FC<Props> = ({ state }) => {
   // todo あとでuseReducerを突っ込んでまとめて状態管理する
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState(1)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
 
   const [open, setOpen] = React.useState<boolean>(false)

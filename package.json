@@ -22,6 +22,7 @@
     "next": "^9.5.3",
     "puppeteer": "^5.5.0",
     "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.1",
     "use-debounce": "^5.2.0"
