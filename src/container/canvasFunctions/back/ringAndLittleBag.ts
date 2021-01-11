@@ -9,7 +9,7 @@ export const RingAndLittleBag = (ctx: CanvasRenderingContext2D, color: string): 
   ctx.quadraticCurveTo(231, 457, 231, 457) // 一番下
   ctx.quadraticCurveTo(218, 400, 306, 388)
   ctx.quadraticCurveTo(287, 293, 294, 218)
-  ctx.quadraticCurveTo(288, 190, 264, 204)
+  ctx.quadraticCurveTo(300, 185, 264, 204)
   ctx.stroke()
   ctx.fill()
   ctx.closePath()

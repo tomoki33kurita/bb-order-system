@@ -3,7 +3,7 @@ export const middleBag = (ctx: CanvasRenderingContext2D, color: string): void =>
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   ctx.beginPath()
-  ctx.moveTo(334, 144) // 中指先端
+  ctx.moveTo(334, 142) // 中指先端
   ctx.quadraticCurveTo(325, 143, 318, 151)
   ctx.quadraticCurveTo(296, 174, 294, 208)
   ctx.quadraticCurveTo(285, 278, 294, 359)
@@ -14,7 +14,7 @@ export const middleBag = (ctx: CanvasRenderingContext2D, color: string): void =>
   ctx.quadraticCurveTo(330, 225, 332, 224)
   ctx.quadraticCurveTo(339, 211, 343, 213)
   ctx.quadraticCurveTo(346, 151, 346, 151)
-  ctx.quadraticCurveTo(334, 144, 334, 144)
+  ctx.quadraticCurveTo(345, 140, 334, 142)
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
