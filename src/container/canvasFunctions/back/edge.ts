@@ -67,7 +67,7 @@ export const edges = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.quadraticCurveTo(784, 264, 765, 256) // 親指最先端外側
   ctx.quadraticCurveTo(731, 245, 689, 271)
   ctx.quadraticCurveTo(653, 312, 592, 314) // ウェブ下捕球面の革右下との交点
-  ctx.quadraticCurveTo(496, 318, 440, 200) // ウェブ下捕球面の革左下との交点
+  ctx.quadraticCurveTo(496, 315, 440, 200) // ウェブ下捕球面の革左下との交点
   ctx.quadraticCurveTo(430, 180, 431, 155)
   ctx.quadraticCurveTo(430, 125, 475, 95)
   ctx.quadraticCurveTo(513, 45, 465, 45)
