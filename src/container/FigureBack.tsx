@@ -66,34 +66,34 @@ const FigureBack: React.FC<Props> = ({
 
     // ヘリ革
     edges(ctx, edgeColor)
-    // 捕球面
-    catchSurFace(ctx, leatherColor)
-    // 指袋部分のベース部分_台
-    fingerBase(ctx, bagFoundationColor)
-    // 人差し親指指袋
-    thumbAndIndexBag(ctx, indexAndThumbBagColor)
-    // シェラームーブ
-    shellarmove(ctx, shellarmoveColor)
-    // 中指袋
-    middleBag(ctx, middleBagColor)
-    // 薬指小指袋
-    RingAndLittleBag(ctx, ringAndLittleBagColor)
-    // 人差し指カバー
-    indexFinger(ctx, fingerCoverColor)
-    // ベルトパッキン
-    beltFittings(ctx)
-    // 手口ベルト
-    listBelt(ctx, listBeltColor)
-    // ウェブ先端
-    webTop(ctx, webColor)
-    // ウェブ本体
-    web(ctx, webColor)
-    // 親指掛け紐
-    thumbHook(ctx, thumbHookColor)
-    // 小指掛け紐
-    littleHook(ctx, littleHookColor)
-    // メーカーラベル
-    selectedLabel(ctx, 'gold')
+    // // 捕球面
+    // catchSurFace(ctx, leatherColor)
+    // // 指袋部分のベース部分_台
+    // fingerBase(ctx, bagFoundationColor)
+    // // 人差し親指指袋
+    // thumbAndIndexBag(ctx, indexAndThumbBagColor)
+    // // シェラームーブ
+    // shellarmove(ctx, shellarmoveColor)
+    // // 薬指小指袋
+    // RingAndLittleBag(ctx, ringAndLittleBagColor)
+    // // 中指袋
+    // middleBag(ctx, middleBagColor)
+    // // 人差し指カバー
+    // indexFinger(ctx, fingerCoverColor)
+    // // ベルトパッキン
+    // beltFittings(ctx)
+    // // 手口ベルト
+    // listBelt(ctx, listBeltColor)
+    // // ウェブ先端
+    // webTop(ctx, webColor)
+    // // ウェブ本体
+    // web(ctx, webColor)
+    // // 親指掛け紐
+    // thumbHook(ctx, thumbHookColor)
+    // // 小指掛け紐
+    // littleHook(ctx, littleHookColor)
+    // // メーカーラベル
+    // selectedLabel(ctx, 'gold')
   }, [
     leatherColor,
     leatherStrapColor,
