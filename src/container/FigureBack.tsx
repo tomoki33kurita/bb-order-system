@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Button, FilledInput, Input, TextField } from '@material-ui/core'
-import CopyToClipBoard from 'copy-to-clipboard'
+import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
 import { indexFinger } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
@@ -28,6 +27,14 @@ type Props = {
   cutSurfaceColor: string | undefined
   moutonColor: string
   thumbHookColor: string
+  littleHookColor: string
+  listBeltColor: string
+  fingerCoverColor: string
+  bagFoundationColor: string
+  ringAndLittleBagColor: string
+  middleBagColor: string
+  indexAndThumbBagColor: string
+  shellarmoveColor: string
 }
 
 const FigureBack: React.FC<Props> = ({
@@ -42,6 +49,14 @@ const FigureBack: React.FC<Props> = ({
   cutSurfaceColor,
   moutonColor,
   thumbHookColor,
+  littleHookColor,
+  listBeltColor,
+  fingerCoverColor,
+  bagFoundationColor,
+  ringAndLittleBagColor,
+  middleBagColor,
+  indexAndThumbBagColor,
+  shellarmoveColor,
 }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
@@ -51,35 +66,55 @@ const FigureBack: React.FC<Props> = ({
 
     // ヘリ革
     edges(ctx, edgeColor)
-    // 指袋部分のベース部分
-    // fingerBase(ctx, 'pink')
     // 捕球面
     catchSurFace(ctx, leatherColor)
-    // 薬指小指袋
-    RingAndLittleBag(ctx, '#005380')
-    // 中指袋
-    middleBag(ctx, '#005380')
-    // 親指・人差し指袋
-    thumbAndIndexBag(ctx, '#005380')
-    // 人差し指カバー
-    indexFinger(ctx, '#fff')
+    // 指袋部分のベース部分_台
+    fingerBase(ctx, bagFoundationColor)
+    // 人差し親指指袋
+    thumbAndIndexBag(ctx, indexAndThumbBagColor)
     // シェラームーブ
-    shellarmove(ctx, '#fff')
+    shellarmove(ctx, shellarmoveColor)
+    // 中指袋
+    middleBag(ctx, middleBagColor)
+    // 薬指小指袋
+    RingAndLittleBag(ctx, ringAndLittleBagColor)
+    // 人差し指カバー
+    indexFinger(ctx, fingerCoverColor)
     // ベルトパッキン
-    beltFittings(ctx, '#383838')
+    beltFittings(ctx)
     // 手口ベルト
-    listBelt(ctx, '#fff')
+    listBelt(ctx, listBeltColor)
     // ウェブ先端
-    webTop(ctx, '#fff')
+    webTop(ctx, webColor)
     // ウェブ本体
-    web(ctx, '#005380')
+    web(ctx, webColor)
     // 親指掛け紐
     thumbHook(ctx, thumbHookColor)
     // 小指掛け紐
-    littleHook(ctx, thumbHookColor)
+    littleHook(ctx, littleHookColor)
     // メーカーラベル
     selectedLabel(ctx, 'gold')
-  }, [leatherColor, leatherStrapColor, webColor, thumbMachiColor, littleMachiColor, edgeColor, stitchColor, targetColor, cutSurfaceColor, moutonColor, thumbHookColor])
+  }, [
+    leatherColor,
+    leatherStrapColor,
+    webColor,
+    thumbMachiColor,
+    littleMachiColor,
+    edgeColor,
+    stitchColor,
+    targetColor,
+    cutSurfaceColor,
+    moutonColor,
+    thumbHookColor,
+    littleHookColor,
+    listBeltColor,
+    fingerCoverColor,
+    bagFoundationColor,
+    ringAndLittleBagColor,
+    middleBagColor,
+    indexAndThumbBagColor,
+    shellarmoveColor,
+  ])
 
   const [coordinateX, setCoordinateX] = React.useState(0)
   const [coordinateY, setCoordinateY] = React.useState(0)
@@ -122,7 +157,6 @@ const FigureBack: React.FC<Props> = ({
       ></canvas>
       <Box display="flex" justifyContent="center">
         <Box display="flex" justifyContent="center" alignItems="center">
-          <Input type="hidden" value={'aaa'} onClick={(e) => console.log('e.target.value')} />
           <TextField placeholder="X座標の値" variant="outlined" onChange={(e) => setInputX(parseInt(e.target.value))} />
           <TextField placeholder="Y座標の値" variant="outlined" onChange={(e) => setInputY(parseInt(e.target.value))} />
           <Button variant="outlined" onClick={handlePonter}>

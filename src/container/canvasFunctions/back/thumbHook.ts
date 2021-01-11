@@ -2,6 +2,7 @@ export const thumbHook = (ctx: CanvasRenderingContext2D, color: string): void =>
   ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
+
   ctx.beginPath()
 
   // 結びの玉部分
@@ -52,5 +53,4 @@ export const thumbHook = (ctx: CanvasRenderingContext2D, color: string): void =>
 
   ctx.stroke()
   ctx.fill()
-  ctx.closePath()
 }

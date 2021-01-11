@@ -1,7 +1,8 @@
-export const beltFittings = (ctx: CanvasRenderingContext2D, color: string): void => {
+export const beltFittings = (ctx: CanvasRenderingContext2D): void => {
   // パッキン自体
   ctx.fillStyle = '#383838'
   ctx.strokeStyle = 'black'
+  ctx.beginPath()
   ctx.moveTo(398, 558)
   ctx.lineTo(412, 563)
   ctx.lineTo(412, 595)

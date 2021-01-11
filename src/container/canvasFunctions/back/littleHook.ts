@@ -2,6 +2,7 @@ export const littleHook = (ctx: CanvasRenderingContext2D, color: string): void =
   ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
+
   ctx.beginPath()
   // 結びの玉部分
   ctx.moveTo(242, 474) // 右上
@@ -28,9 +29,9 @@ export const littleHook = (ctx: CanvasRenderingContext2D, color: string): void =
   ctx.lineTo(258, 550) // 右下
   ctx.lineTo(254, 530) // 右下の真上
   ctx.lineTo(234, 502) // 右上＿開始地点
+
   ctx.closePath()
 
   ctx.stroke()
   ctx.fill()
-  ctx.closePath()
 }

@@ -4,7 +4,7 @@ export const edges = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.fillStyle = color
 
   // ウェブ下捕球面の革右下のヘリ革
-  // ctx.beginPath()
+  ctx.beginPath()
   ctx.moveTo(597, 298) // ウェブ下捕球面の革右下の上部
   ctx.quadraticCurveTo(593, 314, 589, 312) // 左下
   ctx.quadraticCurveTo(624, 320, 648, 300)

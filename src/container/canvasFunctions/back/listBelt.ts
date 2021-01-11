@@ -2,8 +2,8 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
-  ctx.beginPath()
   // 一番小指寄りの部分
+  ctx.beginPath()
   ctx.moveTo(309, 557)
   ctx.lineTo(312, 581)
   ctx.lineTo(323, 592)
@@ -13,6 +13,7 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.fill()
   ctx.closePath()
   // 左から２番目
+  ctx.beginPath()
   ctx.moveTo(331, 562)
   ctx.lineTo(337, 595)
   ctx.lineTo(365, 593)
@@ -22,6 +23,7 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.fill()
   ctx.closePath()
   // パッキンの左側
+  ctx.beginPath()
   ctx.moveTo(381, 558)
   ctx.lineTo(385, 596)
   ctx.lineTo(411, 593)
@@ -31,6 +33,7 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.fill()
   ctx.closePath()
   // パッキンの右
+  ctx.beginPath()
   ctx.moveTo(455, 563)
   ctx.lineTo(462, 583)
   ctx.lineTo(454, 598)
@@ -44,6 +47,7 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.closePath()
 
   // パッキンの右の下革
+  ctx.beginPath()
   ctx.moveTo(498, 569)
   ctx.lineTo(516, 586)
   ctx.lineTo(494, 601)
@@ -56,6 +60,7 @@ export const listBelt = (ctx: CanvasRenderingContext2D, color: string): void => 
   ctx.closePath()
 
   // パッキンの中
+  ctx.beginPath()
   ctx.fillStyle = color
   ctx.moveTo(420, 563)
   ctx.lineTo(420, 592)

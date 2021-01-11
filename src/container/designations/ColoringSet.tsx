@@ -1,6 +1,4 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
-import AccordionRadio from 'src/components/molecules/AccordionRadio'
 import SelectCard from 'src/components/molecules/SelectCard'
 import { State, Action } from 'src/types'
 import TabPanel from 'src/components/molecules/TabPanel'
@@ -28,6 +26,14 @@ import {
   SET_LITTLE_MACHI_COLOR,
   SET_LIST_LININGS_MATERIAL,
   SET_THUMB_HOOK,
+  SET_LITTLE_HOOK,
+  SET_LIST_BELT_COLOR,
+  SET_FINGER_COVER_COLOR,
+  SET_BAG_FOUNDATION_COLOR,
+  SET_RING_AND_LITTLE_BAG_COLOR,
+  SET_MIDDLE_BAG_COLOR,
+  SET_INDEX_AND_THUMB_BAG_COLOR,
+  SET_SHELLARMOVE_COLOR,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -51,6 +57,14 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
     littleMachiColor,
     listLiningsMaterial,
     thumbHook,
+    littleHook,
+    listBeltColor,
+    fingerCoverColor,
+    bagFoundationColor,
+    ringAndLittleBagColor,
+    middleBagColor,
+    indexAndThumbBagColor,
+    shellarmoveColor,
   } = state
 
   const handle = {
@@ -73,6 +87,16 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === selected)[0],
       }),
     thumbHook: (selected: string) => dispatch({ type: SET_THUMB_HOOK, thumbHook: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    littleHook: (selected: string) => dispatch({ type: SET_LITTLE_HOOK, littleHook: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    listBeltColor: (selected: string) => dispatch({ type: SET_LIST_BELT_COLOR, listBeltColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    fingerCoverColor: (selected: string) => dispatch({ type: SET_FINGER_COVER_COLOR, fingerCoverColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    bagFoundationColor: (selected: string) => dispatch({ type: SET_BAG_FOUNDATION_COLOR, bagFoundationColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    ringAndLittleBagColor: (selected: string) =>
+      dispatch({ type: SET_RING_AND_LITTLE_BAG_COLOR, ringAndLittleBagColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    middleBagColor: (selected: string) => dispatch({ type: SET_MIDDLE_BAG_COLOR, middleBagColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    indexAndThumbBagColor: (selected: string) =>
+      dispatch({ type: SET_INDEX_AND_THUMB_BAG_COLOR, indexAndThumbBagColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    shellarmoveColor: (selected: string) => dispatch({ type: SET_SHELLARMOVE_COLOR, shellarmoveColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
   }
   return (
     <TabPanel value={value} index={1}>
@@ -136,12 +160,76 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         handleChange={handle.thumbHook}
       />
       <SelectCard
+        summary={'小指掛け紐カラー'}
+        selectedLabel={littleHook.label}
+        selectedColor={littleHook.color}
+        defaultValue={littleHook.value}
+        objects={leatherColorObjs}
+        handleChange={handle.littleHook}
+      />
+      <SelectCard
         summary={'革紐'}
         selectedLabel={leatherString.label}
         selectedColor={leatherString.color}
         defaultValue={leatherString.value}
         objects={leatherStringColorObjs}
         handleChange={handle.leatherString}
+      />
+      <SelectCard
+        summary={'指カバーカラー'}
+        selectedLabel={fingerCoverColor.label}
+        selectedColor={fingerCoverColor.color}
+        defaultValue={fingerCoverColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.fingerCoverColor}
+      />
+      <SelectCard
+        summary={'台カラー'}
+        selectedLabel={bagFoundationColor.label}
+        selectedColor={bagFoundationColor.color}
+        defaultValue={bagFoundationColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.bagFoundationColor}
+      />
+      <SelectCard
+        summary={'薬指小指カラー'}
+        selectedLabel={ringAndLittleBagColor.label}
+        selectedColor={ringAndLittleBagColor.color}
+        defaultValue={ringAndLittleBagColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.ringAndLittleBagColor}
+      />
+      <SelectCard
+        summary={'中指カラー'}
+        selectedLabel={middleBagColor.label}
+        selectedColor={middleBagColor.color}
+        defaultValue={middleBagColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.middleBagColor}
+      />
+      <SelectCard
+        summary={'人差し指親指カラー'}
+        selectedLabel={indexAndThumbBagColor.label}
+        selectedColor={indexAndThumbBagColor.color}
+        defaultValue={indexAndThumbBagColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.indexAndThumbBagColor}
+      />
+      <SelectCard
+        summary={'シェラームーブカラー'}
+        selectedLabel={shellarmoveColor.label}
+        selectedColor={shellarmoveColor.color}
+        defaultValue={shellarmoveColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.shellarmoveColor}
+      />
+      <SelectCard
+        summary={'手口ベルトカラー'}
+        selectedLabel={listBeltColor.label}
+        selectedColor={listBeltColor.color}
+        defaultValue={listBeltColor.value}
+        objects={leatherColorObjs}
+        handleChange={handle.listBeltColor}
       />
       <SelectCard
         summary={'ステッチカラー'}

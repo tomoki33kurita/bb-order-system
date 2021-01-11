@@ -21,7 +21,6 @@ const FigureFields: React.FC<Props> = ({ state }) => {
   // todo あとでuseReducerを突っ込んでまとめて状態管理する
   const [value, setValue] = React.useState(1)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
-
   const [open, setOpen] = React.useState<boolean>(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -42,6 +41,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           littleMachiColor={state.littleMachiColor.color}
           moutonColor={state.listLiningsMaterial.color}
           thumbHookColor={state.thumbHook.color}
+          littleHookColor={state.littleHook.color}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -57,6 +57,14 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           littleMachiColor={state.littleMachiColor.color}
           moutonColor={state.listLiningsMaterial.color}
           thumbHookColor={state.thumbHook.color}
+          littleHookColor={state.littleHook.color}
+          listBeltColor={state.listBeltColor.color}
+          fingerCoverColor={state.fingerCoverColor.color}
+          bagFoundationColor={state.bagFoundationColor.color}
+          ringAndLittleBagColor={state.ringAndLittleBagColor.color}
+          middleBagColor={state.middleBagColor.color}
+          indexAndThumbBagColor={state.indexAndThumbBagColor.color}
+          shellarmoveColor={state.shellarmoveColor.color}
         />
       </TabPanel>
       <AppBar position="static">
