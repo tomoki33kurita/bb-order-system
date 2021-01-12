@@ -14,7 +14,10 @@ export const thumbAndIndexBag = (ctx: CanvasRenderingContext2D, color: string): 
   ctx.quadraticCurveTo(400, 615, 457, 607)
   ctx.quadraticCurveTo(500, 605, 526, 587)
   ctx.quadraticCurveTo(540, 565, 540, 565)
-  ctx.quadraticCurveTo(565, 553, 605, 520) // 親指掛け紐部分
+  ctx.quadraticCurveTo(575, 545, 585, 542) // 親指掛け紐部分
+  ctx.quadraticCurveTo(605, 530, 605, 528)
+
+  // ctx.quadraticCurveTo(579, 548, 579, 548)
   ctx.quadraticCurveTo(677, 444, 737, 355) // 親指先端右下
   ctx.quadraticCurveTo(759, 330, 750, 305) // 親指先端中央最上点
   ctx.quadraticCurveTo(740, 290, 723, 297)

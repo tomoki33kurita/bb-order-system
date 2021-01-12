@@ -14,6 +14,7 @@ import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
 import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
+import { stitch, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/stitch'
 
 type Props = {
   leatherStrapColor: string
@@ -78,12 +79,8 @@ const FigureBack: React.FC<Props> = ({
     RingAndLittleBag(ctx, ringAndLittleBagColor)
     // 中指袋
     middleBag(ctx, middleBagColor)
-    // 人差し指カバー
-    indexFinger(ctx, fingerCoverColor)
     // ベルトパッキン
     beltFittings(ctx)
-    // 手口ベルト
-    listBelt(ctx, listBeltColor)
     // ウェブ先端
     webTop(ctx, webColor)
     // ウェブ本体
@@ -94,6 +91,13 @@ const FigureBack: React.FC<Props> = ({
     littleHook(ctx, littleHookColor)
     // メーカーラベル
     selectedLabel(ctx, 'gold')
+    // ステッチ
+    stitch(ctx, stitchColor)
+    // 人差し指カバー
+    indexFinger(ctx, fingerCoverColor)
+    indexFingerCoverstitch(ctx, stitchColor)
+    // 手口ベルト
+    listBelt(ctx, listBeltColor)
   }, [
     leatherColor,
     leatherStrapColor,
