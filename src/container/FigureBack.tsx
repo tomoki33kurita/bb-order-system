@@ -14,6 +14,7 @@ import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
 import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
+import { stitch } from 'src/container/canvasFunctions/back/stitch'
 
 type Props = {
   leatherStrapColor: string
@@ -65,35 +66,37 @@ const FigureBack: React.FC<Props> = ({
     ctx.lineWidth = 2
 
     // ヘリ革
-    edges(ctx, edgeColor)
-    // 捕球面
-    catchSurFace(ctx, leatherColor)
-    // 指袋部分のベース部分_台
-    fingerBase(ctx, bagFoundationColor)
-    // 人差し親指指袋
-    thumbAndIndexBag(ctx, indexAndThumbBagColor)
-    // シェラームーブ
-    shellarmove(ctx, shellarmoveColor)
-    // 薬指小指袋
-    RingAndLittleBag(ctx, ringAndLittleBagColor)
-    // 中指袋
-    middleBag(ctx, middleBagColor)
-    // 人差し指カバー
-    indexFinger(ctx, fingerCoverColor)
-    // ベルトパッキン
-    beltFittings(ctx)
-    // 手口ベルト
-    listBelt(ctx, listBeltColor)
-    // ウェブ先端
-    webTop(ctx, webColor)
-    // ウェブ本体
-    web(ctx, webColor)
-    // 親指掛け紐
-    thumbHook(ctx, thumbHookColor)
-    // 小指掛け紐
-    littleHook(ctx, littleHookColor)
-    // メーカーラベル
-    selectedLabel(ctx, 'gold')
+    // edges(ctx, edgeColor)
+    // // 捕球面
+    // catchSurFace(ctx, leatherColor)
+    // // 指袋部分のベース部分_台
+    // fingerBase(ctx, bagFoundationColor)
+    // // 人差し親指指袋
+    // thumbAndIndexBag(ctx, indexAndThumbBagColor)
+    // // シェラームーブ
+    // shellarmove(ctx, shellarmoveColor)
+    // // 薬指小指袋
+    // RingAndLittleBag(ctx, ringAndLittleBagColor)
+    // // 中指袋
+    // middleBag(ctx, middleBagColor)
+    // // 人差し指カバー
+    // indexFinger(ctx, fingerCoverColor)
+    // // ベルトパッキン
+    // beltFittings(ctx)
+    // // 手口ベルト
+    // listBelt(ctx, listBeltColor)
+    // // ウェブ先端
+    // webTop(ctx, webColor)
+    // // ウェブ本体
+    // web(ctx, webColor)
+    // // 親指掛け紐
+    // thumbHook(ctx, thumbHookColor)
+    // // 小指掛け紐
+    // littleHook(ctx, littleHookColor)
+    // // メーカーラベル
+    // selectedLabel(ctx, 'gold')
+    // ステッチ
+    stitch(ctx, stitchColor)
   }, [
     leatherColor,
     leatherStrapColor,
