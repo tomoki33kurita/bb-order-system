@@ -69,7 +69,7 @@ const FigureBack: React.FC<Props> = ({
     // ヘリ革
     edges(ctx, edgeColor)
     // 捕球面
-    catchSurFace(ctx, leatherColor)
+    // catchSurFace(ctx, leatherColor)
     // 指袋部分のベース部分_台
     fingerBase(ctx, bagFoundationColor)
     // 人差し親指指袋
@@ -83,9 +83,9 @@ const FigureBack: React.FC<Props> = ({
     // ベルトパッキン
     beltFittings(ctx)
     // ウェブ先端
-    // webTop(ctx, webColor)
+    webTop(ctx, webColor)
     // ウェブ本体
-    web(ctx, webColor)
+    // web(ctx, webColor)
     // 親指掛け紐
     thumbHook(ctx, thumbHookColor)
     // 小指掛け紐
@@ -93,7 +93,7 @@ const FigureBack: React.FC<Props> = ({
     // メーカーラベル
     selectedLabel(ctx, 'gold')
     // ステッチ
-    stitch(ctx, stitchColor)
+    // stitch(ctx, stitchColor)
     // 人差し指カバー
     indexFinger(ctx, fingerCoverColor)
     indexFingerCoverstitch(ctx, stitchColor)

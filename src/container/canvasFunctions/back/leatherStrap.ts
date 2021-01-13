@@ -1,6 +1,7 @@
 export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.lineWidth = 1.0
-  ctx.strokeStyle = '#383838'
+  // ctx.strokeStyle = '#383838'
+  ctx.strokeStyle = 'red'
   ctx.fillStyle = color
   ctx.beginPath()
   // ウェブ先端左上から右下
@@ -135,6 +136,61 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.quadraticCurveTo(740, 208, 740, 208) // 左下
   ctx.quadraticCurveTo(752, 205, 757, 209) // 右下
   ctx.quadraticCurveTo(761, 204, 754, 204) // 左上
+
+  // 捕球面とウェブの繋ぎ部分＿一番左
+  ctx.moveTo(492, 140) // 左上
+  ctx.quadraticCurveTo(478, 158, 485, 185) // 左下
+  ctx.quadraticCurveTo(490, 185, 498, 174) // 右下
+  ctx.quadraticCurveTo(494, 155, 509, 138) // 右上
+  ctx.quadraticCurveTo(492, 140, 492, 140) // 左上
+  // 右上の影
+  ctx.moveTo(509, 138) //
+  ctx.quadraticCurveTo(507, 143, 507, 143) //
+  ctx.quadraticCurveTo(511, 142, 516, 145) //
+  ctx.quadraticCurveTo(515, 141, 509, 138) //
+  // 右斜め上の革紐
+  ctx.moveTo(507, 143) // 左上
+  ctx.quadraticCurveTo(500, 151, 499, 159) // 左下
+  ctx.quadraticCurveTo(505, 155, 512, 159) // 右下
+  ctx.quadraticCurveTo(523, 155, 524, 148) // 右上
+  ctx.quadraticCurveTo(512, 143, 507, 145) // 左上
+
+  // 捕球面とウェブの繋ぎ部分＿中央
+  ctx.moveTo(558, 176) // 右上
+  ctx.quadraticCurveTo(535, 170, 522, 191) // 左上
+  ctx.quadraticCurveTo(520, 213, 523, 202) // 左下
+  ctx.quadraticCurveTo(540, 185, 557, 189) // 右下
+  ctx.quadraticCurveTo(570, 185, 558, 176) // 右上
+  // 左上＿左上
+  ctx.moveTo(536, 173) //
+  ctx.quadraticCurveTo(533, 178, 533, 178) //
+  ctx.quadraticCurveTo(543, 171, 555, 174) //
+  ctx.quadraticCurveTo(551, 170, 551, 170) //
+  ctx.quadraticCurveTo(542, 176, 536, 173) //
+  // 右下
+  ctx.moveTo(545, 191) // 右上
+  ctx.quadraticCurveTo(529, 192, 523, 206) // 左上
+  ctx.quadraticCurveTo(519, 214, 519, 214) // 左下
+  ctx.quadraticCurveTo(527, 223, 537, 212) // 右下
+  ctx.quadraticCurveTo(535, 205, 545, 191) // 左上
+
+  // 捕球面とウェブの繋ぎ部分＿右
+  ctx.moveTo(579, 205) // 左上
+  ctx.quadraticCurveTo(572, 224, 575, 250) // 左下
+  ctx.quadraticCurveTo(589, 237, 589, 237) // 右下
+  ctx.quadraticCurveTo(588, 220, 595, 201) // 右上
+  ctx.quadraticCurveTo(579, 205, 579, 205) // 左上
+  // 右上
+  ctx.moveTo(594, 207) //左上
+  ctx.quadraticCurveTo(590, 222, 590, 222) //左下
+  ctx.quadraticCurveTo(597, 219, 602, 219) //右下
+  ctx.quadraticCurveTo(605, 214, 604, 207) //右上
+  ctx.quadraticCurveTo(598, 206, 594, 207) //左上
+  // 左下
+  ctx.moveTo(575, 220) // 右上
+  ctx.quadraticCurveTo(565, 243, 566, 237) // 左下
+  ctx.quadraticCurveTo(563, 246, 574, 248) // 右下
+  ctx.quadraticCurveTo(571, 235, 575, 220) // 左上
 
   ctx.stroke()
   ctx.fill()
