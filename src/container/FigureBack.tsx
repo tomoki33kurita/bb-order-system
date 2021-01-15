@@ -15,7 +15,7 @@ import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
 import { stitch, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/stitch'
-import { leatherStrap } from 'src/container/canvasFunctions/back/leatherStrap'
+import { leatherStrap, knotOnWeb } from 'src/container/canvasFunctions/back/leatherStrap'
 
 type Props = {
   leatherStrapColor: string
@@ -67,7 +67,7 @@ const FigureBack: React.FC<Props> = ({
     ctx.lineWidth = 2
 
     // ヘリ革
-    edges(ctx, edgeColor)
+    // edges(ctx, edgeColor)
     // 捕球面
     // catchSurFace(ctx, leatherColor)
     // 指袋部分のベース部分_台
@@ -102,6 +102,7 @@ const FigureBack: React.FC<Props> = ({
     // 革紐
     // leatherStrap(ctx, leatherStrapColor)
     leatherStrap(ctx, 'pink')
+    knotOnWeb(ctx, 'pink')
   }, [
     leatherColor,
     leatherStrapColor,

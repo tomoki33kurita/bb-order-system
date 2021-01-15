@@ -154,6 +154,11 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.quadraticCurveTo(505, 155, 512, 159) // 右下
   ctx.quadraticCurveTo(523, 155, 524, 148) // 右上
   ctx.quadraticCurveTo(512, 143, 507, 145) // 左上
+  // 左下部分
+  ctx.moveTo(485, 154) // 左上
+  ctx.quadraticCurveTo(481, 155, 480, 160) // 左中
+  ctx.quadraticCurveTo(478, 168, 483, 172) // 下
+  ctx.quadraticCurveTo(480, 164, 485, 154) // 左上
 
   // 捕球面とウェブの繋ぎ部分＿中央
   ctx.moveTo(558, 176) // 右上
@@ -166,7 +171,7 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.quadraticCurveTo(533, 178, 533, 178) //
   ctx.quadraticCurveTo(543, 171, 555, 174) //
   ctx.quadraticCurveTo(551, 170, 551, 170) //
-  ctx.quadraticCurveTo(542, 176, 536, 173) //
+  ctx.quadraticCurveTo(542, 173, 536, 173) //
   // 右下
   ctx.moveTo(545, 191) // 右上
   ctx.quadraticCurveTo(529, 192, 523, 206) // 左上
@@ -192,6 +197,161 @@ export const leatherStrap = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.quadraticCurveTo(563, 246, 574, 248) // 右下
   ctx.quadraticCurveTo(571, 235, 575, 220) // 左上
 
+  // 人差し指側ヘリ革＿捕球面繋ぐ革紐
+  ctx.moveTo(435, 140) // 左左
+  ctx.quadraticCurveTo(428, 142, 430, 152) // 下左
+  ctx.quadraticCurveTo(448, 159, 448, 159) // 右下
+  ctx.quadraticCurveTo(452, 150, 454, 148) // 右上
+  ctx.quadraticCurveTo(445, 140, 435, 140) // 左上
+  // 親指側ヘリ革＿捕球面(ウェブ下)繋ぐ革紐
+  ctx.moveTo(617, 272) // 左上
+  ctx.quadraticCurveTo(609, 283, 609, 283) // 左下
+  ctx.quadraticCurveTo(620, 290, 627, 310) // 右下
+  ctx.quadraticCurveTo(635, 310, 640, 304) // 右上
+  ctx.quadraticCurveTo(631, 284, 617, 272) // 左上
+
+  // 人差し指ヘリ革からウェブ本体＿左上に繋ぐ革紐
+  ctx.moveTo(489, 70) // ヘリ革下
+  ctx.quadraticCurveTo(504, 71, 520, 82) // ウェブ側左
+  ctx.quadraticCurveTo(523, 79, 523, 76) // ウェブ側右
+  ctx.quadraticCurveTo(513, 59, 490, 64) // ヘリ革側上
+  ctx.quadraticCurveTo(489, 70, 489, 70) // ヘリ革下
+
+  // 人差し指ヘリ革からウェブ本体＿左中央に繋ぐ革紐
+  ctx.moveTo(478, 86) // ヘリ革下
+  ctx.quadraticCurveTo(495, 95, 495, 95) // ウェブ側左
+  ctx.quadraticCurveTo(504, 90, 504, 90) // ウェブ側右
+  ctx.quadraticCurveTo(485, 81, 485, 81) // ヘリ革側上
+  ctx.quadraticCurveTo(477, 82, 478, 86) // ヘリ革下
+
+  // 人差し指ヘリ革からウェブ本体＿左下に繋ぐ革紐
+  ctx.moveTo(455, 112) // ヘリ革下
+  ctx.quadraticCurveTo(468, 113, 468, 113) // ウェブ側左
+  ctx.quadraticCurveTo(478, 104, 479, 106) // ウェブ側右
+  ctx.quadraticCurveTo(465, 102, 466, 102) // ヘリ革側上
+  ctx.quadraticCurveTo(460, 105, 455, 112) // ヘリ革下
+
+  // 親指ヘリ革からウェブ本体＿右下に繋ぐ革紐
+  ctx.moveTo(648, 256) // ウェブ下
+  ctx.quadraticCurveTo(671, 262, 675, 284) // ヘリ革側下
+  ctx.quadraticCurveTo(682, 283, 687, 272) // ヘリ革側上
+  ctx.quadraticCurveTo(684, 257, 660, 247) // ウェブ上
+  ctx.quadraticCurveTo(652, 248, 648, 256) // ウェブ下
+
+  // 親指ヘリ革からウェブ本体＿右中央に繋ぐ革紐
+  ctx.moveTo(671, 236) // ウェブ下
+  ctx.quadraticCurveTo(687, 246, 700, 263) // ヘリ革側下
+  ctx.quadraticCurveTo(709, 261, 709, 261) // ヘリ革側上
+  ctx.quadraticCurveTo(701, 240, 682, 228) // ウェブ上
+  ctx.quadraticCurveTo(671, 236, 671, 236) // ウェブ下
+
+  // 親指ヘリ革からウェブ本体＿右上に繋ぐ革紐
+  ctx.moveTo(695, 221) // ウェブ左
+  ctx.quadraticCurveTo(715, 228, 722, 257) // ヘリ革側左
+  ctx.quadraticCurveTo(730, 255, 734, 254) // ヘリ革側右
+  ctx.quadraticCurveTo(730, 228, 709, 215) // ウェブ右
+  ctx.quadraticCurveTo(699, 215, 695, 221) // ウェブ左
+
+  // ウェブ左先端から人差し指芯先端を結ぶ革紐
+  ctx.moveTo(442, 57) // 人差し指芯
+  ctx.quadraticCurveTo(449, 58, 449, 58) // 人差し指芯側左
+  ctx.quadraticCurveTo(449, 46, 463, 40) // ウェブ左先端側＿左
+  ctx.quadraticCurveTo(487, 38, 487, 38) // ウェブ左先端側＿左
+  ctx.quadraticCurveTo(518, 42, 518, 45) // ウェブ左先端側＿右
+  ctx.quadraticCurveTo(520, 27, 460, 34) // ウェブ左
+  ctx.quadraticCurveTo(441, 40, 442, 57) // ウェブ左
+
+  // ウェブ左先端から人差し指芯先端を結ぶ革紐
+  ctx.moveTo(478, 47) // 人差し指芯左
+  ctx.quadraticCurveTo(492, 48, 492, 48) // 人差し指芯右
+  ctx.quadraticCurveTo(506, 45, 510, 50) // ウェブ左先端側＿左
+  ctx.quadraticCurveTo(517, 46, 517, 46) // ウェブ左先端側＿左
+  ctx.quadraticCurveTo(492, 36, 478, 47) // ウェブ左先端側＿右
+
+  // ウェブ右先端から親指芯先端を結ぶ革紐
+  ctx.moveTo(754, 232) // ウェブ側左
+  ctx.quadraticCurveTo(773, 250, 773, 250) // 曲線前革紐の中間
+  ctx.quadraticCurveTo(780, 257, 766, 272) // 親指接続部分＿左
+  ctx.quadraticCurveTo(770, 280, 769, 290) // ウェブ左先端側＿右下
+  ctx.quadraticCurveTo(785, 264, 785, 264) // ウェブ左先端側＿右
+  ctx.quadraticCurveTo(789, 255, 782, 245) // 曲線後革紐の中間
+  ctx.quadraticCurveTo(777, 235, 765, 224) // ウェブ側右
+  ctx.quadraticCurveTo(754, 232, 754, 232) // ウェブ側右
+
+  ctx.stroke()
+  ctx.fill()
+  ctx.closePath()
+}
+
+export const knotOnWeb = (ctx: CanvasRenderingContext2D, color: string): void => {
+  ctx.lineWidth = 1.0
+  // ctx.strokeStyle = '#383838'
+  ctx.strokeStyle = 'red'
+  ctx.fillStyle = color
+  ctx.beginPath()
+
+  // ウェブ本体中央の結び目＿左
+  ctx.moveTo(596, 127) // 左上
+  ctx.quadraticCurveTo(586, 141, 598, 156) // 右下下
+  ctx.quadraticCurveTo(607, 141, 605, 141) // 右下上
+  ctx.quadraticCurveTo(606, 130, 606, 130) // 左上の右
+  ctx.quadraticCurveTo(596, 127, 596, 127) // 左上
+  // 右上
+  ctx.moveTo(594, 207) //左上
+  ctx.quadraticCurveTo(590, 222, 590, 222) //左下
+  ctx.quadraticCurveTo(597, 219, 602, 219) //右下
+  ctx.quadraticCurveTo(605, 214, 604, 207) //右上
+  ctx.quadraticCurveTo(598, 206, 594, 207) //左上
+  // 左下
+  ctx.moveTo(575, 220) // 右上
+  ctx.quadraticCurveTo(565, 243, 566, 237) // 左下
+  ctx.quadraticCurveTo(563, 246, 574, 248) // 右下
+  ctx.quadraticCurveTo(571, 235, 575, 220) // 左上
+
+  // ウェブ本体中央の結び目＿右
+  ctx.moveTo(606, 136) // 左上
+  ctx.quadraticCurveTo(607, 154, 590, 164) // 左下
+  ctx.quadraticCurveTo(596, 170, 601, 171) // 右下
+  ctx.quadraticCurveTo(617, 151, 615, 151) // 右上
+  ctx.quadraticCurveTo(615, 143, 606, 136) // 左上
+
+  // 結び目左下
+  ctx.moveTo(592, 143) // 左上
+  ctx.quadraticCurveTo(585, 154, 590, 163) // 左下
+  ctx.quadraticCurveTo(598, 156, 598, 158) // 右上
+  ctx.quadraticCurveTo(589, 144, 592, 143) // 左上
+
+  // 右上
+  ctx.moveTo(594, 207) //左上
+  ctx.quadraticCurveTo(590, 222, 590, 222) //左下
+  ctx.quadraticCurveTo(597, 219, 602, 219) //右下
+  ctx.quadraticCurveTo(605, 214, 604, 207) //右上
+  ctx.quadraticCurveTo(598, 206, 594, 207) //左上
+  // 左下
+  ctx.moveTo(575, 220) // 右上
+  ctx.quadraticCurveTo(565, 243, 566, 237) // 左下
+  ctx.quadraticCurveTo(563, 246, 574, 248) // 右下
+  ctx.quadraticCurveTo(571, 235, 575, 220) // 左上
+
+  // 革部分との付け根
+  ctx.moveTo(575, 140) // 左上
+  ctx.quadraticCurveTo(583, 135, 590, 137) // 右上
+  ctx.quadraticCurveTo(590, 142, 590, 142) // 右下
+  ctx.quadraticCurveTo(580, 145, 580, 145) // 左下
+  ctx.quadraticCurveTo(575, 140, 575, 140) // 左下
+
+  // ウェブ本体の紐先端左
+  ctx.moveTo(493, 59) // 左左
+  ctx.quadraticCurveTo(554, 123, 590, 137) // 右下
+  ctx.quadraticCurveTo(593, 130, 593, 130) // 右上
+  ctx.quadraticCurveTo(554, 107, 499, 58) // 左右
+  ctx.quadraticCurveTo(493, 59, 493, 59) // 左左
+
+  // ウェブ本体の紐先端右
+  ctx.moveTo(608, 165) // 左左
+  ctx.quadraticCurveTo(682, 249, 682, 249) // 下左
+  ctx.quadraticCurveTo(692, 243, 692, 243) // 下右
+  ctx.quadraticCurveTo(614, 155, 614, 155) // 左右
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
