@@ -15,7 +15,7 @@ import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
 import { stitch, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/stitch'
-import { leatherStrap, knotOnWeb } from 'src/container/canvasFunctions/back/leatherStrap'
+import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
 
 type Props = {
   leatherStrapColor: string
@@ -67,9 +67,9 @@ const FigureBack: React.FC<Props> = ({
     ctx.lineWidth = 2
 
     // ヘリ革
-    // edges(ctx, edgeColor)
+    edges(ctx, edgeColor)
     // 捕球面
-    // catchSurFace(ctx, leatherColor)
+    catchSurFace(ctx, leatherColor)
     // 指袋部分のベース部分_台
     fingerBase(ctx, bagFoundationColor)
     // 人差し親指指袋
@@ -85,24 +85,26 @@ const FigureBack: React.FC<Props> = ({
     // ウェブ先端
     webTop(ctx, webColor)
     // ウェブ本体
-    // web(ctx, webColor)
-    // 親指掛け紐
-    thumbHook(ctx, thumbHookColor)
-    // 小指掛け紐
-    littleHook(ctx, littleHookColor)
+    web(ctx, webColor)
     // メーカーラベル
     selectedLabel(ctx, 'gold')
     // ステッチ
-    // stitch(ctx, stitchColor)
+    stitch(ctx, stitchColor)
     // 人差し指カバー
     indexFinger(ctx, fingerCoverColor)
     indexFingerCoverstitch(ctx, stitchColor)
     // 手口ベルト
     listBelt(ctx, listBeltColor)
     // 革紐
-    // leatherStrap(ctx, leatherStrapColor)
-    leatherStrap(ctx, 'pink')
-    knotOnWeb(ctx, 'pink')
+    leatherStrap(ctx, leatherStrapColor)
+    knotOnWebLeatherStrap(ctx, leatherStrapColor)
+    arroundEdgheLeatherStrap(ctx, leatherStrapColor)
+    topOfFingerBagLeatherStrap(ctx, leatherStrapColor)
+    knotOnLeatherStraps(ctx, leatherStrapColor)
+    // 親指掛け紐
+    thumbHook(ctx, thumbHookColor)
+    // 小指掛け紐
+    littleHook(ctx, littleHookColor)
   }, [
     leatherColor,
     leatherStrapColor,
@@ -161,10 +163,10 @@ const FigureBack: React.FC<Props> = ({
         width="1000"
         height="652"
         id="canvas"
-        style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
+        // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         onClick={(e) => handleCoordinate(e)}
       ></canvas>
-      <Box display="flex" justifyContent="center">
+      {/* <Box display="flex" justifyContent="center">
         <Box display="flex" justifyContent="center" alignItems="center">
           <TextField placeholder="X座標の値" variant="outlined" onChange={(e) => setInputX(parseInt(e.target.value))} />
           <TextField placeholder="Y座標の値" variant="outlined" onChange={(e) => setInputY(parseInt(e.target.value))} />
@@ -179,7 +181,7 @@ const FigureBack: React.FC<Props> = ({
           </Button>
           {isCopy ? <Box ml={2}>コピーしたよ！</Box> : <Box width={90} />}
         </Box>
-      </Box>
+      </Box> */}
     </>
   )
 }
