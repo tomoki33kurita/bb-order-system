@@ -15,6 +15,7 @@ import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
 import { stitch, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/stitch'
+import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
 
 type Props = {
   leatherStrapColor: string
@@ -85,10 +86,6 @@ const FigureBack: React.FC<Props> = ({
     webTop(ctx, webColor)
     // ウェブ本体
     web(ctx, webColor)
-    // 親指掛け紐
-    thumbHook(ctx, thumbHookColor)
-    // 小指掛け紐
-    littleHook(ctx, littleHookColor)
     // メーカーラベル
     selectedLabel(ctx, 'gold')
     // ステッチ
@@ -98,6 +95,16 @@ const FigureBack: React.FC<Props> = ({
     indexFingerCoverstitch(ctx, stitchColor)
     // 手口ベルト
     listBelt(ctx, listBeltColor)
+    // 革紐
+    leatherStrap(ctx, leatherStrapColor)
+    knotOnWebLeatherStrap(ctx, leatherStrapColor)
+    arroundEdgheLeatherStrap(ctx, leatherStrapColor)
+    topOfFingerBagLeatherStrap(ctx, leatherStrapColor)
+    knotOnLeatherStraps(ctx, leatherStrapColor)
+    // 親指掛け紐
+    thumbHook(ctx, thumbHookColor)
+    // 小指掛け紐
+    littleHook(ctx, littleHookColor)
   }, [
     leatherColor,
     leatherStrapColor,
@@ -156,10 +163,10 @@ const FigureBack: React.FC<Props> = ({
         width="1000"
         height="652"
         id="canvas"
-        style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
+        // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         onClick={(e) => handleCoordinate(e)}
       ></canvas>
-      <Box display="flex" justifyContent="center">
+      {/* <Box display="flex" justifyContent="center">
         <Box display="flex" justifyContent="center" alignItems="center">
           <TextField placeholder="X座標の値" variant="outlined" onChange={(e) => setInputX(parseInt(e.target.value))} />
           <TextField placeholder="Y座標の値" variant="outlined" onChange={(e) => setInputY(parseInt(e.target.value))} />
@@ -174,7 +181,7 @@ const FigureBack: React.FC<Props> = ({
           </Button>
           {isCopy ? <Box ml={2}>コピーしたよ！</Box> : <Box width={90} />}
         </Box>
-      </Box>
+      </Box> */}
     </>
   )
 }
