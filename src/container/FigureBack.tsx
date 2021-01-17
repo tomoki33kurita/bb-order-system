@@ -166,7 +166,7 @@ const FigureBack: React.FC<Props> = ({
         // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         onClick={(e) => handleCoordinate(e)}
       ></canvas>
-      {/* <Box display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="center">
         <Box display="flex" justifyContent="center" alignItems="center">
           <TextField placeholder="X座標の値" variant="outlined" onChange={(e) => setInputX(parseInt(e.target.value))} />
           <TextField placeholder="Y座標の値" variant="outlined" onChange={(e) => setInputY(parseInt(e.target.value))} />
@@ -181,7 +181,7 @@ const FigureBack: React.FC<Props> = ({
           </Button>
           {isCopy ? <Box ml={2}>コピーしたよ！</Box> : <Box width={90} />}
         </Box>
-      </Box> */}
+      </Box>
     </>
   )
 }

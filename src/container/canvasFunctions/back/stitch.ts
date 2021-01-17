@@ -29,8 +29,8 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.quadraticCurveTo(578, 313, 578, 313) // // 内線の右下右
 
   ctx.moveTo(362, 414) // シェラームーブ右下
-  ctx.quadraticCurveTo(309, 428, 306, 472) //
-  ctx.quadraticCurveTo(273, 514, 294, 565) // シェラームーブ左下
+  ctx.quadraticCurveTo(315, 420, 301, 472) //
+  ctx.quadraticCurveTo(283, 510, 292, 565) // シェラームーブ左下
   ctx.quadraticCurveTo(271, 546, 273, 546) // シェラームーブ左上
   ctx.quadraticCurveTo(256, 513, 256, 513) // シェラームーブ左上の左上
 
@@ -49,17 +49,16 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.quadraticCurveTo(335, 253, 367, 417) //親指掛け紐やや上部
 
   ctx.moveTo(297, 207) // 中指袋_先端＿左下
-  ctx.quadraticCurveTo(294, 162, 328, 148) // 中指袋＿先端＿中央上
+  ctx.quadraticCurveTo(300, 165, 328, 148) // 中指袋＿先端＿中央上
   ctx.quadraticCurveTo(350, 145, 343, 168) //
   ctx.quadraticCurveTo(339, 196, 343, 209) // 中指袋＿先端＿右下
   ctx.moveTo(346, 329) // 中指袋_手前＿右上
-  ctx.quadraticCurveTo(311, 321, 296, 348) // 中指袋_手前＿左下
+  ctx.quadraticCurveTo(310, 330, 295, 350) // 中指袋_手前＿左下
 
-  ctx.moveTo(256, 214) // 小指薬指袋_先端＿中央上
-  ctx.quadraticCurveTo(290, 193, 292, 217)
-  // ctx.quadraticCurveTo(290, 235, 294, 256)
-  ctx.moveTo(304, 381) // 小指薬指袋_手前＿右上
-  ctx.quadraticCurveTo(232, 397, 220, 435) // 小指薬指袋_手前＿左下
+  ctx.moveTo(257, 215) // 小指薬指袋_先端＿中央上
+  ctx.quadraticCurveTo(293, 188, 292, 217)
+  ctx.moveTo(304, 385) // 小指薬指袋_手前＿右上
+  ctx.quadraticCurveTo(215, 395, 228, 454) // 小指薬指袋_手前＿左下
 
   ctx.moveTo(331, 604) // 手口左下
   ctx.quadraticCurveTo(370, 610, 431, 608) // 手口中央下
@@ -84,10 +83,6 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.quadraticCurveTo(475, 53, 468, 55) //
   ctx.quadraticCurveTo(390, 74, 325, 125) // 中指袋先端真上
   ctx.quadraticCurveTo(279, 165, 258, 205) // 小指薬指袋先端真左上
-  // ctx.quadraticCurveTo(230, 250, 217, 315) // 小指薬指袋左側面中腹
-  // ctx.quadraticCurveTo(205, 380, 222, 450) // 小指薬指袋左下付近
-  // ctx.moveTo(376, 202) //
-  // ctx.quadraticCurveTo(445, 370, 445, 370) //
   ctx.stroke()
   ctx.setLineDash([])
   ctx.closePath()
