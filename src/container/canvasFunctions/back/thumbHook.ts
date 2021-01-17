@@ -24,17 +24,17 @@ export const thumbHook = (ctx: CanvasRenderingContext2D, color: string): void =>
   ctx.closePath()
 
   // 上部の紐の先端
-  ctx.moveTo(629, 509) // 左下
-  ctx.lineTo(639, 505) // 右下
+  ctx.moveTo(628, 510) // 左下
+  ctx.lineTo(639, 506) // 右下
   ctx.quadraticCurveTo(640, 490, 667, 468) // 最上部
   ctx.quadraticCurveTo(630, 475, 629, 509) // 左下_開始地点
   ctx.closePath()
 
   // 下部の紐の先端
-  ctx.moveTo(603, 530) // 左上
+  ctx.moveTo(603, 529) // 左上
   ctx.quadraticCurveTo(582, 543, 585, 570) // 真下
-  ctx.quadraticCurveTo(590, 545, 615, 535) // 右上
-  ctx.lineTo(603, 530) // 左上_開始地点
+  ctx.quadraticCurveTo(590, 545, 617, 534) // 右上
+  ctx.lineTo(603, 529) // 左上_開始地点
   ctx.closePath()
 
   // 根元上

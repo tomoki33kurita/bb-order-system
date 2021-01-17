@@ -23,16 +23,16 @@ export const littleHook = (ctx: CanvasRenderingContext2D, color: string): void =
   ctx.closePath()
 
   // 結びの玉上部の小さい結び玉部分
-  ctx.moveTo(227, 481) // 右上
+  ctx.moveTo(228, 481) // 右上
   ctx.moveTo(225, 483) // 右上の左
-  ctx.lineTo(229, 507) // 左下
-  ctx.lineTo(234, 501) // 右下
-  ctx.lineTo(227, 481) // 右上
+  ctx.lineTo(230, 506) // 左下
+  ctx.lineTo(235, 501) // 右下
+  ctx.lineTo(228, 481) // 右上
   ctx.closePath()
 
   // 結びの玉上部の紐先端部分
   ctx.moveTo(234, 502) // 右上
-  ctx.lineTo(230, 508) // 左上
+  ctx.lineTo(230, 507) // 左上
   ctx.lineTo(243, 536) // 左側面中央
   ctx.lineTo(244, 550) // 左下の上部
   ctx.lineTo(252, 561) // 中央真下
