@@ -492,11 +492,11 @@ export const arroundEdgheLeatherStrap = (ctx: CanvasRenderingContext2D, color: s
   ctx.quadraticCurveTo(452, 228, 450, 229) // 左上
 
   // 捕球面真下から左3番目の革紐
-  ctx.moveTo(437, 171) // 左上
+  ctx.moveTo(441, 171) // 左上
   ctx.quadraticCurveTo(421, 188, 412, 205) // 左下
   ctx.quadraticCurveTo(410, 218, 414, 218) // 右下
-  ctx.quadraticCurveTo(424, 192, 439, 187) // 右上
-  ctx.quadraticCurveTo(442, 180, 437, 171) // 左上
+  ctx.quadraticCurveTo(424, 192, 438, 187) // 右上
+  ctx.quadraticCurveTo(438, 180, 441, 171) // 左上
   // 影
   ctx.moveTo(439, 187) // 上
   ctx.quadraticCurveTo(423, 196, 414, 218) // 下
@@ -504,17 +504,18 @@ export const arroundEdgheLeatherStrap = (ctx: CanvasRenderingContext2D, color: s
   ctx.quadraticCurveTo(428, 193, 439, 187) // 左上
 
   // 捕球面真下から左4番目の革紐
-  ctx.moveTo(431, 154) // 右上
-  ctx.quadraticCurveTo(416, 156, 405, 168) // 左上
+  ctx.moveTo(435, 156) // 右上
+  ctx.quadraticCurveTo(416, 159, 405, 170) // 左上
   ctx.quadraticCurveTo(404, 174, 407, 181) // 左下
-  ctx.quadraticCurveTo(418, 168, 436, 165) // 右下
-  ctx.quadraticCurveTo(435, 157, 431, 154) // 右上
+  ctx.quadraticCurveTo(425, 164, 443, 164) // 右下
+  ctx.quadraticCurveTo(446, 158, 444, 158) // 右下と右上の中間
+  ctx.quadraticCurveTo(444, 158, 435, 156) // 右上
   // 影
-  ctx.moveTo(407, 180) // 左上
+  ctx.moveTo(407, 181) // 左上
   ctx.quadraticCurveTo(409, 182, 409, 182) // 左下
-  ctx.quadraticCurveTo(421, 170, 433, 170) // 右下
-  ctx.quadraticCurveTo(436, 165, 436, 165) // 右上
-  ctx.quadraticCurveTo(421, 170, 407, 180) // 左上
+  ctx.quadraticCurveTo(421, 170, 442, 168) // 右下
+  ctx.quadraticCurveTo(443, 164, 443, 164) // 右上
+  ctx.quadraticCurveTo(421, 167, 407, 181) // 左上
 
   // 捕球面真下から左4番目の革紐
   ctx.moveTo(420, 121) // 左上
