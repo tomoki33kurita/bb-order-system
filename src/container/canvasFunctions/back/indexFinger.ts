@@ -19,8 +19,8 @@ const standardCoverStitch = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.strokeStyle = color
   ctx.beginPath()
   ctx.setLineDash([5, 5])
-  ctx.moveTo(382, 205) // 人差し指カバー右上
-  ctx.quadraticCurveTo(406, 292, 446, 375) // 人差し指カバー右下
+  ctx.moveTo(380, 205) // 人差し指カバー右上
+  ctx.quadraticCurveTo(409, 292, 446, 377) // 人差し指カバー右下
   ctx.stroke()
   ctx.setLineDash([])
   ctx.closePath()
@@ -29,7 +29,7 @@ const standardCoverStitch = (ctx: CanvasRenderingContext2D, color: string): void
   ctx.beginPath()
   ctx.setLineDash([5, 5])
   ctx.moveTo(365, 407) // 人差し指カバー左下
-  ctx.quadraticCurveTo(399, 379, 446, 375) // 人差し指カバー右下
+  ctx.quadraticCurveTo(399, 379, 446, 377) // 人差し指カバー右下
   ctx.stroke()
   ctx.setLineDash([])
   ctx.closePath()
@@ -55,17 +55,17 @@ const indexCoverStandard = (ctx: CanvasRenderingContext2D, color: string, lining
   ctx.fillStyle = color
   // 指カバー
   ctx.beginPath()
-  ctx.moveTo(385, 198) // 右上
+  ctx.moveTo(384, 200) // 右上
   ctx.quadraticCurveTo(348, 213, 331, 229) // 左上
   ctx.quadraticCurveTo(340, 325, 362, 414) // 左下
-  ctx.quadraticCurveTo(394, 384, 450, 377) // 右下
-  ctx.quadraticCurveTo(377, 198, 385, 198) // 右上＿開始地点
+  ctx.quadraticCurveTo(394, 387, 450, 379) // 右下
+  ctx.quadraticCurveTo(377, 200, 384, 200) // 右上＿開始地点
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
   // 裏革が見える、指出し用の空間
   indexFingerEnter(ctx, liningsLeatherColor)
-  // 右縦方法のステッチ
+  // ステッチ
   standardCoverStitch(ctx, stitchColor)
 }
 
@@ -91,7 +91,7 @@ const indexCoverNone = (ctx: CanvasRenderingContext2D, color: string, liningsLea
   indexFingerEnter(ctx, liningsLeatherColor)
 }
 
-export const indexFingerCover = (ctx: CanvasRenderingContext2D, color: string, liningsLeatherColor: string, stitchColor: string, type: string): void => {
+export const indexFingerCover = (ctx: CanvasRenderingContext2D, color: string, liningsLeatherColor: string, stitchColor: string, type: string | boolean): void => {
   switch (type) {
     case 'standard':
       indexCoverStandard(ctx, color, liningsLeatherColor, stitchColor)

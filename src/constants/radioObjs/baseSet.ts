@@ -55,8 +55,8 @@ export const fingerGuardTypeObjs = [
 ]
 
 export const zabutonSpongeObjs = [
-  { label: '有り', value: 'zabuton' },
-  { label: '無し', value: 'no_zabuton' },
+  { label: '有り', value: true },
+  { label: '無し', value: false },
 ]
 
 export const exFunctionObjs = [
