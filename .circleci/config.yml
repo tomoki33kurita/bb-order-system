@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build:
+  one:
     docker:
       - image: circleci/ruby:2.4.1
     steps:
@@ -9,4 +9,20 @@ jobs:
       - run: 
           name: 'this is test of circleCI'
           command: echo 'This is test matcha'
+  two:
+    docker:
+      -image: circleci/ruby:2.4.2
+    steps:
+      - checkout
+      - run: echo "A second test"
+      - run: sleep 15
+ 
+ workflows:
+  version: 2.1
+  one_and_two:
+    jobs:
+      - one
+      - two
+      
+      
 
