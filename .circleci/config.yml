@@ -1,22 +1,14 @@
-version: 2
+version: 2.1
 jobs:
-  one:
+  install_yarn:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: sleep 25
-  two:
-    docker:
-     - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "A more familiar hi"
-      - run: sleep 15
+      - run: yarn install
+      - run: yarn run build
 workflows:
-  version: 2
-  one_and_two:
+  version: 2.1
+  run_install:
     jobs:
-      - one
-      - two
+      - install_yarn
