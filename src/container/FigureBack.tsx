@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
-import { indexFingerCover, indexCoverNormal, indexCoverLong, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/indexFinger'
+import { indexFingerCover } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
 import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
 import { web, webTop } from 'src/container/canvasFunctions/back/web'

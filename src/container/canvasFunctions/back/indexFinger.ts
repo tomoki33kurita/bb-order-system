@@ -49,7 +49,7 @@ const longCoverStitch = (ctx: CanvasRenderingContext2D, color: string): void => 
 }
 
 // スタンダードタイプ
-export const indexCoverStandard = (ctx: CanvasRenderingContext2D, color: string, liningsLeatherColor: string, stitchColor: string): void => {
+const indexCoverStandard = (ctx: CanvasRenderingContext2D, color: string, liningsLeatherColor: string, stitchColor: string): void => {
   ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
@@ -69,7 +69,7 @@ export const indexCoverStandard = (ctx: CanvasRenderingContext2D, color: string,
   standardCoverStitch(ctx, stitchColor)
 }
 
-export const indexCoverLong = (ctx: CanvasRenderingContext2D, color: string, stitchColor: string): void => {
+const indexCoverLong = (ctx: CanvasRenderingContext2D, color: string, stitchColor: string): void => {
   ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
