@@ -167,7 +167,7 @@ const FigureBack: React.FC<Props> = ({
         width="1000"
         height="652"
         id="canvas"
-        // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
+        style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         onClick={(e) => handleCoordinate(e)}
       ></canvas>
       <Box display="flex" justifyContent="center">
