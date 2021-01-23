@@ -65,7 +65,7 @@ export const initialState: State = {
   coreMaterialThickness: { label: '普通', value: 'normal' },
   liningsType: { label: '共牛革(Vオレンジ)', value: 'cow_v_orange', color: '#ff4500' },
   hamidashiType: { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
-  fingerGuardType: { label: 'スタンダード', value: 'standard_finger_guard' },
+  fingerGuardType: { label: 'スタンダード', value: 'standard' },
   zabutonSponge: { label: '有り', value: 'zabuton' },
   exFunction: { label: '有り', value: 'ex_func' },
   pinkiePattern: { label: '有り', value: 'pinkie_pattern' },

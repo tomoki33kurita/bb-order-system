@@ -60,11 +60,13 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           littleHookColor={state.littleHook.color}
           listBeltColor={state.listBeltColor.color}
           fingerCoverColor={state.fingerCoverColor.color}
+          fingerGuardType={state.fingerGuardType.value}
           bagFoundationColor={state.bagFoundationColor.color}
           ringAndLittleBagColor={state.ringAndLittleBagColor.color}
           middleBagColor={state.middleBagColor.color}
           indexAndThumbBagColor={state.indexAndThumbBagColor.color}
           shellarmoveColor={state.shellarmoveColor.color}
+          liningsLeatherColor={state.liningsType.color}
         />
       </TabPanel>
       <AppBar position="static">

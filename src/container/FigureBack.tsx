@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
-import { indexFinger } from 'src/container/canvasFunctions/back/indexFinger'
+import { indexFingerCover } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
 import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
 import { web, webTop } from 'src/container/canvasFunctions/back/web'
@@ -14,7 +14,7 @@ import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
 import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
-import { stitch, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/stitch'
+import { stitch } from 'src/container/canvasFunctions/back/stitch'
 import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
 
 type Props = {
@@ -32,11 +32,13 @@ type Props = {
   littleHookColor: string
   listBeltColor: string
   fingerCoverColor: string
+  fingerGuardType: string
   bagFoundationColor: string
   ringAndLittleBagColor: string
   middleBagColor: string
   indexAndThumbBagColor: string
   shellarmoveColor: string
+  liningsLeatherColor: string
 }
 
 const FigureBack: React.FC<Props> = ({
@@ -54,11 +56,13 @@ const FigureBack: React.FC<Props> = ({
   littleHookColor,
   listBeltColor,
   fingerCoverColor,
+  fingerGuardType,
   bagFoundationColor,
   ringAndLittleBagColor,
   middleBagColor,
   indexAndThumbBagColor,
   shellarmoveColor,
+  liningsLeatherColor,
 }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
@@ -91,8 +95,7 @@ const FigureBack: React.FC<Props> = ({
     // ステッチ
     stitch(ctx, stitchColor)
     // 人差し指カバー
-    indexFinger(ctx, fingerCoverColor)
-    indexFingerCoverstitch(ctx, stitchColor)
+    indexFingerCover(ctx, fingerCoverColor, liningsLeatherColor, stitchColor, fingerGuardType)
     // 手口ベルト
     listBelt(ctx, listBeltColor)
     // 革紐
@@ -120,11 +123,13 @@ const FigureBack: React.FC<Props> = ({
     littleHookColor,
     listBeltColor,
     fingerCoverColor,
+    fingerGuardType,
     bagFoundationColor,
     ringAndLittleBagColor,
     middleBagColor,
     indexAndThumbBagColor,
     shellarmoveColor,
+    liningsLeatherColor,
   ])
 
   const [coordinateX, setCoordinateX] = React.useState(0)
@@ -163,7 +168,7 @@ const FigureBack: React.FC<Props> = ({
         width="1000"
         height="652"
         id="canvas"
-        style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
+        // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         onClick={(e) => handleCoordinate(e)}
       ></canvas>
       <Box display="flex" justifyContent="center">

@@ -46,7 +46,7 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.quadraticCurveTo(701, 400, 648, 473) //親指掛け紐やや上部
 
   ctx.moveTo(350, 155) // 人差し指＿先端＿左下_指カバーの下部分
-  ctx.quadraticCurveTo(335, 253, 367, 417) //親指掛け紐やや上部
+  ctx.quadraticCurveTo(345, 238, 354, 333)
 
   ctx.moveTo(297, 207) // 中指袋_先端＿左下
   ctx.quadraticCurveTo(300, 165, 328, 148) // 中指袋＿先端＿中央上
@@ -88,14 +88,14 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.closePath()
 }
 
-export const indexFingerCoverstitch = (ctx: CanvasRenderingContext2D, color: string): void => {
-  ctx.lineWidth = 1.5
-  ctx.strokeStyle = color
-  ctx.beginPath()
-  ctx.setLineDash([5, 5])
-  ctx.moveTo(377, 200) // 人差し指カバー右上
-  ctx.quadraticCurveTo(445, 370, 447, 372) // 人差し指カバー右下
-  ctx.stroke()
-  ctx.setLineDash([])
-  ctx.closePath()
-}
+// export const indexFingerCoverstitch = (ctx: CanvasRenderingContext2D, color: string): void => {
+//   ctx.lineWidth = 1.5
+//   ctx.strokeStyle = color
+//   ctx.beginPath()
+//   ctx.setLineDash([5, 5])
+//   ctx.moveTo(377, 200) // 人差し指カバー右上
+//   ctx.quadraticCurveTo(445, 370, 447, 372) // 人差し指カバー右下
+//   ctx.stroke()
+//   ctx.setLineDash([])
+//   ctx.closePath()
+// }
