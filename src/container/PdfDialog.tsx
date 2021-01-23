@@ -52,11 +52,7 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: ['33%', '33%', '33%'],
           body: [
-            [
-              genCellContent('基本モデル', state.baseModel.label),
-              genCellContent('利き腕', state.dominantArm.label),
-              genCellContent('ミットの大きさ', state.mittSize.label),
-            ],
+            [genCellContent('基本モデル', state.baseModel.label), genCellContent('利き腕', state.dominantArm.label), genCellContent('ミットの大きさ', state.mittSize.label)],
             [
               genCellContent('ポケットの深さ', state.mittDepth.label),
               genCellContent('バックスタイル', state.backStyle.label),
@@ -113,14 +109,8 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: '50%',
           body: [
-            [
-              genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label),
-              genCellContent(`位置`, state.embroideries[0].embroideryPosition.label),
-            ],
-            [
-              genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label),
-              genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label),
-            ],
+            [genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label), genCellContent(`位置`, state.embroideries[0].embroideryPosition.label)],
+            [genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label), genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label)],
             [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
           ],
         },
@@ -134,14 +124,8 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: '50%',
           body: [
-            [
-              genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label),
-              genCellContent(`位置`, state.embroideries[0].embroideryPosition.label),
-            ],
-            [
-              genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label),
-              genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label),
-            ],
+            [genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label), genCellContent(`位置`, state.embroideries[0].embroideryPosition.label)],
+            [genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label), genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label)],
             [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
           ],
         },
@@ -155,14 +139,8 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: '50%',
           body: [
-            [
-              genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label),
-              genCellContent(`位置`, state.embroideries[0].embroideryPosition.label),
-            ],
-            [
-              genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label),
-              genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label),
-            ],
+            [genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label), genCellContent(`位置`, state.embroideries[0].embroideryPosition.label)],
+            [genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label), genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label)],
             [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
           ],
         },
@@ -189,6 +167,8 @@ const handleGenPdf = (state: State) => {
     ],
     defaultStyle: { font: 'GenYoMin' },
   }
+  // eslint-disable-next-line
+  // @ts-ignore
   pdfMake.createPdf(docDefine).download('hatakeyama_order.pdf') // margin設定によって構文チェックエラーになっている。
 }
 
