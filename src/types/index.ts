@@ -1,5 +1,5 @@
 type stateObj = {
-  value: string | boolean
+  value: string
   label: string
   color?: string
 }

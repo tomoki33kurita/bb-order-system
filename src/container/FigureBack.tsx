@@ -33,14 +33,14 @@ type Props = {
   littleHookColor: string
   listBeltColor: string
   fingerCoverColor: string
-  fingerGuardType: string | boolean
+  fingerGuardType: string
   bagFoundationColor: string
   ringAndLittleBagColor: string
   middleBagColor: string
   indexAndThumbBagColor: string
   shellarmoveColor: string
   liningsLeatherColor: string
-  isZabuton: string | boolean
+  isZabuton: string
 }
 
 const FigureBack: React.FC<Props> = ({
@@ -98,7 +98,8 @@ const FigureBack: React.FC<Props> = ({
     // ステッチ
     stitch(ctx, stitchColor)
     // 座ブトンスポンジ
-    isZabuton && zabutonSponge(ctx, indexAndThumbBagColor, stitchColor)
+    console.log(isZabuton)
+    isZabuton === 'zabuton' && zabutonSponge(ctx, fingerCoverColor, stitchColor)
     // 人差し指カバー
     indexFingerCover(ctx, fingerCoverColor, liningsLeatherColor, stitchColor, fingerGuardType)
     // 手口ベルト

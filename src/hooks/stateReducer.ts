@@ -66,7 +66,7 @@ export const initialState: State = {
   liningsType: { label: '共牛革(Vオレンジ)', value: 'cow_v_orange', color: '#ff4500' },
   hamidashiType: { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
   fingerGuardType: { label: 'スタンダード', value: 'standard' },
-  zabutonSponge: { label: '有り', value: true },
+  zabutonSponge: { label: '有り', value: 'zabuton' },
   exFunction: { label: '有り', value: 'ex_func' },
   pinkiePattern: { label: '有り', value: 'pinkie_pattern' },
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },

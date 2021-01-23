@@ -91,7 +91,7 @@ const indexCoverNone = (ctx: CanvasRenderingContext2D, color: string, liningsLea
   indexFingerEnter(ctx, liningsLeatherColor)
 }
 
-export const indexFingerCover = (ctx: CanvasRenderingContext2D, color: string, liningsLeatherColor: string, stitchColor: string, type: string | boolean): void => {
+export const indexFingerCover = (ctx: CanvasRenderingContext2D, color: string, liningsLeatherColor: string, stitchColor: string, type: string): void => {
   switch (type) {
     case 'standard':
       indexCoverStandard(ctx, color, liningsLeatherColor, stitchColor)

@@ -1,15 +1,15 @@
-export const zabutonSponge = (ctx: any, color: string, stitchColor: string): void => {
+export const zabutonSponge = (ctx: CanvasRenderingContext2D, color: string, stitchColor: string): void => {
   ctx.lineWidth = 1.5
   ctx.strokeStyle = '#383838'
   ctx.fillStyle = color
   // 指カバー 本体
   ctx.beginPath()
-  ctx.moveTo(370, 233) // 中央上
-  ctx.quadraticCurveTo(356, 242, 349, 262) // 左上
+  ctx.moveTo(370, 234) // 中央上
+  ctx.quadraticCurveTo(356, 242, 351, 262) // 左上
   ctx.quadraticCurveTo(348, 333, 364, 411) // 左下
   ctx.quadraticCurveTo(400, 390, 444, 380) // 右下
   ctx.quadraticCurveTo(415, 296, 390, 240) // 右上＿
-  ctx.quadraticCurveTo(385, 233, 370, 233) // 中央上＿開始地点
+  ctx.quadraticCurveTo(385, 233, 370, 234) // 中央上＿開始地点
   ctx.stroke()
   ctx.fill()
   ctx.closePath()
