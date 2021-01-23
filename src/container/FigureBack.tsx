@@ -16,6 +16,7 @@ import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
 import { stitch } from 'src/container/canvasFunctions/back/stitch'
 import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
+import { zabutonSponge } from 'src/container/canvasFunctions/back/zabutonSponge'
 
 type Props = {
   leatherStrapColor: string
@@ -39,6 +40,7 @@ type Props = {
   indexAndThumbBagColor: string
   shellarmoveColor: string
   liningsLeatherColor: string
+  isZabuton: string
 }
 
 const FigureBack: React.FC<Props> = ({
@@ -63,6 +65,7 @@ const FigureBack: React.FC<Props> = ({
   indexAndThumbBagColor,
   shellarmoveColor,
   liningsLeatherColor,
+  isZabuton,
 }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
@@ -94,6 +97,9 @@ const FigureBack: React.FC<Props> = ({
     selectedLabel(ctx, 'gold')
     // ステッチ
     stitch(ctx, stitchColor)
+    // 座ブトンスポンジ
+    console.log(isZabuton)
+    isZabuton === 'zabuton' && zabutonSponge(ctx, fingerCoverColor, stitchColor)
     // 人差し指カバー
     indexFingerCover(ctx, fingerCoverColor, liningsLeatherColor, stitchColor, fingerGuardType)
     // 手口ベルト
@@ -130,6 +136,7 @@ const FigureBack: React.FC<Props> = ({
     indexAndThumbBagColor,
     shellarmoveColor,
     liningsLeatherColor,
+    isZabuton,
   ])
 
   const [coordinateX, setCoordinateX] = React.useState(0)

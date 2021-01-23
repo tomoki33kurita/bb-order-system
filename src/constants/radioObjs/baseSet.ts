@@ -11,11 +11,11 @@ export const dominantArmObjs = [
 ]
 
 export const mittSizeObjs = [
-  { label: '基本モデルより10mm大きく', value: 'large_5' },
-  { label: '基本モデルより5mm大きく', value: 'large_10' },
+  { label: '10mm大きく', value: 'large_5' },
+  { label: '5mm大きく', value: 'large_10' },
   { label: '基本モデルズバリ', value: 'default' },
-  { label: '基本モデルより5mm小さく', value: 'small_5' },
-  { label: '基本モデルより10mm小さく', value: 'small_10' },
+  { label: '5mm小さく', value: 'small_5' },
+  { label: '10mm小さく', value: 'small_10' },
 ]
 
 export const mittDepthObjs = [
