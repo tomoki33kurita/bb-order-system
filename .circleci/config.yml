@@ -3,10 +3,10 @@ jobs:
   install_yarn:
     docker:
       - image: circleci/node
-  steps:
-    - checkout
-    - run: yarn install
-    - run: yarn run build
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn run build
 workflows:
   version: 2.1
   run_install:
