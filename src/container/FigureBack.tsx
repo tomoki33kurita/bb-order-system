@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
-import { indexCoverNormal, indexCoverLong, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/indexFinger'
+import { indexFingerCover, indexCoverNormal, indexCoverLong, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
 import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
 import { web, webTop } from 'src/container/canvasFunctions/back/web'
@@ -32,6 +32,7 @@ type Props = {
   littleHookColor: string
   listBeltColor: string
   fingerCoverColor: string
+  fingerGuardType: string
   bagFoundationColor: string
   ringAndLittleBagColor: string
   middleBagColor: string
@@ -55,6 +56,7 @@ const FigureBack: React.FC<Props> = ({
   littleHookColor,
   listBeltColor,
   fingerCoverColor,
+  fingerGuardType,
   bagFoundationColor,
   ringAndLittleBagColor,
   middleBagColor,
@@ -93,9 +95,7 @@ const FigureBack: React.FC<Props> = ({
     // ステッチ
     stitch(ctx, stitchColor)
     // 人差し指カバー
-    // indexCoverNormal(ctx, fingerCoverColor, liningsLeatherColor)
-    indexCoverLong(ctx, fingerCoverColor)
-    indexFingerCoverstitch(ctx, stitchColor)
+    indexFingerCover(ctx, fingerCoverColor, liningsLeatherColor, stitchColor, fingerGuardType)
     // 手口ベルト
     listBelt(ctx, listBeltColor)
     // 革紐
@@ -123,6 +123,7 @@ const FigureBack: React.FC<Props> = ({
     littleHookColor,
     listBeltColor,
     fingerCoverColor,
+    fingerGuardType,
     bagFoundationColor,
     ringAndLittleBagColor,
     middleBagColor,
@@ -167,7 +168,7 @@ const FigureBack: React.FC<Props> = ({
         width="1000"
         height="652"
         id="canvas"
-        style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
+        // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         onClick={(e) => handleCoordinate(e)}
       ></canvas>
       <Box display="flex" justifyContent="center">

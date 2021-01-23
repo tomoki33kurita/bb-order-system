@@ -46,7 +46,7 @@ export const stitch = (ctx: CanvasRenderingContext2D, color: string): void => {
   ctx.quadraticCurveTo(701, 400, 648, 473) //親指掛け紐やや上部
 
   ctx.moveTo(350, 155) // 人差し指＿先端＿左下_指カバーの下部分
-  ctx.quadraticCurveTo(338, 253, 363, 404) //親指掛け紐やや上部
+  ctx.quadraticCurveTo(345, 238, 354, 333)
 
   ctx.moveTo(297, 207) // 中指袋_先端＿左下
   ctx.quadraticCurveTo(300, 165, 328, 148) // 中指袋＿先端＿中央上
