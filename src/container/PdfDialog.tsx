@@ -167,6 +167,8 @@ const handleGenPdf = (state: State) => {
     ],
     defaultStyle: { font: 'GenYoMin' },
   }
+  // eslint-disable-next-line
+  // @ts-ignore
   pdfMake.createPdf(docDefine).download('hatakeyama_order.pdf') // margin設定によって構文チェックエラーになっている。
 }
 
