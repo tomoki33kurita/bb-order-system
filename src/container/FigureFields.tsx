@@ -65,6 +65,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           middleBagColor={state.middleBagColor.color}
           indexAndThumbBagColor={state.indexAndThumbBagColor.color}
           shellarmoveColor={state.shellarmoveColor.color}
+          liningsLeatherColor={state.liningsType.color}
         />
       </TabPanel>
       <AppBar position="static">

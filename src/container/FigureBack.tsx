@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
-import { indexFinger } from 'src/container/canvasFunctions/back/indexFinger'
+import { indexCoverNormal, indexCoverLong, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
 import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
 import { web, webTop } from 'src/container/canvasFunctions/back/web'
@@ -14,7 +14,7 @@ import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
 import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
 import { edges } from 'src/container/canvasFunctions/back/edge'
 import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
-import { stitch, indexFingerCoverstitch } from 'src/container/canvasFunctions/back/stitch'
+import { stitch } from 'src/container/canvasFunctions/back/stitch'
 import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
 
 type Props = {
@@ -37,6 +37,7 @@ type Props = {
   middleBagColor: string
   indexAndThumbBagColor: string
   shellarmoveColor: string
+  liningsLeatherColor: string
 }
 
 const FigureBack: React.FC<Props> = ({
@@ -59,6 +60,7 @@ const FigureBack: React.FC<Props> = ({
   middleBagColor,
   indexAndThumbBagColor,
   shellarmoveColor,
+  liningsLeatherColor,
 }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
@@ -91,7 +93,8 @@ const FigureBack: React.FC<Props> = ({
     // ステッチ
     stitch(ctx, stitchColor)
     // 人差し指カバー
-    indexFinger(ctx, fingerCoverColor)
+    // indexCoverNormal(ctx, fingerCoverColor, liningsLeatherColor)
+    indexCoverLong(ctx, fingerCoverColor)
     indexFingerCoverstitch(ctx, stitchColor)
     // 手口ベルト
     listBelt(ctx, listBeltColor)
@@ -125,6 +128,7 @@ const FigureBack: React.FC<Props> = ({
     middleBagColor,
     indexAndThumbBagColor,
     shellarmoveColor,
+    liningsLeatherColor,
   ])
 
   const [coordinateX, setCoordinateX] = React.useState(0)
