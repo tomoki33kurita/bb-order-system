@@ -17,127 +17,56 @@ import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabe
 import { stitch } from 'src/container/canvasFunctions/back/stitch'
 import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
 import { zabutonSponge } from 'src/container/canvasFunctions/back/zabutonSponge'
+import { FigureBack as FigureBackTypes } from 'src/types'
 
-type Props = {
-  leatherStrapColor: string
-  leatherColor: string
-  webColor: string
-  thumbMachiColor: string
-  littleMachiColor: string
-  edgeColor: string
-  stitchColor: string
-  targetColor: string | undefined
-  cutSurfaceColor: string | undefined
-  moutonColor: string
-  thumbHookColor: string
-  littleHookColor: string
-  listBeltColor: string
-  fingerCoverColor: string
-  fingerGuardType: string
-  bagFoundationColor: string
-  ringAndLittleBagColor: string
-  middleBagColor: string
-  indexAndThumbBagColor: string
-  shellarmoveColor: string
-  liningsLeatherColor: string
-  isZabuton: string
-}
-
-const FigureBack: React.FC<Props> = ({
-  leatherStrapColor,
-  leatherColor,
-  webColor,
-  thumbMachiColor,
-  littleMachiColor,
-  edgeColor,
-  stitchColor,
-  targetColor,
-  cutSurfaceColor,
-  moutonColor,
-  thumbHookColor,
-  littleHookColor,
-  listBeltColor,
-  fingerCoverColor,
-  fingerGuardType,
-  bagFoundationColor,
-  ringAndLittleBagColor,
-  middleBagColor,
-  indexAndThumbBagColor,
-  shellarmoveColor,
-  liningsLeatherColor,
-  isZabuton,
-}) => {
+const FigureBack: React.FC<FigureBackTypes> = (props) => {
   React.useEffect(() => {
-    const container = document.getElementById('canvas-container')
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
     // ヘリ革
-    edges(ctx, edgeColor)
+    edges(ctx, props.edgeColor)
     // 捕球面
-    catchSurFace(ctx, leatherColor)
+    catchSurFace(ctx, props.leatherColor)
     // 指袋部分のベース部分_台
-    fingerBase(ctx, bagFoundationColor)
+    fingerBase(ctx, props.bagFoundationColor)
     // 人差し親指指袋
-    thumbAndIndexBag(ctx, indexAndThumbBagColor)
+    thumbAndIndexBag(ctx, props.indexAndThumbBagColor)
     // シェラームーブ
-    shellarmove(ctx, shellarmoveColor)
+    shellarmove(ctx, props.shellarmoveColor)
     // 薬指小指袋
-    RingAndLittleBag(ctx, ringAndLittleBagColor)
+    RingAndLittleBag(ctx, props.ringAndLittleBagColor)
     // 中指袋
-    middleBag(ctx, middleBagColor)
+    middleBag(ctx, props.middleBagColor)
     // ベルトパッキン
     beltFittings(ctx)
     // ウェブ先端
-    webTop(ctx, webColor)
+    webTop(ctx, props.webColor)
     // ウェブ本体
-    web(ctx, webColor)
+    web(ctx, props.webColor)
     // メーカーラベル
     selectedLabel(ctx, 'gold')
     // ステッチ
-    stitch(ctx, stitchColor)
+    stitch(ctx, props.stitchColor)
     // 座ブトンスポンジ
-    console.log(isZabuton)
-    isZabuton === 'zabuton' && zabutonSponge(ctx, fingerCoverColor, stitchColor)
+    // console.log(isZabuton)
+    props.isZabuton === 'zabuton' && zabutonSponge(ctx, props.fingerCoverColor, props.stitchColor)
     // 人差し指カバー
-    indexFingerCover(ctx, fingerCoverColor, liningsLeatherColor, stitchColor, fingerGuardType)
+    indexFingerCover(ctx, props.fingerCoverColor, props.liningsLeatherColor, props.stitchColor, props.fingerGuardType)
     // 手口ベルト
-    listBelt(ctx, listBeltColor)
+    listBelt(ctx, props.listBeltColor)
     // 革紐
-    leatherStrap(ctx, leatherStrapColor)
-    knotOnWebLeatherStrap(ctx, leatherStrapColor)
-    arroundEdgheLeatherStrap(ctx, leatherStrapColor)
-    topOfFingerBagLeatherStrap(ctx, leatherStrapColor)
-    knotOnLeatherStraps(ctx, leatherStrapColor)
+    leatherStrap(ctx, props.leatherStrapColor)
+    knotOnWebLeatherStrap(ctx, props.leatherStrapColor)
+    arroundEdgheLeatherStrap(ctx, props.leatherStrapColor)
+    topOfFingerBagLeatherStrap(ctx, props.leatherStrapColor)
+    knotOnLeatherStraps(ctx, props.leatherStrapColor)
     // 親指掛け紐
-    thumbHook(ctx, thumbHookColor)
+    thumbHook(ctx, props.thumbHookColor)
     // 小指掛け紐
-    littleHook(ctx, littleHookColor)
-  }, [
-    leatherColor,
-    leatherStrapColor,
-    webColor,
-    thumbMachiColor,
-    littleMachiColor,
-    edgeColor,
-    stitchColor,
-    targetColor,
-    cutSurfaceColor,
-    moutonColor,
-    thumbHookColor,
-    littleHookColor,
-    listBeltColor,
-    fingerCoverColor,
-    fingerGuardType,
-    bagFoundationColor,
-    ringAndLittleBagColor,
-    middleBagColor,
-    indexAndThumbBagColor,
-    shellarmoveColor,
-    liningsLeatherColor,
-    isZabuton,
-  ])
+    littleHook(ctx, props.littleHookColor)
+  }, [props])
 
   // const [coordinateX, setCoordinateX] = React.useState(0)
   // const [coordinateY, setCoordinateY] = React.useState(0)
@@ -170,11 +99,12 @@ const FigureBack: React.FC<Props> = ({
   // }
 
   return (
-    <div id="canvas-container">
+    <>
       <canvas
         width={900}
         height={652}
         id="canvas"
+        // style={undefined}
         // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
         // onClick={(e) => handleCoordinate(e)}
       ></canvas>
@@ -194,7 +124,7 @@ const FigureBack: React.FC<Props> = ({
           {isCopy ? <Box ml={2}>コピーしたよ！</Box> : <Box width={90} />}
         </Box>
       </Box> */}
-    </div>
+    </>
   )
 }
 
