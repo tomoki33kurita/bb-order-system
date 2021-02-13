@@ -6,6 +6,8 @@ import PdfDialog from 'src/container/PdfDialog'
 import FigureFront from 'src/container/FigureFront'
 import FigureBack from 'src/container/FigureBack'
 
+// const devToolStyle = { backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }
+
 export const a11yProps = (index: number): any => {
   return {
     id: `simple-tab-${index}`,
@@ -25,49 +27,76 @@ const FigureFields: React.FC<Props> = ({ state }) => {
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
+  //// this is devTools
+  // const [cordinateX, setCordinateX] = React.useState(0)
+  // const [cordinateY, setCordinateY] = React.useState(0)
+  // const [isCopy, setCopy] = React.useState(false)
+  // const handleCoordinate = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
+  //   // eslint-disable-next-line
+  //   // @ts-ignore
+  //   const rect = e.target.getBoundingClientRect()
+  //   const x = parseInt(`${e.clientX - rect.left}`)
+  //   const y = parseInt(`${e.clientY - rect.top}`)
+  //   setCordinateX(x)
+  //   setCordinateY(y)
+  //   setCopy(false)
+  // }
+
   return (
     <Box position="sticky" top={0}>
       <PdfDialog state={state} open={open} handleClose={handleClose} />
       <TabPanel value={value} index={0}>
         <FigureFront
-          leatherStrapColor={state.leatherString.color}
-          leatherColor={state.leatherColor.color}
-          webColor={state.webColor.color}
-          edgeColor={state.edgeColor.color}
-          stitchColor={state.stitchColor.color}
-          targetColor={state.targetSet.color}
-          cutSurfaceColor={state.hamidashiType.color}
-          thumbMachiColor={state.thumbMachiColor.color}
-          littleMachiColor={state.littleMachiColor.color}
-          moutonColor={state.listLiningsMaterial.color}
-          thumbHookColor={state.thumbHook.color}
-          littleHookColor={state.littleHook.color}
+          parts={{
+            leatherStrapColor: state.leatherString.color,
+            leatherColor: state.leatherColor.color,
+            webColor: state.webColor.color,
+            edgeColor: state.edgeColor.color,
+            stitchColor: state.stitchColor.color,
+            targetColor: state.targetSet.color,
+            cutSurfaceColor: state.hamidashiType.color,
+            thumbMachiColor: state.thumbMachiColor.color,
+            littleMachiColor: state.littleMachiColor.color,
+            moutonColor: state.listLiningsMaterial.color,
+            thumbHookColor: state.thumbHook.color,
+            littleHookColor: state.littleHook.color,
+          }}
+          // 開発で座標を取得したいときは以下を有効にする
+          // devTools={{ cordinateX, cordinateY, isCopy, setCopy }}
+          // devToolStyle={devToolStyle}
+          // handleCoordinate={handleCoordinate}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <FigureBack
-          leatherStrapColor={state.leatherString.color}
-          leatherColor={state.leatherColor.color}
-          webColor={state.webColor.color}
-          edgeColor={state.edgeColor.color}
-          stitchColor={state.stitchColor.color}
-          targetColor={state.targetSet.color}
-          cutSurfaceColor={state.hamidashiType.color}
-          thumbMachiColor={state.thumbMachiColor.color}
-          littleMachiColor={state.littleMachiColor.color}
-          moutonColor={state.listLiningsMaterial.color}
-          thumbHookColor={state.thumbHook.color}
-          littleHookColor={state.littleHook.color}
-          listBeltColor={state.listBeltColor.color}
-          fingerCoverColor={state.fingerCoverColor.color}
-          fingerGuardType={state.fingerGuardType.value}
-          bagFoundationColor={state.bagFoundationColor.color}
-          ringAndLittleBagColor={state.ringAndLittleBagColor.color}
-          middleBagColor={state.middleBagColor.color}
-          indexAndThumbBagColor={state.indexAndThumbBagColor.color}
-          shellarmoveColor={state.shellarmoveColor.color}
-          liningsLeatherColor={state.liningsType.color}
-          isZabuton={state.zabutonSponge.value}
+          parts={{
+            leatherStrapColor: state.leatherString.color,
+            leatherColor: state.leatherColor.color,
+            webColor: state.webColor.color,
+            edgeColor: state.edgeColor.color,
+            stitchColor: state.stitchColor.color,
+            targetColor: state.targetSet.color,
+            cutSurfaceColor: state.hamidashiType.color,
+            thumbMachiColor: state.thumbMachiColor.color,
+            littleMachiColor: state.littleMachiColor.color,
+            moutonColor: state.listLiningsMaterial.color,
+            thumbHookColor: state.thumbHook.color,
+            littleHookColor: state.littleHook.color,
+            listBeltColor: state.listBeltColor.color,
+            fingerCoverColor: state.fingerCoverColor.color,
+            fingerGuardType: state.fingerGuardType.value,
+            bagFoundationColor: state.bagFoundationColor.color,
+            ringAndLittleBagColor: state.ringAndLittleBagColor.color,
+            middleBagColor: state.middleBagColor.color,
+            indexAndThumbBagColor: state.indexAndThumbBagColor.color,
+            shellarmoveColor: state.shellarmoveColor.color,
+            liningsLeatherColor: state.liningsType.color,
+            isZabuton: state.zabutonSponge.value,
+          }}
+          // 開発で座標を取得したいときは以下を有効にする
+          // devTools={{ cordinateX, cordinateY, isCopy, setCopy }}
+          // devToolStyle={devToolStyle}
+          // handleCoordinate={handleCoordinate}
         />
       </TabPanel>
       <AppBar position="static">

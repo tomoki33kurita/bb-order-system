@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
 import { indexFingerCover } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
@@ -17,113 +16,74 @@ import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabe
 import { stitch } from 'src/container/canvasFunctions/back/stitch'
 import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
 import { zabutonSponge } from 'src/container/canvasFunctions/back/zabutonSponge'
-import { FigureBack as FigureBackTypes } from 'src/types'
+import { FigureBack as FigureBackTypes, DevTools } from 'src/types'
+import DevTool from 'src/container/devTools'
 
-const FigureBack: React.FC<FigureBackTypes> = (props) => {
+type Props = {
+  parts: FigureBackTypes
+  devToolStyle?: { backgroundImage: string; backgroundRepeat: 'no-repeat'; backgroundPosition: string; backgroundSize: string }
+  devTools?: DevTools
+  handleCoordinate?: (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => void
+}
+
+const FigureBack: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoordinate }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
     // ヘリ革
-    edges(ctx, props.edgeColor)
+    edges(ctx, parts.edgeColor)
     // 捕球面
-    catchSurFace(ctx, props.leatherColor)
+    catchSurFace(ctx, parts.leatherColor)
     // 指袋部分のベース部分_台
-    fingerBase(ctx, props.bagFoundationColor)
+    fingerBase(ctx, parts.bagFoundationColor)
     // 人差し親指指袋
-    thumbAndIndexBag(ctx, props.indexAndThumbBagColor)
+    thumbAndIndexBag(ctx, parts.indexAndThumbBagColor)
     // シェラームーブ
-    shellarmove(ctx, props.shellarmoveColor)
+    shellarmove(ctx, parts.shellarmoveColor)
     // 薬指小指袋
-    RingAndLittleBag(ctx, props.ringAndLittleBagColor)
+    RingAndLittleBag(ctx, parts.ringAndLittleBagColor)
     // 中指袋
-    middleBag(ctx, props.middleBagColor)
+    middleBag(ctx, parts.middleBagColor)
     // ベルトパッキン
     beltFittings(ctx)
     // ウェブ先端
-    webTop(ctx, props.webColor)
+    webTop(ctx, parts.webColor)
     // ウェブ本体
-    web(ctx, props.webColor)
+    web(ctx, parts.webColor)
     // メーカーラベル
     selectedLabel(ctx, 'gold')
     // ステッチ
-    stitch(ctx, props.stitchColor)
+    stitch(ctx, parts.stitchColor)
     // 座ブトンスポンジ
     // console.log(isZabuton)
-    props.isZabuton === 'zabuton' && zabutonSponge(ctx, props.fingerCoverColor, props.stitchColor)
+    parts.isZabuton === 'zabuton' && zabutonSponge(ctx, parts.fingerCoverColor, parts.stitchColor)
     // 人差し指カバー
-    indexFingerCover(ctx, props.fingerCoverColor, props.liningsLeatherColor, props.stitchColor, props.fingerGuardType)
+    indexFingerCover(ctx, parts.fingerCoverColor, parts.liningsLeatherColor, parts.stitchColor, parts.fingerGuardType)
     // 手口ベルト
-    listBelt(ctx, props.listBeltColor)
+    listBelt(ctx, parts.listBeltColor)
     // 革紐
-    leatherStrap(ctx, props.leatherStrapColor)
-    knotOnWebLeatherStrap(ctx, props.leatherStrapColor)
-    arroundEdgheLeatherStrap(ctx, props.leatherStrapColor)
-    topOfFingerBagLeatherStrap(ctx, props.leatherStrapColor)
-    knotOnLeatherStraps(ctx, props.leatherStrapColor)
+    leatherStrap(ctx, parts.leatherStrapColor)
+    knotOnWebLeatherStrap(ctx, parts.leatherStrapColor)
+    arroundEdgheLeatherStrap(ctx, parts.leatherStrapColor)
+    topOfFingerBagLeatherStrap(ctx, parts.leatherStrapColor)
+    knotOnLeatherStraps(ctx, parts.leatherStrapColor)
     // 親指掛け紐
-    thumbHook(ctx, props.thumbHookColor)
+    thumbHook(ctx, parts.thumbHookColor)
     // 小指掛け紐
-    littleHook(ctx, props.littleHookColor)
-  }, [props])
-
-  // const [coordinateX, setCoordinateX] = React.useState(0)
-  // const [coordinateY, setCoordinateY] = React.useState(0)
-  // const [isCopy, setCopy] = React.useState(false)
-  // const [inputX, setInputX] = React.useState(0)
-  // const [inputY, setInputY] = React.useState(0)
-
-  // const handleCoordinate = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
-  //   // eslint-disable-next-line
-  //   // @ts-ignore
-  //   const rect = e.target.getBoundingClientRect()
-  //   const x = parseInt(`${e.clientX - rect.left}`)
-  //   const y = parseInt(`${e.clientY - rect.top}`)
-  //   setCoordinateX(x)
-  //   setCoordinateY(y)
-  //   setCopy(false)
-  // }
-
-  // const handleCopy = (value: string) => {
-  //   navigator.clipboard.writeText(value)
-  //   setCopy(true)
-  // }
-
-  // const handlePonter = () => {
-  //   const canvas = document.getElementById('canvas') as HTMLCanvasElement
-  //   const ctx = canvas.getContext('2d')
-  //   ctx.strokeStyle = '#ff4500'
-  //   ctx.fillStyle = '#ff4500'
-  //   ctx.fillRect(inputX, inputY, 5, 5)
-  // }
-
+    littleHook(ctx, parts.littleHookColor)
+  }, [parts])
   return (
     <>
-      <canvas
-        width={900}
-        height={652}
-        id="canvas"
-        // style={undefined}
-        // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
-        // onClick={(e) => handleCoordinate(e)}
-      ></canvas>
-      {/* <Box display="flex" justifyContent="center">
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <TextField placeholder="X座標の値" variant="outlined" onChange={(e) => setInputX(parseInt(e.target.value))} />
-          <TextField placeholder="Y座標の値" variant="outlined" onChange={(e) => setInputY(parseInt(e.target.value))} />
-          <Button variant="outlined" onClick={handlePonter}>
-            検索
-          </Button>
-        </Box>
-        <Box ml={2} display="flex" justifyContent="center" alignItems="center">
-          <Box mx={2} p={1} border={'solid 1px green'}>{`${coordinateX}, ${coordinateY}`}</Box>
-          <Button variant="outlined" onClick={() => handleCopy(`${coordinateX}, ${coordinateY}`)}>
-            コピー
-          </Button>
-          {isCopy ? <Box ml={2}>コピーしたよ！</Box> : <Box width={90} />}
-        </Box>
-      </Box> */}
+      {devTools && handleCoordinate ? (
+        <>
+          <canvas width={900} height={652} id="canvas" style={devToolStyle} onClick={(e) => handleCoordinate(e)}></canvas>
+          <DevTool devTools={devTools} />
+        </>
+      ) : (
+        <canvas width={900} height={652} id="canvas"></canvas>
+      )}
     </>
   )
 }

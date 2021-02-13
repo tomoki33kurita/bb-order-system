@@ -77,4 +77,11 @@ export type FigureBack = {
   isZabuton: string
 }
 
+export type DevTools = {
+  cordinateX: number
+  cordinateY: number
+  isCopy: boolean
+  setCopy: (value: React.SetStateAction<boolean>) => void
+}
+
 export type Action = Partial<State> & { type: string }
