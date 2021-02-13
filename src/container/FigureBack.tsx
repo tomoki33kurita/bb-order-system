@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, TextField } from '@material-ui/core'
+// import { Box, Button, TextField } from '@material-ui/core'
 import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
 import { indexFingerCover } from 'src/container/canvasFunctions/back/indexFinger'
 import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
@@ -68,11 +68,11 @@ const FigureBack: React.FC<Props> = ({
   isZabuton,
 }) => {
   React.useEffect(() => {
+    const container = document.getElementById('canvas-container')
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
-
     // ヘリ革
     edges(ctx, edgeColor)
     // 捕球面
@@ -139,44 +139,44 @@ const FigureBack: React.FC<Props> = ({
     isZabuton,
   ])
 
-  const [coordinateX, setCoordinateX] = React.useState(0)
-  const [coordinateY, setCoordinateY] = React.useState(0)
-  const [isCopy, setCopy] = React.useState(false)
-  const [inputX, setInputX] = React.useState(0)
-  const [inputY, setInputY] = React.useState(0)
+  // const [coordinateX, setCoordinateX] = React.useState(0)
+  // const [coordinateY, setCoordinateY] = React.useState(0)
+  // const [isCopy, setCopy] = React.useState(false)
+  // const [inputX, setInputX] = React.useState(0)
+  // const [inputY, setInputY] = React.useState(0)
 
-  const handleCoordinate = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
-    // eslint-disable-next-line
-    // @ts-ignore
-    const rect = e.target.getBoundingClientRect()
-    const x = parseInt(`${e.clientX - rect.left}`)
-    const y = parseInt(`${e.clientY - rect.top}`)
-    setCoordinateX(x)
-    setCoordinateY(y)
-    setCopy(false)
-  }
+  // const handleCoordinate = (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
+  //   // eslint-disable-next-line
+  //   // @ts-ignore
+  //   const rect = e.target.getBoundingClientRect()
+  //   const x = parseInt(`${e.clientX - rect.left}`)
+  //   const y = parseInt(`${e.clientY - rect.top}`)
+  //   setCoordinateX(x)
+  //   setCoordinateY(y)
+  //   setCopy(false)
+  // }
 
-  const handleCopy = (value: string) => {
-    navigator.clipboard.writeText(value)
-    setCopy(true)
-  }
+  // const handleCopy = (value: string) => {
+  //   navigator.clipboard.writeText(value)
+  //   setCopy(true)
+  // }
 
-  const handlePonter = () => {
-    const canvas = document.getElementById('canvas') as HTMLCanvasElement
-    const ctx = canvas.getContext('2d')
-    ctx.strokeStyle = '#ff4500'
-    ctx.fillStyle = '#ff4500'
-    ctx.fillRect(inputX, inputY, 5, 5)
-  }
+  // const handlePonter = () => {
+  //   const canvas = document.getElementById('canvas') as HTMLCanvasElement
+  //   const ctx = canvas.getContext('2d')
+  //   ctx.strokeStyle = '#ff4500'
+  //   ctx.fillStyle = '#ff4500'
+  //   ctx.fillRect(inputX, inputY, 5, 5)
+  // }
 
   return (
-    <>
+    <div id="canvas-container">
       <canvas
-        width="1000"
-        height="652"
+        width={900}
+        height={652}
         id="canvas"
         // style={{ backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }}
-        onClick={(e) => handleCoordinate(e)}
+        // onClick={(e) => handleCoordinate(e)}
       ></canvas>
       {/* <Box display="flex" justifyContent="center">
         <Box display="flex" justifyContent="center" alignItems="center">
@@ -194,7 +194,7 @@ const FigureBack: React.FC<Props> = ({
           {isCopy ? <Box ml={2}>コピーしたよ！</Box> : <Box width={90} />}
         </Box>
       </Box> */}
-    </>
+    </div>
   )
 }
 
