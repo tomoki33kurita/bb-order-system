@@ -21,8 +21,8 @@ import DevTool from 'src/container/devTools'
 
 type Props = {
   parts: FigureBackTypes
-  devToolStyle?: { backgroundImage: string; backgroundRepeat: 'no-repeat'; backgroundPosition: string; backgroundSize: string }
   devTools?: DevTools
+  devToolStyle?: { backgroundImage: string; backgroundRepeat: 'no-repeat'; backgroundPosition: string; backgroundSize: string }
   handleCoordinate?: (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => void
 }
 
