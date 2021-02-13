@@ -10,7 +10,7 @@ const TabPanel: React.FC<Props> = ({ value, index, children }) => {
   return (
     <>
       {index === value && (
-        <Box m={1} p={5} border={'solid 1px #eee'} bgcolor={'#eee'} textAlign="center">
+        <Box m={1} p={2} border={'solid 1px #eee'} bgcolor={'#eee'} textAlign="center">
           {children}
         </Box>
       )}

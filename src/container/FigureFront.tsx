@@ -8,75 +8,74 @@ import { edgeLeather } from 'src/container/canvasFunctions/edge'
 import { stitch } from 'src/container/canvasFunctions/stitch'
 import { targetArrange } from 'src/container/canvasFunctions/target'
 import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
+import { DevTools } from 'src/types'
+import DevTool from 'src/container/devTools'
 
 type Props = {
-  leatherStrapColor: string
-  leatherColor: string
-  webColor: string
-  thumbMachiColor: string
-  littleMachiColor: string
-  edgeColor: string
-  stitchColor: string
-  targetColor: string | undefined
-  cutSurfaceColor: string | undefined
-  moutonColor: string
-  thumbHookColor: string
-  littleHookColor: string
+  parts: {
+    leatherStrapColor: string
+    leatherColor: string
+    webColor: string
+    thumbMachiColor: string
+    littleMachiColor: string
+    edgeColor: string
+    stitchColor: string
+    targetColor: string | undefined
+    cutSurfaceColor: string | undefined
+    moutonColor: string
+    thumbHookColor: string
+    littleHookColor: string
+  }
+  devTools?: DevTools
+  devToolStyle?: { backgroundImage: string; backgroundRepeat: 'no-repeat'; backgroundPosition: string; backgroundSize: string }
+  handleCoordinate?: (e: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => void
 }
 
-const FigureFront: React.FC<Props> = ({
-  leatherStrapColor,
-  leatherColor,
-  webColor,
-  thumbMachiColor,
-  littleMachiColor,
-  edgeColor,
-  stitchColor,
-  targetColor,
-  cutSurfaceColor,
-  moutonColor,
-  // thumbHookColor,
-  // littleHookColor,
-}) => {
+const FigureFront: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoordinate }) => {
   React.useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
     ctx.strokeStyle = '#383838'
     ctx.lineWidth = 2
-
     // ウェブ下捕球面
-    catchSurface(ctx, leatherColor)
+    catchSurface(ctx, parts.leatherColor)
     // ヘリ革
-    edgeLeather(ctx, edgeColor, moutonColor)
+    edgeLeather(ctx, parts.edgeColor, parts.moutonColor)
     // 親指マチ部分
-    thumbMachi(ctx, thumbMachiColor)
-    thumbTarget(ctx, leatherColor)
+    thumbMachi(ctx, parts.thumbMachiColor)
+    thumbTarget(ctx, parts.leatherColor)
     // 小指マチ部分
-    littleMachi(ctx, littleMachiColor)
+    littleMachi(ctx, parts.littleMachiColor)
     // ウェブ
-    webTop(ctx, webColor)
-    web(ctx, webColor)
+    webTop(ctx, parts.webColor)
+    web(ctx, parts.webColor)
     littleInLineBottom(ctx)
-    if (targetColor) {
-      // ターゲット加工
-      targetArrange(ctx, targetColor)
-    }
-    if (cutSurfaceColor) {
+    // ターゲット加工
+    if (parts.targetColor) targetArrange(ctx, parts.targetColor)
+
+    if (parts.cutSurfaceColor) {
       // 親指芯＿キリハミ
-      thumbCutSurface(ctx, cutSurfaceColor)
+      thumbCutSurface(ctx, parts.cutSurfaceColor)
       // 小指芯＿キリハミ
-      littleCutSurface(ctx, cutSurfaceColor)
+      littleCutSurface(ctx, parts.cutSurfaceColor)
     }
     // ステッチカラー
-    stitch(ctx, stitchColor, targetColor)
+    stitch(ctx, parts.stitchColor, parts.targetColor)
     // 革紐
-    leatherStrap(ctx, leatherStrapColor, '#fff')
-    // thumbHookLeather(ctx, thumbHookColor)
-  }, [leatherColor, leatherStrapColor, webColor, thumbMachiColor, littleMachiColor, edgeColor, stitchColor, targetColor, cutSurfaceColor, moutonColor])
+    leatherStrap(ctx, parts.leatherStrapColor, '#fff')
+    // thumbHookLeather(ctx, parts.thumbHookColor)
+  }, [parts])
 
   return (
     <>
-      <canvas width="1120" height="652" id="canvas"></canvas>
+      {devTools && handleCoordinate ? (
+        <>
+          <canvas width={900} height={652} id="canvas" style={devToolStyle} onClick={(e) => handleCoordinate(e)}></canvas>
+          <DevTool devTools={devTools} />
+        </>
+      ) : (
+        <canvas width={900} height={652} id="canvas"></canvas>
+      )}
     </>
   )
 }

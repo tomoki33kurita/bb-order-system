@@ -52,4 +52,36 @@ export type State = {
   embroideries: Embroidery[]
 }
 
+export type FigureBack = {
+  leatherStrapColor: string
+  leatherColor: string
+  webColor: string
+  thumbMachiColor: string
+  littleMachiColor: string
+  edgeColor: string
+  stitchColor: string
+  targetColor: string | undefined
+  cutSurfaceColor: string | undefined
+  moutonColor: string
+  thumbHookColor: string
+  littleHookColor: string
+  listBeltColor: string
+  fingerCoverColor: string
+  fingerGuardType: string
+  bagFoundationColor: string
+  ringAndLittleBagColor: string
+  middleBagColor: string
+  indexAndThumbBagColor: string
+  shellarmoveColor: string
+  liningsLeatherColor: string
+  isZabuton: string
+}
+
+export type DevTools = {
+  cordinateX: number
+  cordinateY: number
+  isCopy: boolean
+  setCopy: (value: React.SetStateAction<boolean>) => void
+}
+
 export type Action = Partial<State> & { type: string }
