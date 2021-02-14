@@ -14,15 +14,16 @@ export type Embroidery = {
 }
 
 export type State = {
+  parts: stateObj
   baseModel: stateObj
   dominantArm: stateObj
   mittSize: stateObj
   mittDepth: stateObj
   backStyle: stateObj
   padModel: stateObj
-  leatherColor: stateObj
-  edgeColor: stateObj
-  targetSet: stateObj
+  leather: stateObj
+  edge: stateObj
+  target: stateObj
   leatherHardness: stateObj
   coreMaterialHardness: stateObj
   coreMaterialThickness: stateObj
@@ -32,28 +33,28 @@ export type State = {
   zabutonSponge: stateObj
   exFunction: stateObj
   pinkiePattern: stateObj
-  leatherString: stateObj
+  strap: stateObj
   hatakeyamaLabel: stateObj
   tbEngraved: stateObj
   listLiningsMaterial: stateObj
-  stitchColor: stateObj
-  webColor: stateObj
-  thumbMachiColor: stateObj
-  littleMachiColor: stateObj
+  stitch: stateObj
+  web: stateObj
+  thumbMachi: stateObj
+  littleMachi: stateObj
   thumbHook: stateObj
   littleHook: stateObj
-  listBeltColor: stateObj
-  fingerCoverColor: stateObj
-  bagFoundationColor: stateObj
-  ringAndLittleBagColor: stateObj
-  middleBagColor: stateObj
-  indexAndThumbBagColor: stateObj
-  shellarmoveColor: stateObj
+  listBelt: stateObj
+  indexCover: stateObj
+  bagFoundation: stateObj
+  ringAndLittle: stateObj
+  middle: stateObj
+  indexAndThumb: stateObj
+  shellarmove: stateObj
   embroideries: Embroidery[]
 }
 
 export type FigureBack = {
-  leatherStrapColor: string
+  strapColor: string
   leatherColor: string
   webColor: string
   thumbMachiColor: string
@@ -66,14 +67,14 @@ export type FigureBack = {
   thumbHookColor: string
   littleHookColor: string
   listBeltColor: string
-  fingerCoverColor: string
-  fingerGuardType: string
+  indexCoverColor: string
+  indexCoverType: string
   bagFoundationColor: string
-  ringAndLittleBagColor: string
-  middleBagColor: string
-  indexAndThumbBagColor: string
+  ringAndLittleColor: string
+  middleColor: string
+  indexAndThumbColor: string
   shellarmoveColor: string
-  liningsLeatherColor: string
+  liningsColor: string
   isZabuton: string
 }
 

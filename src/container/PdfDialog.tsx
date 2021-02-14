@@ -81,19 +81,11 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: ['33%', '33%', '33%'],
           body: [
+            [genCellContent(`捕球面カラー`, state.leather.label), genCellContent(`ウェブカラー`, state.web.label), genCellContent(`親指マチカラー`, state.thumbMachi.label)],
+            [genCellContent(`小指マチカラー`, state.littleMachi.label), genCellContent(`ヘリ革カラー`, state.edge.label), genCellContent(`革紐カラー`, state.strap.label)],
             [
-              genCellContent(`捕球面カラー`, state.leatherColor.label),
-              genCellContent(`ウェブカラー`, state.webColor.label),
-              genCellContent(`親指マチカラー`, state.thumbMachiColor.label),
-            ],
-            [
-              genCellContent(`小指マチカラー`, state.littleMachiColor.label),
-              genCellContent(`ヘリ革カラー`, state.edgeColor.label),
-              genCellContent(`革紐カラー`, state.leatherString.label),
-            ],
-            [
-              genCellContent(`ステッチカラー`, state.stitchColor.label),
-              genCellContent(`ターゲット加工`, state.targetSet.label),
+              genCellContent(`ステッチカラー`, state.stitch.label),
+              genCellContent(`ターゲット加工`, state.target.label),
               genCellContent(`手首裏の素材`, state.listLiningsMaterial.label),
             ],
             [genCellContent(`ハミダシ`, state.hamidashiType.label), genCellContent(`ラベル`, state.hatakeyamaLabel.label), ''],
@@ -278,50 +270,50 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
             </Box>
             <Box ml={1}>
               (15) 捕球面カラー：
-              <Box component="span" fontWeight="bold" color={state.leatherColor.color === '#fff' ? 'black' : state.leatherColor.color}>
-                {state.leatherColor.label}
+              <Box component="span" fontWeight="bold" color={state.leather.color === '#fff' ? 'black' : state.leather.color}>
+                {state.leather.label}
               </Box>
             </Box>
             <Box ml={1}>
               (16) ウェブカラー：
-              <Box component="span" fontWeight="bold" color={state.webColor.color === '#fff' ? 'black' : state.webColor.color}>
-                {state.webColor.label}
+              <Box component="span" fontWeight="bold" color={state.web.color === '#fff' ? 'black' : state.web.color}>
+                {state.web.label}
               </Box>
             </Box>
             <Box ml={1}>
               (17) 親指マチカラー：
-              <Box component="span" fontWeight="bold" color={state.thumbMachiColor.color === '#fff' ? 'black' : state.thumbMachiColor.color}>
-                {state.thumbMachiColor.label}
+              <Box component="span" fontWeight="bold" color={state.thumbMachi.color === '#fff' ? 'black' : state.thumbMachi.color}>
+                {state.thumbMachi.label}
               </Box>
             </Box>
             <Box ml={1}>
               (18) 小指マチカラー：
-              <Box component="span" fontWeight="bold" color={state.littleMachiColor.color === '#fff' ? 'black' : state.littleMachiColor.color}>
-                {state.littleMachiColor.label}
+              <Box component="span" fontWeight="bold" color={state.littleMachi.color === '#fff' ? 'black' : state.littleMachi.color}>
+                {state.littleMachi.label}
               </Box>
             </Box>
             <Box ml={1}>
               (19) ヘリ革カラー：
-              <Box component="span" fontWeight="bold" color={state.edgeColor.color === '#fff' ? 'black' : state.edgeColor.color}>
-                {state.edgeColor.label}
+              <Box component="span" fontWeight="bold" color={state.edge.color === '#fff' ? 'black' : state.edge.color}>
+                {state.edge.label}
               </Box>
             </Box>
             <Box ml={1}>
               (20) 革紐カラー：
-              <Box component="span" fontWeight="bold" color={state.leatherString.color === '#fff' ? 'black' : state.leatherString.color}>
-                {state.leatherString.label}
+              <Box component="span" fontWeight="bold" color={state.strap.color === '#fff' ? 'black' : state.strap.color}>
+                {state.strap.label}
               </Box>
             </Box>
             <Box ml={1}>
               (21) ステッチカラー：
-              <Box component="span" fontWeight="bold" color={state.stitchColor.color === '#fff' ? 'black' : state.stitchColor.color}>
-                {state.stitchColor.label}
+              <Box component="span" fontWeight="bold" color={state.stitch.color === '#fff' ? 'black' : state.stitch.color}>
+                {state.stitch.label}
               </Box>
             </Box>
             <Box ml={1}>
               (22) ターゲット加工：
-              <Box component="span" fontWeight="bold" color={state.targetSet.color === '#fff' ? 'black' : state.targetSet.color}>
-                {state.targetSet.label}
+              <Box component="span" fontWeight="bold" color={state.target.color === '#fff' ? 'black' : state.target.color}>
+                {state.target.label}
               </Box>
             </Box>
             <Box ml={1}>

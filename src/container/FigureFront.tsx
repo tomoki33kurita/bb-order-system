@@ -13,7 +13,7 @@ import DevTool from 'src/container/devTools'
 
 type Props = {
   parts: {
-    leatherStrapColor: string
+    strapColor: string
     leatherColor: string
     webColor: string
     thumbMachiColor: string

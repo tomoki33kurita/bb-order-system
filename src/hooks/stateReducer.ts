@@ -1,5 +1,6 @@
 import { State, Action } from 'src/types'
 import {
+  SET_SELECTED_PARTS,
   SET_BASE_MODEL,
   SET_DOMINANT_ARM,
   SET_SIZE,
@@ -50,16 +51,17 @@ export const initialEmbroState = {
 }
 
 export const initialState: State = {
+  parts: { label: '全体', value: 'all' },
   baseModel: { label: 'M8型', value: 'm8' },
   dominantArm: { label: '右投げ', value: 'rightThrow' },
   mittSize: { label: '基本モデルズバリ', value: 'default' },
   mittDepth: { label: '基本モデルズバリ', value: 'default' },
   backStyle: { label: 'シェラームーブ', value: 'shellarmove' },
   padModel: { label: 'Aバッド', value: 'A_pad' },
-  leatherColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  edgeColor: { label: 'ホワイト', value: 'white', color: '#fff' },
-  targetSet: { label: '不要', value: 'none' },
-  leatherString: { label: 'ブラック', value: 'black', color: '#000' },
+  leather: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  edge: { label: 'ホワイト', value: 'white', color: '#fff' },
+  target: { label: '不要', value: 'none' },
+  strap: { label: 'ブラック', value: 'black', color: '#000' },
   leatherHardness: { label: '普通', value: 'normal' },
   coreMaterialHardness: { label: '普通', value: 'normal' },
   coreMaterialThickness: { label: '普通', value: 'normal' },
@@ -72,25 +74,26 @@ export const initialState: State = {
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white', color: '#fff' },
-  stitchColor: { label: 'レッド', value: 'red', color: '#EE0000' },
-  webColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  littleMachiColor: { label: 'Vブラック', value: 'v_black', color: '#525151' },
-  thumbMachiColor: { label: 'Vブラック', value: 'v_black', color: '#525151' },
+  stitch: { label: 'レッド', value: 'red', color: '#EE0000' },
+  web: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  littleMachi: { label: 'Vブラック', value: 'v_black', color: '#525151' },
+  thumbMachi: { label: 'Vブラック', value: 'v_black', color: '#525151' },
   thumbHook: { label: 'レッド', value: 'red', color: 'red' },
   littleHook: { label: 'レッド', value: 'red', color: 'red' },
-  listBeltColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  fingerCoverColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  bagFoundationColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  ringAndLittleBagColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  middleBagColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  indexAndThumbBagColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-  shellarmoveColor: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
-
+  listBelt: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  indexCover: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  bagFoundation: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  ringAndLittle: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  middle: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  indexAndThumb: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  shellarmove: { label: 'Jブルー', value: 'j_blue', color: '#005380' },
   embroideries: [initialEmbroState],
 }
 
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
+    case SET_SELECTED_PARTS:
+      return { ...state, parts: action.parts }
     case SET_BASE_MODEL:
       return { ...state, baseModel: action.baseModel }
     case SET_DOMINANT_ARM:
@@ -104,17 +107,17 @@ export const reducer = (state: State, action: Action): State => {
     case SET_PAD_MODEL:
       return { ...state, padModel: action.padModel }
     case SET_LEATHER_COLOR:
-      return { ...state, leatherColor: action.leatherColor }
+      return { ...state, leather: action.leather }
     case SET_EDGE_COLOR:
-      return { ...state, edgeColor: action.edgeColor }
+      return { ...state, edge: action.edge }
     case SET_WEB_COLOR:
-      return { ...state, webColor: action.webColor }
+      return { ...state, web: action.web }
     case SET_THUMB_MACHI_COLOR:
-      return { ...state, thumbMachiColor: action.thumbMachiColor }
+      return { ...state, thumbMachi: action.thumbMachi }
     case SET_LITTLE_MACHI_COLOR:
-      return { ...state, littleMachiColor: action.littleMachiColor }
+      return { ...state, littleMachi: action.littleMachi }
     case SET_TARGET_SET:
-      return { ...state, targetSet: action.targetSet }
+      return { ...state, target: action.target }
     case SET_LEATHER_HARDNESS:
       return { ...state, leatherHardness: action.leatherHardness }
     case SET_CORE_MATERIAL_HARDNESS:
@@ -134,7 +137,7 @@ export const reducer = (state: State, action: Action): State => {
     case SET_PINKIE_PATTERN:
       return { ...state, pinkiePattern: action.pinkiePattern }
     case SET_LEATHER_STRING:
-      return { ...state, leatherString: action.leatherString }
+      return { ...state, strap: action.strap }
     case SET_LABEL:
       return { ...state, hatakeyamaLabel: action.hatakeyamaLabel }
     case SET_TB_ENGRAVED:
@@ -142,7 +145,7 @@ export const reducer = (state: State, action: Action): State => {
     case SET_LIST_LININGS_MATERIAL:
       return { ...state, listLiningsMaterial: action.listLiningsMaterial }
     case SET_STITCH_COLOR:
-      return { ...state, stitchColor: action.stitchColor }
+      return { ...state, stitch: action.stitch }
     case SET_EMBROIDERIES:
       return { ...state, embroideries: action.embroideries }
     case ADD_EMBROIDERY:
@@ -154,19 +157,19 @@ export const reducer = (state: State, action: Action): State => {
     case SET_LITTLE_HOOK:
       return { ...state, littleHook: action.littleHook }
     case SET_LIST_BELT_COLOR:
-      return { ...state, listBeltColor: action.listBeltColor }
+      return { ...state, listBelt: action.listBelt }
     case SET_FINGER_COVER_COLOR:
-      return { ...state, fingerCoverColor: action.fingerCoverColor }
+      return { ...state, indexCover: action.indexCover }
     case SET_BAG_FOUNDATION_COLOR:
-      return { ...state, bagFoundationColor: action.bagFoundationColor }
+      return { ...state, bagFoundation: action.bagFoundation }
     case SET_RING_AND_LITTLE_BAG_COLOR:
-      return { ...state, ringAndLittleBagColor: action.ringAndLittleBagColor }
+      return { ...state, ringAndLittle: action.ringAndLittle }
     case SET_MIDDLE_BAG_COLOR:
-      return { ...state, middleBagColor: action.middleBagColor }
+      return { ...state, middle: action.middle }
     case SET_INDEX_AND_THUMB_BAG_COLOR:
-      return { ...state, indexAndThumbBagColor: action.indexAndThumbBagColor }
+      return { ...state, indexAndThumb: action.indexAndThumb }
     case SET_SHELLARMOVE_COLOR:
-      return { ...state, shellarmoveColor: action.shellarmoveColor }
+      return { ...state, shellarmove: action.shellarmove }
     default:
       return state
   }

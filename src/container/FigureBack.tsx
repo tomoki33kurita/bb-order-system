@@ -39,13 +39,13 @@ const FigureBack: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoor
     // 指袋部分のベース部分_台
     fingerBase(ctx, parts.bagFoundationColor)
     // 人差し親指指袋
-    thumbAndIndexBag(ctx, parts.indexAndThumbBagColor)
+    thumbAndIndexBag(ctx, parts.indexAndThumbColor)
     // シェラームーブ
     shellarmove(ctx, parts.shellarmoveColor)
     // 薬指小指袋
-    RingAndLittleBag(ctx, parts.ringAndLittleBagColor)
+    RingAndLittleBag(ctx, parts.ringAndLittleColor)
     // 中指袋
-    middleBag(ctx, parts.middleBagColor)
+    middleBag(ctx, parts.middleColor)
     // ベルトパッキン
     beltFittings(ctx)
     // ウェブ先端
@@ -58,17 +58,17 @@ const FigureBack: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoor
     stitch(ctx, parts.stitchColor)
     // 座ブトンスポンジ
     // console.log(isZabuton)
-    parts.isZabuton === 'zabuton' && zabutonSponge(ctx, parts.fingerCoverColor, parts.stitchColor)
+    parts.isZabuton === 'zabuton' && zabutonSponge(ctx, parts.indexCoverColor, parts.stitchColor)
     // 人差し指カバー
-    indexFingerCover(ctx, parts.fingerCoverColor, parts.liningsLeatherColor, parts.stitchColor, parts.fingerGuardType)
+    indexFingerCover(ctx, parts.indexCoverColor, parts.liningsColor, parts.stitchColor, parts.indexCoverType)
     // 手口ベルト
     listBelt(ctx, parts.listBeltColor)
     // 革紐
-    leatherStrap(ctx, parts.leatherStrapColor)
-    knotOnWebLeatherStrap(ctx, parts.leatherStrapColor)
-    arroundEdgheLeatherStrap(ctx, parts.leatherStrapColor)
-    topOfFingerBagLeatherStrap(ctx, parts.leatherStrapColor)
-    knotOnLeatherStraps(ctx, parts.leatherStrapColor)
+    leatherStrap(ctx, parts.strapColor)
+    knotOnWebLeatherStrap(ctx, parts.strapColor)
+    arroundEdgheLeatherStrap(ctx, parts.strapColor)
+    topOfFingerBagLeatherStrap(ctx, parts.strapColor)
+    knotOnLeatherStraps(ctx, parts.strapColor)
     // 親指掛け紐
     thumbHook(ctx, parts.thumbHookColor)
     // 小指掛け紐

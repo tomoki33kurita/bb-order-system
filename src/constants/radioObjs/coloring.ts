@@ -65,3 +65,28 @@ export const listLiningsMaterialObjs = [
   { label: 'ムートン(ブラック)', value: 'mouton_black', color: '#1a1a1a' },
   { label: 'ウルトラスエード(パッド)', value: 'ultra_suède', color: '#ddd' },
 ]
+
+export const partsObjs = [
+  { label: '全体', value: 'all' },
+  { label: '捕球面', value: 'catch_face' },
+  { label: 'ウェブ', value: 'web' },
+  { label: '親指マチ', value: 'thumb_machi' },
+  { label: '小指マチ', value: 'little_machi' },
+  { label: 'ターゲット加工', value: 'target' },
+  { label: 'ヘリ革', value: 'edge' },
+  { label: '親指掛け紐', value: 'thumb_hook' },
+  { label: '小指掛け紐', value: 'little_hook' },
+  { label: '革紐', value: 'strap' },
+  { label: '指カバー', value: 'index_cover' },
+  { label: '台', value: 'bagFoundation' },
+  { label: '薬指小指袋', value: 'ring_and_little' },
+  { label: '中指袋', value: 'middle' },
+  { label: '人差し指袋', value: 'index' },
+  { label: 'シェラームーブ', value: 'shellar_move' },
+  { label: '手口ベルト', value: 'tricks_belt' },
+  { label: 'ステッチ', value: 'stitch' },
+  { label: '手首裏の素材', value: 'list_lining' },
+  { label: '裏革', value: 'lining' },
+  { label: 'ハミダシ', value: 'hamidashi' },
+  { label: 'ラベル', value: 'label' },
+]

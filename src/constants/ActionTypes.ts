@@ -18,6 +18,7 @@ export const SET_TB_ENGRAVED = 'setTbEngraved'
 export const SET_LIST_LININGS_MATERIAL = 'setListLiningsMaterial'
 
 // COLOR
+export const SET_SELECTED_PARTS = 'setSelectedParts'
 export const SET_LEATHER_COLOR = 'setLeatherColor'
 export const SET_LEATHER_STRING = 'setLeatherString'
 export const SET_EDGE_COLOR = 'setEdgeColor'
