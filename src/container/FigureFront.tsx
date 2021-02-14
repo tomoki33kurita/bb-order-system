@@ -13,7 +13,7 @@ import DevTool from 'src/container/devTools'
 
 type Props = {
   parts: {
-    leatherStrapColor: string
+    strapColor: string
     leatherColor: string
     webColor: string
     thumbMachiColor: string
@@ -62,7 +62,7 @@ const FigureFront: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoo
     // ステッチカラー
     stitch(ctx, parts.stitchColor, parts.targetColor)
     // 革紐
-    leatherStrap(ctx, parts.leatherStrapColor, '#fff')
+    leatherStrap(ctx, parts.strapColor, '#fff')
     // thumbHookLeather(ctx, parts.thumbHookColor)
   }, [parts])
 
