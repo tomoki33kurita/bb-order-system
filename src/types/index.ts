@@ -15,20 +15,21 @@ export type Embroidery = {
 
 export type State = {
   parts: stateObj
+  all: stateObj
   baseModel: stateObj
   dominantArm: stateObj
   mittSize: stateObj
   mittDepth: stateObj
   backStyle: stateObj
   padModel: stateObj
-  leather: stateObj
+  catchFace: stateObj
   edge: stateObj
   target: stateObj
   leatherHardness: stateObj
   coreMaterialHardness: stateObj
   coreMaterialThickness: stateObj
-  liningsType: stateObj
-  hamidashiType: stateObj
+  linings: stateObj
+  hamidashi: stateObj
   fingerGuardType: stateObj
   zabutonSponge: stateObj
   exFunction: stateObj

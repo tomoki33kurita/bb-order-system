@@ -3,38 +3,39 @@ import SelectCard from 'src/components/molecules/SelectCard'
 import { State, Action } from 'src/types'
 import TabPanel from 'src/components/molecules/TabPanel'
 import {
-  leatherColorObjs,
-  liningsTypeObjs,
-  leatherStringColorObjs,
+  colorObjs,
+  liningsObjs,
+  strapColorObjs,
   hatakeyamaLabelObjs,
-  hamidashiTypeObjs,
+  hamidashiObjs,
   stitchColorObjs,
-  targetSetObjs,
-  listLiningsMaterialObjs,
+  targetObjs,
+  listLiningMaterialObjs,
   partsObjs,
 } from 'src/constants/radioObjs/coloring'
 import {
   SET_SELECTED_PARTS,
+  SET_ALL_LEATHER_COLOR,
   SET_LEATHER_COLOR,
   SET_EDGE_COLOR,
-  SET_LININGS_TYPE,
-  SET_LEATHER_STRING,
+  SET_LININGS,
+  SET_STRAP_COLOR,
   SET_LABEL,
   SET_STITCH_COLOR,
-  SET_TARGET_SET,
-  SET_HAMIDASHI_TYPE,
+  SET_TARGET_COLOR,
+  SET_HAMIDASHI,
   SET_WEB_COLOR,
   SET_THUMB_MACHI_COLOR,
   SET_LITTLE_MACHI_COLOR,
-  SET_LIST_LININGS_MATERIAL,
+  SET_LIST_LINING_MATERIAL,
   SET_THUMB_HOOK,
   SET_LITTLE_HOOK,
   SET_LIST_BELT_COLOR,
-  SET_FINGER_COVER_COLOR,
+  SET_INDEX_COVER_COLOR,
   SET_BAG_FOUNDATION_COLOR,
-  SET_RING_AND_LITTLE_BAG_COLOR,
-  SET_MIDDLE_BAG_COLOR,
-  SET_INDEX_AND_THUMB_BAG_COLOR,
+  SET_RING_AND_LITTLE_COLOR,
+  SET_MIDDLE_COLOR,
+  SET_INDEX_AND_THUMB_COLOR,
   SET_SHELLARMOVE_COLOR,
 } from 'src/constants/ActionTypes'
 
@@ -42,8 +43,6 @@ interface SortType {
   catch_face: string
   web: string
 }
-
-const sortReducerType = { catch_face: SET_LEATHER_COLOR, web: SET_WEB_COLOR }
 
 type Props = {
   state: State
@@ -54,226 +53,264 @@ type Props = {
 const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
   const {
     parts,
-    leather,
+    all,
+    catchFace,
     web,
-    // edgeColor,
-    // targetSet,
-    // leatherString,
-    // liningsType,
-    // hatakeyamaLabel,
-    // stitchColor,
-    // hamidashiType,
-    // thumbMachiColor,
-    // littleMachiColor,
-    // listLiningsMaterial,
-    // thumbHook,
-    // littleHook,
-    // listBeltColor,
-    // fingerCoverColor,
-    // bagFoundationColor,
-    // ringAndLittleBagColor,
-    // middleBagColor,
-    // indexAndThumbBagColor,
-    // shellarmoveColor,
+    thumbMachi,
+    littleMachi,
+    edge,
+    thumbHook,
+    littleHook,
+    indexCover,
+    bagFoundation,
+    ringAndLittle,
+    middle,
+    indexAndThumb,
+    shellarmove,
+    listBelt,
+    stitch,
+    linings,
+    target,
+    strap,
+    hatakeyamaLabel,
+    hamidashi,
+    listLiningsMaterial,
   } = state
 
   const partKey = parts.value as keyof SortType
-  console.log('中身', sortReducerType[partKey])
-  // console.log('中身', selectedParts.value)
   const handle = {
+    all: (selected: string) => dispatch({ type: SET_ALL_LEATHER_COLOR, all: colorObjs.filter((prev) => prev.value === selected)[0] }),
     selectParts: (selected: string) => dispatch({ type: SET_SELECTED_PARTS, parts: partsObjs.filter((prev) => prev.value === selected)[0] }),
-    leatherColor: (selected: string) => dispatch({ type: sortReducerType[partKey], leather: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    webColor: (selected: string) => dispatch({ type: sortReducerType[partKey], web: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // edgeColor: (selected: string) => dispatch({ type: SET_EDGE_COLOR, edgeColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // targetSet: (selected: string) => {
-    //   dispatch({ type: SET_TARGET_SET, targetSet: targetSetObjs.filter((prev) => prev.value === selected)[0] })
-    // },
-    // leatherString: (selected: string) => dispatch({ type: SET_LEATHER_STRING, leatherString: leatherStringColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // label: (selected: string) => dispatch({ type: SET_LABEL, hatakeyamaLabel: hatakeyamaLabelObjs.filter((prev) => prev.value === selected)[0] }),
-    // liningsType: (selected: string) => dispatch({ type: SET_LININGS_TYPE, liningsType: liningsTypeObjs.filter((prev) => prev.value === selected)[0] }),
-    // stitchColor: (selected: string) => dispatch({ type: SET_STITCH_COLOR, stitchColor: stitchColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // hamidashiType: (selected: string) => dispatch({ type: SET_HAMIDASHI_TYPE, hamidashiType: hamidashiTypeObjs.filter((prev) => prev.value === selected)[0] }),
-    // thumbMachiColor: (selected: string) => dispatch({ type: SET_THUMB_MACHI_COLOR, thumbMachiColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // littleMachiColor: (selected: string) => dispatch({ type: SET_LITTLE_MACHI_COLOR, littleMachiColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // listLiningsMaterial: (selected: string) =>
-    //   dispatch({
-    //     type: SET_LIST_LININGS_MATERIAL,
-    //     listLiningsMaterial: listLiningsMaterialObjs.filter((prev) => prev.value === selected)[0],
-    //   }),
-    // thumbHook: (selected: string) => dispatch({ type: SET_THUMB_HOOK, thumbHook: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // littleHook: (selected: string) => dispatch({ type: SET_LITTLE_HOOK, littleHook: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // listBeltColor: (selected: string) => dispatch({ type: SET_LIST_BELT_COLOR, listBeltColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // fingerCoverColor: (selected: string) => dispatch({ type: SET_FINGER_COVER_COLOR, fingerCoverColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // bagFoundationColor: (selected: string) => dispatch({ type: SET_BAG_FOUNDATION_COLOR, bagFoundationColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // ringAndLittleBagColor: (selected: string) =>
-    //   dispatch({ type: SET_RING_AND_LITTLE_BAG_COLOR, ringAndLittleBagColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // middleBagColor: (selected: string) => dispatch({ type: SET_MIDDLE_BAG_COLOR, middleBagColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // indexAndThumbBagColor: (selected: string) =>
-    //   dispatch({ type: SET_INDEX_AND_THUMB_BAG_COLOR, indexAndThumbBagColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
-    // shellarmoveColor: (selected: string) => dispatch({ type: SET_SHELLARMOVE_COLOR, shellarmoveColor: leatherColorObjs.filter((prev) => prev.value === selected)[0] }),
+    leather: (selected: string) => dispatch({ type: sortReducerType[partKey], catchFace: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    web: (selected: string) => dispatch({ type: sortReducerType[partKey], web: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    thumbMachi: (selected: string) => dispatch({ type: sortReducerType[partKey], thumbMachi: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    littleMachi: (selected: string) => dispatch({ type: sortReducerType[partKey], littleMachi: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    edge: (selected: string) => dispatch({ type: sortReducerType[partKey], edge: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    thumbHook: (selected: string) => dispatch({ type: sortReducerType[partKey], thumbHook: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    littleHook: (selected: string) => dispatch({ type: sortReducerType[partKey], littleHook: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    indexCover: (selected: string) => dispatch({ type: sortReducerType[partKey], indexCover: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    bagFoundation: (selected: string) => dispatch({ type: sortReducerType[partKey], bagFoundation: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    ringAndLittle: (selected: string) => dispatch({ type: sortReducerType[partKey], ringAndLittle: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    middle: (selected: string) => dispatch({ type: sortReducerType[partKey], middle: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    indexAndThumb: (selected: string) => dispatch({ type: sortReducerType[partKey], indexAndThumb: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    shellarmove: (selected: string) => dispatch({ type: sortReducerType[partKey], shellarmove: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    listBelt: (selected: string) => dispatch({ type: sortReducerType[partKey], listBelt: colorObjs.filter((prev) => prev.value === selected)[0] }),
+    stitch: (selected: string) => dispatch({ type: SET_STITCH_COLOR, stitch: stitchColorObjs.filter((prev) => prev.value === selected)[0] }),
+    linings: (selected: string) => dispatch({ type: SET_LININGS, linings: liningsObjs.filter((prev) => prev.value === selected)[0] }),
+    target: (selected: string) => dispatch({ type: SET_TARGET_COLOR, target: targetObjs.filter((prev) => prev.value === selected)[0] }),
+    strap: (selected: string) => dispatch({ type: SET_STRAP_COLOR, strap: strapColorObjs.filter((prev) => prev.value === selected)[0] }),
+    hatakeyamaLabel: (selected: string) => dispatch({ type: SET_LABEL, hatakeyamaLabel: hatakeyamaLabelObjs.filter((prev) => prev.value === selected)[0] }),
+    listLiningsMaterial: (selected: string) =>
+      dispatch({
+        type: SET_LIST_LINING_MATERIAL,
+        listLiningsMaterial: listLiningMaterialObjs.filter((prev) => prev.value === selected)[0],
+      }),
+    hamidashi: (selected: string) => dispatch({ type: SET_HAMIDASHI, hamidashi: hamidashiObjs.filter((prev) => prev.value === selected)[0] }),
+  }
+  const sortReducerType = {
+    catch_face: SET_LEATHER_COLOR,
+    web: SET_WEB_COLOR,
+    thumb_machi: SET_THUMB_MACHI_COLOR,
+    little_machi: SET_LITTLE_MACHI_COLOR,
+    target: SET_TARGET_COLOR,
+    edge: SET_EDGE_COLOR,
+    thumb_hook: SET_THUMB_HOOK,
+    little_hook: SET_LITTLE_HOOK,
+    strap: SET_STRAP_COLOR,
+    index_cover: SET_INDEX_COVER_COLOR,
+    bag_foundation: SET_BAG_FOUNDATION_COLOR,
+    ring_and_little: SET_RING_AND_LITTLE_COLOR,
+    middle: SET_MIDDLE_COLOR,
+    index_and_thumb: SET_INDEX_AND_THUMB_COLOR,
+    shellarmove: SET_SHELLARMOVE_COLOR,
+    list_belt: SET_LIST_BELT_COLOR,
+    stitch: SET_STITCH_COLOR,
+    lining: SET_LININGS,
+    hatakeyama_label: SET_LABEL,
+    list_lining_material: SET_LIST_LINING_MATERIAL,
+    hamidashi: SET_HAMIDASHI,
+  }
+  const sortHandle = {
+    all: handle.all,
+    catch_face: handle.leather,
+    web: handle.web,
+    thumb_machi: handle.thumbMachi,
+    little_machi: handle.littleMachi,
+    edge: handle.edge,
+    thumb_hook: handle.thumbHook,
+    little_hook: handle.littleHook,
+    index_cover: handle.indexCover,
+    bag_foundation: handle.bagFoundation,
+    ring_and_little: handle.ringAndLittle,
+    middle: handle.middle,
+    index_and_thumb: handle.indexAndThumb,
+    shellarmove: handle.shellarmove,
+    list_belt: handle.listBelt,
+    stitch: handle.stitch,
+    linings: handle.linings,
+    target: handle.target,
+    strap: handle.strap,
+    hatakeyama_label: handle.hatakeyamaLabel,
+    list_lining_material: handle.listLiningsMaterial,
+    hamidashi: handle.hamidashi,
+  }
+  const sortLabel = {
+    catch_face: catchFace.label,
+    all: all.label,
+    web: web.label,
+    thumb_machi: thumbMachi.label,
+    little_machi: littleMachi.label,
+    edge: edge.label,
+    thumb_hook: thumbHook.label,
+    little_hook: littleHook.label,
+    index_cover: indexCover.label,
+    bag_foundation: bagFoundation.label,
+    ring_and_little: ringAndLittle.label,
+    middle: middle.label,
+    index_and_thumb: indexAndThumb.label,
+    shellarmove: shellarmove.label,
+    list_belt: listBelt.label,
+    stitch: stitch.label,
+    linings: linings.label,
+    target: target.label,
+    strap: strap.label,
+    hatakeyama_label: hatakeyamaLabel.label,
+    list_lining_material: listLiningsMaterial.label,
+    hamidashi: hamidashi.label,
+  }
+  const sortColor = {
+    catch_face: catchFace.color,
+    all: all.color,
+    web: web.color,
+    thumb_machi: thumbMachi.color,
+    little_machi: littleMachi.color,
+    edge: edge.color,
+    thumb_hook: thumbHook.color,
+    little_hook: littleHook.color,
+    index_cover: indexCover.color,
+    bag_foundation: bagFoundation.color,
+    ring_and_little: ringAndLittle.color,
+    middle: middle.color,
+    index_and_thumb: indexAndThumb.color,
+    shellarmove: shellarmove.color,
+    list_belt: listBelt.color,
+    stitch: stitch.color,
+    linings: linings.color,
+    target: target.color,
+    strap: strap.color,
+    hatakeyamaLabel: hatakeyamaLabel.color,
+    list_lining_material: listLiningsMaterial.color,
+    hamidashi: hamidashi.color,
+  }
+  const sortValue = {
+    all: all.value,
+    catch_face: catchFace.value,
+    web: web.value,
+    thumb_machi: thumbMachi.value,
+    little_machi: littleMachi.value,
+    edge: edge.value,
+    thumb_hook: thumbHook.value,
+    little_hook: littleHook.value,
+    index_cover: indexCover.value,
+    bag_foundation: bagFoundation.value,
+    ring_and_little: ringAndLittle.value,
+    middle: middle.value,
+    index_and_thumb: indexAndThumb.value,
+    shellarmove: shellarmove.value,
+    list_belt: listBelt.value,
+    stitch: stitch.value,
+    linings: linings.value,
+    target: target.value,
+    strap: strap.value,
+    hatakeyama_label: hatakeyamaLabel.value,
+    list_lining_material: listLiningsMaterial.value,
+    hamidashi: hamidashi.value,
   }
   return (
     <TabPanel value={value} index={1}>
       <SelectCard
         summary={'パーツ'}
         selectedLabel={parts.label}
-        // selectedColor={leatherColor.color}
         defaultValue={parts.value}
         objects={partsObjs}
         handleChange={handle.selectParts}
+        // selectedColor={leatherColor.color}
       />
-      <SelectCard
-        summary={'捕球面カラー'}
-        selectedLabel={leather.label}
-        selectedColor={leather.color}
-        defaultValue={leather.value}
-        objects={leatherColorObjs}
-        handleChange={handle.leatherColor}
-      />
-      <SelectCard summary={'ウェブカラー'} selectedLabel={web.label} selectedColor={web.color} defaultValue={web.value} objects={leatherColorObjs} handleChange={handle.webColor} />
-      {/* <SelectCard
-        summary={'親指マチカラー'}
-        selectedLabel={thumbMachiColor.label}
-        selectedColor={thumbMachiColor.color}
-        defaultValue={thumbMachiColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.thumbMachiColor}
-      />
-      <SelectCard
-        summary={'小指マチカラー'}
-        selectedLabel={littleMachiColor.label}
-        selectedColor={littleMachiColor.color}
-        defaultValue={littleMachiColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.littleMachiColor}
-        disabled={targetSet.value !== 'none'}
-        setTarget={targetSet.value !== 'none'}
-      />
-      <SelectCard
-        summary={'ターゲット加工'}
-        selectedLabel={targetSet.label}
-        selectedColor={targetSet.color}
-        defaultValue={targetSet.value}
-        objects={targetSetObjs}
-        handleChange={handle.targetSet}
-      />
-
-      <SelectCard
-        summary={'ヘリ革カラー'}
-        selectedLabel={edgeColor.label}
-        selectedColor={edgeColor.color}
-        defaultValue={edgeColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.edgeColor}
-      />
-      <SelectCard
-        summary={'親指掛け紐カラー'}
-        selectedLabel={thumbHook.label}
-        selectedColor={thumbHook.color}
-        defaultValue={thumbHook.value}
-        objects={leatherColorObjs}
-        handleChange={handle.thumbHook}
-      />
-      <SelectCard
-        summary={'小指掛け紐カラー'}
-        selectedLabel={littleHook.label}
-        selectedColor={littleHook.color}
-        defaultValue={littleHook.value}
-        objects={leatherColorObjs}
-        handleChange={handle.littleHook}
-      />
-      <SelectCard
-        summary={'革紐'}
-        selectedLabel={leatherString.label}
-        selectedColor={leatherString.color}
-        defaultValue={leatherString.value}
-        objects={leatherStringColorObjs}
-        handleChange={handle.leatherString}
-      />
-      <SelectCard
-        summary={'指カバーカラー'}
-        selectedLabel={fingerCoverColor.label}
-        selectedColor={fingerCoverColor.color}
-        defaultValue={fingerCoverColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.fingerCoverColor}
-      />
-      <SelectCard
-        summary={'台カラー'}
-        selectedLabel={bagFoundationColor.label}
-        selectedColor={bagFoundationColor.color}
-        defaultValue={bagFoundationColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.bagFoundationColor}
-      />
-      <SelectCard
-        summary={'薬指小指カラー'}
-        selectedLabel={ringAndLittleBagColor.label}
-        selectedColor={ringAndLittleBagColor.color}
-        defaultValue={ringAndLittleBagColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.ringAndLittleBagColor}
-      />
-      <SelectCard
-        summary={'中指カラー'}
-        selectedLabel={middleBagColor.label}
-        selectedColor={middleBagColor.color}
-        defaultValue={middleBagColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.middleBagColor}
-      />
-      <SelectCard
-        summary={'人差し指親指カラー'}
-        selectedLabel={indexAndThumbBagColor.label}
-        selectedColor={indexAndThumbBagColor.color}
-        defaultValue={indexAndThumbBagColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.indexAndThumbBagColor}
-      />
-      <SelectCard
-        summary={'シェラームーブカラー'}
-        selectedLabel={shellarmoveColor.label}
-        selectedColor={shellarmoveColor.color}
-        defaultValue={shellarmoveColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.shellarmoveColor}
-      />
-      <SelectCard
-        summary={'手口ベルトカラー'}
-        selectedLabel={listBeltColor.label}
-        selectedColor={listBeltColor.color}
-        defaultValue={listBeltColor.value}
-        objects={leatherColorObjs}
-        handleChange={handle.listBeltColor}
-      />
-      <SelectCard
-        summary={'ステッチカラー'}
-        selectedLabel={stitchColor.label}
-        selectedColor={stitchColor.color}
-        defaultValue={stitchColor.value}
-        objects={stitchColorObjs}
-        handleChange={handle.stitchColor}
-      />
-
-      <SelectCard
-        summary={'手首裏部の素材'}
-        selectedLabel={listLiningsMaterial.label}
-        selectedColor={listLiningsMaterial.color}
-        defaultValue={listLiningsMaterial.value}
-        objects={listLiningsMaterialObjs}
-        handleChange={handle.listLiningsMaterial}
-      />
-
-      <SelectCard
-        summary={'裏革カラー'}
-        selectedLabel={liningsType.label}
-        selectedColor={liningsType.color}
-        defaultValue={liningsType.value}
-        objects={liningsTypeObjs}
-        handleChange={handle.liningsType}
-      />
-      <SelectCard summary={'ハミダシ'} selectedLabel={hamidashiType.label} defaultValue={hamidashiType.value} objects={hamidashiTypeObjs} handleChange={handle.hamidashiType} />
-      <SelectCard summary={'ラベル'} selectedLabel={hatakeyamaLabel.label} defaultValue={hatakeyamaLabel.value} objects={hatakeyamaLabelObjs} handleChange={handle.label} /> */}
+      {parts.value === 'stitch' ? (
+        <SelectCard
+          summary={'ステッチカラー'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={stitchColorObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : parts.value === 'linings' ? (
+        <SelectCard
+          summary={'裏革カラー'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={liningsObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : parts.value === 'target' ? (
+        <SelectCard
+          summary={'ターゲット加工'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={targetObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : parts.value === 'strap' ? (
+        <SelectCard
+          summary={'革紐'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={strapColorObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : parts.value === 'hatakeyama_label' ? (
+        <SelectCard
+          summary={'ラベル'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={hatakeyamaLabelObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : parts.value === 'list_lining_material' ? (
+        <SelectCard
+          summary={'手首裏の素材'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={listLiningMaterialObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : parts.value === 'hamidashi' ? (
+        <SelectCard
+          summary={'ハミダシ'}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={hamidashiObjs}
+          handleChange={sortHandle[partKey]}
+        />
+      ) : (
+        <SelectCard
+          summary={`${parts.label}カラー`}
+          selectedLabel={sortLabel[partKey]}
+          selectedColor={sortColor[partKey]}
+          defaultValue={sortValue[partKey]}
+          objects={colorObjs}
+          handleChange={sortHandle[partKey]}
+          disabled={parts.value === 'little_machi' && target.value !== 'none'}
+          setTarget={parts.value === 'little_machi' && target.value !== 'none'}
+        />
+      )}
 
       {/* キャビティライン加工の項目作る */}
     </TabPanel>

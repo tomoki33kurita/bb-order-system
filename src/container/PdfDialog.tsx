@@ -270,8 +270,8 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
             </Box>
             <Box ml={1}>
               (15) 捕球面カラー：
-              <Box component="span" fontWeight="bold" color={state.leather.color === '#fff' ? 'black' : state.leather.color}>
-                {state.leather.label}
+              <Box component="span" fontWeight="bold" color={state.catchFace.color === '#fff' ? 'black' : state.catchFace.color}>
+                {state.catchFace.label}
               </Box>
             </Box>
             <Box ml={1}>
@@ -325,7 +325,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
             <Box ml={1}>
               (24) ハミダシ：
               <Box component="span" fontWeight="bold">
-                {state.hamidashiType.label}
+                {state.hamidashi.label}
               </Box>
             </Box>
             <Box ml={1}>

@@ -49,12 +49,12 @@ const FigureFields: React.FC<Props> = ({ state }) => {
         <FigureFront
           parts={{
             strapColor: state.strap.color,
-            leatherColor: state.leather.color,
+            leatherColor: state.catchFace.color,
             webColor: state.web.color,
             edgeColor: state.edge.color,
             stitchColor: state.stitch.color,
             targetColor: state.target.color,
-            cutSurfaceColor: state.hamidashiType.color,
+            cutSurfaceColor: state.hamidashi.color,
             thumbMachiColor: state.thumbMachi.color,
             littleMachiColor: state.littleMachi.color,
             moutonColor: state.listLiningsMaterial.color,
@@ -71,12 +71,12 @@ const FigureFields: React.FC<Props> = ({ state }) => {
         <FigureBack
           parts={{
             strapColor: state.strap.color,
-            leatherColor: state.leather.color,
+            leatherColor: state.catchFace.color,
             webColor: state.web.color,
             edgeColor: state.edge.color,
             stitchColor: state.stitch.color,
             targetColor: state.target.color,
-            cutSurfaceColor: state.hamidashiType.color,
+            cutSurfaceColor: state.hamidashi.color,
             thumbMachiColor: state.thumbMachi.color,
             littleMachiColor: state.littleMachi.color,
             moutonColor: state.listLiningsMaterial.color,
@@ -90,7 +90,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
             middleColor: state.middle.color,
             indexAndThumbColor: state.indexAndThumb.color,
             shellarmoveColor: state.shellarmove.color,
-            liningsColor: state.liningsType.color,
+            liningsColor: state.linings.color,
             isZabuton: state.zabutonSponge.value,
           }}
           // 開発で座標を取得したいときは以下を有効にする

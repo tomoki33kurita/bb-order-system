@@ -1,4 +1,4 @@
-export const leatherStringColorObjs = [
+export const strapColorObjs = [
   { label: 'エコロジーブラウン', value: 'ecology_brown', color: '#733b03' },
   { label: 'ブラウン', value: 'brown', color: '#CC6600' },
   { label: 'オレンジ', value: 'orange', color: '#ff8c00' },
@@ -10,11 +10,11 @@ export const leatherStringColorObjs = [
   { label: 'ホワイト', value: 'white', color: '#fff' },
 ]
 
-export const leatherColorObjs = [...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
+export const colorObjs = [...strapColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
 
-export const targetSetObjs = [{ label: '不要', value: 'none' }, ...leatherStringColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
+export const targetObjs = [{ label: '不要', value: 'none' }, ...strapColorObjs, { label: 'Vブラック', value: 'v_black', color: '#525151' }]
 
-export const liningsTypeObjs = [
+export const liningsObjs = [
   { label: '共牛革(エコロジーブラウン)', value: 'cow_ecology_brown', color: '#733b03' },
   { label: '共牛革(ブラウン)', value: 'cow_brown', color: '#CC6600' },
   { label: '共牛革(オレンジ)', value: 'cow_orange', color: '#ff8c00' },
@@ -54,13 +54,13 @@ export const hatakeyamaLabelObjs = [
   { label: 'シリコンS6', value: 'silicon_6' },
 ]
 
-export const hamidashiTypeObjs = [
+export const hamidashiObjs = [
   { label: '切りハミ(ホワイト)', value: 'kirihami_white', color: '#fff' },
   { label: '切りハミ(ブラック)', value: 'kirihami_black', color: '#1a1a1a' },
   { label: 'ハミダシなし', value: 'no_hamidashi' },
 ]
 
-export const listLiningsMaterialObjs = [
+export const listLiningMaterialObjs = [
   { label: 'ムートン(ホワイト)', value: 'mouton_white', color: '#fff' },
   { label: 'ムートン(ブラック)', value: 'mouton_black', color: '#1a1a1a' },
   { label: 'ウルトラスエード(パッド)', value: 'ultra_suède', color: '#ddd' },
@@ -78,15 +78,15 @@ export const partsObjs = [
   { label: '小指掛け紐', value: 'little_hook' },
   { label: '革紐', value: 'strap' },
   { label: '指カバー', value: 'index_cover' },
-  { label: '台', value: 'bagFoundation' },
+  { label: '台', value: 'bag_foundation' },
   { label: '薬指小指袋', value: 'ring_and_little' },
   { label: '中指袋', value: 'middle' },
-  { label: '人差し指袋', value: 'index' },
-  { label: 'シェラームーブ', value: 'shellar_move' },
-  { label: '手口ベルト', value: 'tricks_belt' },
+  { label: '人差し指親指袋', value: 'index_and_thumb' },
+  { label: 'シェラームーブ', value: 'shellarmove' },
+  { label: '手口ベルト', value: 'list_belt' },
   { label: 'ステッチ', value: 'stitch' },
-  { label: '手首裏の素材', value: 'list_lining' },
-  { label: '裏革', value: 'lining' },
+  { label: '裏革', value: 'linings' },
+  { label: 'ラベル', value: 'hatakeyama_label' },
+  { label: '手首裏の素材', value: 'list_lining_material' },
   { label: 'ハミダシ', value: 'hamidashi' },
-  { label: 'ラベル', value: 'label' },
 ]

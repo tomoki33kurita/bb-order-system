@@ -57,7 +57,6 @@ const FigureBack: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoor
     // ステッチ
     stitch(ctx, parts.stitchColor)
     // 座ブトンスポンジ
-    // console.log(isZabuton)
     parts.isZabuton === 'zabuton' && zabutonSponge(ctx, parts.indexCoverColor, parts.stitchColor)
     // 人差し指カバー
     indexFingerCover(ctx, parts.indexCoverColor, parts.liningsColor, parts.stitchColor, parts.indexCoverType)
