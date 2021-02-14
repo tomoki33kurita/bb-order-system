@@ -33,7 +33,6 @@ import {
   SET_EX_FUNCTION,
   SET_PINKIE_PATTERN,
   SET_TB_ENGRAVED,
-  SET_LIST_LININGS_MATERIAL,
 } from 'src/constants/ActionTypes'
 
 type Props = {
@@ -53,13 +52,11 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
     leatherHardness,
     coreMaterialHardness,
     coreMaterialThickness,
-    // liningsLeatherColor,
     fingerGuardType,
     zabutonSponge,
     exFunction,
     pinkiePattern,
     tbEngraved,
-    listLiningsMaterial,
   } = state
 
   const handle = {
