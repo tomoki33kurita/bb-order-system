@@ -81,14 +81,14 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: ['33%', '33%', '33%'],
           body: [
-            [genCellContent(`捕球面カラー`, state.leather.label), genCellContent(`ウェブカラー`, state.web.label), genCellContent(`親指マチカラー`, state.thumbMachi.label)],
+            [genCellContent(`捕球面カラー`, state.catchFace.label), genCellContent(`ウェブカラー`, state.web.label), genCellContent(`親指マチカラー`, state.thumbMachi.label)],
             [genCellContent(`小指マチカラー`, state.littleMachi.label), genCellContent(`ヘリ革カラー`, state.edge.label), genCellContent(`革紐カラー`, state.strap.label)],
             [
               genCellContent(`ステッチカラー`, state.stitch.label),
               genCellContent(`ターゲット加工`, state.target.label),
               genCellContent(`手首裏の素材`, state.listLiningsMaterial.label),
             ],
-            [genCellContent(`ハミダシ`, state.hamidashiType.label), genCellContent(`ラベル`, state.hatakeyamaLabel.label), ''],
+            [genCellContent(`ハミダシ`, state.hamidashi.label), genCellContent(`ラベル`, state.hatakeyamaLabel.label), ''],
           ],
         },
       },
