@@ -32,7 +32,7 @@ const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
       <BaseSet state={state} value={value} dispatch={dispatch} />
       <ColoringSet state={state} value={value} dispatch={dispatch} />
       <EmbroiderySet state={state} value={value} dispatch={dispatch} />
-      <Box display="flex" justifyContent="space-around" mt={5}>
+      <Box display="flex" justifyContent="space-around" my={2}>
         <Button variant="outlined">リセット</Button>
         <Button variant="contained" color="primary" onClick={handleOpen}>
           オーダー内容確認

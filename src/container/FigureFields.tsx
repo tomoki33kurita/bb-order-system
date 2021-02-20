@@ -37,7 +37,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
   // }
 
   return (
-    <Box position="sticky" top={0}>
+    <Box position="sticky" top={0} m={1}>
       <TabPanel value={value} index={0}>
         <FigureFront
           parts={{
