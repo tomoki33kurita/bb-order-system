@@ -383,7 +383,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={handleClose}>
-          close
+          キャンセル
         </Button>
         <Button variant="contained" onClick={() => handleGenPdf(state)}>
           ダウンロード
