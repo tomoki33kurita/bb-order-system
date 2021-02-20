@@ -6,7 +6,7 @@ import PdfDialog from 'src/container/PdfDialog'
 import FigureFront from 'src/container/FigureFront'
 import FigureBack from 'src/container/FigureBack'
 
-// const devToolStyle = { backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%' }
+// const devToolStyle = { backgroundImage: `url(${'/mitt_model_back.jpeg'})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '60%', maxWidth: '100%' }
 
 export const a11yProps = (index: number): any => {
   return {
