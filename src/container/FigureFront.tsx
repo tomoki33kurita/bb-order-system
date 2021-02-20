@@ -74,7 +74,7 @@ const FigureFront: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoo
           <DevTool devTools={devTools} />
         </>
       ) : (
-        <canvas width={900} height={652} id="canvas"></canvas>
+        <canvas width={900} height={652} id="canvas" style={{ maxWidth: '100%' }}></canvas>
       )}
     </>
   )
