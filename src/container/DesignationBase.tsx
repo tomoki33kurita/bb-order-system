@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, AppBar, Tabs, Tab } from '@material-ui/core'
+import { Box, AppBar, Tabs, Tab, Button } from '@material-ui/core'
 import { State, Action } from 'src/types'
 import { a11yProps } from 'src/container/FigureFields'
 import BaseSet from 'src/container/designations/BaseSet'
 import ColoringSet from 'src/container/designations/ColoringSet'
 import EmbroiderySet from 'src/container/designations/EmbroiderySet'
+import PdfDialog from 'src/container/PdfDialog'
 
 type Props = {
   state: State
@@ -13,10 +14,14 @@ type Props = {
 
 const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
   const [value, setValue] = React.useState(1)
+  const [open, setOpen] = React.useState<boolean>(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
 
   return (
-    <Box mx={1} p={5} border={'solid 1px green'}>
+    <Box mt={2} border={'solid 1px green'}>
+      <PdfDialog state={state} open={open} handleClose={handleClose} />
       <AppBar position="sticky" style={{ top: 0 }}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="基本設定" {...a11yProps(0)} />
@@ -27,6 +32,12 @@ const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
       <BaseSet state={state} value={value} dispatch={dispatch} />
       <ColoringSet state={state} value={value} dispatch={dispatch} />
       <EmbroiderySet state={state} value={value} dispatch={dispatch} />
+      <Box display="flex" justifyContent="space-around" my={2}>
+        <Button variant="outlined">リセット</Button>
+        <Button variant="contained" color="primary" onClick={handleOpen}>
+          オーダー内容確認
+        </Button>
+      </Box>
     </Box>
   )
 }

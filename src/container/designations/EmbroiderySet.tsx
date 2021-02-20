@@ -46,7 +46,7 @@ const EmbroiderySet: React.FC<Props> = ({ state, value, dispatch }) => {
   return (
     <>
       <TabPanel value={value} index={2}>
-        <Box mb={3}>
+        <Box mb={2}>
           <Card>
             <Box display="flex" justifyContent="center" my={1}>
               <Button onClick={handleAddForm} disabled={embroideries.length === 6} variant="outlined" style={{ marginRight: '4px' }}>

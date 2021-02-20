@@ -20,7 +20,7 @@ type Props = {
 }
 
 const SelectCard: React.FC<Props> = ({ summary, selectedLabel, selectedColor, objects, disabled, setTarget, index, handleChange }) => (
-  <Accordion style={{ marginBottom: '24px' }} defaultExpanded>
+  <Accordion style={{ marginBottom: '16px' }} defaultExpanded>
     <AccordionSummary
       expandIcon={
         <Fab size="small" tabIndex={-1} style={{ boxShadow: 'unset' }}>
@@ -45,7 +45,7 @@ const SelectCard: React.FC<Props> = ({ summary, selectedLabel, selectedColor, ob
       </Box>
     </AccordionSummary>
     <AccordionDetails>
-      <Box px={2} textAlign="left">
+      <Box px={1} mb={1} textAlign="left">
         {objects.map((obj) => (
           <Button
             key={obj.value}
