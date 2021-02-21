@@ -20,7 +20,7 @@ const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
   const handleChange = (event: any, newValue: number) => setValue(newValue)
 
   return (
-    <Box mt={2} border={'solid 1px green'}>
+    <Box m={1} border={'solid 1px green'}>
       <PdfDialog state={state} open={open} handleClose={handleClose} />
       <AppBar position="sticky" style={{ top: 0 }}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
