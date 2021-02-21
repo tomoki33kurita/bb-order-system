@@ -3,7 +3,9 @@ import { Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
-pdfMake.vfs = pdfFonts.pdfMake.vfs
+import { japaneseFont } from 'src/constants/vfs_fonts'
+// pdfMake.vfs = pdfFonts.pdfMake.vfs
+pdfMake.vfs = japaneseFont
 
 const genCellContent = (head: string, content: string, alignment?: string) => {
   return [
@@ -15,7 +17,8 @@ const genCellContent = (head: string, content: string, alignment?: string) => {
 const handleGenPdf = (state: State) => {
   pdfMake.fonts = {
     GenYoMin: {
-      normal: 'ipaexm.ttf',
+      normal: 'ipaexg.ttf',
+      // normal: 'ipaexm.ttf',
       // bold: 'GenYoMinJP-Bold.ttf',
     },
   }
