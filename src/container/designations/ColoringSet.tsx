@@ -11,6 +11,8 @@ import {
   stitchColorObjs,
   targetObjs,
   listLiningMaterialObjs,
+  catchFacePartsObjs,
+  backFacePartsObjs,
   partsObjs,
 } from 'src/constants/radioObjs/coloring'
 import {
@@ -47,10 +49,11 @@ interface SortType {
 type Props = {
   state: State
   value: number
+  figurePanelNum: number
   dispatch: React.Dispatch<Action>
 }
 
-const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
+const ColoringSet: React.FC<Props> = ({ state, value, figurePanelNum, dispatch }) => {
   const {
     parts,
     all,
@@ -232,7 +235,7 @@ const ColoringSet: React.FC<Props> = ({ state, value, dispatch }) => {
         summary={'パーツ'}
         selectedLabel={parts.label}
         defaultValue={parts.value}
-        objects={partsObjs}
+        objects={figurePanelNum === 0 ? catchFacePartsObjs : backFacePartsObjs}
         handleChange={handle.selectParts}
         // selectedColor={leatherColor.color}
       />

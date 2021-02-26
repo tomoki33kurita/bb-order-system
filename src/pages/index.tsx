@@ -8,6 +8,9 @@ export const stateContext = React.createContext('')
 
 const Index: React.FC = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
+  const [figurePanelNum, setFigurePanelNum] = React.useState(1)
+  const handleFigurePanelNum = (event: any, newValue: number) => setFigurePanelNum(newValue)
+
   return (
     <Box p={2}>
       <Box p={2}>
@@ -18,10 +21,10 @@ const Index: React.FC = () => {
       </Box>
       <Grid container>
         <Grid item xs={12} md={7}>
-          <FigureFields state={state} />
+          <FigureFields state={state} figurePanelNum={figurePanelNum} handleFigurePanelNum={handleFigurePanelNum} />
         </Grid>
         <Grid item xs={12} md={5}>
-          <DesignationBase state={state} dispatch={dispatch} />
+          <DesignationBase state={state} dispatch={dispatch} figurePanelNum={figurePanelNum} />
         </Grid>
       </Grid>
     </Box>
