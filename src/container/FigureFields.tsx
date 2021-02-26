@@ -16,11 +16,11 @@ export const a11yProps = (index: number): any => {
 
 type Props = {
   state: State
+  figurePanelNum: number
+  handleFigurePanelNum: (event: any, newValue: number) => void
 }
 
-const FigureFields: React.FC<Props> = ({ state }) => {
-  const [value, setValue] = React.useState(1)
-  const handleChange = (event: any, newValue: number) => setValue(newValue)
+const FigureFields: React.FC<Props> = ({ state, figurePanelNum, handleFigurePanelNum }) => {
   //// this is devTools
   // const [cordinateX, setCordinateX] = React.useState(0)
   // const [cordinateY, setCordinateY] = React.useState(0)
@@ -38,7 +38,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
 
   return (
     <Box position="sticky" top={0}>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={figurePanelNum} index={0}>
         <FigureFront
           parts={{
             strapColor: state.strap.color,
@@ -60,7 +60,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
           // handleCoordinate={handleCoordinate}
         />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={figurePanelNum} index={1}>
         <FigureBack
           parts={{
             strapColor: state.strap.color,
@@ -93,7 +93,7 @@ const FigureFields: React.FC<Props> = ({ state }) => {
         />
       </TabPanel>
       <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+        <Tabs value={figurePanelNum} onChange={handleFigurePanelNum} aria-label="simple tabs example">
           <Tab label="捕球面" {...a11yProps(0)} />
           <Tab label="背面" {...a11yProps(1)} />
         </Tabs>
