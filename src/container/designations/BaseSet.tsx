@@ -78,8 +78,8 @@ const BaseSet: React.FC<Props> = ({ state, value, dispatch }) => {
 
   return (
     <TabPanel value={value} index={0}>
-      <SelectCard summary={'基本モデルを選択'} selectedLabel={baseModel.label} defaultValue={baseModel.value} objects={baseModelObjs} handleChange={handle.baseModel} />
-      <SelectCard summary={'利き腕を選択'} selectedLabel={dominantArm.label} defaultValue={dominantArm.value} objects={dominantArmObjs} handleChange={handle.dominantArm} />
+      <SelectCard summary={'基本モデル'} selectedLabel={baseModel.label} defaultValue={baseModel.value} objects={baseModelObjs} handleChange={handle.baseModel} />
+      <SelectCard summary={'利き腕'} selectedLabel={dominantArm.label} defaultValue={dominantArm.value} objects={dominantArmObjs} handleChange={handle.dominantArm} />
       <SelectCard summary={'ミットの大きさ'} selectedLabel={mittSize.label} defaultValue={mittSize.value} objects={mittSizeObjs} handleChange={handle.mittSize} />
       <SelectCard summary={'ポケットの深さ'} selectedLabel={mittDepth.label} defaultValue={mittDepth.value} objects={mittDepthObjs} handleChange={handle.mittDepth} />
       <SelectCard summary={'バックスタイル'} selectedLabel={backStyle.label} defaultValue={backStyle.value} objects={backStyleObjs} handleChange={handle.backStyle} />
