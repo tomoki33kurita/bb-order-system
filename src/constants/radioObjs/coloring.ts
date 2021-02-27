@@ -66,27 +66,37 @@ export const listLiningMaterialObjs = [
   { label: 'ウルトラスエード(パッド)', value: 'ultra_suède', color: '#ddd' },
 ]
 
-export const partsObjs = [
+const commonPartsObjs = [
+  // 共通
   { label: '全体', value: 'all' },
   { label: '捕球面', value: 'catch_face' },
+  { label: '革紐', value: 'strap' },
   { label: 'ウェブ', value: 'web' },
+  { label: 'ヘリ革', value: 'edge' },
+  { label: 'ステッチ', value: 'stitch' },
+  { label: '手首裏の素材', value: 'list_lining_material' },
+  { label: 'ハミダシ', value: 'hamidashi' },
+]
+export const catchFacePartsObjs = [
+  ...commonPartsObjs,
   { label: '親指マチ', value: 'thumb_machi' },
   { label: '小指マチ', value: 'little_machi' },
   { label: 'ターゲット加工', value: 'target' },
-  { label: 'ヘリ革', value: 'edge' },
+]
+
+export const backFacePartsObjs = [
+  ...commonPartsObjs,
   { label: '親指掛け紐', value: 'thumb_hook' },
   { label: '小指掛け紐', value: 'little_hook' },
-  { label: '革紐', value: 'strap' },
-  { label: '指カバー', value: 'index_cover' },
+  { label: '人差し指カバー', value: 'index_cover' },
   { label: '台', value: 'bag_foundation' },
   { label: '薬指小指袋', value: 'ring_and_little' },
   { label: '中指袋', value: 'middle' },
   { label: '人差し指親指袋', value: 'index_and_thumb' },
   { label: 'シェラームーブ', value: 'shellarmove' },
   { label: '手口ベルト', value: 'list_belt' },
-  { label: 'ステッチ', value: 'stitch' },
   { label: '裏革', value: 'linings' },
   { label: 'ラベル', value: 'hatakeyama_label' },
-  { label: '手首裏の素材', value: 'list_lining_material' },
-  { label: 'ハミダシ', value: 'hamidashi' },
 ]
+
+export const partsObjs = [...commonPartsObjs, ...catchFacePartsObjs, ...backFacePartsObjs]
