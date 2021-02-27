@@ -10,6 +10,7 @@ export type Embroidery = {
   embroideryPosition: stateObj
   embroideryColor: stateObj
   embroideryShadowColor: stateObj
+  embroideryEdgeColor: stateObj
   embroideryContent: string
 }
 
