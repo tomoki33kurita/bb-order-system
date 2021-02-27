@@ -2,9 +2,9 @@ import React from 'react'
 import { Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
-import pdfFonts from 'pdfmake/build/vfs_fonts'
-import { japaneseFont } from 'src/constants/vfs_fonts'
+// import pdfFonts from 'pdfmake/build/vfs_fonts'
 // pdfMake.vfs = pdfFonts.pdfMake.vfs
+import { japaneseFont } from 'src/constants/vfs_fonts'
 pdfMake.vfs = japaneseFont
 
 const genCellContent = (head: string, content: string, alignment?: string) => {
@@ -18,7 +18,6 @@ const handleGenPdf = (state: State) => {
   pdfMake.fonts = {
     GenYoMin: {
       normal: 'ipaexg.ttf',
-      // normal: 'ipaexm.ttf',
       // bold: 'GenYoMinJP-Bold.ttf',
     },
   }
@@ -95,6 +94,8 @@ const handleGenPdf = (state: State) => {
           ],
         },
       },
+      // state.embroideries[0].embroideryContent.length > 0
+
       {
         text: '刺繍設定１',
         style: { fontSize: 14 },
@@ -106,40 +107,11 @@ const handleGenPdf = (state: State) => {
           body: [
             [genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label), genCellContent(`位置`, state.embroideries[0].embroideryPosition.label)],
             [genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label), genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label)],
-            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
+            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent} `), ''],
           ],
         },
       },
-      {
-        text: '刺繍設定２',
-        style: { fontSize: 14 },
-        margin: [0, 16, 0, 8],
-      },
-      {
-        table: {
-          widths: '50%',
-          body: [
-            [genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label), genCellContent(`位置`, state.embroideries[0].embroideryPosition.label)],
-            [genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label), genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label)],
-            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
-          ],
-        },
-      },
-      {
-        text: '刺繍設定３',
-        style: { fontSize: 14 },
-        margin: [0, 16, 0, 8],
-      },
-      {
-        table: {
-          widths: '50%',
-          body: [
-            [genCellContent(`書式`, state.embroideries[0].embroideryTypeFace.label), genCellContent(`位置`, state.embroideries[0].embroideryPosition.label)],
-            [genCellContent(`刺繍カラー`, state.embroideries[0].embroideryColor.label), genCellContent(`影カラー`, state.embroideries[0].embroideryShadowColor.label)],
-            [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent || ' 目指せ甲子園！全国制覇！'} `), ''],
-          ],
-        },
-      },
+
       {
         text: '備考欄',
         style: { fontSize: 14 },
