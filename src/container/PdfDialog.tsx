@@ -159,6 +159,19 @@ const handleGenPdf = (state: State) => {
           ],
         },
       },
+      // {
+      //   canvas: [
+      //     {
+      //       type: 'rect',
+      //       x: 20,
+      //       y: 20,
+      //       w: 70,
+      //       h: 70,
+      //       lineWidth: 1,
+      //       lineColor: 'pink',
+      //     },
+      //   ],
+      // },
     ],
     defaultStyle: { font: 'GenYoMin' },
   }
