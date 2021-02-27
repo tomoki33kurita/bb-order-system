@@ -46,8 +46,9 @@ export const initialEmbroState = {
   id: 0,
   embroideryTypeFace: { label: '楷書体', value: 'regular' },
   embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
-  embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
-  embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
+  embroideryColor: { label: 'ブラック', value: 'black', color: 'black' },
+  embroideryShadowColor: { label: '不要', value: 'none' },
+  embroideryEdgeColor: { label: '不要', value: 'none' },
   embroideryContent: '',
 }
 

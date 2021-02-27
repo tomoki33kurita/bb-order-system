@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
-import pdfFonts from 'pdfmake/build/vfs_fonts'
+// import pdfFonts from 'pdfmake/build/vfs_fonts'
 import { japaneseFont } from 'src/constants/vfs_fonts'
 // pdfMake.vfs = pdfFonts.pdfMake.vfs
 pdfMake.vfs = japaneseFont
