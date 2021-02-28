@@ -31,13 +31,13 @@ export const liningsObjs = [
 ]
 
 export const stitchColorObjs = [
-  { label: 'イエロー', value: 'j_yellow', color: '#ffd700' },
-  { label: 'ブラック', value: 'black', color: '#1a1a1a' },
+  { label: 'イエロー', value: 'j_yellow', color: '#debd00' },
+  { label: 'ブラック', value: 'black', color: '#262626' },
   { label: 'ブルー', value: 'j_blue', color: '#002bff' },
-  { label: 'レッド', value: 'red', color: '#EE0000' },
-  { label: 'ホワイト', value: 'white', color: '#fff' },
-  { label: 'ブラウン', value: 'brown', color: '#CC6600' },
-  { label: 'オレンジ', value: 'orange', color: '#ff8c00' },
+  { label: 'レッド', value: 'red', color: '#c70000' },
+  { label: 'ホワイト', value: 'white', color: '#eee' },
+  { label: 'ブラウン', value: 'brown', color: '#944a00' },
+  { label: 'オレンジ', value: 'orange', color: '#e37d00' },
 ]
 
 export const hatakeyamaLabelObjs = [
