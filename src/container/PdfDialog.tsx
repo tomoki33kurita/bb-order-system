@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
-import pdfFonts from 'pdfmake/build/vfs_fonts'
+// import pdfFonts from 'pdfmake/build/vfs_fonts'
 import { japaneseFont } from 'src/constants/vfs_fonts'
 // pdfMake.vfs = pdfFonts.pdfMake.vfs
 pdfMake.vfs = japaneseFont
@@ -140,25 +140,38 @@ const handleGenPdf = (state: State) => {
           ],
         },
       },
-      {
-        text: '備考欄',
-        style: { fontSize: 14 },
-        margin: [0, 16, 0, 8],
-      },
-      {
-        table: {
-          // headerRows: 2,
-          body: [
-            [
-              genCellContent(
-                `その他ご要望`,
-                `親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。どうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいです`,
-                'left'
-              ),
-            ],
-          ],
-        },
-      },
+      // {
+      //   text: '備考欄',
+      //   style: { fontSize: 14 },
+      //   margin: [0, 16, 0, 8],
+      // },
+      // {
+      //   table: {
+      //     // headerRows: 2,
+      //     body: [
+      //       [
+      //         genCellContent(
+      //           `その他ご要望`,
+      //           `親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。どうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいです`,
+      //           'left'
+      //         ),
+      //       ],
+      //     ],
+      //   },
+      // },
+      // {
+      //   canvas: [
+      //     {
+      //       type: 'rect',
+      //       x: 20,
+      //       y: 20,
+      //       w: 70,
+      //       h: 70,
+      //       lineWidth: 1,
+      //       lineColor: 'pink',
+      //     },
+      //   ],
+      // },
     ],
     defaultStyle: { font: 'GenYoMin' },
   }

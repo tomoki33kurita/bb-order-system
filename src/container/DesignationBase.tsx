@@ -6,13 +6,15 @@ import BaseSet from 'src/container/designations/BaseSet'
 import ColoringSet from 'src/container/designations/ColoringSet'
 import EmbroiderySet from 'src/container/designations/EmbroiderySet'
 import PdfDialog from 'src/container/PdfDialog'
+import Link from 'next/link'
 
 type Props = {
   state: State
+  figurePanelNum: number
   dispatch: React.Dispatch<Action>
 }
 
-const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
+const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) => {
   const [value, setValue] = React.useState(1)
   const [open, setOpen] = React.useState<boolean>(false)
   const handleOpen = () => setOpen(true)
@@ -30,9 +32,12 @@ const DesignationBase: React.FC<Props> = ({ state, dispatch }) => {
         </Tabs>
       </AppBar>
       <BaseSet state={state} value={value} dispatch={dispatch} />
-      <ColoringSet state={state} value={value} dispatch={dispatch} />
+      <ColoringSet state={state} value={value} figurePanelNum={figurePanelNum} dispatch={dispatch} />
       <EmbroiderySet state={state} value={value} dispatch={dispatch} />
       <Box display="flex" justifyContent="space-around" my={2}>
+        <Link href={'/'}>
+          <Button variant="outlined">トップに戻る</Button>
+        </Link>
         <Button variant="outlined">リセット</Button>
         <Button variant="contained" color="primary" onClick={handleOpen}>
           オーダー内容確認
