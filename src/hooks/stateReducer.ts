@@ -77,7 +77,7 @@ export const initialState: State = {
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white', color: '#fff' },
-  stitch: { label: 'ホワイト', value: 'white', color: '#fff' },
+  stitch: { label: 'ホワイト', value: 'white', color: '#eee' },
   web: { label: 'ホワイト', value: 'white', color: '#fff' },
   littleMachi: { label: 'ホワイト', value: 'white', color: '#fff' },
   thumbMachi: { label: 'ホワイト', value: 'white', color: '#fff' },
