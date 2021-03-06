@@ -6,8 +6,8 @@ import BaseSet from 'src/container/designations/BaseSet'
 import ColoringSet from 'src/container/designations/ColoringSet'
 import EmbroiderySet from 'src/container/designations/EmbroiderySet'
 import PdfDialog from 'src/container/PdfDialog'
-import Link from 'next/link'
 import { RESET_INIT_STATE } from 'src/constants/ActionTypes'
+import { useRouter } from 'next/router'
 
 type Props = {
   state: State
@@ -16,14 +16,20 @@ type Props = {
 }
 
 const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) => {
+  const router = useRouter()
   const [value, setValue] = React.useState(1)
   const [open, setOpen] = React.useState<boolean>(false)
   const handlePdfDialog = () => setOpen(true)
   const handleClose = () => setOpen(false)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
   const handleReset = () => {
-    window.confirm('本当にリセットしますか？')
-    dispatch({ type: RESET_INIT_STATE })
+    if (window.confirm(`本当にリセットしますか？\n基本設定・カラー設定・刺繍設定の全てがリセットされます`)) dispatch({ type: RESET_INIT_STATE })
+  }
+  const hendleLinkToTop = () => {
+    if (window.confirm('本当にトップページに移動してよろしいですか？')) {
+      dispatch({ type: RESET_INIT_STATE })
+      router.push('/')
+    }
   }
 
   return (
@@ -40,9 +46,9 @@ const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) =
       <ColoringSet state={state} value={value} figurePanelNum={figurePanelNum} dispatch={dispatch} />
       <EmbroiderySet state={state} value={value} dispatch={dispatch} />
       <Box display="flex" justifyContent="space-around" my={2}>
-        <Link href={'/'}>
-          <Button variant="outlined">トップに戻る</Button>
-        </Link>
+        <Button variant="outlined" onClick={hendleLinkToTop}>
+          トップに戻る
+        </Button>
         <Button variant="outlined" onClick={handleReset}>
           リセット
         </Button>
