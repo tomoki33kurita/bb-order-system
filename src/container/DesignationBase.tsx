@@ -7,6 +7,7 @@ import ColoringSet from 'src/container/designations/ColoringSet'
 import EmbroiderySet from 'src/container/designations/EmbroiderySet'
 import PdfDialog from 'src/container/PdfDialog'
 import Link from 'next/link'
+import { RESET_INIT_STATE } from 'src/constants/ActionTypes'
 
 type Props = {
   state: State
@@ -20,6 +21,9 @@ const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) =
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
+  const handleReset = () => {
+    dispatch({ type: RESET_INIT_STATE })
+  }
 
   return (
     <Box m={1} border={'solid 1px green'}>
@@ -38,7 +42,9 @@ const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) =
         <Link href={'/'}>
           <Button variant="outlined">トップに戻る</Button>
         </Link>
-        <Button variant="outlined">リセット</Button>
+        <Button variant="outlined" onClick={handleReset}>
+          リセット
+        </Button>
         <Button variant="contained" color="primary" onClick={handleOpen}>
           オーダー内容確認
         </Button>
