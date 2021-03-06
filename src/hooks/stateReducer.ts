@@ -40,14 +40,16 @@ import {
   SET_MIDDLE_COLOR,
   SET_INDEX_AND_THUMB_COLOR,
   SET_SHELLARMOVE_COLOR,
+  RESET_INIT_STATE,
 } from 'src/constants/ActionTypes'
 
 export const initialEmbroState = {
   id: 0,
   embroideryTypeFace: { label: '楷書体', value: 'regular' },
   embroideryPosition: { label: '親指部分', value: 'thumb_finger' },
-  embroideryColor: { label: 'ブラック', value: 'black', color: '#000' },
-  embroideryShadowColor: { label: 'ブラック', value: 'black', color: '#000' },
+  embroideryColor: { label: 'ブラック', value: 'black', color: 'black' },
+  embroideryShadowColor: { label: '不要', value: 'none' },
+  embroideryEdgeColor: { label: '不要', value: 'none' },
   embroideryContent: '',
 }
 
@@ -76,7 +78,7 @@ export const initialState: State = {
   hatakeyamaLabel: { label: '直刺繍C1', value: 'straight_embroidery' },
   tbEngraved: { label: '有り', value: 'tb_engraved' },
   listLiningsMaterial: { label: 'ムートン(ホワイト)', value: 'mouton_white', color: '#fff' },
-  stitch: { label: 'ホワイト', value: 'white', color: '#fff' },
+  stitch: { label: 'ホワイト', value: 'white', color: '#eee' },
   web: { label: 'ホワイト', value: 'white', color: '#fff' },
   littleMachi: { label: 'ホワイト', value: 'white', color: '#fff' },
   thumbMachi: { label: 'ホワイト', value: 'white', color: '#fff' },
@@ -192,6 +194,8 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, indexAndThumb: action.indexAndThumb }
     case SET_SHELLARMOVE_COLOR:
       return { ...state, shellarmove: action.shellarmove }
+    case RESET_INIT_STATE:
+      return { ...initialState }
     default:
       return state
   }

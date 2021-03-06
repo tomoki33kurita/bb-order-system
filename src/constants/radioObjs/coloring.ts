@@ -5,7 +5,7 @@ export const strapColorObjs = [
   { label: 'ブラック', value: 'black', color: '#1a1a1a' },
   { label: 'Jイエロー', value: 'j_yellow', color: '#ffd700' },
   { label: 'Vオレンジ', value: 'v_orange', color: '#ff4500' },
-  { label: 'Jブルー', value: 'j_blue', color: '#005380' },
+  { label: 'Jブルー', value: 'j_blue', color: '#374761' },
   { label: 'レッド', value: 'red', color: '#EE0000' },
   { label: 'ホワイト', value: 'white', color: '#fff' },
 ]
@@ -21,7 +21,7 @@ export const liningsObjs = [
   { label: '共牛革(ブラック)', value: 'cow_black', color: '#1a1a1a' },
   { label: '共牛革(Jイエロー)', value: 'cow_j_yellow', color: '#ffd700' },
   { label: '共牛革(Vオレンジ)', value: 'cow_v_orange', color: '#ff4500' },
-  { label: '共牛革(Jブルー)', value: 'cow_j_blue', color: '#005380' },
+  { label: '共牛革(Jブルー)', value: 'cow_j_blue', color: '#374761' },
   { label: '共牛革(レッド)', value: 'cow_red', color: '#EE0000' },
   { label: '共牛革(ホワイト)', value: 'cow_white', color: '#fff' },
   { label: '共牛革(Vブラック)', value: 'cow_v_black', color: '#525151' },
@@ -31,13 +31,13 @@ export const liningsObjs = [
 ]
 
 export const stitchColorObjs = [
-  { label: 'イエロー', value: 'j_yellow', color: '#ffd700' },
-  { label: 'ブラック', value: 'black', color: '#1a1a1a' },
-  { label: 'ブルー', value: 'j_blue', color: '#002bff' },
-  { label: 'レッド', value: 'red', color: '#EE0000' },
-  { label: 'ホワイト', value: 'white', color: '#fff' },
-  { label: 'ブラウン', value: 'brown', color: '#CC6600' },
-  { label: 'オレンジ', value: 'orange', color: '#ff8c00' },
+  { label: 'イエロー', value: 'j_yellow', color: '#debd00' },
+  { label: 'ブラック', value: 'black', color: '#262626' },
+  { label: 'ブルー', value: 'blue', color: '#002bff' },
+  { label: 'レッド', value: 'red', color: '#c70000' },
+  { label: 'ホワイト', value: 'white', color: '#eee' },
+  { label: 'ブラウン', value: 'brown', color: '#944a00' },
+  { label: 'オレンジ', value: 'orange', color: '#e37d00' },
 ]
 
 export const hatakeyamaLabelObjs = [
