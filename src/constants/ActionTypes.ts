@@ -49,3 +49,6 @@ export const SET_EMBROIDERY_CONTENT = 'setEmbroideryContent'
 export const SET_EMBROIDERIES = 'setEmbroideries'
 export const ADD_EMBROIDERY = 'addEmbroideries'
 export const REMOVE_EMBROIDERY = 'RemoveEmbroideries'
+
+// ALL
+export const RESET_INIT_STATE = 'resetInitState'
