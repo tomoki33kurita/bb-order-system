@@ -18,10 +18,11 @@ type Props = {
 const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) => {
   const [value, setValue] = React.useState(1)
   const [open, setOpen] = React.useState<boolean>(false)
-  const handleOpen = () => setOpen(true)
+  const handlePdfDialog = () => setOpen(true)
   const handleClose = () => setOpen(false)
   const handleChange = (event: any, newValue: number) => setValue(newValue)
   const handleReset = () => {
+    window.confirm('本当にリセットしますか？')
     dispatch({ type: RESET_INIT_STATE })
   }
 
@@ -45,7 +46,7 @@ const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) =
         <Button variant="outlined" onClick={handleReset}>
           リセット
         </Button>
-        <Button variant="contained" color="primary" onClick={handleOpen}>
+        <Button variant="contained" color="primary" onClick={handlePdfDialog}>
           オーダー内容確認
         </Button>
       </Box>
