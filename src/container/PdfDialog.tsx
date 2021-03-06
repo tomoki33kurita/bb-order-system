@@ -399,7 +399,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={handleClose}>
-          キャンセル
+          閉じる
         </Button>
         <Button variant="contained" onClick={() => handleGenPdf(state)}>
           ダウンロード

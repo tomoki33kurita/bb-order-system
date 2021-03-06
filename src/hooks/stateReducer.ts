@@ -40,6 +40,7 @@ import {
   SET_MIDDLE_COLOR,
   SET_INDEX_AND_THUMB_COLOR,
   SET_SHELLARMOVE_COLOR,
+  RESET_INIT_STATE,
 } from 'src/constants/ActionTypes'
 
 export const initialEmbroState = {
@@ -193,6 +194,8 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, indexAndThumb: action.indexAndThumb }
     case SET_SHELLARMOVE_COLOR:
       return { ...state, shellarmove: action.shellarmove }
+    case RESET_INIT_STATE:
+      return { ...initialState }
     default:
       return state
   }
