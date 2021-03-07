@@ -5,6 +5,36 @@ import pdfMake from 'pdfmake/build/pdfmake'
 // import pdfFonts from 'pdfmake/build/vfs_fonts'
 import { japaneseFont } from 'src/constants/vfs_fonts'
 // pdfMake.vfs = pdfFonts.pdfMake.vfs
+// 背面の描画
+import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
+import { indexFingerCover } from 'src/container/canvasFunctions/back/indexFinger'
+import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
+import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
+import { web, webTop } from 'src/container/canvasFunctions/back/web'
+import { shellarmove } from 'src/container/canvasFunctions/back/shellarmove'
+import { middleBag } from 'src/container/canvasFunctions/back/middleBag'
+import { RingAndLittleBag } from 'src/container/canvasFunctions/back/ringAndLittleBag'
+import { catchSurFace } from 'src/container/canvasFunctions/back/catchSurface'
+import { thumbHook } from 'src/container/canvasFunctions/back/thumbHook'
+import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
+import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
+import { edges } from 'src/container/canvasFunctions/back/edge'
+import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
+import { stitch } from 'src/container/canvasFunctions/back/stitch'
+import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
+import { zabutonSponge } from 'src/container/canvasFunctions/back/zabutonSponge'
+
+// 捕球面の描画
+import { thumbMachi, thumbTarget } from 'src/container/canvasFunctions/thumb'
+import { littleMachi, littleInLineBottom } from 'src/container/canvasFunctions/little'
+import { web as webFront, webTop as webTopFront } from 'src/container/canvasFunctions/web'
+import { catchSurface as catchSurfaceFront } from 'src/container/canvasFunctions/catchingSurface'
+import { leatherStrap as leatherStrapFront } from 'src/container/canvasFunctions/leatherStrap'
+import { edgeLeather as edgesFront } from 'src/container/canvasFunctions/edge'
+import { stitch as stitchFront } from 'src/container/canvasFunctions/stitch'
+import { targetArrange } from 'src/container/canvasFunctions/target'
+import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
+
 pdfMake.vfs = japaneseFont
 
 const genCellContent = (head: string, content: string, alignment?: string) => {
@@ -12,6 +42,87 @@ const genCellContent = (head: string, content: string, alignment?: string) => {
     { text: `${head}： `, fontSize: 10 },
     { text: content, alignment: alignment ? alignment : 'right', fontSize: 12 },
   ]
+}
+
+const genImgFromCanvas = (state: State, face: 'front' | 'back') => {
+  const canvas = document.getElementById('canvas') as HTMLCanvasElement
+  const ctx = canvas.getContext('2d')
+  ctx.clearRect(0, 0, 900, 652)
+  ctx.strokeStyle = '#383838'
+  ctx.lineWidth = 2
+
+  if (face === 'front') {
+    catchSurfaceFront(ctx, state.catchFace.color)
+    // ヘリ革
+    edgesFront(ctx, state.edge.color, state.listLiningsMaterial.color)
+    // 親指マチ部分
+    thumbMachi(ctx, state.thumbMachi.color)
+    thumbTarget(ctx, state.catchFace.color)
+    // 小指マチ部分
+    littleMachi(ctx, state.littleMachi.color)
+    // ウェブ
+    webTopFront(ctx, state.web.color)
+    webFront(ctx, state.web.color)
+    littleInLineBottom(ctx)
+    // ターゲット加工
+    if (state.target.value !== 'none') targetArrange(ctx, state.target.color)
+
+    if (state.hamidashi.color) {
+      // 親指芯＿キリハミ
+      thumbCutSurface(ctx, state.hamidashi.color)
+      // 小指芯＿キリハミ
+      littleCutSurface(ctx, state.hamidashi.color)
+    }
+    // ステッチカラー
+    stitchFront(ctx, state.stitch.color, state.target.color)
+    // 革紐
+    leatherStrapFront(ctx, state.strap.color, '#fff')
+  }
+
+  if (face === 'back') {
+    // ヘリ革
+    edges(ctx, state.edge.color)
+    // 捕球面
+    catchSurFace(ctx, state.catchFace.color)
+    // 指袋部分のベース部分_台
+    fingerBase(ctx, state.bagFoundation.color)
+    // 人差し親指指袋
+    thumbAndIndexBag(ctx, state.indexAndThumb.color)
+    // シェラームーブ
+    shellarmove(ctx, state.shellarmove.color)
+    // 薬指小指袋
+    RingAndLittleBag(ctx, state.ringAndLittle.color)
+    // 中指袋
+    middleBag(ctx, state.middle.color)
+    // ベルトパッキン
+    beltFittings(ctx)
+    // ウェブ先端
+    webTop(ctx, state.web.color)
+    // ウェブ本体
+    web(ctx, state.web.color)
+    // メーカーラベル
+    selectedLabel(ctx, 'gold')
+    // ステッチ
+    stitch(ctx, state.stitch.color)
+    // 座ブトンスポンジ
+    state.zabutonSponge.value === 'zabuton' && zabutonSponge(ctx, state.indexCover.color, state.stitch.color)
+    // 人差し指カバー
+    indexFingerCover(ctx, state.indexCover.color, state.linings.color, state.stitch.color, state.fingerGuardType.value)
+    // 手口ベルト
+    listBelt(ctx, state.listBelt.color)
+    // 革紐
+    leatherStrap(ctx, state.strap.color)
+    knotOnWebLeatherStrap(ctx, state.strap.color)
+    arroundEdgheLeatherStrap(ctx, state.strap.color)
+    topOfFingerBagLeatherStrap(ctx, state.strap.color)
+    knotOnLeatherStraps(ctx, state.strap.color)
+    // 親指掛け紐
+    thumbHook(ctx, state.thumbHook.color)
+    // 小指掛け紐
+    littleHook(ctx, state.littleHook.color)
+  }
+
+  return canvas.toDataURL()
 }
 
 const handleGenPdf = (state: State) => {
@@ -83,14 +194,33 @@ const handleGenPdf = (state: State) => {
         table: {
           widths: ['33%', '33%', '33%'],
           body: [
-            [genCellContent(`捕球面カラー`, state.catchFace.label), genCellContent(`ウェブカラー`, state.web.label), genCellContent(`親指マチカラー`, state.thumbMachi.label)],
-            [genCellContent(`小指マチカラー`, state.littleMachi.label), genCellContent(`ヘリ革カラー`, state.edge.label), genCellContent(`革紐カラー`, state.strap.label)],
+            [genCellContent(`捕球面カラー`, state.catchFace.label), genCellContent(`革紐カラー`, state.strap.label), genCellContent(`ウェブカラー`, state.web.label)],
             [
+              genCellContent(`ヘリ革カラー`, state.edge.label),
               genCellContent(`ステッチカラー`, state.stitch.label),
-              genCellContent(`ターゲット加工`, state.target.label),
               genCellContent(`手首裏の素材`, state.listLiningsMaterial.label),
             ],
-            [genCellContent(`ハミダシ`, state.hamidashi.label), genCellContent(`ラベル`, state.hatakeyamaLabel.label), ''],
+            [
+              genCellContent(`ハミダシ`, state.hamidashi.label),
+              genCellContent(`親指マチカラー`, state.thumbMachi.label),
+              genCellContent(`小指マチカラー`, state.littleMachi.label),
+            ],
+            [
+              genCellContent(`親指掛け紐カラー`, state.thumbHook.label),
+              genCellContent(`小指掛け紐カラー`, state.littleHook.label),
+              genCellContent(`人差し指カバーカラー`, state.indexCover.label),
+            ],
+            [
+              genCellContent(`シェラームーブカラー`, state.shellarmove.label),
+              genCellContent(`台カラー`, state.bagFoundation.label),
+              genCellContent(`薬指小指袋カラー`, state.ringAndLittle.label),
+            ],
+            [
+              genCellContent(`中指袋カラー`, state.middle.label),
+              genCellContent(`人差し指親指袋カラー`, state.indexAndThumb.label),
+              genCellContent(`手口ベルトカラー`, state.listBelt.label),
+            ],
+            [genCellContent(`裏革カラー`, state.linings.label), genCellContent(`ターゲット加工`, state.target.label), genCellContent(`ラベル`, state.hatakeyamaLabel.label)],
           ],
         },
       },
@@ -108,6 +238,16 @@ const handleGenPdf = (state: State) => {
             [genCellContent(`刺繍内容`, `${state.embroideries[0].embroideryContent} `), ''],
           ],
         },
+      },
+      {
+        image: `${genImgFromCanvas(state, 'front')}`,
+        width: 450,
+        height: 326,
+      },
+      {
+        image: `${genImgFromCanvas(state, 'back')}`,
+        width: 450,
+        height: 326,
       },
       // {
       //   text: '備考欄',
@@ -142,6 +282,7 @@ const handleGenPdf = (state: State) => {
       // ],
       // },
     ],
+
     defaultStyle: { font: 'GenYoMin' },
   }
   // eslint-disable-next-line
@@ -199,6 +340,8 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
 
   return (
     <Dialog open={open} style={{ width: '90%', margin: 'auto' }}>
+      {/* <canvas width={900} height={652} id="canvasImg" style={{ maxWidth: '100%' }}></canvas>
+      <canvas width={900} height={652} id="canvasImg" style={{ maxWidth: '100%' }}></canvas> */}
       <DialogContent>
         <Grid container>
           <Grid item xs={12} sm={4}>
@@ -263,7 +406,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
                         <Box fontWeight="bold" fontSize="16px">
                           刺繍項目
                         </Box>
-                        刺繍なしです
+                        刺繍なし
                       </Box>
                     )}
                   </React.Fragment>

@@ -78,10 +78,14 @@ const FigureBack: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoor
       {devTools && handleCoordinate ? (
         <>
           <canvas width={900} height={652} id="canvas" style={devToolStyle} onClick={(e) => handleCoordinate(e)}></canvas>
+          {/* <canvas width={900} height={652} id="canvasBackImg" style={devToolStyle, display:'none'} onClick={(e) => handleCoordinate(e)}></canvas> */}
           <DevTool devTools={devTools} />
         </>
       ) : (
-        <canvas width={900} height={652} id="canvas" style={{ maxWidth: '100%' }}></canvas>
+        <>
+          <canvas width={900} height={652} id="canvas" style={{ maxWidth: '100%' }}></canvas>
+          {/* <canvas width={900} height={652} id="canvasBackImg" style={{ display: 'none' }} onClick={(e) => handleCoordinate(e)}></canvas> */}
+        </>
       )}
     </>
   )
