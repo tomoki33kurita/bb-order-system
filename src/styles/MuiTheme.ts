@@ -57,7 +57,16 @@ const theme = createMuiTheme({
     },
     MuiDialog: {
       paperWidthSm: {
-        maxWidth: '900px',
+        width: '900px',
+        maxWidth: 'unset',
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        padding: '0px !important',
+        paddingTop: '0px !important',
+        paddingLeft: '16px !important',
+        paddingRight: '16px !important',
       },
     },
     MuiButton: {
