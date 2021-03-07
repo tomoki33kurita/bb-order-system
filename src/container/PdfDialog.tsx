@@ -94,8 +94,6 @@ const handleGenPdf = (state: State) => {
           ],
         },
       },
-      // state.embroideries[0].embroideryContent.length > 0
-
       {
         text: '刺繍設定１',
         style: { fontSize: 14 },
@@ -177,15 +175,25 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
 
   const colorCells = [
     { head: '捕球面カラー：', label: state.catchFace.label, color: state.catchFace.color },
-    { head: 'ウェブカラー：', label: state.web.label, color: state.web.color },
-    { head: '親指マチカラー：', label: state.thumbMachi.label, color: state.thumbMachi.color },
-    { head: '小指マチカラー：', label: state.littleMachi.label, color: state.littleMachi.color },
-    { head: 'ヘリ革カラー：', label: state.edge.label, color: state.edge.color },
     { head: '革紐カラー：', label: state.strap.label, color: state.strap.color },
+    { head: 'ウェブカラー：', label: state.web.label, color: state.web.color },
+    { head: 'ヘリ革カラー：', label: state.edge.label, color: state.edge.color },
     { head: 'ステッチカラー：', label: state.stitch.label, color: state.stitch.color },
-    { head: 'ターゲット加工：', label: state.target.label, color: state.target.color },
     { head: '手首裏の素材：', label: state.listLiningsMaterial.label, color: state.listLiningsMaterial.color },
     { head: 'ハミダシ：', label: state.hamidashi.label, color: state.hamidashi.color },
+    { head: '親指マチカラー：', label: state.thumbMachi.label, color: state.thumbMachi.color },
+    { head: '小指マチカラー：', label: state.littleMachi.label, color: state.littleMachi.color },
+    { head: '親指掛け紐カラー：', label: state.thumbHook.label, color: state.thumbMachi.color },
+    { head: '小指掛け紐カラー：', label: state.littleHook.label, color: state.littleMachi.color },
+    { head: '人差し指カバーカラー：', label: state.indexCover.label, color: state.indexCover.color },
+    { head: '台カラー：', label: state.bagFoundation.label, color: state.bagFoundation.color },
+    { head: '薬指小指袋カラー：', label: state.ringAndLittle.label, color: state.ringAndLittle.color },
+    { head: '中指袋カラー：', label: state.middle.label, color: state.middle.color },
+    { head: '人差し指親指袋カラー：', label: state.indexAndThumb.label, color: state.indexAndThumb.color },
+    { head: 'シェラームーブカラー：', label: state.shellarmove.label, color: state.shellarmove.color },
+    { head: '手口ベルトカラー：', label: state.listBelt.label, color: state.listBelt.color },
+    { head: '裏革カラー：', label: state.linings.label, color: state.linings.color },
+    { head: 'ターゲット加工：', label: state.target.label, color: state.target.color },
     { head: 'ラベル：', label: state.hatakeyamaLabel.label, color: state.hatakeyamaLabel.color },
   ]
 
@@ -243,7 +251,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
                         </Box>
                         {embroideryCells.map((cell, i) => (
                           <Box ml={1} key={cell.head}>
-                            {`(${i + 26 + index * 5}) ${cell.head}`}
+                            {`(${i + 36 + index * 5}) ${cell.head}`}
                             <Box component="span" fontWeight="bold">
                               {cell.label}
                             </Box>
