@@ -81,9 +81,7 @@ const FigureBack: React.FC<Props> = ({ parts, devTools, devToolStyle, handleCoor
           <DevTool devTools={devTools} />
         </>
       ) : (
-        <>
-          <canvas width={900} height={652} id="canvas" style={{ maxWidth: '100%' }}></canvas>
-        </>
+        <canvas width={900} height={652} id="canvas" style={{ maxWidth: '100%' }}></canvas>
       )}
     </>
   )
