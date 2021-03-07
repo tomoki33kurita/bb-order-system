@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
+import { Grid, Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
 // import pdfFonts from 'pdfmake/build/vfs_fonts'
@@ -131,17 +131,17 @@ const handleGenPdf = (state: State) => {
       //   },
       // },
       // {
-      //   canvas: [
-      //     {
-      //       type: 'rect',
-      //       x: 20,
-      //       y: 20,
-      //       w: 70,
-      //       h: 70,
-      //       lineWidth: 1,
-      //       lineColor: 'pink',
-      //     },
-      //   ],
+      // canvas: [
+      //   {
+      //     type: 'rect',
+      //     x: 20,
+      //     y: 20,
+      //     w: 70,
+      //     h: 70,
+      //     lineWidth: 1,
+      //     lineColor: 'pink',
+      //   },
+      // ],
       // },
     ],
     defaultStyle: { font: 'GenYoMin' },
@@ -159,220 +159,235 @@ type Props = {
 
 const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
   return (
-    <Dialog open={open}>
+    <Dialog open={open} style={{ width: '90%', margin: 'auto' }}>
       <DialogContent>
         <Box display="flex">
-          <Box>
-            <Box fontWeight="bold" fontSize="16px">
-              基本項目
-            </Box>
-            <Box ml={1}>
-              (1) 基本モデル：
-              <Box component="span" fontWeight="bold">
-                {state.baseModel.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (2) 利き腕：
-              <Box component="span" fontWeight="bold">
-                {state.dominantArm.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (3) ミットの大きさ：
-              <Box component="span" fontWeight="bold">
-                {state.mittSize.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (4) ポケットの大きさ：
-              <Box component="span" fontWeight="bold">
-                {state.mittDepth.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (5) バックスタイル：
-              <Box component="span" fontWeight="bold">
-                {state.backStyle.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (6) パッドモデル：
-              <Box component="span" fontWeight="bold">
-                {state.padModel.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (7) 革の硬さ：
-              <Box component="span" fontWeight="bold">
-                {state.leatherHardness.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (8) 芯の強さ：
-              <Box component="span" fontWeight="bold">
-                {state.coreMaterialHardness.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (9) 芯の厚さ：
-              <Box component="span" fontWeight="bold">
-                {state.coreMaterialThickness.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (10) 指カバー：
-              <Box component="span" fontWeight="bold">
-                {state.fingerGuardType.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (11) 座ブトンスポンジ：
-              <Box component="span" fontWeight="bold">
-                {state.zabutonSponge.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (12) EX機能：
-              <Box component="span" fontWeight="bold">
-                {state.exFunction.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (13) ピンキーパターン：
-              <Box component="span" fontWeight="bold">
-                {state.pinkiePattern.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (14) TB刻印：
-              <Box component="span" fontWeight="bold">
-                {state.tbEngraved.label}
-              </Box>
-            </Box>
-          </Box>
-          <Box>
-            <Box fontWeight="bold" fontSize="16px">
-              カラー・デザイン項目
-            </Box>
-            <Box ml={1}>
-              (15) 捕球面カラー：
-              <Box component="span" fontWeight="bold" color={state.catchFace.color === '#fff' ? 'black' : state.catchFace.color}>
-                {state.catchFace.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (16) ウェブカラー：
-              <Box component="span" fontWeight="bold" color={state.web.color === '#fff' ? 'black' : state.web.color}>
-                {state.web.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (17) 親指マチカラー：
-              <Box component="span" fontWeight="bold" color={state.thumbMachi.color === '#fff' ? 'black' : state.thumbMachi.color}>
-                {state.thumbMachi.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (18) 小指マチカラー：
-              <Box component="span" fontWeight="bold" color={state.littleMachi.color === '#fff' ? 'black' : state.littleMachi.color}>
-                {state.littleMachi.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (19) ヘリ革カラー：
-              <Box component="span" fontWeight="bold" color={state.edge.color === '#fff' ? 'black' : state.edge.color}>
-                {state.edge.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (20) 革紐カラー：
-              <Box component="span" fontWeight="bold" color={state.strap.color === '#fff' ? 'black' : state.strap.color}>
-                {state.strap.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (21) ステッチカラー：
-              <Box component="span" fontWeight="bold" color={state.stitch.color === '#fff' ? 'black' : state.stitch.color}>
-                {state.stitch.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (22) ターゲット加工：
-              <Box component="span" fontWeight="bold" color={state.target.color === '#fff' ? 'black' : state.target.color}>
-                {state.target.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (23) 手首裏の素材：
-              <Box component="span" fontWeight="bold">
-                {state.listLiningsMaterial.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (24) ハミダシ：
-              <Box component="span" fontWeight="bold">
-                {state.hamidashi.label}
-              </Box>
-            </Box>
-            <Box ml={1}>
-              (25) ラベル：
-              <Box component="span" fontWeight="bold">
-                {state.hatakeyamaLabel.label}
-              </Box>
-            </Box>
-          </Box>
-          <Box>
-            {state.embroideries.map((embroidery, i) => (
-              <React.Fragment key={`${i}`}>
-                {embroidery.embroideryContent.length > 0 && (
-                  <Box mb={2}>
-                    <Box fontWeight="bold" fontSize="16px">
-                      刺繍項目{i + 1}
-                    </Box>
-                    <Box ml={1}>
-                      (26) 書式：
-                      <Box component="span" fontWeight="bold">
-                        {embroidery.embroideryTypeFace.label}
-                      </Box>
-                    </Box>
-                    <Box ml={1}>
-                      (27) 位置：
-                      <Box component="span" fontWeight="bold">
-                        {embroidery.embroideryPosition.label}
-                      </Box>
-                    </Box>
-                    <Box ml={1}>
-                      (28) 刺繍カラー：
-                      <Box component="span" fontWeight="bold">
-                        {embroidery.embroideryColor.label}
-                      </Box>
-                    </Box>
-                    <Box ml={1}>
-                      (29) 影カラー：
-                      <Box component="span" fontWeight="bold">
-                        {embroidery.embroideryShadowColor.label}
-                      </Box>
-                    </Box>
-                    <Box ml={1}>
-                      (30) 刺繍内容：
-                      <Box component="span" fontWeight="bold">
-                        {embroidery.embroideryContent}
-                      </Box>
-                    </Box>
+          <Grid container>
+            <Grid item xs={12} sm={4}>
+              <Box pt={2}>
+                <Box fontWeight="bold" fontSize="16px">
+                  基本項目
+                </Box>
+                <Box ml={1}>
+                  (1) 基本モデル：
+                  <Box component="span" fontWeight="bold">
+                    {state.baseModel.label}
                   </Box>
-                )}
-              </React.Fragment>
-            ))}
-            {/* <Box>備考</Box> */}
-          </Box>
+                </Box>
+                <Box ml={1}>
+                  (2) 利き腕：
+                  <Box component="span" fontWeight="bold">
+                    {state.dominantArm.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (3) ミットの大きさ：
+                  <Box component="span" fontWeight="bold">
+                    {state.mittSize.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (4) ポケットの大きさ：
+                  <Box component="span" fontWeight="bold">
+                    {state.mittDepth.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (5) バックスタイル：
+                  <Box component="span" fontWeight="bold">
+                    {state.backStyle.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (6) パッドモデル：
+                  <Box component="span" fontWeight="bold">
+                    {state.padModel.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (7) 革の硬さ：
+                  <Box component="span" fontWeight="bold">
+                    {state.leatherHardness.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (8) 芯の強さ：
+                  <Box component="span" fontWeight="bold">
+                    {state.coreMaterialHardness.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (9) 芯の厚さ：
+                  <Box component="span" fontWeight="bold">
+                    {state.coreMaterialThickness.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (10) 指カバー：
+                  <Box component="span" fontWeight="bold">
+                    {state.fingerGuardType.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (11) 座ブトンスポンジ：
+                  <Box component="span" fontWeight="bold">
+                    {state.zabutonSponge.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (12) EX機能：
+                  <Box component="span" fontWeight="bold">
+                    {state.exFunction.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (13) ピンキーパターン：
+                  <Box component="span" fontWeight="bold">
+                    {state.pinkiePattern.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (14) TB刻印：
+                  <Box component="span" fontWeight="bold">
+                    {state.tbEngraved.label}
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Box pt={2}>
+                <Box fontWeight="bold" fontSize="16px">
+                  カラー・デザイン項目
+                </Box>
+                <Box ml={1}>
+                  (15) 捕球面カラー：
+                  <Box component="span" fontWeight="bold" color={state.catchFace.color === '#fff' ? 'black' : state.catchFace.color}>
+                    {state.catchFace.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (16) ウェブカラー：
+                  <Box component="span" fontWeight="bold" color={state.web.color === '#fff' ? 'black' : state.web.color}>
+                    {state.web.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (17) 親指マチカラー：
+                  <Box component="span" fontWeight="bold" color={state.thumbMachi.color === '#fff' ? 'black' : state.thumbMachi.color}>
+                    {state.thumbMachi.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (18) 小指マチカラー：
+                  <Box component="span" fontWeight="bold" color={state.littleMachi.color === '#fff' ? 'black' : state.littleMachi.color}>
+                    {state.littleMachi.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (19) ヘリ革カラー：
+                  <Box component="span" fontWeight="bold" color={state.edge.color === '#fff' ? 'black' : state.edge.color}>
+                    {state.edge.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (20) 革紐カラー：
+                  <Box component="span" fontWeight="bold" color={state.strap.color === '#fff' ? 'black' : state.strap.color}>
+                    {state.strap.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (21) ステッチカラー：
+                  <Box component="span" fontWeight="bold" color={state.stitch.color === '#fff' ? 'black' : state.stitch.color}>
+                    {state.stitch.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (22) ターゲット加工：
+                  <Box component="span" fontWeight="bold" color={state.target.color === '#fff' ? 'black' : state.target.color}>
+                    {state.target.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (23) 手首裏の素材：
+                  <Box component="span" fontWeight="bold">
+                    {state.listLiningsMaterial.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (24) ハミダシ：
+                  <Box component="span" fontWeight="bold">
+                    {state.hamidashi.label}
+                  </Box>
+                </Box>
+                <Box ml={1}>
+                  (25) ラベル：
+                  <Box component="span" fontWeight="bold">
+                    {state.hatakeyamaLabel.label}
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Box pt={2}>
+                {state.embroideries.map((embroidery, i) => (
+                  <React.Fragment key={`${i}`}>
+                    {embroidery.embroideryContent.length > 0 ? (
+                      <Box mb={2}>
+                        <Box fontWeight="bold" fontSize="16px">
+                          刺繍項目{i + 1}
+                        </Box>
+                        <Box ml={1}>
+                          (26) 書式：
+                          <Box component="span" fontWeight="bold">
+                            {embroidery.embroideryTypeFace.label}
+                          </Box>
+                        </Box>
+                        <Box ml={1}>
+                          (27) 位置：
+                          <Box component="span" fontWeight="bold">
+                            {embroidery.embroideryPosition.label}
+                          </Box>
+                        </Box>
+                        <Box ml={1}>
+                          (28) 刺繍カラー：
+                          <Box component="span" fontWeight="bold">
+                            {embroidery.embroideryColor.label}
+                          </Box>
+                        </Box>
+                        <Box ml={1}>
+                          (29) 影カラー：
+                          <Box component="span" fontWeight="bold">
+                            {embroidery.embroideryShadowColor.label}
+                          </Box>
+                        </Box>
+                        <Box ml={1}>
+                          (30) 刺繍内容：
+                          <Box component="span" fontWeight="bold">
+                            {embroidery.embroideryContent}
+                          </Box>
+                        </Box>
+                      </Box>
+                    ) : (
+                      <Box>
+                        <Box fontWeight="bold" fontSize="16px">
+                          刺繍項目
+                        </Box>
+                        刺繍なしです
+                      </Box>
+                    )}
+                  </React.Fragment>
+                ))}
+                {/* <Box>備考</Box> */}
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={handleClose}>
           閉じる
         </Button>
-        <Button variant="contained" onClick={() => handleGenPdf(state)}>
+        <Button variant="contained" color="primary" onClick={() => handleGenPdf(state)}>
           ダウンロード
         </Button>
       </DialogActions>
