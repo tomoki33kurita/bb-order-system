@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
+import { Grid, Box, Button, Dialog, DialogContent, DialogActions, TextField } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
 // import pdfFonts from 'pdfmake/build/vfs_fonts'
@@ -34,6 +34,7 @@ import { edgeLeather as edgesFront } from 'src/container/canvasFunctions/edge'
 import { stitch as stitchFront } from 'src/container/canvasFunctions/stitch'
 import { targetArrange } from 'src/container/canvasFunctions/target'
 import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
+import { Label } from '@material-ui/icons'
 
 pdfMake.vfs = japaneseFont
 
@@ -268,19 +269,6 @@ const handleGenPdf = (state: State) => {
       //     ],
       //   },
       // },
-      // {
-      // canvas: [
-      //   {
-      //     type: 'rect',
-      //     x: 20,
-      //     y: 20,
-      //     w: 70,
-      //     h: 70,
-      //     lineWidth: 1,
-      //     lineColor: 'pink',
-      //   },
-      // ],
-      // },
     ],
 
     defaultStyle: { font: 'GenYoMin' },
@@ -339,9 +327,8 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
   ]
 
   return (
-    <Dialog open={open} style={{ width: '90%', margin: 'auto' }}>
-      {/* <canvas width={900} height={652} id="canvasImg" style={{ maxWidth: '100%' }}></canvas>
-      <canvas width={900} height={652} id="canvasImg" style={{ maxWidth: '100%' }}></canvas> */}
+    // <Dialog open={open} style={{ width: '90%', margin: 'auto' }}>
+    <Dialog open={true} style={{ width: '90%', margin: 'auto' }}>
       <DialogContent>
         <Grid container>
           <Grid item xs={12} sm={4}>
@@ -402,18 +389,32 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
                         ))}
                       </Box>
                     ) : (
-                      <Box>
+                      <>
                         <Box fontWeight="bold" fontSize="16px">
                           刺繍項目
                         </Box>
                         刺繍なし
-                      </Box>
+                      </>
                     )}
                   </React.Fragment>
                 )
               })}
               {/* <Box>備考</Box> */}
             </Box>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <Grid item xs={12}>
+            <Box fontWeight="bold" fontSize="16px" mb={1}>
+              個人情報入力
+            </Box>
+            <form>
+              <TextField label="お客様名" variant="outlined"></TextField>
+              <TextField label="お客様名(カナ)" variant="outlined"></TextField>
+              <TextField label="ご住所" variant="outlined"></TextField>
+              <TextField label="お電話番号" variant="outlined"></TextField>
+              <TextField label="メールアドレス" variant="outlined"></TextField>
+            </form>
           </Grid>
         </Grid>
       </DialogContent>
