@@ -41,6 +41,7 @@ import {
   SET_INDEX_AND_THUMB_COLOR,
   SET_SHELLARMOVE_COLOR,
   RESET_INIT_STATE,
+  SET_PERSONAL,
 } from 'src/constants/ActionTypes'
 
 export const initialEmbroState = {
@@ -92,6 +93,7 @@ export const initialState: State = {
   indexAndThumb: { label: 'ホワイト', value: 'white', color: '#fff' },
   shellarmove: { label: 'ホワイト', value: 'white', color: '#fff' },
   embroideries: [initialEmbroState],
+  personal: { userName: '', userNameKana: '', address: '', phoneNumber: '', mailAddress: '' },
 }
 
 export const reducer = (state: State, action: Action): State => {
@@ -196,6 +198,8 @@ export const reducer = (state: State, action: Action): State => {
       return { ...state, shellarmove: action.shellarmove }
     case RESET_INIT_STATE:
       return { ...initialState }
+    case SET_PERSONAL:
+      return { ...state, personal: action.personal }
     default:
       return state
   }

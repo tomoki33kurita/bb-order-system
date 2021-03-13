@@ -34,7 +34,7 @@ const DesignationBase: React.FC<Props> = ({ state, figurePanelNum, dispatch }) =
 
   return (
     <Box m={1} border={'solid 1px green'}>
-      <PdfDialog state={state} open={open} handleClose={handleClose} />
+      <PdfDialog state={state} open={open} handleClose={handleClose} dispatch={dispatch} />
       <AppBar position="sticky" style={{ top: 0 }}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="基本設定" {...a11yProps(0)} />
