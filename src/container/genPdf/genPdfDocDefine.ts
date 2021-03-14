@@ -37,8 +37,12 @@ export const genPdfDocDefine = (state: State, personalData: Personal) => {
       {
         table: {
           body: [
-            [genCellContent('お客様名', personalData.userName), genCellContent('お名前(カナ)', personalData.userNameKana), genCellContent('住所', personalData.address)],
-            [genCellContent('お電話番号', personalData.phoneNumber), genCellContent('メールアドレス', personalData.mailAddress), ['']],
+            [
+              genCellContent('お客様名', personalData?.userName || ''),
+              genCellContent('お名前(カナ)', personalData?.userNameKana || ''),
+              genCellContent('住所', personalData?.address || ''),
+            ],
+            [genCellContent('お電話番号', personalData?.phoneNumber || ''), genCellContent('メールアドレス', personalData?.mailAddress || ''), ['']],
           ],
         },
       },
