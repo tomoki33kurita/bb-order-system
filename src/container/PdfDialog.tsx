@@ -341,10 +341,8 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
 
   const personal = useDebounce(personalData, 500)
   React.useEffect(() => {
-    console.log('発火したよ')
     dispatch({ type: SET_PERSONAL, personal: personal[0] })
   }, [personal[0]])
-  // console.log(state.personal.userName)
 
   return (
     <Dialog open={open} style={{ width: '90%', margin: 'auto' }}>
@@ -428,18 +426,41 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
               <Box fontWeight="bold" fontSize="16px" mb={1}>
                 お客様情報入力
               </Box>
-              <Button variant="outlined" disabled>
-                自動入力
-              </Button>
             </Box>
-            <Box my={0.5}>※PDFの記載にのみ使用されます</Box>
+            <Box my={0.5}>※PDF出力の際にご記入ください</Box>
             <form onChange={handleSubmit(handleChange)}>
-              {/* <form> */}
-              <TextField label="お客様名" name="userName" inputRef={register} variant="outlined" />
-              <TextField label="お客様名(カナ)" name="userNameKana" inputRef={register} variant="outlined" />
-              <TextField label="ご住所" inputRef={register} name="address" variant="outlined" />
-              <TextField label="お電話番号" inputRef={register} name="phoneNumber" variant="outlined" />
-              <TextField label="メールアドレス" inputRef={register} name="mailAddress" variant="outlined" />
+              <Grid container>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="お客様名" name="userName" inputRef={register} variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="お客様名(カナ)" name="userNameKana" inputRef={register} variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                  <Box p={1}>
+                    <TextField label="郵便番号" inputRef={register} name="zipcode" variant="outlined" fullWidth />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={9}>
+                  <Box p={1}>
+                    <TextField label="ご住所" inputRef={register} name="address" variant="outlined" fullWidth />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="お電話番号" inputRef={register} name="phoneNumber" variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="メールアドレス" inputRef={register} name="mailAddress" variant="outlined" />
+                  </Box>
+                </Grid>
+              </Grid>
             </form>
           </Grid>
         </Grid>
@@ -449,7 +470,7 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
           閉じる
         </Button>
         <Button variant="contained" color="primary" onClick={() => handleGenPdf(state, personalData)}>
-          ダウンロード
+          PDF出力
         </Button>
       </DialogActions>
     </Dialog>
