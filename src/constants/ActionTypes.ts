@@ -52,3 +52,4 @@ export const REMOVE_EMBROIDERY = 'RemoveEmbroideries'
 
 // ALL
 export const RESET_INIT_STATE = 'resetInitState'
+export const SET_PERSONAL = 'setPersonal'

@@ -57,8 +57,9 @@ const theme = createMuiTheme({
     },
     MuiDialog: {
       paperWidthSm: {
-        width: '900px',
+        width: '100%',
         maxWidth: 'unset',
+        height: '100%',
       },
     },
     MuiDialogContent: {
@@ -72,6 +73,11 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         textTransform: 'none',
+      },
+    },
+    MuiFormControl: {
+      root: {
+        width: '100%',
       },
     },
   },

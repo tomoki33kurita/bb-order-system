@@ -53,6 +53,7 @@ export type State = {
   indexAndThumb: stateObj
   shellarmove: stateObj
   embroideries: Embroidery[]
+  personal: Personal
 }
 
 export type FigureBack = {
@@ -88,3 +89,13 @@ export type DevTools = {
 }
 
 export type Action = Partial<State> & { type: string }
+
+export type Personal = {
+  userName: string
+  userNameKana: string
+  zipcode: string
+  address: string
+  phoneNumber: string
+  mailAddress: string
+  remarks: string
+}

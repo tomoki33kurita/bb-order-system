@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Box, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core'
+import { Grid, Box, Button, Dialog, DialogContent, DialogActions, TextField } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
 // import pdfFonts from 'pdfmake/build/vfs_fonts'
@@ -34,6 +34,11 @@ import { edgeLeather as edgesFront } from 'src/container/canvasFunctions/edge'
 import { stitch as stitchFront } from 'src/container/canvasFunctions/stitch'
 import { targetArrange } from 'src/container/canvasFunctions/target'
 import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
+
+import { useForm } from 'react-hook-form'
+import { useDebounce } from 'use-debounce'
+import { Action, Personal } from 'src/types'
+import { SET_PERSONAL } from 'src/constants/ActionTypes'
 
 pdfMake.vfs = japaneseFont
 
@@ -125,7 +130,7 @@ const genImgFromCanvas = (state: State, face: 'front' | 'back') => {
   return canvas.toDataURL()
 }
 
-const handleGenPdf = (state: State) => {
+const handleGenPdf = (state: State, personalData: Personal) => {
   pdfMake.fonts = {
     GenYoMin: {
       normal: 'ipaexg.ttf',
@@ -146,12 +151,8 @@ const handleGenPdf = (state: State) => {
       {
         table: {
           body: [
-            [
-              genCellContent('お客様名', '畠山太郎'),
-              genCellContent('お名前(カナ)', 'ハタケヤマ タロウ'),
-              genCellContent('住所', '畠北海道札幌市北区1-2-3 サッポロドームマンション101'),
-            ],
-            [genCellContent('お電話番号', '090-1234-5678'), genCellContent('メールアドレス', 'test-test@gmail.com'), ['']],
+            [genCellContent('お客様名', personalData.userName), genCellContent('お名前(カナ)', personalData.userNameKana), genCellContent('住所', personalData.address)],
+            [genCellContent('お電話番号', personalData.phoneNumber), genCellContent('メールアドレス', personalData.mailAddress), ['']],
           ],
         },
       },
@@ -240,47 +241,37 @@ const handleGenPdf = (state: State) => {
         },
       },
       {
+        text: '備考欄',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          // headerRows: 2,
+          body: [[genCellContent(`その他ご要望`, state.personal.remarks, 'left')]],
+        },
+      },
+
+      {
+        text: '捕球面イメージ',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
         image: `${genImgFromCanvas(state, 'front')}`,
         width: 450,
         height: 326,
+      },
+      {
+        text: '背面イメージ',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
       },
       {
         image: `${genImgFromCanvas(state, 'back')}`,
         width: 450,
         height: 326,
       },
-      // {
-      //   text: '備考欄',
-      //   style: { fontSize: 14 },
-      //   margin: [0, 16, 0, 8],
-      // },
-      // {
-      //   table: {
-      //     // headerRows: 2,
-      //     body: [
-      //       [
-      //         genCellContent(
-      //           `その他ご要望`,
-      //           `親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。どうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいです`,
-      //           'left'
-      //         ),
-      //       ],
-      //     ],
-      //   },
-      // },
-      // {
-      // canvas: [
-      //   {
-      //     type: 'rect',
-      //     x: 20,
-      //     y: 20,
-      //     w: 70,
-      //     h: 70,
-      //     lineWidth: 1,
-      //     lineColor: 'pink',
-      //   },
-      // ],
-      // },
     ],
 
     defaultStyle: { font: 'GenYoMin' },
@@ -294,9 +285,10 @@ type Props = {
   state: State
   open: boolean
   handleClose: () => void
+  dispatch: React.Dispatch<Action>
 }
 
-const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
+const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
   const baseCells = [
     { head: '基本モデル：', label: state.baseModel.label },
     { head: '利き腕：', label: state.dominantArm.label },
@@ -337,11 +329,28 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
     { head: 'ターゲット加工：', label: state.target.label, color: state.target.color },
     { head: 'ラベル：', label: state.hatakeyamaLabel.label, color: state.hatakeyamaLabel.color },
   ]
+  const { register, handleSubmit } = useForm()
+  const [personalData, setPersonalData] = React.useState<Personal>()
+  const handleChange = (data: any) => {
+    const payload = {
+      userName: data.userName,
+      userNameKana: data.userNameKana,
+      zipcode: data.zipcode,
+      address: data.address,
+      phoneNumber: data.phoneNumber,
+      mailAddress: data.mailAddress,
+      remarks: data.remarks,
+    }
+    setPersonalData(payload)
+  }
+
+  const personal = useDebounce(personalData, 500)
+  React.useEffect(() => {
+    dispatch({ type: SET_PERSONAL, personal: personal[0] })
+  }, [personal[0]])
 
   return (
     <Dialog open={open} style={{ width: '90%', margin: 'auto' }}>
-      {/* <canvas width={900} height={652} id="canvasImg" style={{ maxWidth: '100%' }}></canvas>
-      <canvas width={900} height={652} id="canvasImg" style={{ maxWidth: '100%' }}></canvas> */}
       <DialogContent>
         <Grid container>
           <Grid item xs={12} sm={4}>
@@ -402,12 +411,12 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
                         ))}
                       </Box>
                     ) : (
-                      <Box>
+                      <>
                         <Box fontWeight="bold" fontSize="16px">
                           刺繍項目
                         </Box>
                         刺繍なし
-                      </Box>
+                      </>
                     )}
                   </React.Fragment>
                 )
@@ -416,13 +425,62 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose }) => {
             </Box>
           </Grid>
         </Grid>
+        <Grid container>
+          <Grid item xs={12}>
+            <Box mr={1} display={'flex'} alignItems={'center'}>
+              <Box fontWeight="bold" fontSize="16px" mb={1}>
+                お客様情報入力
+              </Box>
+            </Box>
+            <Box my={0.5}>※PDF出力の際にご記入ください</Box>
+            <form onChange={handleSubmit(handleChange)}>
+              <Grid container>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="お客様名" name="userName" inputRef={register} variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="お客様名(カナ)" name="userNameKana" inputRef={register} variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                  <Box p={1}>
+                    <TextField label="郵便番号" inputRef={register} name="zipcode" variant="outlined" fullWidth />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={9}>
+                  <Box p={1}>
+                    <TextField label="ご住所" inputRef={register} name="address" variant="outlined" fullWidth />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="お電話番号" inputRef={register} name="phoneNumber" variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box p={1}>
+                    <TextField label="メールアドレス" inputRef={register} name="mailAddress" variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12}>
+                  <Box p={1}>
+                    <TextField label="備考" multiline rows={5} inputRef={register} name="remarks" variant="outlined" />
+                  </Box>
+                </Grid>
+              </Grid>
+            </form>
+          </Grid>
+        </Grid>
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={handleClose}>
           閉じる
         </Button>
-        <Button variant="contained" color="primary" onClick={() => handleGenPdf(state)}>
-          ダウンロード
+        <Button variant="contained" color="primary" onClick={() => handleGenPdf(state, personalData)}>
+          PDF出力
         </Button>
       </DialogActions>
     </Dialog>
