@@ -2,43 +2,17 @@ import React from 'react'
 import { Grid, Box, Button, Dialog, DialogContent, DialogActions, TextField } from '@material-ui/core'
 import { State } from 'src/types'
 import pdfMake from 'pdfmake/build/pdfmake'
-// import pdfFonts from 'pdfmake/build/vfs_fonts'
-import { japaneseFont } from 'src/constants/vfs_fonts'
-// pdfMake.vfs = pdfFonts.pdfMake.vfs
-// 背面の描画
-import { fingerBase } from 'src/container/canvasFunctions/back/fingerBase'
-import { indexFingerCover } from 'src/container/canvasFunctions/back/indexFinger'
-import { thumbAndIndexBag } from 'src/container/canvasFunctions/back/thumbAndIndexBag'
-import { listBelt } from 'src/container/canvasFunctions/back/listBelt'
-import { web, webTop } from 'src/container/canvasFunctions/back/web'
-import { shellarmove } from 'src/container/canvasFunctions/back/shellarmove'
-import { middleBag } from 'src/container/canvasFunctions/back/middleBag'
-import { RingAndLittleBag } from 'src/container/canvasFunctions/back/ringAndLittleBag'
-import { catchSurFace } from 'src/container/canvasFunctions/back/catchSurface'
-import { thumbHook } from 'src/container/canvasFunctions/back/thumbHook'
-import { littleHook } from 'src/container/canvasFunctions/back/littleHook'
-import { beltFittings } from 'src/container/canvasFunctions/back/beltFittings'
-import { edges } from 'src/container/canvasFunctions/back/edge'
-import { selectedLabel } from 'src/container/canvasFunctions/back/hatakeyamaLabel'
-import { stitch } from 'src/container/canvasFunctions/back/stitch'
-import { leatherStrap, knotOnWebLeatherStrap, arroundEdgheLeatherStrap, topOfFingerBagLeatherStrap, knotOnLeatherStraps } from 'src/container/canvasFunctions/back/leatherStrap'
-import { zabutonSponge } from 'src/container/canvasFunctions/back/zabutonSponge'
-
-// 捕球面の描画
-import { thumbMachi, thumbTarget } from 'src/container/canvasFunctions/thumb'
-import { littleMachi, littleInLineBottom } from 'src/container/canvasFunctions/little'
-import { web as webFront, webTop as webTopFront } from 'src/container/canvasFunctions/web'
-import { catchSurface as catchSurfaceFront } from 'src/container/canvasFunctions/catchingSurface'
-import { leatherStrap as leatherStrapFront } from 'src/container/canvasFunctions/leatherStrap'
-import { edgeLeather as edgesFront } from 'src/container/canvasFunctions/edge'
-import { stitch as stitchFront } from 'src/container/canvasFunctions/stitch'
-import { targetArrange } from 'src/container/canvasFunctions/target'
-import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
-
 import { useForm } from 'react-hook-form'
 import { useDebounce } from 'use-debounce'
 import { Action, Personal } from 'src/types'
 import { SET_PERSONAL } from 'src/constants/ActionTypes'
+// import pdfFonts from 'pdfmake/build/vfs_fonts'
+// pdfMake.vfs = pdfFonts.pdfMake.vfs
+import { japaneseFont } from 'src/constants/vfs_fonts'
+// 捕球面の描画
+import { useCanvasCMittFront } from 'src/hooks/useCanvasCMittFront'
+// 背面の描画
+import { useCanvasCMittBack } from 'src/hooks/useCanvasCMittBack'
 
 pdfMake.vfs = japaneseFont
 
@@ -55,78 +29,8 @@ const genImgFromCanvas = (state: State, face: 'front' | 'back') => {
   ctx.clearRect(0, 0, 900, 652)
   ctx.strokeStyle = '#383838'
   ctx.lineWidth = 2
-
-  if (face === 'front') {
-    catchSurfaceFront(ctx, state.catchFace.color)
-    // ヘリ革
-    edgesFront(ctx, state.edge.color, state.listLiningsMaterial.color)
-    // 親指マチ部分
-    thumbMachi(ctx, state.thumbMachi.color)
-    thumbTarget(ctx, state.catchFace.color)
-    // 小指マチ部分
-    littleMachi(ctx, state.littleMachi.color)
-    // ウェブ
-    webTopFront(ctx, state.web.color)
-    webFront(ctx, state.web.color)
-    littleInLineBottom(ctx)
-    // ターゲット加工
-    if (state.target.value !== 'none') targetArrange(ctx, state.target.color)
-
-    if (state.hamidashi.color) {
-      // 親指芯＿キリハミ
-      thumbCutSurface(ctx, state.hamidashi.color)
-      // 小指芯＿キリハミ
-      littleCutSurface(ctx, state.hamidashi.color)
-    }
-    // ステッチカラー
-    stitchFront(ctx, state.stitch.color, state.target.color)
-    // 革紐
-    leatherStrapFront(ctx, state.strap.color, '#fff')
-  }
-
-  if (face === 'back') {
-    // ヘリ革
-    edges(ctx, state.edge.color)
-    // 捕球面
-    catchSurFace(ctx, state.catchFace.color)
-    // 指袋部分のベース部分_台
-    fingerBase(ctx, state.bagFoundation.color)
-    // 人差し親指指袋
-    thumbAndIndexBag(ctx, state.indexAndThumb.color)
-    // シェラームーブ
-    shellarmove(ctx, state.shellarmove.color)
-    // 薬指小指袋
-    RingAndLittleBag(ctx, state.ringAndLittle.color)
-    // 中指袋
-    middleBag(ctx, state.middle.color)
-    // ベルトパッキン
-    beltFittings(ctx)
-    // ウェブ先端
-    webTop(ctx, state.web.color)
-    // ウェブ本体
-    web(ctx, state.web.color)
-    // メーカーラベル
-    selectedLabel(ctx, 'gold')
-    // ステッチ
-    stitch(ctx, state.stitch.color)
-    // 座ブトンスポンジ
-    state.zabutonSponge.value === 'zabuton' && zabutonSponge(ctx, state.indexCover.color, state.stitch.color)
-    // 人差し指カバー
-    indexFingerCover(ctx, state.indexCover.color, state.linings.color, state.stitch.color, state.fingerGuardType.value)
-    // 手口ベルト
-    listBelt(ctx, state.listBelt.color)
-    // 革紐
-    leatherStrap(ctx, state.strap.color)
-    knotOnWebLeatherStrap(ctx, state.strap.color)
-    arroundEdgheLeatherStrap(ctx, state.strap.color)
-    topOfFingerBagLeatherStrap(ctx, state.strap.color)
-    knotOnLeatherStraps(ctx, state.strap.color)
-    // 親指掛け紐
-    thumbHook(ctx, state.thumbHook.color)
-    // 小指掛け紐
-    littleHook(ctx, state.littleHook.color)
-  }
-
+  if (face === 'front') useCanvasCMittFront(ctx, state)
+  if (face === 'back') useCanvasCMittBack(ctx, state)
   return canvas.toDataURL()
 }
 
@@ -421,7 +325,6 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
                   </React.Fragment>
                 )
               })}
-              {/* <Box>備考</Box> */}
             </Box>
           </Grid>
         </Grid>
