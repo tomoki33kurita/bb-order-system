@@ -241,34 +241,37 @@ const handleGenPdf = (state: State, personalData: Personal) => {
         },
       },
       {
+        text: '備考欄',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
+        table: {
+          // headerRows: 2,
+          body: [[genCellContent(`その他ご要望`, state.personal.remarks, 'left')]],
+        },
+      },
+
+      {
+        text: '捕球面イメージ',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
+      },
+      {
         image: `${genImgFromCanvas(state, 'front')}`,
         width: 450,
         height: 326,
+      },
+      {
+        text: '背面イメージ',
+        style: { fontSize: 14 },
+        margin: [0, 16, 0, 8],
       },
       {
         image: `${genImgFromCanvas(state, 'back')}`,
         width: 450,
         height: 326,
       },
-      // {
-      //   text: '備考欄',
-      //   style: { fontSize: 14 },
-      //   margin: [0, 16, 0, 8],
-      // },
-      // {
-      //   table: {
-      //     // headerRows: 2,
-      //     body: [
-      //       [
-      //         genCellContent(
-      //           `その他ご要望`,
-      //           `親指側の芯のみ、芯材を薄めにしていただきたいです。革紐を芯通し有りにして欲しいです。どうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいですどうしても芯通し有りにして欲しいです`,
-      //           'left'
-      //         ),
-      //       ],
-      //     ],
-      //   },
-      // },
     ],
 
     defaultStyle: { font: 'GenYoMin' },
@@ -332,9 +335,11 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
     const payload = {
       userName: data.userName,
       userNameKana: data.userNameKana,
+      zipcode: data.zipcode,
       address: data.address,
       phoneNumber: data.phoneNumber,
       mailAddress: data.mailAddress,
+      remarks: data.remarks,
     }
     setPersonalData(payload)
   }
@@ -458,6 +463,11 @@ const PdfDialog: React.FC<Props> = ({ state, open, handleClose, dispatch }) => {
                 <Grid item xs={12} sm={6}>
                   <Box p={1}>
                     <TextField label="メールアドレス" inputRef={register} name="mailAddress" variant="outlined" />
+                  </Box>
+                </Grid>
+                <Grid item xs={12}>
+                  <Box p={1}>
+                    <TextField label="備考" multiline rows={5} inputRef={register} name="remarks" variant="outlined" />
                   </Box>
                 </Grid>
               </Grid>

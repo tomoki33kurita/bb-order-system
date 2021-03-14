@@ -93,7 +93,7 @@ export const initialState: State = {
   indexAndThumb: { label: 'ホワイト', value: 'white', color: '#fff' },
   shellarmove: { label: 'ホワイト', value: 'white', color: '#fff' },
   embroideries: [initialEmbroState],
-  personal: { userName: '', userNameKana: '', address: '', phoneNumber: '', mailAddress: '' },
+  personal: { userName: '', userNameKana: '', zipcode: '', address: '', phoneNumber: '', mailAddress: '', remarks: '' },
 }
 
 export const reducer = (state: State, action: Action): State => {

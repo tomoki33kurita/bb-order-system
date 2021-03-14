@@ -59,7 +59,7 @@ const theme = createMuiTheme({
       paperWidthSm: {
         width: '100%',
         maxWidth: 'unset',
-        height: '80%',
+        height: '100%',
       },
     },
     MuiDialogContent: {
