@@ -5,7 +5,7 @@ import { a11yProps } from 'src/container/FigureFields'
 import BaseSet from 'src/container/designations/BaseSet'
 import ColoringSet from 'src/container/designations/ColoringSet'
 import EmbroiderySet from 'src/container/designations/EmbroiderySet'
-import PdfDialog from 'src/container/PdfDialog'
+import PdfDialog from 'src/container/genPdf/PdfDialog'
 import { RESET_INIT_STATE } from 'src/constants/ActionTypes'
 import { useRouter } from 'next/router'
 

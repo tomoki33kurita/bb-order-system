@@ -40,20 +40,7 @@ const FigureFields: React.FC<Props> = ({ state, figurePanelNum, handleFigurePane
     <Box position="sticky" top={0}>
       <TabPanel value={figurePanelNum} index={0}>
         <FigureFront
-          parts={{
-            strapColor: state.strap.color,
-            leatherColor: state.catchFace.color,
-            webColor: state.web.color,
-            edgeColor: state.edge.color,
-            stitchColor: state.stitch.color,
-            targetColor: state.target.color,
-            cutSurfaceColor: state.hamidashi.color,
-            thumbMachiColor: state.thumbMachi.color,
-            littleMachiColor: state.littleMachi.color,
-            moutonColor: state.listLiningsMaterial.color,
-            thumbHookColor: state.thumbHook.color,
-            littleHookColor: state.littleHook.color,
-          }}
+          state={state}
           // 開発で座標を取得したいときは以下を有効にする
           // devTools={{ cordinateX, cordinateY, isCopy, setCopy }}
           // devToolStyle={devToolStyle}
@@ -62,30 +49,7 @@ const FigureFields: React.FC<Props> = ({ state, figurePanelNum, handleFigurePane
       </TabPanel>
       <TabPanel value={figurePanelNum} index={1}>
         <FigureBack
-          parts={{
-            strapColor: state.strap.color,
-            leatherColor: state.catchFace.color,
-            webColor: state.web.color,
-            edgeColor: state.edge.color,
-            stitchColor: state.stitch.color,
-            targetColor: state.target.color,
-            cutSurfaceColor: state.hamidashi.color,
-            thumbMachiColor: state.thumbMachi.color,
-            littleMachiColor: state.littleMachi.color,
-            moutonColor: state.listLiningsMaterial.color,
-            thumbHookColor: state.thumbHook.color,
-            littleHookColor: state.littleHook.color,
-            listBeltColor: state.listBelt.color,
-            indexCoverColor: state.indexCover.color,
-            indexCoverType: state.fingerGuardType.value,
-            bagFoundationColor: state.bagFoundation.color,
-            ringAndLittleColor: state.ringAndLittle.color,
-            middleColor: state.middle.color,
-            indexAndThumbColor: state.indexAndThumb.color,
-            shellarmoveColor: state.shellarmove.color,
-            liningsColor: state.linings.color,
-            isZabuton: state.zabutonSponge.value,
-          }}
+          state={state}
           // 開発で座標を取得したいときは以下を有効にする
           // devTools={{ cordinateX, cordinateY, isCopy, setCopy }}
           // devToolStyle={devToolStyle}
