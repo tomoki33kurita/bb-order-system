@@ -36,7 +36,7 @@ import { targetArrange } from 'src/container/canvasFunctions/target'
 import { thumbCutSurface, littleCutSurface } from 'src/container/canvasFunctions/cutSurface'
 
 import { useForm } from 'react-hook-form'
-import { useDebounce } from 'use-debounce/lib'
+import { useDebounce } from 'use-debounce'
 import { Action, Personal } from 'src/types'
 import { SET_PERSONAL } from 'src/constants/ActionTypes'
 
